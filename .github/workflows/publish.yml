@@ -2,8 +2,8 @@ name: Build and publish rule-set
 
 on:
   schedule:
-    # 每天 UTC 02:00 ≈ 北京时间 10:00
-    - cron: "0 2 * * *"
+    # 每天 UTC 23:00 = 北京时间 07:00
+    - cron: "0 23 * * *"
   workflow_dispatch:
   push:
     branches: [main]

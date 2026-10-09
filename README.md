@@ -33,7 +33,7 @@ https://raw.githubusercontent.com/8oneus-oss/sing-box-rules/rule-set/geoip/cn.sr
 | 叠加覆盖 | `overlays/*.json` |
 | 生成发布 | 编译 `.srs`，按 `geosite/` `geoip/` 推到 `rule-set` |
 
-每天 UTC 02:00 自动跑；改 `seeds/` / `overlays/` 后 push 也会触发。
+每天北京时间约 07:00（UTC 23:00）自动跑；改 `seeds/` / `overlays/` 后 push 也会触发。
 
 ## 本地
 
