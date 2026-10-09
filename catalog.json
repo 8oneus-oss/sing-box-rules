@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "defaults": {
+    "update_interval": "1d",
+    "rule_set_version": 2
+  },
+  "rulesets": [
+    {
+      "tag": "YouTube",
+      "output": "youtube",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "谷歌美国",
+      "output": "google",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "AI服务",
+      "output": "ai",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Meta",
+      "output": "meta",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/meta.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-meta.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Apple",
+      "output": "apple",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "GitHub",
+      "output": "github",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/github.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Microsoft",
+      "output": "microsoft",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-microsoft.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Twitter",
+      "output": "twitter",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/twitter.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Binance",
+      "output": "binance",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/binance.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-binance.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Bybit",
+      "output": "bybit",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bybit.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "OKX",
+      "output": "okx",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/okx.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-okx.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "Gate.io",
+      "output": "gateio",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/gateio.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-gateio.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "中国大陆域名",
+      "output": "geolocation-cn",
+      "kind": "geosite",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-cn.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+          "format": "binary"
+        }
+      ]
+    },
+    {
+      "tag": "中国大陆IP",
+      "output": "geoip-cn",
+      "kind": "geoip",
+      "upstreams": [
+        {
+          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.json",
+          "format": "source"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+          "format": "binary"
+        }
+      ]
+    }
+  ]
+}

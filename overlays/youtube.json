@@ -1,0 +1,21 @@
+{
+  "add": {
+    "domain_suffix": [
+      "youtu.be",
+      "youtube.com",
+      "youtube-nocookie.com",
+      "ytimg.com",
+      "googlevideo.com",
+      "youtubekids.com",
+      "youtubeeducation.com"
+    ]
+  },
+  "remove": {
+    "domain_suffix": [
+
+    ],
+    "domain": [
+
+    ]
+  }
+}

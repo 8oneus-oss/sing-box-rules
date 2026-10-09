@@ -1,0 +1,9 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+cache/
+tools/sing-box
+tools/*.tar.gz
+# dist 由 Actions 发布到 rule-set 分支；main 不提交二进制产物
+dist/

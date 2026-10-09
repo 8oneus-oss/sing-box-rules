@@ -1,0 +1,44 @@
+{
+  "add": {
+    "domain_suffix": [
+      "chatgpt.com",
+      "openai.com",
+      "oaiusercontent.com",
+      "oaistatic.com",
+      "anthropic.com",
+      "claude.ai",
+      "claudeusercontent.com",
+      "cursor.com",
+      "cursor.sh",
+      "cursorapi.com",
+      "perplexity.ai",
+      "pplx.ai",
+      "groq.com",
+      "x.ai",
+      "grok.x.ai",
+      "gemini.google.com",
+      "aistudio.google.com",
+      "generativelanguage.googleapis.com",
+      "deepmind.com",
+      "deepmind.google",
+      "midjourney.com",
+      "stability.ai",
+      "huggingface.co",
+      "hf.co"
+    ]
+  },
+  "remove": {
+    "domain_suffix": [
+
+    ],
+    "domain": [
+
+    ],
+    "domain_keyword": [
+
+    ],
+    "domain_regex": [
+
+    ]
+  }
+}

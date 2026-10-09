@@ -1,0 +1,18 @@
+{
+  "add": {
+    "domain_suffix": [
+      "gaze.red",
+      "gazes.store",
+      "gazes.top",
+      "gaze.show"
+    ]
+  },
+  "remove": {
+    "domain_suffix": [
+
+    ],
+    "domain": [
+
+    ]
+  }
+}

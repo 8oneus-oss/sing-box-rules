@@ -1,0 +1,96 @@
+name: Build and publish rule-set
+
+on:
+  schedule:
+    # 每天 UTC 02:00 ≈ 北京时间 10:00
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "catalog.json"
+      - "filters.json"
+      - "overlays/**"
+      - "build.py"
+      - ".github/workflows/publish.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install sing-box
+        env:
+          SING_BOX_VERSION: "1.14.2"
+        run: |
+          set -euo pipefail
+          mkdir -p tools
+          curl -fsSL -o /tmp/sing-box.tar.gz \
+            "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+          tar -xzf /tmp/sing-box.tar.gz -C /tmp
+          mv "/tmp/sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" tools/sing-box
+          chmod +x tools/sing-box
+          ./tools/sing-box version
+
+      - name: Build rulesets
+        run: python3 -u build.py --refresh
+
+      - name: Prepare publish tree
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          import datetime
+          import json
+          import pathlib
+          import shutil
+
+          dist = pathlib.Path("dist")
+          out = pathlib.Path("publish-out")
+          if out.exists():
+              shutil.rmtree(out)
+          out.mkdir()
+          for p in list(dist.glob("*.srs")) + list(dist.glob("*.json")):
+              shutil.copy2(p, out / p.name)
+
+          report = json.loads((dist / "build-report.json").read_text(encoding="utf-8"))
+          index = {
+              "generated_at": datetime.datetime.now(datetime.timezone.utc)
+              .replace(microsecond=0)
+              .isoformat()
+              .replace("+00:00", "Z"),
+              "rulesets": [
+                  {
+                      "tag": r["tag"],
+                      "file": f'{r["output"]}.srs',
+                      "items": r["items"],
+                      "counts": r.get("counts", {}),
+                  }
+                  for r in report
+              ],
+          }
+          (out / "index.json").write_text(
+              json.dumps(index, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(f"prepared {len(list(out.iterdir()))} files")
+          PY
+
+      - name: Push rule-set branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish-out
+          publish_branch: rule-set
+          force_orphan: true
+          enable_jekyll: true
+          commit_message: "chore: update rule-set"

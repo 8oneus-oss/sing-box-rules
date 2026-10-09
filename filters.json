@@ -1,0 +1,22 @@
+{
+  "normalize_lower": true,
+  "strip_leading_dot": true,
+  "drop_empty": true,
+  "exclude_domain_suffix": [
+    "localhost",
+    "local",
+    "invalid",
+    "test",
+    "example",
+    "example.com",
+    "example.org",
+    "example.net"
+  ],
+  "exclude_domain_keyword": [
+
+  ],
+  "exclude_domain_regex": [
+
+  ],
+  "min_domain_len": 2
+}
