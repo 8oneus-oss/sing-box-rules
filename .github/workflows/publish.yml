@@ -15,6 +15,7 @@ on:
       - "build.py"
       - "discover.py"
       - "verify_dns.py"
+      - "publish_layout.py"
       - ".github/workflows/publish.yml"
 
 permissions:
@@ -51,42 +52,8 @@ jobs:
       - name: Prepare publish tree
         run: |
           set -euo pipefail
-          python3 <<'PY'
-          import datetime
-          import json
-          import pathlib
-          import shutil
-
-          dist = pathlib.Path("dist")
-          out = pathlib.Path("publish-out")
-          if out.exists():
-              shutil.rmtree(out)
-          out.mkdir()
-          for p in list(dist.glob("*.srs")) + list(dist.glob("*.json")):
-              shutil.copy2(p, out / p.name)
-
-          report = json.loads((dist / "build-report.json").read_text(encoding="utf-8"))
-          index = {
-              "generated_at": datetime.datetime.now(datetime.timezone.utc)
-              .replace(microsecond=0)
-              .isoformat()
-              .replace("+00:00", "Z"),
-              "rulesets": [
-                  {
-                      "tag": r["tag"],
-                      "file": f'{r["output"]}.srs',
-                      "items": r["items"],
-                      "counts": r.get("counts", {}),
-                  }
-                  for r in report
-              ],
-          }
-          (out / "index.json").write_text(
-              json.dumps(index, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
-          print(f"prepared {len(list(out.iterdir()))} files")
-          PY
+          python3 publish_layout.py
+          find publish-out -type f | sort
 
       - name: Push rule-set branch
         uses: peaceiris/actions-gh-pages@v4
