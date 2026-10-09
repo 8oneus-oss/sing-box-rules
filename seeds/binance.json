@@ -1,0 +1,6 @@
+{
+  "seeds": ["binance.com", "binance.me", "bnbstatic.com", "bnappzh.co", "binancecnt.com"],
+  "sources": ["crtsh"],
+  "max_per_seed": 250,
+  "exclude_keywords": ["internal", "staging"]
+}

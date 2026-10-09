@@ -1,0 +1,12 @@
+{
+  "seeds": [
+    "apple.com",
+    "icloud.com",
+    "cdn-apple.com",
+    "apple-cloudkit.com",
+    "mzstatic.com"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 400,
+  "exclude_keywords": ["internal", "staging", "corp."]
+}

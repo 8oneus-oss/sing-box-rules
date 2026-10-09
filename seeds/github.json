@@ -1,0 +1,12 @@
+{
+  "seeds": [
+    "github.com",
+    "github.io",
+    "githubusercontent.com",
+    "githubassets.com",
+    "githubcopilot.com"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 300,
+  "exclude_keywords": ["internal", "staging"]
+}

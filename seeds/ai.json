@@ -1,0 +1,24 @@
+{
+  "seeds": [
+    "openai.com",
+    "chatgpt.com",
+    "oaistatic.com",
+    "oaiusercontent.com",
+    "anthropic.com",
+    "claude.ai",
+    "cursor.com",
+    "cursor.sh",
+    "perplexity.ai",
+    "pplx.ai",
+    "groq.com",
+    "x.ai",
+    "midjourney.com",
+    "stability.ai",
+    "huggingface.co",
+    "hf.co",
+    "deepmind.com"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 300,
+  "exclude_keywords": ["internal", "staging", "corp."]
+}

@@ -1,0 +1,16 @@
+{
+  "seeds": [
+    "microsoft.com",
+    "microsoftonline.com",
+    "live.com",
+    "office.com",
+    "office.net",
+    "azure.com",
+    "windows.net",
+    "msn.com",
+    "xbox.com"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 350,
+  "exclude_keywords": ["internal", "staging", "corp."]
+}

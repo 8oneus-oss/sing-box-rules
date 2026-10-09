@@ -1,0 +1,11 @@
+{
+  "seeds": [
+    "twitter.com",
+    "x.com",
+    "twimg.com",
+    "t.co"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 300,
+  "exclude_keywords": ["internal", "staging"]
+}

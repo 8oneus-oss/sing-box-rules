@@ -1,0 +1,13 @@
+{
+  "seeds": [
+    "youtube.com",
+    "youtu.be",
+    "ytimg.com",
+    "googlevideo.com",
+    "youtube-nocookie.com",
+    "youtubekids.com"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 400,
+  "exclude_keywords": ["internal", "staging"]
+}

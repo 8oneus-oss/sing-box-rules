@@ -1,0 +1,6 @@
+{
+  "seeds": ["gate.io", "gateis.com", "gatedata.org", "gateimg.com"],
+  "sources": ["crtsh"],
+  "max_per_seed": 200,
+  "exclude_keywords": ["internal", "staging"]
+}

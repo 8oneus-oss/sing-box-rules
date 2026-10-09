@@ -11,7 +11,10 @@ on:
       - "catalog.json"
       - "filters.json"
       - "overlays/**"
+      - "seeds/**"
       - "build.py"
+      - "discover.py"
+      - "verify_dns.py"
       - ".github/workflows/publish.yml"
 
 permissions:

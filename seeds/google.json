@@ -1,0 +1,14 @@
+{
+  "seeds": [
+    "google.com",
+    "googleapis.com",
+    "gstatic.com",
+    "googleusercontent.com",
+    "ggpht.com",
+    "withgoogle.com",
+    "googlezip.net"
+  ],
+  "sources": ["crtsh"],
+  "max_per_seed": 500,
+  "exclude_keywords": ["internal", "staging", "corp."]
+}

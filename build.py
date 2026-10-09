@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""规则集流水线：合并上游 → 叠加覆盖 → 过滤 → 生成 → sing-box 验证。"""
+"""规则集流水线：合并上游 → 自动发现 → 自动验证 → 叠加覆盖 → 过滤 → 生成 → 加载校验。"""
 
 from __future__ import annotations
 
@@ -15,6 +15,9 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set
+
+from discover import discover_for_output
+from verify_dns import summarize, verify_hosts
 
 ROOT = Path(__file__).resolve().parent
 CACHE_DIR = ROOT / "cache"
@@ -125,14 +128,20 @@ def merge_buckets(buckets: Iterable[Dict[str, Set[str]]]) -> Dict[str, Set[str]]
     return out
 
 
-def apply_overlay(bucket: Dict[str, Set[str]], overlay: Dict[str, Any]) -> None:
+def apply_overlay(bucket: Dict[str, Set[str]], overlay: Dict[str, Any]) -> Set[str]:
+    """应用 overlay，返回新增的 domain/domain_suffix（供 DNS 验证）。"""
     add = overlay.get("add") or {}
     remove = overlay.get("remove") or {}
+    newly: Set[str] = set()
     for key in LIST_KEYS:
         for item in ensure_list(add.get(key)):
+            before = item in bucket[key]
             bucket[key].add(item)
+            if key in ("domain", "domain_suffix") and not before:
+                newly.add(item.strip().lower().rstrip("."))
         for item in ensure_list(remove.get(key)):
             bucket[key].discard(item)
+    return newly
 
 
 def normalize_domain(value: str, strip_dot: bool) -> str:
@@ -145,7 +154,6 @@ def normalize_domain(value: str, strip_dot: bool) -> str:
 def is_valid_domain_like(value: str, min_len: int) -> bool:
     if len(value) < min_len:
         return False
-    # keyword / regex 允许更宽，完整域名仍做基本校验
     if "*" in value or value.startswith("^") or "\\" in value:
         return True
     return bool(DOMAIN_RE.match(value))
@@ -196,7 +204,6 @@ def apply_filters(bucket: Dict[str, Set[str]], filters: Dict[str, Any]) -> Dict[
         out["domain_suffix"].add(v)
 
     for raw in bucket["domain_keyword"]:
-        # keyword 只做大小写归一，不剥前导点
         v = raw.strip().lower() if lower else raw.strip()
         if drop_empty and not v:
             continue
@@ -205,7 +212,6 @@ def apply_filters(bucket: Dict[str, Set[str]], filters: Dict[str, Any]) -> Dict[
         out["domain_keyword"].add(v)
 
     for raw in bucket["domain_regex"]:
-        # regex 保持原样（仅 strip），并用 re 校验；剥点会破坏 ^\. / .+ 等模式
         v = raw.strip()
         if drop_empty and not v:
             continue
@@ -257,11 +263,9 @@ def write_and_compile(
 
 
 def verify_load(srs_path: Path, sing_box: Path, kind: str) -> None:
-    """用最小配置加载 .srs，确认 sing-box check 通过。"""
     tag = "test-rs"
     with tempfile.TemporaryDirectory() as td:
         cfg_path = Path(td) / "check.json"
-        # 拷到临时目录，避免路径里中文/空格干扰
         local_srs = Path(td) / srs_path.name
         shutil.copyfile(srs_path, local_srs)
         cfg = {
@@ -306,12 +310,17 @@ def build_one(
     cache_dir: Path,
     dist_dir: Path,
     only_source: bool = False,
+    refresh_discover: bool = False,
+    skip_discover: bool = False,
+    skip_dns_verify: bool = False,
+    dns_workers: int = 32,
 ) -> Dict[str, Any]:
     tag = entry["tag"]
     output = entry["output"]
     kind = entry.get("kind", "geosite")
     print(f"\n== {tag} ({output}) ==")
 
+    # 1) 合并上游
     buckets: List[Dict[str, Set[str]]] = []
     for up in entry.get("upstreams") or []:
         if only_source and up.get("format") != "source":
@@ -320,31 +329,98 @@ def build_one(
         try:
             buckets.append(fetch_upstream(up["url"], up["format"], sing_box, cache_dir))
             print(f"  + upstream items={count_items(buckets[-1])} format={up['format']}")
-        except Exception as exc:  # noqa: BLE001 - 单源失败不阻断
+        except Exception as exc:  # noqa: BLE001
             print(f"  ! upstream 失败，跳过: {up['url']}\n    {exc}")
 
-    if not buckets:
+    if not buckets and kind == "geoip":
         raise RuntimeError(f"{tag}: 没有任何可用上游")
+    if not buckets and kind != "geoip":
+        # geosite 允许仅靠 discover/overlay（极端情况）
+        buckets = [empty_bucket()]
 
     merged = merge_buckets(buckets)
     print(f"  merge items={count_items(merged)}")
 
+    discover_stats: Dict[str, Any] = {"enabled": False}
+    dns_stats: Dict[str, Any] = {"checked": 0, "alive": 0, "dead": 0}
+    to_verify: Set[str] = set()
+
+    # 2) 自动发现（geosite + 有 seeds）
+    if kind == "geosite" and not skip_discover:
+        print("  discover ...")
+        discovered = discover_for_output(output, refresh=refresh_discover)
+        discover_stats = discovered["stats"]
+        if discover_stats.get("enabled"):
+            print(
+                f"  discover seeds={discover_stats['seeds']} "
+                f"raw={discover_stats['raw']} kept={discover_stats['kept']}"
+            )
+            for s in discovered["domain_suffix"]:
+                merged["domain_suffix"].add(s)
+                to_verify.add(s)
+            for d in discovered["domain"]:
+                # 新发现主机先放进待验证集合，通过后再写入
+                to_verify.add(d)
+        else:
+            print("  discover (no seeds)")
+
+    # 3) 叠加覆盖（人工保底）
     overlay_path = OVERLAY_DIR / f"{output}.json"
+    overlay_new: Set[str] = set()
     if overlay_path.exists():
-        apply_overlay(merged, load_json(overlay_path))
-        print(f"  overlay {overlay_path.name} -> items={count_items(merged)}")
+        overlay_new = apply_overlay(merged, load_json(overlay_path))
+        to_verify |= overlay_new
+        print(f"  overlay {overlay_path.name} -> items={count_items(merged)} new={len(overlay_new)}")
     else:
         print("  overlay (none)")
 
+    # 4) 自动验证 DNS：只验证「发现 + overlay 新增」，上游默认信任
+    if kind == "geosite" and not skip_dns_verify and to_verify:
+        # domain_suffix 里的 apex 也要能解析（多数可以）；解析失败的发现项丢弃
+        print(f"  dns-verify candidates={len(to_verify)} workers={dns_workers}")
+        alive, dead = verify_hosts(to_verify, workers=dns_workers)
+        dns_stats = summarize(alive, dead)
+        print(f"  dns-verify alive={dns_stats['alive']} dead={dns_stats['dead']}")
+
+        # 发现的 domain：只保留 alive
+        for d in list(to_verify):
+            if d in dead:
+                merged["domain"].discard(d)
+                # seed apex 解析失败时仍保留 suffix（可能仅作后缀规则），但打印警告
+                if d in merged["domain_suffix"] and d in overlay_new:
+                    pass
+                elif d in merged["domain_suffix"] and discover_stats.get("enabled"):
+                    # 非 overlay 的 suffix 若是 seed 且 dead，仍保留（suffix 匹配不依赖自身 A 记录）
+                    pass
+            elif d not in merged["domain_suffix"]:
+                merged["domain"].add(d)
+
+        if dead:
+            dead_path = dist_dir / f"{output}.dead.json"
+            dist_dir.mkdir(parents=True, exist_ok=True)
+            dead_path.write_text(
+                json.dumps(sorted(dead), ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+    elif skip_dns_verify:
+        # 未验证时，发现的 domain 直接并入
+        for d in to_verify:
+            if d not in merged["domain_suffix"]:
+                merged["domain"].add(d)
+        print("  dns-verify skipped")
+
+    # 5) 过滤
     filtered = apply_filters(merged, filters)
     print(f"  filter items={count_items(filtered)}")
 
+    # 6) 生成
     payload = bucket_to_ruleset(filtered, rule_set_version)
     srs_path = write_and_compile(payload, output, dist_dir, sing_box)
     print(f"  wrote {srs_path.relative_to(ROOT)} ({srs_path.stat().st_size} bytes)")
 
+    # 7) sing-box 加载校验
     verify_load(srs_path, sing_box, kind)
-    print("  verify OK (check + decompile)")
+    print("  load-verify OK (check + decompile)")
 
     return {
         "tag": tag,
@@ -353,15 +429,19 @@ def build_one(
         "items": count_items(filtered),
         "srs": str(srs_path.relative_to(ROOT)),
         "counts": {k: len(filtered[k]) for k in LIST_KEYS if filtered[k]},
+        "discover": discover_stats,
+        "dns_verify": dns_stats,
     }
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="构建自建 sing-box 规则集")
+    p = argparse.ArgumentParser(description="构建自建 sing-box 规则集（发现+验证+生成）")
     p.add_argument("--only", nargs="*", help="只构建指定 output 名，如 youtube ai")
-    p.add_argument("--refresh", action="store_true", help="忽略 cache，重新下载上游")
+    p.add_argument("--refresh", action="store_true", help="清空上游 cache 并重新发现")
     p.add_argument("--source-only", action="store_true", help="只拉 JSON 源，跳过 binary 反编译")
-    p.add_argument("--skip-verify", action="store_true", help="跳过 sing-box check")
+    p.add_argument("--skip-discover", action="store_true", help="跳过 CT 自动发现")
+    p.add_argument("--skip-dns-verify", action="store_true", help="跳过 DNS 存活验证")
+    p.add_argument("--dns-workers", type=int, default=32, help="DNS 验证并发数")
     return p.parse_args()
 
 
@@ -394,10 +474,11 @@ def main() -> int:
             cache_dir=CACHE_DIR,
             dist_dir=DIST_DIR,
             only_source=args.source_only,
+            refresh_discover=args.refresh,
+            skip_discover=args.skip_discover,
+            skip_dns_verify=args.skip_dns_verify,
+            dns_workers=args.dns_workers,
         )
-        if args.skip_verify:
-            # build_one 已 verify；保留开关供未来扩展
-            pass
         summaries.append(summary)
 
     report = DIST_DIR / "build-report.json"
@@ -405,7 +486,12 @@ def main() -> int:
     report.write_text(json.dumps(summaries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"\n完成 {len(summaries)} 个规则集 → {report.relative_to(ROOT)}")
     for s in summaries:
-        print(f"  - {s['tag']}: {s['items']} items → {s['srs']}")
+        disc = s.get("discover") or {}
+        dns = s.get("dns_verify") or {}
+        extra = ""
+        if disc.get("enabled"):
+            extra = f" | discover kept={disc.get('kept')} dns alive={dns.get('alive')}"
+        print(f"  - {s['tag']}: {s['items']} items → {s['srs']}{extra}")
     return 0
 
 

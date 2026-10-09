@@ -1,0 +1,6 @@
+{
+  "seeds": ["okx.com", "okex.com", "okg.com"],
+  "sources": ["crtsh"],
+  "max_per_seed": 200,
+  "exclude_keywords": ["internal", "staging"]
+}

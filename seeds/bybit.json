@@ -1,0 +1,6 @@
+{
+  "seeds": ["bybit.com", "bybit.eu", "bycsi.com", "byapis.com", "bybit-tr.com"],
+  "sources": ["crtsh"],
+  "max_per_seed": 200,
+  "exclude_keywords": ["internal", "staging"]
+}
