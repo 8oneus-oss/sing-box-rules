@@ -1,8 +1,7 @@
 {
-  "github_owner": "YOUR_GITHUB_USERNAME",
+  "github_owner": "8oneus-oss",
   "github_repo": "sing-box-rules",
   "branch": "rule-set",
-  "raw_base": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/sing-box-rules/rule-set",
-  "update_interval": "1d",
-  "comment": "把 YOUR_GITHUB_USERNAME 换成你的 GitHub 用户名后，跑 python3 patch-template.py 更新模版 URL"
+  "raw_base": "https://raw.githubusercontent.com/8oneus-oss/sing-box-rules/rule-set",
+  "update_interval": "1d"
 }
