@@ -1,0 +1,352 @@
+{
+  "generated_at": "2026-10-10T15:42:41Z",
+  "layout": {
+    "geosite": "geosite/<name>.srs",
+    "geoip": "geoip/<name>.srs"
+  },
+  "rulesets": [
+    {
+      "tag": "YouTube",
+      "kind": "geosite",
+      "file": "geosite/youtube.srs",
+      "url_path": "geosite/youtube.srs",
+      "items": 373,
+      "upstream_items": 179,
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 372
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 6,
+        "raw": 1524,
+        "related_apex": 400,
+        "domain_suffix": 406,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 318,
+        "alive": 199,
+        "dead": 119
+      }
+    },
+    {
+      "tag": "谷歌美国",
+      "kind": "geosite",
+      "file": "geosite/google.srs",
+      "url_path": "geosite/google.srs",
+      "items": 849,
+      "upstream_items": 1091,
+      "counts": {
+        "domain": 19,
+        "domain_suffix": 828,
+        "domain_regex": 2
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 7,
+        "raw": 465,
+        "related_apex": 70,
+        "domain_suffix": 77,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 69,
+        "alive": 2,
+        "dead": 67
+      }
+    },
+    {
+      "tag": "AI服务",
+      "kind": "geosite",
+      "file": "geosite/ai.srs",
+      "url_path": "geosite/ai.srs",
+      "items": 192,
+      "upstream_items": 190,
+      "counts": {
+        "domain": 30,
+        "domain_suffix": 161,
+        "domain_regex": 1
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 17,
+        "raw": 1305,
+        "related_apex": 1,
+        "domain_suffix": 18,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 3,
+        "alive": 3,
+        "dead": 0
+      }
+    },
+    {
+      "tag": "Meta",
+      "kind": "geosite",
+      "file": "geosite/meta.srs",
+      "url_path": "geosite/meta.srs",
+      "items": 554,
+      "upstream_items": 555,
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 553
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 9,
+        "raw": 4429,
+        "related_apex": 20,
+        "domain_suffix": 29,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 15,
+        "alive": 4,
+        "dead": 11
+      }
+    },
+    {
+      "tag": "Apple",
+      "kind": "geosite",
+      "file": "geosite/apple.srs",
+      "url_path": "geosite/apple.srs",
+      "items": 1586,
+      "upstream_items": 1791,
+      "counts": {
+        "domain": 48,
+        "domain_suffix": 1538
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 7311,
+        "related_apex": 14,
+        "domain_suffix": 19,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 14,
+        "alive": 1,
+        "dead": 13
+      }
+    },
+    {
+      "tag": "GitHub",
+      "kind": "geosite",
+      "file": "geosite/github.srs",
+      "url_path": "geosite/github.srs",
+      "items": 59,
+      "upstream_items": 65,
+      "counts": {
+        "domain": 28,
+        "domain_suffix": 31
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 374,
+        "related_apex": 0,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0
+      }
+    },
+    {
+      "tag": "Microsoft",
+      "kind": "geosite",
+      "file": "geosite/microsoft.srs",
+      "url_path": "geosite/microsoft.srs",
+      "items": 656,
+      "upstream_items": 764,
+      "counts": {
+        "domain": 16,
+        "domain_suffix": 637,
+        "domain_keyword": 3
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 9,
+        "raw": 11277,
+        "related_apex": 46,
+        "domain_suffix": 55,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 43,
+        "alive": 10,
+        "dead": 33
+      }
+    },
+    {
+      "tag": "Twitter",
+      "kind": "geosite",
+      "file": "geosite/twitter.srs",
+      "url_path": "geosite/twitter.srs",
+      "items": 84,
+      "upstream_items": 24,
+      "counts": {
+        "domain_suffix": 84
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 4,
+        "raw": 1590,
+        "related_apex": 144,
+        "domain_suffix": 148,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 144,
+        "alive": 60,
+        "dead": 84
+      }
+    },
+    {
+      "tag": "Binance",
+      "kind": "geosite",
+      "file": "geosite/binance.srs",
+      "url_path": "geosite/binance.srs",
+      "items": 45,
+      "upstream_items": 45,
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 43
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 33,
+        "related_apex": 0,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 1,
+        "alive": 0,
+        "dead": 1
+      }
+    },
+    {
+      "tag": "Bybit",
+      "kind": "geosite",
+      "file": "geosite/bybit.srs",
+      "url_path": "geosite/bybit.srs",
+      "items": 18,
+      "upstream_items": 16,
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 16
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 163,
+        "related_apex": 1,
+        "domain_suffix": 6,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 3,
+        "alive": 2,
+        "dead": 1
+      }
+    },
+    {
+      "tag": "OKX",
+      "kind": "geosite",
+      "file": "geosite/okx.srs",
+      "url_path": "geosite/okx.srs",
+      "items": 11,
+      "upstream_items": 10,
+      "counts": {
+        "domain_suffix": 11
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 3,
+        "raw": 137,
+        "related_apex": 2,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 3,
+        "alive": 1,
+        "dead": 2
+      }
+    },
+    {
+      "tag": "Gate.io",
+      "kind": "geosite",
+      "file": "geosite/gateio.srs",
+      "url_path": "geosite/gateio.srs",
+      "items": 9,
+      "upstream_items": 8,
+      "counts": {
+        "domain_suffix": 9
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 4,
+        "raw": 30,
+        "related_apex": 3,
+        "domain_suffix": 7,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 3,
+        "alive": 1,
+        "dead": 2
+      }
+    },
+    {
+      "tag": "中国大陆域名",
+      "kind": "geosite",
+      "file": "geosite/geolocation-cn.srs",
+      "url_path": "geosite/geolocation-cn.srs",
+      "items": 8793,
+      "upstream_items": 9312,
+      "counts": {
+        "domain": 523,
+        "domain_suffix": 8262,
+        "domain_regex": 8
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 4,
+        "alive": 4,
+        "dead": 0
+      }
+    },
+    {
+      "tag": "中国大陆IP",
+      "kind": "geoip",
+      "file": "geoip/cn.srs",
+      "url_path": "geoip/cn.srs",
+      "items": 10712,
+      "upstream_items": 10712,
+      "counts": {
+        "ip_cidr": 10712
+      },
+      "discover": {
+        "enabled": false
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0
+      }
+    }
+  ]
+}
