@@ -5,5 +5,6 @@ __pycache__/
 cache/
 tools/sing-box
 tools/*.tar.gz
-# dist 由 Actions 发布到 rule-set 分支；main 不提交二进制产物
+# 本地构建/发布产物不进 main；正式文件在 rule-set 分支
 dist/
+publish-out/
