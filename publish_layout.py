@@ -51,6 +51,7 @@ def prepare_publish_tree(dist: pathlib.Path, out: pathlib.Path) -> Dict[str, Any
             "file": rel,
             "url_path": rel,
             "items": r["items"],
+            "upstream_items": r.get("upstream_items"),
             "counts": r.get("counts", {}),
             "discover": r.get("discover"),
             "dns_verify": r.get("dns_verify"),

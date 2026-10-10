@@ -235,6 +235,25 @@ def apply_filters(bucket: Dict[str, Set[str]], filters: Dict[str, Any]) -> Dict[
     return out
 
 
+def load_previous_upstream_counts(timeout: int = 20) -> Dict[str, int]:
+    """读取上一次已发布的 index.json，返回 {tag: upstream_items}。失败则返回空（不启用降幅保护）。"""
+    try:
+        pub = load_json(ROOT / "publish.json")
+        url = pub["raw_base"].rstrip("/") + "/index.json"
+        data = json.loads(fetch_bytes(url, timeout=timeout).decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"  (无法读取上次发布的 index.json，跳过降幅保护: {exc})")
+        return {}
+    out: Dict[str, int] = {}
+    for r in data.get("rulesets") or []:
+        if isinstance(r.get("upstream_items"), int):
+            out[r["tag"]] = r["upstream_items"]
+    return out
+
+
+GUARD_MIN_RATIO = 0.8  # 上游合并后的条目数低于上次的 80% 就视为异常，拒绝发布
+
+
 def bucket_to_ruleset(bucket: Dict[str, Set[str]], version: int) -> Dict[str, Any]:
     rule: Dict[str, Any] = {}
     for key in LIST_KEYS:
@@ -315,6 +334,8 @@ def build_one(
     skip_discover: bool = False,
     skip_dns_verify: bool = False,
     dns_workers: int = 32,
+    previous_counts: Optional[Dict[str, int]] = None,
+    guard: bool = True,
 ) -> Dict[str, Any]:
     tag = entry["tag"]
     output = entry["output"]
@@ -333,14 +354,24 @@ def build_one(
         except Exception as exc:  # noqa: BLE001
             print(f"  ! upstream 失败，跳过: {up['url']}\n    {exc}")
 
-    if not buckets and kind == "geoip":
-        raise RuntimeError(f"{tag}: 没有任何可用上游")
-    if not buckets and kind != "geoip":
-        # geosite 允许仅靠 discover/overlay（极端情况）
+    configured = entry.get("upstreams") or []
+    if configured and not buckets and not only_source:
+        # 配了上游却一个都拿不到：宁可这次构建失败（不发布，客户端继续用上次的），也不发布一个残缺的规则集
+        raise RuntimeError(f"{tag}: 配置了 {len(configured)} 个上游，但全部下载/解析失败，拒绝发布")
+    if not buckets:
         buckets = [empty_bucket()]
 
     merged = merge_buckets(buckets)
-    print(f"  merge items={count_items(merged)}")
+    upstream_items = count_items(merged)
+    print(f"  merge items={upstream_items}")
+
+    if guard and previous_counts:
+        prev = previous_counts.get(tag)
+        if prev and upstream_items < prev * GUARD_MIN_RATIO:
+            raise RuntimeError(
+                f"{tag}: 上游合并条目数 {upstream_items}，比上次发布时的 {prev} 低于 "
+                f"{int(GUARD_MIN_RATIO * 100)}%，疑似上游异常，拒绝发布（确认无误可加 --no-guard 重跑）"
+            )
 
     discover_stats: Dict[str, Any] = {"enabled": False}
     dns_stats: Dict[str, Any] = {"checked": 0, "alive": 0, "dead": 0}
@@ -436,6 +467,7 @@ def build_one(
         "output": output,
         "kind": kind,
         "items": count_items(filtered),
+        "upstream_items": upstream_items,
         "srs": str(srs_path.relative_to(ROOT)),
         "counts": {k: len(filtered[k]) for k in LIST_KEYS if filtered[k]},
         "discover": discover_stats,
@@ -453,6 +485,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--skip-discover", action="store_true", help="跳过 CT 自动发现")
     p.add_argument("--skip-dns-verify", action="store_true", help="跳过 DNS 存活验证")
     p.add_argument("--dns-workers", type=int, default=32, help="DNS 验证并发数")
+    p.add_argument("--no-guard", action="store_true", help="关闭「上游条目数骤降」保护（确认上游确实缩水时用）")
     return p.parse_args()
 
 
@@ -473,6 +506,7 @@ def main() -> int:
 
     only: Optional[Set[str]] = set(args.only) if args.only else None
     summaries: List[Dict[str, Any]] = []
+    previous_counts = {} if args.no_guard else load_previous_upstream_counts()
 
     for entry in catalog.get("rulesets") or []:
         if only and entry["output"] not in only:
@@ -489,6 +523,8 @@ def main() -> int:
             skip_discover=args.skip_discover,
             skip_dns_verify=args.skip_dns_verify,
             dns_workers=args.dns_workers,
+            previous_counts=previous_counts,
+            guard=not args.no_guard,
         )
         summaries.append(summary)
 
