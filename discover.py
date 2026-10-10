@@ -11,7 +11,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, Iterable, List, Optional, Set
+
+from coverage import covered_by_suffix, guess_apex, normalize_host
 
 ROOT = Path(__file__).resolve().parent
 SEEDS_DIR = ROOT / "seeds"
@@ -170,15 +172,11 @@ def fetch_crtsh(seed: str, cache_dir: Path, refresh: bool = False, retries: int 
     return result
 
 
-def normalize_name(name: str, seed: str) -> Optional[str]:
-    n = name.strip().lower().rstrip(".")
+def clean_hostname(name: str) -> Optional[str]:
+    n = normalize_host(name)
     if n.startswith("*."):
         n = n[2:]
-    if not n or n == seed:
-        return seed
-    if not n.endswith("." + seed) and n != seed:
-        return None
-    if not DOMAIN_RE.match(n):
+    if not n or not DOMAIN_RE.match(n):
         return None
     return n
 
@@ -197,29 +195,27 @@ def discover_for_output(
     sleep_between: float = 1.0,
 ) -> Dict[str, Any]:
     """
-    返回 {
-      domain_suffix: set(seed apexes),
-      domain: set(discovered hosts),
-      stats: {...}
-    }
+    发现策略（注重真实覆盖，不注水条目数）：
+    1. seeds 一律作为 domain_suffix（上游若缺这些 apex，这才是有效增量）
+    2. CT 结果里，已被 seed/suffix 覆盖的子域一律丢弃（domain_suffix 已能匹配）
+    3. 仅保留证书 SAN 上「不属于当前 seeds」的其它 apex，作为候选相关域名
     """
     cfg = load_seed_config(output)
     if not cfg:
         return {
             "domain_suffix": set(),
             "domain": set(),
-            "stats": {"enabled": False, "seeds": 0, "raw": 0, "kept": 0},
+            "stats": {"enabled": False, "seeds": 0, "raw": 0, "related_apex": 0},
         }
 
-    seeds = [s.strip().lower().rstrip(".") for s in (cfg.get("seeds") or []) if s]
-    max_per_seed = int(cfg.get("max_per_seed", 400))
+    seeds = [normalize_host(s) for s in (cfg.get("seeds") or []) if s]
+    max_related = int(cfg.get("max_related_apex", cfg.get("max_per_seed", 100)))
     exclude_extra = cfg.get("exclude_keywords") or []
     sources = cfg.get("sources") or ["crtsh"]
 
     domain_suffix: Set[str] = set(seeds)
-    domain: Set[str] = set()
+    related_apex: Set[str] = set()
     raw_total = 0
-    kept_total = 0
 
     for i, seed in enumerate(seeds):
         raw_names: List[str] = []
@@ -233,42 +229,45 @@ def discover_for_output(
             print(f"    discover certspotter {seed}")
             raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh))
         elif not got and "certspotter" not in sources:
-            # crt.sh 失败时自动兜底一次
             print(f"    discover certspotter (fallback) {seed}")
             raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh))
         if i + 1 < len(seeds) and sleep_between > 0:
             time.sleep(sleep_between)
 
         raw_total += len(raw_names)
-        kept: List[str] = []
         for name in raw_names:
-            n = normalize_name(name, seed)
-            if not n:
+            host = clean_hostname(name)
+            if not host or should_exclude(host, exclude_extra):
                 continue
-            if should_exclude(n, exclude_extra):
+            # 已被 seed 覆盖的子域：对分流无新增覆盖，直接跳过
+            if covered_by_suffix(host, seeds):
                 continue
-            kept.append(n)
+            apex = guess_apex(host)
+            if should_exclude(apex, exclude_extra):
+                continue
+            if covered_by_suffix(apex, seeds):
+                continue
+            if apex in seeds:
+                continue
+            # 太短/像 TLD 的丢掉
+            if "." not in apex or len(apex) < 4:
+                continue
+            related_apex.add(apex)
 
-        # 去重后截断：优先短域名（更接近 apex）
-        uniq = sorted(set(kept), key=lambda x: (x.count("."), len(x), x))
-        if len(uniq) > max_per_seed:
-            uniq = uniq[:max_per_seed]
-        kept_total += len(uniq)
-        for h in uniq:
-            if h == seed:
-                domain_suffix.add(h)
-            else:
-                domain.add(h)
+    if len(related_apex) > max_related:
+        related_apex = set(sorted(related_apex, key=lambda x: (x.count("."), len(x), x))[:max_related])
+
+    domain_suffix |= related_apex
 
     return {
         "domain_suffix": domain_suffix,
-        "domain": domain,
+        "domain": set(),  # 不再把子域写成精确 domain 注水
         "stats": {
             "enabled": True,
             "seeds": len(seeds),
             "raw": raw_total,
-            "kept": kept_total,
-            "domain": len(domain),
+            "related_apex": len(related_apex),
             "domain_suffix": len(domain_suffix),
+            "domain": 0,
         },
     }

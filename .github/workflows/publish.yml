@@ -15,6 +15,7 @@ on:
       - "build.py"
       - "discover.py"
       - "verify_dns.py"
+      - "coverage.py"
       - "publish_layout.py"
       - ".github/workflows/publish.yml"
 

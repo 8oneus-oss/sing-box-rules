@@ -16,6 +16,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set
 
+from coverage import collapse_bucket, covered_by_suffix, normalize_host
 from discover import discover_for_output
 from verify_dns import summarize, verify_hosts
 
@@ -346,6 +347,9 @@ def build_one(
     to_verify: Set[str] = set()
 
     # 2) 自动发现（geosite + 有 seeds）
+    # 只关心：补上游缺失的 seed apex，以及 CT SAN 上的其它相关 apex
+    # 不再把「已被 domain_suffix 覆盖的子域」写成 domain 注水
+    discovered_suffixes: Set[str] = set()
     if kind == "geosite" and not skip_discover:
         print("  discover ...")
         discovered = discover_for_output(output, refresh=refresh_discover)
@@ -353,14 +357,20 @@ def build_one(
         if discover_stats.get("enabled"):
             print(
                 f"  discover seeds={discover_stats['seeds']} "
-                f"raw={discover_stats['raw']} kept={discover_stats['kept']}"
+                f"raw={discover_stats['raw']} "
+                f"related_apex={discover_stats.get('related_apex', 0)}"
             )
+            before_suffix = set(merged["domain_suffix"])
             for s in discovered["domain_suffix"]:
+                s = normalize_host(s)
+                if not s:
+                    continue
+                if covered_by_suffix(s, before_suffix):
+                    continue  # 上游已有更宽/同等覆盖
                 merged["domain_suffix"].add(s)
+                discovered_suffixes.add(s)
                 to_verify.add(s)
-            for d in discovered["domain"]:
-                # 新发现主机先放进待验证集合，通过后再写入
-                to_verify.add(d)
+            print(f"  discover new_suffix={len(discovered_suffixes)}")
         else:
             print("  discover (no seeds)")
 
@@ -374,26 +384,20 @@ def build_one(
     else:
         print("  overlay (none)")
 
-    # 4) 自动验证 DNS：只验证「发现 + overlay 新增」，上游默认信任
+    # 4) DNS 验证：只验证「新 suffix / overlay 新增」
+    # domain_suffix 即使 apex 自身无 A 记录也常仍有效，故仅对「发现到的新 apex」在 dead 时剔除；
+    # overlay 保底项保留（人工意图优先）。
     if kind == "geosite" and not skip_dns_verify and to_verify:
-        # domain_suffix 里的 apex 也要能解析（多数可以）；解析失败的发现项丢弃
         print(f"  dns-verify candidates={len(to_verify)} workers={dns_workers}")
         alive, dead = verify_hosts(to_verify, workers=dns_workers)
         dns_stats = summarize(alive, dead)
         print(f"  dns-verify alive={dns_stats['alive']} dead={dns_stats['dead']}")
 
-        # 发现的 domain：只保留 alive
-        for d in list(to_verify):
-            if d in dead:
-                merged["domain"].discard(d)
-                # seed apex 解析失败时仍保留 suffix（可能仅作后缀规则），但打印警告
-                if d in merged["domain_suffix"] and d in overlay_new:
-                    pass
-                elif d in merged["domain_suffix"] and discover_stats.get("enabled"):
-                    # 非 overlay 的 suffix 若是 seed 且 dead，仍保留（suffix 匹配不依赖自身 A 记录）
-                    pass
-            elif d not in merged["domain_suffix"]:
-                merged["domain"].add(d)
+        for d in dead:
+            host = normalize_host(d)
+            if host in discovered_suffixes and host not in overlay_new:
+                merged["domain_suffix"].discard(host)
+                merged["domain"].discard(host)
 
         if dead:
             dead_path = dist_dir / f"{output}.dead.json"
@@ -403,22 +407,27 @@ def build_one(
                 encoding="utf-8",
             )
     elif skip_dns_verify:
-        # 未验证时，发现的 domain 直接并入
-        for d in to_verify:
-            if d not in merged["domain_suffix"]:
-                merged["domain"].add(d)
         print("  dns-verify skipped")
 
-    # 5) 过滤
+    # 5) 覆盖去重：去掉已被 domain_suffix 覆盖的精确 domain / 冗余长 suffix
+    merged, collapse_stats = collapse_bucket(merged)
+    print(
+        f"  collapse domain {collapse_stats['domain_before']}→{collapse_stats['domain_after']} "
+        f"(dropped {collapse_stats['domain_dropped']}), "
+        f"suffix {collapse_stats['suffix_before']}→{collapse_stats['suffix_after']} "
+        f"(dropped {collapse_stats['suffix_dropped']})"
+    )
+
+    # 6) 过滤
     filtered = apply_filters(merged, filters)
     print(f"  filter items={count_items(filtered)}")
 
-    # 6) 生成
+    # 7) 生成
     payload = bucket_to_ruleset(filtered, rule_set_version)
     srs_path = write_and_compile(payload, output, dist_dir, sing_box)
     print(f"  wrote {srs_path.relative_to(ROOT)} ({srs_path.stat().st_size} bytes)")
 
-    # 7) sing-box 加载校验
+    # 8) sing-box 加载校验
     verify_load(srs_path, sing_box, kind)
     print("  load-verify OK (check + decompile)")
 
@@ -431,6 +440,8 @@ def build_one(
         "counts": {k: len(filtered[k]) for k in LIST_KEYS if filtered[k]},
         "discover": discover_stats,
         "dns_verify": dns_stats,
+        "collapse": collapse_stats,
+        "new_suffix_from_discover": len(discovered_suffixes),
     }
 
 
@@ -487,10 +498,14 @@ def main() -> int:
     print(f"\n完成 {len(summaries)} 个规则集 → {report.relative_to(ROOT)}")
     for s in summaries:
         disc = s.get("discover") or {}
-        dns = s.get("dns_verify") or {}
+        col = s.get("collapse") or {}
         extra = ""
         if disc.get("enabled"):
-            extra = f" | discover kept={disc.get('kept')} dns alive={dns.get('alive')}"
+            extra = (
+                f" | new_suffix={s.get('new_suffix_from_discover', 0)}"
+                f" related_apex={disc.get('related_apex', 0)}"
+                f" collapse_drop_domain={col.get('domain_dropped', 0)}"
+            )
         print(f"  - {s['tag']}: {s['items']} items → {s['srs']}{extra}")
     return 0
 
