@@ -185,6 +185,20 @@ def drop_blacklisted(bucket: Dict[str, Set[str]], apexes: Iterable[str]) -> Dict
     return out
 
 
+_FOREIGN: Dict[str, Any] = {}
+_PUBLIC_SUFFIX_LIKE = re.compile(r"^(com|co|net|org|gov|edu|ac|or|ne|go|me|mil)\.[a-z]{2}$")
+
+
+def conflicts_with_other_sets(tag: str, host: str) -> bool:
+    """host 是否与「其它集合」的官方条目重叠（相同、被覆盖、或比它更宽）。"""
+    for t, (p, par) in _FOREIGN.items():
+        if t == tag:
+            continue
+        if _covered(host, p["domain_suffix"]) or host in p["domain"] or host in par:
+            return True
+    return False
+
+
 def compute_supplements(
     entries: List[Dict[str, Any]], filters: Dict[str, Any], apexes: List[str]
 ) -> Dict[str, Dict[str, Set[str]]]:
@@ -215,6 +229,9 @@ def compute_supplements(
     # 其它集合官方条目的「所有后缀形态」与「被谁覆盖」索引
     all_hosts = {t: (b["domain"] | b["domain_suffix"]) for t, b in prim.items()}
     parents = {t: {x for h in hs for x in _label_suffixes(h)} for t, hs in all_hosts.items()}
+
+    _FOREIGN.clear()
+    _FOREIGN.update({t: (prim[t], parents[t]) for t in prim})
 
     survivors: Dict[str, Dict[str, Set[str]]] = {}
     for tag, sb in raw.items():
@@ -554,6 +571,7 @@ def build_one(
     # 只关心：补上游缺失的 seed apex，以及 CT SAN 上的其它相关 apex
     # 不再把「已被 domain_suffix 覆盖的子域」写成 domain 注水
     discovered_suffixes: Set[str] = set()
+    discover_dropped = 0
     if kind == "geosite" and not skip_discover:
         print("  discover ...")
         discovered = discover_for_output(output, refresh=refresh_discover)
@@ -571,10 +589,13 @@ def build_one(
                     continue
                 if covered_by_suffix(s, before_suffix):
                     continue  # 上游已有更宽/同等覆盖
+                if _PUBLIC_SUFFIX_LIKE.match(s) or conflicts_with_other_sets(tag, s):
+                    discover_dropped += 1  # 公共后缀样式（如 com.ru）或属于/重叠其它集合（如 google.com 混进 YouTube）
+                    continue
                 merged["domain_suffix"].add(s)
                 discovered_suffixes.add(s)
                 to_verify.add(s)
-            print(f"  discover new_suffix={len(discovered_suffixes)}")
+            print(f"  discover new_suffix={len(discovered_suffixes)} 丢弃(公共后缀样式/与其它集合重叠)={discover_dropped}")
         else:
             print("  discover (no seeds)")
 
