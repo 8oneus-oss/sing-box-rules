@@ -7,7 +7,13 @@
     "youtube-nocookie.com",
     "youtubekids.com"
   ],
-  "sources": ["crtsh"],
+  "sources": [
+    "crtsh"
+  ],
   "max_per_seed": 400,
-  "exclude_keywords": ["internal", "staging"]
+  "exclude_keywords": [
+    "internal",
+    "staging"
+  ],
+  "max_related_apex": 0
 }
