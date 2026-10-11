@@ -1,0 +1,32 @@
+{
+  "说明": "共享基础设施/通用第三方的主域名。只用于「补充上游」（v2fly、blackmatrix7）新带来的条目：条目等于这些域名或在它们之下，一律丢弃，避免把别人的 CDN 整个划进某个厂商。官方上游的条目不受影响。",
+  "shared_infrastructure_apex": [
+    "akamai.net",
+    "akadns.net",
+    "akamaiedge.net",
+    "akamaized.net",
+    "akamaihd.net",
+    "akamaitechnologies.com",
+    "edgesuite.net",
+    "edgekey.net",
+    "amazonaws.com",
+    "cloudfront.net",
+    "fastly.net",
+    "fastlylb.net",
+    "azureedge.net",
+    "azurefd.net",
+    "trafficmanager.net",
+    "aliyuncs.com",
+    "alicdn.com",
+    "cdn20.com",
+    "sl-reverse.com",
+    "bintray.com",
+    "algolia.net",
+    "algolianet.com",
+    "statsig.com",
+    "herokuapp.com",
+    "workers.dev",
+    "pages.dev",
+    "github.io"
+  ]
+}

@@ -14,7 +14,7 @@ import tempfile
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Set
+from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 from coverage import collapse_bucket, covered_by_suffix, normalize_host
 from discover import discover_for_output
@@ -105,7 +105,173 @@ def fetch_upstream(
             ingest_rules(payload.get("rules") or [], bucket)
         return bucket
 
+    if fmt == "v2fly":
+        return parse_v2fly(url, cache_dir)
+
+    if fmt == "clashlist":
+        return parse_clashlist(cache_path.read_text(encoding="utf-8", errors="replace"))
+
     raise ValueError(f"未知上游 format: {fmt}")
+
+
+def _cached_text(url: str, cache_dir: Path) -> str:
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cp = cache_dir / re.sub(r"[^a-zA-Z0-9._-]+", "_", url)
+    if not cp.exists():
+        cp.write_bytes(fetch_bytes(url))
+    return cp.read_text(encoding="utf-8", errors="replace")
+
+
+def parse_v2fly(url: str, cache_dir: Path, _seen: Optional[Set[str]] = None) -> Dict[str, Set[str]]:
+    """解析 v2fly/domain-list-community 的 data 文件（支持 include:，不处理 regexp/keyword，带 @属性 的 include 跳过）。"""
+    seen = _seen if _seen is not None else set()
+    base, name = url.rsplit("/", 1)
+    bucket = empty_bucket()
+    if name in seen:
+        return bucket
+    seen.add(name)
+    for line in _cached_text(url, cache_dir).splitlines():
+        line = line.split("#", 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        tok, has_attr = parts[0], any(p.startswith("@") for p in parts[1:])
+        if tok.startswith("include:"):
+            if has_attr:
+                continue
+            sub = parse_v2fly(f"{base}/{tok[8:]}", cache_dir, seen)
+            for k in bucket:
+                bucket[k] |= sub.get(k, set())
+            continue
+        if tok.startswith(("regexp:", "keyword:")):
+            continue
+        if tok.startswith("full:"):
+            bucket["domain"].add(tok[5:].lower())
+            continue
+        bucket["domain_suffix"].add((tok[7:] if tok.startswith("domain:") else tok).lower())
+    return bucket
+
+
+def parse_clashlist(text: str) -> Dict[str, Set[str]]:
+    """解析 blackmatrix7 的 Clash .list：只取 DOMAIN-SUFFIX 与 DOMAIN（关键字/IP/进程名一律忽略，避免误伤）。"""
+    bucket = empty_bucket()
+    for line in text.splitlines():
+        line = line.strip()
+        if line.startswith("DOMAIN-SUFFIX,"):
+            bucket["domain_suffix"].add(line.split(",")[1].strip().lower())
+        elif line.startswith("DOMAIN,"):
+            bucket["domain"].add(line.split(",")[1].strip().lower())
+    return bucket
+
+
+def _label_suffixes(host: str) -> List[str]:
+    p = host.split(".")
+    return [".".join(p[i:]) for i in range(len(p))]
+
+
+def _covered(host: str, suffixes: Set[str]) -> bool:
+    return any(x in suffixes for x in _label_suffixes(host))
+
+
+def drop_blacklisted(bucket: Dict[str, Set[str]], apexes: Iterable[str]) -> Dict[str, Set[str]]:
+    apex = tuple(apexes)
+
+    def bad(h: str) -> bool:
+        return any(h == a or h.endswith("." + a) for a in apex)
+
+    out = {k: set(v) for k, v in bucket.items()}
+    out["domain"] = {d for d in bucket["domain"] if not bad(d)}
+    out["domain_suffix"] = {x for x in bucket["domain_suffix"] if not bad(x)}
+    return out
+
+
+def compute_supplements(
+    entries: List[Dict[str, Any]], filters: Dict[str, Any], apexes: List[str]
+) -> Dict[str, Dict[str, Set[str]]]:
+    """补充上游（role=supplement）只能新增「无歧义」的条目：
+    1) 先过共享基础设施黑名单；
+    2) 已被本集合官方上游覆盖的 → 不算新增；
+    3) 与「其它集合」的官方条目有重叠（相同、更宽或更窄）→ 丢弃；
+    4) 同时被两个以上集合的补充上游带来、且互相重叠 → 两边都丢弃。
+    所以补充上游只会让更多域名被正确归类，绝不改变已有域名的去向。"""
+    prim: Dict[str, Dict[str, Set[str]]] = {}
+    raw: Dict[str, Dict[str, Set[str]]] = {}
+    report: Dict[str, Dict[str, Any]] = {}
+    for e in entries:
+        if e.get("kind", "geosite") != "geosite":
+            continue
+        pb, sb = [], []
+        for up in e.get("upstreams") or []:
+            try:
+                b = fetch_upstream(up["url"], up["format"], SING_BOX, CACHE_DIR)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! 上游失败，跳过: {up['url']} ({exc})")
+                continue
+            (sb if up.get("role") == "supplement" else pb).append(b)
+        prim[e["tag"]] = apply_filters(merge_buckets(pb), filters) if pb else empty_bucket()
+        if sb:
+            raw[e["tag"]] = apply_filters(merge_buckets(sb), filters)
+
+    # 其它集合官方条目的「所有后缀形态」与「被谁覆盖」索引
+    all_hosts = {t: (b["domain"] | b["domain_suffix"]) for t, b in prim.items()}
+    parents = {t: {x for h in hs for x in _label_suffixes(h)} for t, hs in all_hosts.items()}
+
+    survivors: Dict[str, Dict[str, Set[str]]] = {}
+    for tag, sb in raw.items():
+        n0 = len(sb["domain"]) + len(sb["domain_suffix"])
+        sb = drop_blacklisted(sb, apexes)
+        n1 = len(sb["domain"]) + len(sb["domain_suffix"])
+        own = prim[tag]
+        sb["domain_suffix"] = {x for x in sb["domain_suffix"] if not _covered(x, own["domain_suffix"])}
+        sb["domain"] = {d for d in sb["domain"] if d not in own["domain"] and not _covered(d, own["domain_suffix"])}
+        n2 = len(sb["domain"]) + len(sb["domain_suffix"])
+        others = [t for t in prim if t != tag]
+
+        def clash(h: str) -> bool:
+            for t in others:
+                if _covered(h, prim[t]["domain_suffix"]) or h in prim[t]["domain"] or h in parents[t]:
+                    return True
+            return False
+
+        sb["domain_suffix"] = {x for x in sb["domain_suffix"] if not clash(x)}
+        sb["domain"] = {d for d in sb["domain"] if not clash(d)}
+        n3 = len(sb["domain"]) + len(sb["domain_suffix"])
+        survivors[tag] = sb
+        report[tag] = {"supplement_raw": n0, "dropped_blacklist": n0 - n1, "already_covered": n1 - n2,
+                       "dropped_conflict_with_other_sets": n2 - n3, "kept_before_cross_check": n3}
+
+    # 补充上游之间互相重叠 → 两边都丢
+    tags = list(survivors)
+    drop: Dict[str, Set[Tuple[str, str]]] = {t: set() for t in tags}
+    for i, a in enumerate(tags):
+        for b in tags[i + 1:]:
+            A, B = survivors[a], survivors[b]
+            A_all, B_all = A["domain"] | A["domain_suffix"], B["domain"] | B["domain_suffix"]
+            B_par = {x for h in B_all for x in _label_suffixes(h)}
+            A_par = {x for h in A_all for x in _label_suffixes(h)}
+            for kind_key in ("domain", "domain_suffix"):
+                for h in A[kind_key]:
+                    if _covered(h, B["domain_suffix"]) or h in B["domain"] or h in B_par:
+                        drop[a].add((kind_key, h))
+                for h in B[kind_key]:
+                    if _covered(h, A["domain_suffix"]) or h in A["domain"] or h in A_par:
+                        drop[b].add((kind_key, h))
+    out: Dict[str, Dict[str, Set[str]]] = {}
+    for t in tags:
+        s = {k: set(v) for k, v in survivors[t].items()}
+        for kk, h in drop[t]:
+            s[kk].discard(h)
+        report[t]["dropped_ambiguous_between_supplements"] = len(drop[t])
+        report[t]["added"] = len(s["domain"]) + len(s["domain_suffix"])
+        report[t]["examples"] = sorted(s["domain_suffix"] | s["domain"])[:8]
+        out[t] = s
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
+    (DIST_DIR / "supplement-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("\n补充上游汇总（新增 = 真正会写进规则集的条目数）:")
+    for t, r in report.items():
+        print(f"  {t}: 新增 {r['added']} | 黑名单丢 {r['dropped_blacklist']} | 已覆盖 {r['already_covered']} | "
+              f"与其它集合冲突丢 {r['dropped_conflict_with_other_sets']} | 补充间歧义丢 {r['dropped_ambiguous_between_supplements']}")
+    return out
 
 
 def run_sing_box(sing_box: Path, args: List[str]) -> subprocess.CompletedProcess:
@@ -336,6 +502,7 @@ def build_one(
     dns_workers: int = 32,
     previous_counts: Optional[Dict[str, int]] = None,
     guard: bool = True,
+    supplement: Optional[Dict[str, Set[str]]] = None,
 ) -> Dict[str, Any]:
     tag = entry["tag"]
     output = entry["output"]
@@ -345,6 +512,8 @@ def build_one(
     # 1) 合并上游
     buckets: List[Dict[str, Set[str]]] = []
     for up in entry.get("upstreams") or []:
+        if up.get("role") == "supplement":
+            continue  # 补充上游在 main() 里统一做冲突/黑名单过滤后再合并
         if only_source and up.get("format") != "source":
             print(f"  skip binary {up['url']}")
             continue
@@ -354,7 +523,7 @@ def build_one(
         except Exception as exc:  # noqa: BLE001
             print(f"  ! upstream 失败，跳过: {up['url']}\n    {exc}")
 
-    configured = entry.get("upstreams") or []
+    configured = [u for u in (entry.get("upstreams") or []) if u.get("role") != "supplement"]
     if configured and not buckets and not only_source:
         # 配了上游却一个都拿不到：宁可这次构建失败（不发布，客户端继续用上次的），也不发布一个残缺的规则集
         raise RuntimeError(f"{tag}: 配置了 {len(configured)} 个上游，但全部下载/解析失败，拒绝发布")
@@ -372,6 +541,10 @@ def build_one(
                 f"{tag}: 上游合并条目数 {upstream_items}，比上次发布时的 {prev} 低于 "
                 f"{int(GUARD_MIN_RATIO * 100)}%，疑似上游异常，拒绝发布（确认无误可加 --no-guard 重跑）"
             )
+
+    if supplement and (supplement["domain"] or supplement["domain_suffix"]):
+        merged = merge_buckets([merged, supplement])
+        print(f"  + 补充上游新增 {len(supplement['domain']) + len(supplement['domain_suffix'])} 条（已过黑名单与冲突过滤）")
 
     discover_stats: Dict[str, Any] = {"enabled": False}
     dns_stats: Dict[str, Any] = {"checked": 0, "alive": 0, "dead": 0}
@@ -507,6 +680,22 @@ def main() -> int:
     only: Optional[Set[str]] = set(args.only) if args.only else None
     summaries: List[Dict[str, Any]] = []
     previous_counts = {} if args.no_guard else load_previous_upstream_counts()
+    blacklist = load_json(ROOT / "blacklist.json").get("shared_infrastructure_apex") if (ROOT / "blacklist.json").exists() else []
+    print("\n== 计算补充上游（黑名单 + 冲突过滤）==")
+    supplements = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
+    mode = str(defaults.get("supplement_mode", "allowlist"))
+    allow_all = load_json(ROOT / "supplement_allow.json") if (ROOT / "supplement_allow.json").exists() else {}
+    if mode == "allowlist":
+        for e in catalog.get("rulesets") or []:
+            t = e["tag"]
+            if t not in supplements:
+                continue
+            ok = set(allow_all.get(e["output"]) or [])
+            for kk in ("domain", "domain_suffix"):
+                supplements[t][kk] = {x for x in supplements[t][kk] if x in ok}
+            print(f"  [{t}] 白名单模式：并入 {len(supplements[t]['domain']) + len(supplements[t]['domain_suffix'])} 条")
+    else:
+        print("  补充上游为 auto 模式：并入全部通过黑名单与冲突过滤的条目")
 
     for entry in catalog.get("rulesets") or []:
         if only and entry["output"] not in only:
@@ -525,6 +714,7 @@ def main() -> int:
             dns_workers=args.dns_workers,
             previous_counts=previous_counts,
             guard=not args.no_guard,
+            supplement=supplements.get(entry["tag"]),
         )
         summaries.append(summary)
 

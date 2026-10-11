@@ -1,0 +1,48 @@
+{
+  "说明": "补充上游（v2fly / blackmatrix7）新带来的条目，默认只并入这里列出的、从名字上能明确看出属于该厂商的域名。其余候选不并入，见构建日志的补充上游汇总。要放开某条，把它加到对应集合下即可；supplement_mode 改成 auto 则不再需要白名单。",
+  "youtube": [],
+  "google": [
+    "abc.xyz",
+    "ampproject.com",
+    "ampproject.net",
+    "androidtv.com",
+    "app-measurement.net",
+    "crbug.com",
+    "waymo.com"
+  ],
+  "ai": [
+    "ai.com",
+    "syntx.ai"
+  ],
+  "meta": [
+    "fbaddins.com",
+    "instagr.am",
+    "whatsapp.biz"
+  ],
+  "apple": [
+    "appstore.com",
+    "cdn-apple-mapkit.com"
+  ],
+  "github": [],
+  "microsoft": [
+    "acompli.com",
+    "acompli.net",
+    "azure-apim.net",
+    "azurefd.us",
+    "azurerms.com",
+    "cortana.ai",
+    "getmicrosoftkey.com",
+    "groupme.com"
+  ],
+  "twitter": [
+    "twimg.co",
+    "twimg.org"
+  ],
+  "binance": [
+    "binancefuture.com",
+    "bnbzh.ac"
+  ],
+  "bybit": [],
+  "okx": [],
+  "gateio": []
+}
