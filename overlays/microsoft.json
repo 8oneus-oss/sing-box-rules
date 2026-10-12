@@ -1,23 +1,10 @@
 {
-  "说明": "移除证书发现带进来的、看起来不属于微软的域名。overlay 在自动发现之后才应用，所以这里的 remove 能生效。",
+  "说明": "remove：移除证书发现带进来的、看起来不属于微软的域名；add：保留两个确认属于微软、但因发现结果每次不同而时有时无的域名。overlay 在自动发现之后才应用。",
   "remove": {
-    "domain_suffix": [
-      "bynder.com",
-      "mcafee-comactivates.me",
-      "h-nishikawa--office.com",
-      "shimizu--office.com",
-      "t--office.com",
-      "www--office.com",
-      "thesportsoffice.com"
-    ],
-    "domain": [
-      "bynder.com",
-      "mcafee-comactivates.me",
-      "h-nishikawa--office.com",
-      "shimizu--office.com",
-      "t--office.com",
-      "www--office.com",
-      "thesportsoffice.com"
-    ]
+    "domain_suffix": ["bynder.com", "mcafee-comactivates.me", "h-nishikawa--office.com", "shimizu--office.com", "t--office.com", "www--office.com", "thesportsoffice.com"],
+    "domain": ["bynder.com", "mcafee-comactivates.me", "h-nishikawa--office.com", "shimizu--office.com", "t--office.com", "www--office.com", "thesportsoffice.com"]
+  },
+  "add": {
+    "domain_suffix": ["whiteboard.ms", "officeppe.com"]
   }
 }
