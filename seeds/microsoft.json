@@ -10,7 +10,14 @@
     "msn.com",
     "xbox.com"
   ],
-  "sources": ["crtsh"],
+  "sources": [
+    "crtsh"
+  ],
   "max_per_seed": 350,
-  "exclude_keywords": ["internal", "staging", "corp."]
+  "exclude_keywords": [
+    "internal",
+    "staging",
+    "corp."
+  ],
+  "max_related_apex": 0
 }
