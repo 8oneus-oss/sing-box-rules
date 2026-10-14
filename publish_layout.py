@@ -58,6 +58,11 @@ def prepare_publish_tree(dist: pathlib.Path, out: pathlib.Path) -> Dict[str, Any
         }
         rulesets.append(entry)
 
+    state_src = dist / "discovered-state.json"
+    if state_src.exists():  # 自动发现的累积状态，随规则集一起发布，下次构建读回
+        (out / "state").mkdir(parents=True, exist_ok=True)
+        shutil.copy2(state_src, out / "state" / "discovered.json")
+
     index = {
         "generated_at": datetime.datetime.now(datetime.timezone.utc)
         .replace(microsecond=0)

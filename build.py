@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import ipaddress
 import json
 import re
@@ -418,6 +419,22 @@ def apply_filters(bucket: Dict[str, Set[str]], filters: Dict[str, Any]) -> Dict[
     return out
 
 
+STATE_RETENTION_DAYS = 30  # 自动发现的域名，连续这么多天没再被发现才移除
+
+
+def load_previous_state(timeout: int = 20) -> Dict[str, Dict[str, str]]:
+    """读取上次发布的 state/discovered.json：{output: {域名: 最后一次被发现的日期}}。失败返回空（本次不做累积）。"""
+    try:
+        pub = load_json(ROOT / "publish.json")
+        url = pub["raw_base"].rstrip("/") + "/state/discovered.json"
+        data = json.loads(fetch_bytes(url, timeout=timeout).decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"  (无法读取上次的发现状态，本次不累积: {exc})")
+        return {}
+    ent = data.get("entries") or {}
+    return {k: {h: str(d) for h, d in v.items()} for k, v in ent.items() if isinstance(v, dict)}
+
+
 def load_previous_upstream_counts(timeout: int = 20) -> Dict[str, int]:
     """读取上一次已发布的 index.json，返回 {tag: upstream_items}。失败则返回空（不启用降幅保护）。"""
     try:
@@ -520,6 +537,7 @@ def build_one(
     previous_counts: Optional[Dict[str, int]] = None,
     guard: bool = True,
     supplement: Optional[Dict[str, Set[str]]] = None,
+    prev_state: Optional[Dict[str, str]] = None,
 ) -> Dict[str, Any]:
     tag = entry["tag"]
     output = entry["output"]
@@ -599,6 +617,28 @@ def build_one(
         else:
             print("  discover (no seeds)")
 
+    # 2.5) 累积：近 N 天内被发现过、这次没被发现（证书查询偶尔漏返回）的域名，带回来，避免规则集忽大忽小
+    carried: Set[str] = set()
+    today = dt.date.today()
+    if kind == "geosite" and not skip_discover and discover_stats.get("enabled") and prev_state:
+        for h, last in prev_state.items():
+            if h in discovered_suffixes:
+                continue
+            try:
+                age = (today - dt.date.fromisoformat(last)).days
+            except ValueError:
+                continue
+            if age > STATE_RETENTION_DAYS:
+                continue
+            hh = normalize_host(h)
+            if not hh or covered_by_suffix(hh, set(merged["domain_suffix"])):
+                continue
+            if _PUBLIC_SUFFIX_LIKE.match(hh) or conflicts_with_other_sets(tag, hh):
+                continue
+            merged["domain_suffix"].add(hh)
+            carried.add(hh)
+        print(f"  discover 累积带回 {len(carried)} 条（近 {STATE_RETENTION_DAYS} 天内发现过、本次没发现）")
+
     # 3) 叠加覆盖（人工保底）
     overlay_path = OVERLAY_DIR / f"{output}.json"
     overlay_new: Set[str] = set()
@@ -634,6 +674,16 @@ def build_one(
     elif skip_dns_verify:
         print("  dns-verify skipped")
 
+    # 4.5) 本次要保存的发现状态
+    if kind == "geosite" and not skip_discover and discover_stats.get("enabled"):
+        new_state = {h: today.isoformat() for h in discovered_suffixes if h in merged["domain_suffix"]}
+        for h in carried:
+            if h in merged["domain_suffix"] and h in (prev_state or {}):
+                new_state[h] = (prev_state or {})[h]
+        discover_stats["carried"] = len(carried)
+    else:
+        new_state = dict(prev_state or {})  # 没跑发现就原样保留，绝不清空
+
     # 5) 覆盖去重：去掉已被 domain_suffix 覆盖的精确 domain / 冗余长 suffix
     merged, collapse_stats = collapse_bucket(merged)
     print(
@@ -662,6 +712,7 @@ def build_one(
         "kind": kind,
         "items": count_items(filtered),
         "upstream_items": upstream_items,
+        "state": new_state,
         "srs": str(srs_path.relative_to(ROOT)),
         "counts": {k: len(filtered[k]) for k in LIST_KEYS if filtered[k]},
         "discover": discover_stats,
@@ -701,6 +752,7 @@ def main() -> int:
     only: Optional[Set[str]] = set(args.only) if args.only else None
     summaries: List[Dict[str, Any]] = []
     previous_counts = {} if args.no_guard else load_previous_upstream_counts()
+    prev_state_all = load_previous_state()
     blacklist = load_json(ROOT / "blacklist.json").get("shared_infrastructure_apex") if (ROOT / "blacklist.json").exists() else []
     print("\n== 计算补充上游（黑名单 + 冲突过滤）==")
     supplements = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
@@ -736,9 +788,20 @@ def main() -> int:
             previous_counts=previous_counts,
             guard=not args.no_guard,
             supplement=supplements.get(entry["tag"]),
+            prev_state=prev_state_all.get(entry["output"]),
         )
         summaries.append(summary)
 
+    state_out = {x["output"]: x.get("state") or {} for x in summaries if x.get("kind", "geosite") == "geosite"}
+    for o, v in prev_state_all.items():  # 本次没处理的集合（如 --only 只跑部分）也原样保留
+        state_out.setdefault(o, v)
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
+    (DIST_DIR / "discovered-state.json").write_text(
+        json.dumps({"version": 1, "retention_days": STATE_RETENTION_DAYS,
+                    "updated": dt.date.today().isoformat(), "entries": {k: dict(sorted(v.items())) for k, v in sorted(state_out.items())}},
+                   ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    for x in summaries:
+        x.pop("state", None)  # build-report 里不放状态，避免膨胀
     report = DIST_DIR / "build-report.json"
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(summaries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
