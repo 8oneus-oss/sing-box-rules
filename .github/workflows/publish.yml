@@ -17,6 +17,8 @@ on:
       - "verify_dns.py"
       - "coverage.py"
       - "publish_layout.py"
+      - "check_samples.py"
+      - "samples.json"
       - ".github/workflows/publish.yml"
 
 permissions:
@@ -49,6 +51,9 @@ jobs:
 
       - name: Build rulesets
         run: python3 -u build.py --refresh
+
+      - name: Check samples (stop publishing if routing samples fail)
+        run: python3 check_samples.py
 
       - name: Prepare publish tree
         run: |
