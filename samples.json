@@ -1,0 +1,27 @@
+{
+  "说明": "发布前样本检查清单。键是 build.py 的 output 名（如 binance、ai、geolocation-cn），不是 tag。must_hit：这些域名必须命中该集合；must_not_hit：这些域名绝不能命中该集合；must_miss_everywhere：这些域名不能命中下面任何一个集合。发现新的走错出口的域名，往对应位置加一行。",
+  "must_hit": {
+    "binance": ["binance.com", "www.binance.com", "bnbstatic.com"],
+    "bybit": ["bybit.com", "api.bybit.com", "bybit.eu", "bybit-tr.com"],
+    "okx": ["okx.com", "www.okx.com", "okg.com"],
+    "gateio": ["gate.io", "www.gate.io", "gateis.com"],
+    "ai": ["openai.com", "chatgpt.com", "claude.ai", "anthropic.com", "stability.ai"],
+    "meta": ["facebook.com", "instagram.com", "whatsapp.com", "fbcdn.net"],
+    "twitter": ["twitter.com", "x.com", "twimg.com"],
+    "youtube": ["youtube.com", "ytimg.com"],
+    "google": ["google.com", "googleapis.com", "gstatic.com"],
+    "apple": ["apple.com", "icloud.com"],
+    "microsoft": ["microsoft.com", "live.com", "onedrive.com"],
+    "github": ["github.com", "githubusercontent.com"],
+    "geolocation-cn": ["baidu.com", "qq.com", "taobao.com"]
+  },
+  "must_not_hit": {
+    "youtube": ["google.com", "gmail.com"],
+    "binance": ["bybit.com", "okx.com", "gate.io"],
+    "bybit": ["binance.com", "okx.com", "gate.io"],
+    "okx": ["binance.com", "bybit.com", "gate.io"],
+    "gateio": ["binance.com", "bybit.com", "okx.com"],
+    "geolocation-cn": ["google.com", "github.com", "binance.com", "openai.com", "facebook.com"]
+  },
+  "must_miss_everywhere": ["example.com", "example.org"]
+}
