@@ -620,7 +620,8 @@ def build_one(
     # 2.5) 累积：近 N 天内被发现过、这次没被发现（证书查询偶尔漏返回）的域名，带回来，避免规则集忽大忽小
     carried: Set[str] = set()
     today = dt.date.today()
-    if kind == "geosite" and not skip_discover and discover_stats.get("enabled") and prev_state:
+    related_off = discover_stats.get("related_cap") == 0
+    if kind == "geosite" and not skip_discover and discover_stats.get("enabled") and prev_state and not related_off:
         for h, last in prev_state.items():
             if h in discovered_suffixes:
                 continue
@@ -676,7 +677,7 @@ def build_one(
 
     # 4.5) 本次要保存的发现状态
     if kind == "geosite" and not skip_discover and discover_stats.get("enabled"):
-        new_state = {h: today.isoformat() for h in discovered_suffixes if h in merged["domain_suffix"]}
+        new_state = {} if related_off else {h: today.isoformat() for h in discovered_suffixes if h in merged["domain_suffix"]}  # 相关域名关闭时清空旧状态（含历史上混进来的）
         for h in carried:
             if h in merged["domain_suffix"] and h in (prev_state or {}):
                 new_state[h] = (prev_state or {})[h]

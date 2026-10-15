@@ -209,7 +209,9 @@ def discover_for_output(
         }
 
     seeds = [normalize_host(s) for s in (cfg.get("seeds") or []) if s]
-    max_related = int(cfg.get("max_related_apex", cfg.get("max_per_seed", 100)))
+    # 精度优先：默认不收「证书上顺带出现的其它域名」（共用证书不代表同一家，会混进仿冒域名）。
+    # 个别集合想开启，在 seeds 文件里显式写 "max_related_apex": 正整数。
+    max_related = int(cfg.get("max_related_apex", 0))
     exclude_extra = cfg.get("exclude_keywords") or []
     sources = cfg.get("sources") or ["crtsh"]
 
@@ -252,6 +254,8 @@ def discover_for_output(
             # 太短/像 TLD 的丢掉
             if "." not in apex or len(apex) < 4:
                 continue
+            if re.search(r"(^|\.)xn--|[a-z0-9]--[a-z0-9]", apex):
+                continue  # 国际化域名/带双连字符的，几乎都是仿冒域名
             related_apex.add(apex)
 
     if len(related_apex) > max_related:
@@ -267,6 +271,7 @@ def discover_for_output(
             "seeds": len(seeds),
             "raw": raw_total,
             "related_apex": len(related_apex),
+            "related_cap": max_related,
             "domain_suffix": len(domain_suffix),
             "domain": 0,
         },
