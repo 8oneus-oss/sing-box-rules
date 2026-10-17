@@ -12,6 +12,8 @@ on:
       - "filters.json"
       - "overlays/**"
       - "seeds/**"
+      - "blacklist.json"
+      - "supplement_allow.json"
       - "build.py"
       - "discover.py"
       - "verify_dns.py"
@@ -24,9 +26,16 @@ on:
 permissions:
   contents: write
 
+# 同一时间只允许跑一个构建：避免定时构建和手动/推送触发的构建同时往 rule-set 分支推送
+concurrency:
+  group: build-publish
+  cancel-in-progress: false
+
 jobs:
   build-publish:
     runs-on: ubuntu-latest
+    # 超时即失败且不发布（客户端继续用上一次的规则集）；正常构建只需十几分钟
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@v4
