@@ -215,6 +215,16 @@ def discover_for_output(
     exclude_extra = cfg.get("exclude_keywords") or []
     sources = cfg.get("sources") or ["crtsh"]
 
+    # 相关域名关闭时，证书查询的结果最后全部会被丢弃，所以直接跳过联网：构建更快，也不受 crt.sh 故障影响。
+    # 结果与「查了再全部丢弃」完全相同：只有 seeds 本身作为 domain_suffix。
+    if max_related == 0:
+        return {
+            "domain_suffix": set(seeds),
+            "domain": set(),
+            "stats": {"enabled": True, "seeds": len(seeds), "raw": 0, "related_apex": 0, "related_cap": 0,
+                      "domain_suffix": len(seeds), "domain": 0, "skipped_ct": True},
+        }
+
     domain_suffix: Set[str] = set(seeds)
     related_apex: Set[str] = set()
     raw_total = 0
