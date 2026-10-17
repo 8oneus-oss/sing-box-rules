@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "retention_days": 30,
+ "updated": "2026-10-17",
+ "entries": {
+  "ai": {},
+  "apple": {},
+  "binance": {},
+  "bybit": {},
+  "gateio": {},
+  "geolocation-cn": {},
+  "github": {},
+  "google": {},
+  "meta": {},
+  "microsoft": {},
+  "okx": {},
+  "twitter": {},
+  "youtube": {}
+ }
+}
