@@ -99,6 +99,39 @@ def main() -> int:
                 if hit(p, d) is True:
                     failures.append(f"[不该命中却命中] {d} 不应该命中任何集合，但命中了 {name}")
 
+    # v3.1 §8：构建报告里的 rejected/quarantined/pending_review 不得出现在任何发布的 .srs 中
+    report_path = dist / "build-report.json"
+    if report_path.is_file():
+        try:
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            report = []
+        for r in report:
+            name = r.get("output")
+            if not name:
+                continue
+            ver = r.get("verification") or {}
+            bad: List[Tuple[str, str]] = []
+            disc = ver.get("discover") or {}
+            for sec in ("reject", "quarantine", "pending_review"):
+                for item in disc.get(sec, []) or []:
+                    bad.append((sec, item["apex"] if isinstance(item, dict) else item))
+            # dry_run 下 supplement 的验证决策只是"假设"（实际仍走旧白名单），不检查；
+            # 非 dry_run 下 supplement 的 quarantine/pending_review 确实未并入，必须检查
+            if not ver.get("dry_run"):
+                supp = ver.get("supplement") or {}
+                for sec in ("reject", "quarantine", "pending_review"):
+                    for apex in supp.get(sec, []) or []:
+                        bad.append((sec, apex))
+            p = srs_of(name)
+            if p is None or not bad:
+                continue
+            for sec, apex in bad:
+                checked += 1
+                if hit(p, apex) is True:
+                    failures.append(f"[验证{ {'reject':'拒绝','quarantine':'隔离','pending_review':'待审'}[sec] }项却命中] "
+                                    f"{apex} 不应该在 {name} 里，但命中了")
+
     print(f"样本检查：共 {checked} 项，失败 {len(failures)} 项")
     for line in failures:
         print("  ✗", line)
