@@ -1,355 +1,370 @@
 {
-  "version": 1,
-  "defaults": {
-    "update_interval": "1d",
-    "rule_set_version": 2,
-    "supplement_mode": "allowlist"
-  },
-  "rulesets": [
+ "version": 1,
+ "defaults": {
+  "update_interval": "1d",
+  "rule_set_version": 2,
+  "supplement_mode": "allowlist"
+ },
+ "rulesets": [
+  {
+   "tag": "YouTube",
+   "output": "youtube",
+   "kind": "geosite",
+   "upstreams": [
     {
-      "tag": "YouTube",
-      "output": "youtube",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/youtube",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.json",
+     "format": "source"
     },
     {
-      "tag": "谷歌美国",
-      "output": "google",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/google",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
+     "format": "binary"
     },
     {
-      "tag": "AI服务",
-      "output": "ai",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-ai-!cn",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list",
-          "format": "clashlist",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list",
-          "format": "clashlist",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list",
-          "format": "clashlist",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/youtube",
+     "format": "v2fly",
+     "role": "supplement"
     },
     {
-      "tag": "Meta",
-      "output": "meta",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/meta.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-meta.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/meta",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list",
-          "format": "clashlist",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list",
-          "format": "clashlist",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Apple",
-      "output": "apple",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/apple",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "GitHub",
-      "output": "github",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/github.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Microsoft",
-      "output": "microsoft",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-microsoft.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/microsoft",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Twitter",
-      "output": "twitter",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/twitter.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/twitter",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Binance",
-      "output": "binance",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/binance.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-binance.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/binance",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Bybit",
-      "output": "bybit",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bybit.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/bybit",
-          "format": "v2fly",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "OKX",
-      "output": "okx",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/okx.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-okx.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/okx",
-          "format": "v2fly",
-          "role": "supplement"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list",
-          "format": "clashlist",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "Gate.io",
-      "output": "gateio",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/gateio.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-gateio.srs",
-          "format": "binary"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/gateio",
-          "format": "v2fly",
-          "role": "supplement"
-        }
-      ]
-    },
-    {
-      "tag": "中国大陆域名",
-      "output": "geolocation-cn",
-      "kind": "geosite",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-cn.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-          "format": "binary"
-        }
-      ]
-    },
-    {
-      "tag": "中国大陆IP",
-      "output": "geoip-cn",
-      "kind": "geoip",
-      "upstreams": [
-        {
-          "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.json",
-          "format": "source"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-          "format": "binary"
-        }
-      ]
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list",
+     "format": "clashlist",
+     "role": "supplement"
     }
-  ]
+   ]
+  },
+  {
+   "tag": "谷歌美国",
+   "output": "google",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/google",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "AI服务",
+   "output": "ai",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-ai-!cn",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SukkaW/Surge/master/Source/non_ip/ai.conf",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Meta",
+   "output": "meta",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/meta.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-meta.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/meta",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Apple",
+   "output": "apple",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/apple",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SukkaW/Surge/master/Source/non_ip/apple_services.conf",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "GitHub",
+   "output": "github",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/github.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/github",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Microsoft",
+   "output": "microsoft",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-microsoft.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/microsoft",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list",
+     "format": "clashlist",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SukkaW/Surge/master/Source/non_ip/microsoft.conf",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Twitter",
+   "output": "twitter",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/twitter.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/twitter",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Binance",
+   "output": "binance",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/binance.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-binance.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/binance",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Bybit",
+   "output": "bybit",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bybit.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bybit.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/bybit",
+     "format": "v2fly",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "OKX",
+   "output": "okx",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/okx.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-okx.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/okx",
+     "format": "v2fly",
+     "role": "supplement"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list",
+     "format": "clashlist",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "Gate.io",
+   "output": "gateio",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/gateio.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-gateio.srs",
+     "format": "binary"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/gateio",
+     "format": "v2fly",
+     "role": "supplement"
+    }
+   ]
+  },
+  {
+   "tag": "中国大陆域名",
+   "output": "geolocation-cn",
+   "kind": "geosite",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-cn.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+     "format": "binary"
+    }
+   ]
+  },
+  {
+   "tag": "中国大陆IP",
+   "output": "geoip-cn",
+   "kind": "geoip",
+   "upstreams": [
+    {
+     "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.json",
+     "format": "source"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+     "format": "binary"
+    }
+   ]
+  }
+ ]
 }
