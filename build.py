@@ -825,9 +825,11 @@ def build_one(
                 if decision == "reject":
                     vd["reject"].append({"apex": s, "reason": info.get("reason")})
                 elif decision == "admit":
-                    merged["domain_suffix"].add(s)
-                    discovered_suffixes.add(s)
                     vd["admit"].append(s)
+                    if not dry_run:
+                        merged["domain_suffix"].add(s)
+                        discovered_suffixes.add(s)
+                    # dry_run（Phase 0 report-only）：只记录决策，不并入发布内容
                 else:
                     records[s] = new_quarantine_record(s, decision, info, "ct", today_str)
                     vd["pending_review" if decision == "pending_review" else "quarantine"].append(s)

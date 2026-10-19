@@ -39,6 +39,21 @@ DEFAULT_EXCLUDE = (
     "vpn.",
 )
 
+# v3.1: 发现默认开启（CT 相关 apex 上限 500），候选走验证电池 + 隔离区，
+# 仿冒担忧由 impersonation_screen 承担，不再靠"默认关闭"来保精度。
+DEFAULT_MAX_RELATED = 500
+# 发现缓存独立 TTL（天）：过期后才重新查 CT，避免每次构建都打证书透明度 API
+DEFAULT_DISCOVER_TTL_DAYS = 7.0
+
+
+def _cache_fresh(path: Path, ttl_days: float) -> bool:
+    """缓存文件是否在 TTL 内。"""
+    try:
+        age = time.time() - path.stat().st_mtime
+    except OSError:
+        return False
+    return age <= ttl_days * 86400
+
 
 def load_seed_config(output: str) -> Optional[Dict[str, Any]]:
     path = SEEDS_DIR / f"{output}.json"
@@ -60,11 +75,12 @@ def _http_get(url: str, timeout: int = 90) -> bytes:
         return b"".join(chunks)
 
 
-def fetch_certspotter(seed: str, cache_dir: Path, refresh: bool = False, max_pages: int = 10) -> List[str]:
+def fetch_certspotter(seed: str, cache_dir: Path, refresh: bool = False, max_pages: int = 10,
+                      ttl_days: float = DEFAULT_DISCOVER_TTL_DAYS) -> List[str]:
     """certspotter 公共 CT API（crt.sh 失败时的兜底）。"""
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache_path = cache_dir / f"certspotter_{seed.replace('.', '_')}.json"
-    if cache_path.exists() and not refresh:
+    if cache_path.exists() and not refresh and _cache_fresh(cache_path, ttl_days):
         try:
             return json.loads(cache_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
@@ -106,11 +122,12 @@ def fetch_certspotter(seed: str, cache_dir: Path, refresh: bool = False, max_pag
     return result
 
 
-def fetch_crtsh(seed: str, cache_dir: Path, refresh: bool = False, retries: int = 3) -> List[str]:
+def fetch_crtsh(seed: str, cache_dir: Path, refresh: bool = False, retries: int = 3,
+                ttl_days: float = DEFAULT_DISCOVER_TTL_DAYS) -> List[str]:
     """从 crt.sh 拉 %.seed 的证书名。"""
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache_path = cache_dir / f"crtsh_{seed.replace('.', '_')}.json"
-    if cache_path.exists() and not refresh:
+    if cache_path.exists() and not refresh and _cache_fresh(cache_path, ttl_days):
         try:
             return json.loads(cache_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
@@ -193,12 +210,15 @@ def discover_for_output(
     output: str,
     refresh: bool = False,
     sleep_between: float = 1.0,
+    default_max_related: int = DEFAULT_MAX_RELATED,
+    ttl_days: float = DEFAULT_DISCOVER_TTL_DAYS,
 ) -> Dict[str, Any]:
     """
     发现策略（注重真实覆盖，不注水条目数）：
     1. seeds 一律作为 domain_suffix（上游若缺这些 apex，这才是有效增量）
     2. CT 结果里，已被 seed/suffix 覆盖的子域一律丢弃（domain_suffix 已能匹配）
     3. 仅保留证书 SAN 上「不属于当前 seeds」的其它 apex，作为候选相关域名
+       （上限 default_max_related，默认 500；候选不直接发布，走验证电池）
     """
     cfg = load_seed_config(output)
     if not cfg:
@@ -209,9 +229,10 @@ def discover_for_output(
         }
 
     seeds = [normalize_host(s) for s in (cfg.get("seeds") or []) if s]
-    # 精度优先：默认不收「证书上顺带出现的其它域名」（共用证书不代表同一家，会混进仿冒域名）。
-    # 个别集合想开启，在 seeds 文件里显式写 "max_related_apex": 正整数。
-    max_related = int(cfg.get("max_related_apex", 0))
+    # v3.1: 相关域名默认开启（上限 500），候选走验证电池 + 隔离区；
+    # 仿冒筛查在 build.py 的 verify_candidate 里做，不再靠"默认关闭"保精度。
+    # 个别集合想关，在 seeds 文件里显式写 "max_related_apex": 0。
+    max_related = int(cfg.get("max_related_apex", default_max_related))
     exclude_extra = cfg.get("exclude_keywords") or []
     sources = cfg.get("sources") or ["crtsh"]
 
@@ -234,15 +255,15 @@ def discover_for_output(
         got = False
         if "crtsh" in sources:
             print(f"    discover crt.sh %.{seed}")
-            crt = fetch_crtsh(seed, CACHE_DIR, refresh=refresh)
+            crt = fetch_crtsh(seed, CACHE_DIR, refresh=refresh, ttl_days=ttl_days)
             raw_names.extend(crt)
             got = bool(crt)
         if (not got and "certspotter" in sources) or ("certspotter" in sources and "crtsh" not in sources):
             print(f"    discover certspotter {seed}")
-            raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh))
+            raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh, ttl_days=ttl_days))
         elif not got and "certspotter" not in sources:
             print(f"    discover certspotter (fallback) {seed}")
-            raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh))
+            raw_names.extend(fetch_certspotter(seed, CACHE_DIR, refresh=refresh, ttl_days=ttl_days))
         if i + 1 < len(seeds) and sleep_between > 0:
             time.sleep(sleep_between)
 
