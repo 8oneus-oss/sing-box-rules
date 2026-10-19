@@ -225,6 +225,7 @@ def discover_for_output(
         return {
             "domain_suffix": set(),
             "domain": set(),
+            "seeds": [],
             "stats": {"enabled": False, "seeds": 0, "raw": 0, "related_apex": 0},
         }
 
@@ -242,6 +243,7 @@ def discover_for_output(
         return {
             "domain_suffix": set(seeds),
             "domain": set(),
+            "seeds": seeds,
             "stats": {"enabled": True, "seeds": len(seeds), "raw": 0, "related_apex": 0, "related_cap": 0,
                       "domain_suffix": len(seeds), "domain": 0, "skipped_ct": True},
         }
@@ -297,7 +299,7 @@ def discover_for_output(
     return {
         "domain_suffix": domain_suffix,
         "domain": set(),  # 不再把子域写成精确 domain 注水
-        "stats": {
+        "seeds": seeds,        "stats": {
             "enabled": True,
             "seeds": len(seeds),
             "raw": raw_total,

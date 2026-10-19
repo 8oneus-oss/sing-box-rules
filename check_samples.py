@@ -13,7 +13,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Set, Tuple
 
 ROOT = Path(__file__).resolve().parent
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
@@ -100,6 +100,23 @@ def main() -> int:
                     failures.append(f"[不该命中却命中] {d} 不应该命中任何集合，但命中了 {name}")
 
     # v3.1 §8：构建报告里的 rejected/quarantined/pending_review 不得出现在任何发布的 .srs 中
+    # 例外：overlays/<output>.json 里人工显式 add 的条目（人工 override 优先级高于验证电池，§6），不算违规
+    def overlay_added(output: str) -> Set[str]:
+        p = ROOT / "overlays" / f"{output}.json"
+        if not p.is_file():
+            return set()
+        try:
+            ov = json.loads(p.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return set()
+        out: Set[str] = set()
+        for k in ("domain", "domain_suffix"):
+            for x in (ov.get("add") or {}).get(k) or []:
+                x = str(x).strip().lower().rstrip(".")
+                if x:
+                    out.add(x)
+        return out
+
     report_path = dist / "build-report.json"
     if report_path.is_file():
         try:
@@ -111,11 +128,15 @@ def main() -> int:
             if not name:
                 continue
             ver = r.get("verification") or {}
+            human_added = overlay_added(name)
             bad: List[Tuple[str, str]] = []
             disc = ver.get("discover") or {}
             for sec in ("reject", "quarantine", "pending_review"):
                 for item in disc.get(sec, []) or []:
-                    bad.append((sec, item["apex"] if isinstance(item, dict) else item))
+                    apex = item["apex"] if isinstance(item, dict) else item
+                    apex = str(apex).strip().lower().rstrip(".")
+                    if apex and apex not in human_added:
+                        bad.append((sec, apex))
             # dry_run 下 supplement 的验证决策只是"假设"（实际仍走旧白名单），不检查；
             # 非 dry_run 下 supplement 的 quarantine/pending_review 确实未并入，必须检查
             if not ver.get("dry_run"):
