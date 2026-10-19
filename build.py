@@ -46,7 +46,7 @@ def load_json(path: Path) -> Any:
 
 # ---- v3.1 验证电池配置（verify.json）。文件缺失时用内置默认，保证旧行为可回退 ----
 _VERIFY_DEFAULTS: Dict[str, Any] = {
-    "quarantine_days": 14,
+    "quarantine_days": 7,
     "quarantine_drop_dead_days": 7,
     "quarantine_rescan_days_dead": 3,
     "rescan_daily_sample": 50,
@@ -133,7 +133,7 @@ def update_quarantine_for_output(
     - consecutive_dead >= drop_days → 丢弃；触发仿冒筛查 → 立即丢弃
     - dry_run 时只累积计数、不执行转正
     """
-    qdays = int(vcfg("quarantine_days") or 14)
+    qdays = int(vcfg("quarantine_days") or 7)
     drop_dead = int(vcfg("quarantine_drop_dead_days") or 7)
     brand = ctx.get("brand") or ""
     known_slds = ctx.get("known_slds") or set()
@@ -874,7 +874,7 @@ def build_one(
     if kind == "geosite" and prev_published:
         cur_hosts = {h for h in (merged["domain"] | merged["domain_suffix"]) if h}
         cur_hosts |= seed_set | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)}
-        qdays = int(vcfg("quarantine_days") or 14)
+        qdays = int(vcfg("quarantine_days") or 7)
         migrated = 0
         for h in sorted(prev_published - cur_hosts):
             if h in records:
