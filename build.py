@@ -7,6 +7,7 @@ import argparse
 import datetime as dt
 import ipaddress
 import json
+import random
 import re
 import shutil
 import subprocess
@@ -18,7 +19,9 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 from coverage import collapse_bucket, covered_by_suffix, normalize_host
-from discover import discover_for_output
+from discover import discover_for_output, load_seed_config
+from official_lists import OFFICIAL_SOURCES
+from verify import dns_alive, impersonation_screen, verify_candidate
 from verify_dns import summarize, verify_hosts
 
 ROOT = Path(__file__).resolve().parent
@@ -39,6 +42,177 @@ DOMAIN_RE = re.compile(
 def load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# ---- v3.1 验证电池配置（verify.json）。文件缺失时用内置默认，保证旧行为可回退 ----
+_VERIFY_DEFAULTS: Dict[str, Any] = {
+    "quarantine_days": 14,
+    "quarantine_drop_dead_days": 7,
+    "quarantine_rescan_days_dead": 3,
+    "rescan_daily_sample": 50,
+    "rescan_daily_ratio": 0.05,
+    "discover_default_max_related": 500,
+    "discover_cache_ttl_days": 7,
+    "supplement_mode": "verify",
+    "upstream_check_mode": "report",
+    "dry_run": False,
+    "phish_keywords": ["login", "verify", "secure", "account", "wallet", "support",
+                       "update", "signin", "auth", "password", "airdrop", "bonus"],
+    "typosquat_max_distance": 2,
+}
+
+
+def load_verify_cfg() -> Dict[str, Any]:
+    cfg = dict(_VERIFY_DEFAULTS)
+    p = ROOT / "verify.json"
+    if p.exists():
+        try:
+            user = load_json(p)
+            if isinstance(user, dict):
+                cfg.update(user)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  (verify.json 解析失败，用内置默认: {exc})")
+    return cfg
+
+
+VERIFY_CFG: Dict[str, Any] = load_verify_cfg()
+
+
+def vcfg(key: str) -> Any:
+    return VERIFY_CFG.get(key, _VERIFY_DEFAULTS.get(key))
+
+
+def make_verify_ctx(entry: Dict[str, Any], official: Set[str], check_dns: bool = True) -> Dict[str, Any]:
+    """为某集合构造 verify_candidate 的 ctx：品牌 / 已知 SLD / 已知 TLD / 官方源。"""
+    output = entry["output"]
+    try:
+        cfg = load_seed_config(output) or {}
+    except Exception:  # noqa: BLE001
+        cfg = {}
+    seeds = [normalize_host(s) for s in (cfg.get("seeds") or []) if s]
+    brand = seeds[0].split(".")[0] if seeds else ""
+    return {
+        "brand": brand,
+        "known_slds": {s.split(".")[0] for s in seeds},
+        "known_tlds": {s.rsplit(".", 1)[-1] for s in seeds if "." in s},
+        "keywords": tuple(vcfg("phish_keywords") or ()),
+        "max_distance": int(vcfg("typosquat_max_distance") or 2),
+        "official": set(official or ()),
+        "check_dns": check_dns,  # False = 本地调试，DNS 一律视为存活（生产勿用）
+    }
+
+
+def new_quarantine_record(
+    apex: str, decision: str, info: Dict[str, Any], source: str, today: str
+) -> Dict[str, Any]:
+    dead = bool(info.get("dead"))
+    return {
+        "first_seen": today,
+        "pending_review": decision == "pending_review",
+        "consecutive_pass": 0 if dead else 1,  # 入场时的那次验证计为第 1 次通过
+        "consecutive_dead": 1 if dead else 0,
+        "last_check": today,
+        "signals": info.get("signals") or [],
+        "source": source,
+        "reason": info.get("reason") or "",
+    }
+
+
+def update_quarantine_for_output(
+    records: Dict[str, Dict[str, Any]],
+    ctx: Dict[str, Any],
+    dry_run: bool,
+    today: str,
+    check_dns: bool = True,
+    dns_workers: int = 32,
+) -> Tuple[Dict[str, Dict[str, Any]], Set[str], Dict[str, int]]:
+    """隔离区每日更新。返回 (保留的记录, 本轮转正的 apex, 统计)。
+
+    - 每轮全量重验（仿冒筛查本地计算 + DNS 批量并发）
+    - pending_review 永不自动转正，仅人工 override 可放行
+    - consecutive_dead >= drop_days → 丢弃；触发仿冒筛查 → 立即丢弃
+    - dry_run 时只累积计数、不执行转正
+    """
+    qdays = int(vcfg("quarantine_days") or 14)
+    drop_dead = int(vcfg("quarantine_drop_dead_days") or 7)
+    brand = ctx.get("brand") or ""
+    known_slds = ctx.get("known_slds") or set()
+    keywords = ctx.get("keywords") or ()
+    max_distance = int(ctx.get("max_distance") or 2)
+
+    # 先过本地仿冒筛查（快），再批量 DNS
+    candidates = {}
+    dropped = 0
+    for apex, rec in records.items():
+        if impersonation_screen(apex, brand, known_slds, keywords, max_distance):
+            dropped += 1
+            continue
+        candidates[apex] = dict(rec)
+    if check_dns and candidates:
+        alive, _ = verify_hosts(set(candidates), workers=dns_workers)
+    else:
+        alive = set(candidates) if not check_dns else set()
+
+    kept: Dict[str, Dict[str, Any]] = {}
+    promoted: Set[str] = set()
+    stats = {"kept": 0, "promoted": 0, "dropped": dropped, "pending_review": 0}
+    for apex, rec in candidates.items():
+        rec["last_check"] = today
+        if apex in alive:
+            rec["consecutive_pass"] = int(rec.get("consecutive_pass", 0)) + 1
+            rec["consecutive_dead"] = 0
+        else:
+            rec["consecutive_dead"] = int(rec.get("consecutive_dead", 0)) + 1
+        if int(rec.get("consecutive_dead", 0)) >= drop_dead:
+            stats["dropped"] += 1
+            continue
+        if rec.get("pending_review"):
+            stats["pending_review"] += 1
+            kept[apex] = rec
+            continue
+        if int(rec.get("consecutive_pass", 0)) >= qdays and not dry_run:
+            promoted.add(apex)
+            stats["promoted"] += 1
+            continue
+        stats["kept"] += 1
+        kept[apex] = rec
+    return kept, promoted, stats
+
+
+def load_quarantine(timeout: int = 20) -> Dict[str, Any]:
+    """读取上次发布的 state/quarantine.json。失败返回空（本轮不转正、只新增）。"""
+    try:
+        pub = load_json(ROOT / "publish.json")
+        url = pub["raw_base"].rstrip("/") + "/state/quarantine.json"
+        data = json.loads(fetch_bytes(url, timeout=timeout).decode("utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception as exc:  # noqa: BLE001
+        print(f"  (无法读取上次的隔离区状态，本轮不转正只新增: {exc})")
+        return {}
+
+
+def load_previous_set_entries(output: str, kind: str, timeout: int = 20) -> Set[str]:
+    """读取上次发布的某集合 .json 里的域名条目（用于上游新条目 diff）。失败返回空。"""
+    try:
+        pub = load_json(ROOT / "publish.json")
+        base = pub["raw_base"].rstrip("/")
+        if kind == "geoip":
+            name = output[6:] if output.startswith("geoip-") else output
+            rel = f"geoip/{name}.json"
+        else:
+            rel = f"geosite/{output}.json"
+        data = json.loads(fetch_bytes(f"{base}/{rel}", timeout=timeout).decode("utf-8"))
+        out: Set[str] = set()
+        for rule in data.get("rules") or []:
+            for k in ("domain", "domain_suffix"):
+                v = rule.get(k)
+                if isinstance(v, str):
+                    out.add(normalize_host(v))
+                elif isinstance(v, list):
+                    out.update(normalize_host(x) for x in v)
+        return {x for x in out if x}
+    except Exception:  # noqa: BLE001
+        return set()
 
 
 def ensure_list(value: Any) -> List[str]:
@@ -188,6 +362,8 @@ def drop_blacklisted(bucket: Dict[str, Set[str]], apexes: Iterable[str]) -> Dict
 
 _FOREIGN: Dict[str, Any] = {}
 _PUBLIC_SUFFIX_LIKE = re.compile(r"^(com|co|net|org|gov|edu|ac|or|ne|go|me|mil)\.[a-z]{2}$")
+# v3.1 §6.6：compute_supplements 最近一次运行中，被 ≥2 个集合同时要而两边丢弃的第三方域
+_AMBIGUOUS: Dict[str, Set[str]] = {}
 
 
 def conflicts_with_other_sets(tag: str, host: str) -> bool:
@@ -283,6 +459,8 @@ def compute_supplements(
         report[t]["added"] = len(s["domain"]) + len(s["domain_suffix"])
         report[t]["examples"] = sorted(s["domain_suffix"] | s["domain"])[:8]
         out[t] = s
+    global _AMBIGUOUS
+    _AMBIGUOUS = {t: {h for _, h in drop[t]} for t in tags}
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     (DIST_DIR / "supplement-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("\n补充上游汇总（新增 = 真正会写进规则集的条目数）:")
@@ -538,11 +716,21 @@ def build_one(
     guard: bool = True,
     supplement: Optional[Dict[str, Set[str]]] = None,
     prev_state: Optional[Dict[str, str]] = None,
+    # v3.1 新增
+    quarantine_records: Optional[Dict[str, Dict[str, Any]]] = None,
+    rescan_dead: Optional[Dict[str, int]] = None,
+    official_set: Optional[Set[str]] = None,
+    dry_run: bool = False,
+    supplement_verify: Optional[Dict[str, List[str]]] = None,
 ) -> Dict[str, Any]:
     tag = entry["tag"]
     output = entry["output"]
     kind = entry.get("kind", "geosite")
     print(f"\n== {tag} ({output}) ==")
+    today = dt.date.today()
+    today_str = today.isoformat()
+    check_dns = not skip_dns_verify
+    ctx = make_verify_ctx(entry, official_set or set(), check_dns=check_dns) if kind == "geosite" else None
 
     # 1) 合并上游
     buckets: List[Dict[str, Set[str]]] = []
@@ -577,22 +765,39 @@ def build_one(
                 f"{int(GUARD_MIN_RATIO * 100)}%，疑似上游异常，拒绝发布（确认无误可加 --no-guard 重跑）"
             )
 
+    # 1.5) 官方源（v3.1 §4）：厂商自己发布的机器可读列表，唯一无条件 admit，仍过 collapse/filter
+    official_added = 0
+    if kind == "geosite" and official_set:
+        off = {normalize_host(x) for x in official_set}
+        off = {x for x in off if x and "." in x and not _PUBLIC_SUFFIX_LIKE.match(x)}
+        merged["domain_suffix"] |= off
+        official_added = len(off)
+        print(f"  + 官方源 {official_added} apex（直接并入，仍过后续去重/过滤）")
+
     if supplement and (supplement["domain"] or supplement["domain_suffix"]):
         merged = merge_buckets([merged, supplement])
         print(f"  + 补充上游新增 {len(supplement['domain']) + len(supplement['domain_suffix'])} 条（已过黑名单与冲突过滤）")
 
+    # 2) 自动发现（v3.1）：seeds 直接并入（人工意图）；related 候选走验证电池
+    verification: Dict[str, Any] = {
+        "dry_run": dry_run,
+        "supplement": supplement_verify or {},
+        "discover": {"admit": [], "quarantine": [], "pending_review": [], "reject": []},
+        "official_admit": official_added,
+    }
     discover_stats: Dict[str, Any] = {"enabled": False}
-    dns_stats: Dict[str, Any] = {"checked": 0, "alive": 0, "dead": 0}
-    to_verify: Set[str] = set()
-
-    # 2) 自动发现（geosite + 有 seeds）
-    # 只关心：补上游缺失的 seed apex，以及 CT SAN 上的其它相关 apex
-    # 不再把「已被 domain_suffix 覆盖的子域」写成 domain 注水
     discovered_suffixes: Set[str] = set()
     discover_dropped = 0
+    seed_set: Set[str] = set()
+    records: Dict[str, Dict[str, Any]] = dict(quarantine_records or {})
     if kind == "geosite" and not skip_discover:
         print("  discover ...")
-        discovered = discover_for_output(output, refresh=refresh_discover)
+        discovered = discover_for_output(
+            output,
+            refresh=refresh_discover,
+            default_max_related=int(vcfg("discover_default_max_related") or 500),
+            ttl_days=float(vcfg("discover_cache_ttl_days") or 7),
+        )
         discover_stats = discovered["stats"]
         if discover_stats.get("enabled"):
             print(
@@ -600,90 +805,122 @@ def build_one(
                 f"raw={discover_stats['raw']} "
                 f"related_apex={discover_stats.get('related_apex', 0)}"
             )
+            seed_set = set(discovered.get("seeds") or [])
             before_suffix = set(merged["domain_suffix"])
+            before_exact = set(merged["domain"])
+            vd = verification["discover"]
             for s in discovered["domain_suffix"]:
                 s = normalize_host(s)
                 if not s:
                     continue
-                if covered_by_suffix(s, before_suffix):
-                    continue  # 上游已有更宽/同等覆盖
+                if s in before_exact or covered_by_suffix(s, before_suffix):
+                    continue  # 上游/补充/官方已有（精确或更宽覆盖），不是新候选
                 if _PUBLIC_SUFFIX_LIKE.match(s) or conflicts_with_other_sets(tag, s):
-                    discover_dropped += 1  # 公共后缀样式（如 com.ru）或属于/重叠其它集合（如 google.com 混进 YouTube）
+                    discover_dropped += 1  # 公共后缀样式或属于/重叠其它集合
                     continue
-                merged["domain_suffix"].add(s)
-                discovered_suffixes.add(s)
-                to_verify.add(s)
-            print(f"  discover new_suffix={len(discovered_suffixes)} 丢弃(公共后缀样式/与其它集合重叠)={discover_dropped}")
+                if s in seed_set:
+                    merged["domain_suffix"].add(s)  # seeds：人工意图，直接并入
+                    continue
+                decision, info = verify_candidate(s, ctx)
+                if decision == "reject":
+                    vd["reject"].append({"apex": s, "reason": info.get("reason")})
+                elif decision == "admit":
+                    merged["domain_suffix"].add(s)
+                    discovered_suffixes.add(s)
+                    vd["admit"].append(s)
+                else:
+                    records[s] = new_quarantine_record(s, decision, info, "ct", today_str)
+                    vd["pending_review" if decision == "pending_review" else "quarantine"].append(s)
+            print(f"  discover seeds 并入 {len(seed_set & merged['domain_suffix'])}/{len(seed_set)}；"
+                  f"related: admit={len(vd['admit'])} quarantine={len(vd['quarantine'])} "
+                  f"pending_review={len(vd['pending_review'])} reject={len(vd['reject'])} "
+                  f"丢弃(公共后缀/跨集合)={discover_dropped}")
         else:
             print("  discover (no seeds)")
 
-    # 2.5) 累积：近 N 天内被发现过、这次没被发现（证书查询偶尔漏返回）的域名，带回来，避免规则集忽大忽小
-    carried: Set[str] = set()
-    today = dt.date.today()
-    related_off = discover_stats.get("related_cap") == 0
-    if kind == "geosite" and not skip_discover and discover_stats.get("enabled") and prev_state and not related_off:
-        for h, last in prev_state.items():
-            if h in discovered_suffixes:
-                continue
-            try:
-                age = (today - dt.date.fromisoformat(last)).days
-            except ValueError:
-                continue
-            if age > STATE_RETENTION_DAYS:
-                continue
-            hh = normalize_host(h)
-            if not hh or covered_by_suffix(hh, set(merged["domain_suffix"])):
-                continue
-            if _PUBLIC_SUFFIX_LIKE.match(hh) or conflicts_with_other_sets(tag, hh):
-                continue
-            merged["domain_suffix"].add(hh)
-            carried.add(hh)
-        print(f"  discover 累积带回 {len(carried)} 条（近 {STATE_RETENTION_DAYS} 天内发现过、本次没发现）")
+    # 2.5) 上游新条目检查（v3.1 §6.3）：与上次发布 diff，新增条目过仿冒筛查 + DNS
+    prev_published: Set[str] = set()
+    upstream_new_report: Dict[str, Any] = {"new": 0, "suspicious": []}
+    if kind == "geosite":
+        prev_published = load_previous_set_entries(output, kind)
+    if kind == "geosite" and prev_published and ctx is not None:
+        cur_hosts = {h for h in (merged["domain"] | merged["domain_suffix"]) if h}
+        new_hosts = {h for h in cur_hosts - prev_published
+                     if not covered_by_suffix(h, merged["domain_suffix"] - {h})}
+        upstream_new_report["new"] = len(new_hosts)
+        mode_up = str(vcfg("upstream_check_mode") or "report")
+        if new_hosts and check_dns:
+            up_alive, _ = verify_hosts(new_hosts, workers=dns_workers)
+        else:
+            up_alive = set(new_hosts) if not check_dns else set()
+        for h in sorted(new_hosts):
+            rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"])
+            alive = h in up_alive
+            if rej or not alive:
+                upstream_new_report["suspicious"].append({"apex": h, "reason": rej or "dns_dead"})
+                if mode_up == "quarantine":
+                    merged["domain"].discard(h)
+                    merged["domain_suffix"].discard(h)
+                    records[h] = new_quarantine_record(
+                        h, "pending_review" if (rej and ctx["brand"] and ctx["brand"] in h) else "quarantine",
+                        {"reason": rej or "dns_dead", "dead": not alive, "signals": []},
+                        "upstream", today_str)
+        if upstream_new_report["suspicious"]:
+            print(f"  上游新条目：新增 {len(new_hosts)}，可疑 {len(upstream_new_report['suspicious'])}（模式={mode_up}）")
+    verification["upstream_new"] = upstream_new_report
 
-    # 3) 叠加覆盖（人工保底）
+    # 2.6) 迁移（v3.1 切换不断档）：上次发布中有、本轮上游/种子/官方都没有的条目
+    #      （即历史发现项），以"已验证"身份进隔离区；dry_run 下只累积不转正
+    if kind == "geosite" and prev_published:
+        cur_hosts = {h for h in (merged["domain"] | merged["domain_suffix"]) if h}
+        cur_hosts |= seed_set | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)}
+        qdays = int(vcfg("quarantine_days") or 14)
+        migrated = 0
+        for h in sorted(prev_published - cur_hosts):
+            if h in records:
+                continue
+            records[h] = {
+                "first_seen": today_str, "pending_review": False,
+                "consecutive_pass": qdays, "consecutive_dead": 0,
+                "last_check": today_str, "signals": ["migrated"],
+                "source": "migration", "reason": "v3.1 切换：上次发布中的历史发现项",
+            }
+            migrated += 1
+        if migrated:
+            print(f"  迁移 {migrated} 条历史发现项进隔离区（已验证身份）")
+
+    # 2.7) 隔离区更新（v3.1 §5.2）：全量重验 → 转正 / 保留 / 丢弃
+    #      先剔除已在可信来源（上游/seeds/官方/已放行补充）中的记录：它们不需要隔离
+    if kind == "geosite":
+        trusted_now = set(merged["domain"]) | set(merged["domain_suffix"])
+        for h in [h for h in records
+                  if h in trusted_now or covered_by_suffix(h, merged["domain_suffix"])]:
+            del records[h]
+        # 报告对齐：被可信来源覆盖的候选不再算隔离/待审（避免样本检查误报）
+        vd_rep = verification["discover"]
+        for sec in ("quarantine", "pending_review"):
+            vd_rep[sec] = [h for h in vd_rep[sec] if h in records]
+    qstats: Dict[str, int] = {"kept": 0, "promoted": 0, "dropped": 0, "pending_review": 0}
+    if kind == "geosite" and ctx is not None:
+        kept, promoted, qstats = update_quarantine_for_output(
+            records, ctx, dry_run, today_str, check_dns=check_dns, dns_workers=dns_workers)
+        records = kept
+        if promoted:
+            merged["domain_suffix"] |= promoted
+            print(f"  隔离区转正 {len(promoted)} 条并入")
+        print(f"  隔离区：保留 {qstats['kept']} / 待审 {qstats['pending_review']} / "
+              f"转正 {qstats['promoted']} / 丢弃 {qstats['dropped']}")
+    verification["quarantine"] = qstats
+
+    # 3) 叠加覆盖（人工保底，最高优先级不变）
     overlay_path = OVERLAY_DIR / f"{output}.json"
     overlay_new: Set[str] = set()
     if overlay_path.exists():
         overlay_new = apply_overlay(merged, load_json(overlay_path))
-        to_verify |= overlay_new
         print(f"  overlay {overlay_path.name} -> items={count_items(merged)} new={len(overlay_new)}")
     else:
         print("  overlay (none)")
-
-    # 4) DNS 验证：只验证「新 suffix / overlay 新增」
-    # domain_suffix 即使 apex 自身无 A 记录也常仍有效，故仅对「发现到的新 apex」在 dead 时剔除；
-    # overlay 保底项保留（人工意图优先）。
-    if kind == "geosite" and not skip_dns_verify and to_verify:
-        print(f"  dns-verify candidates={len(to_verify)} workers={dns_workers}")
-        alive, dead = verify_hosts(to_verify, workers=dns_workers)
-        dns_stats = summarize(alive, dead)
-        print(f"  dns-verify alive={dns_stats['alive']} dead={dns_stats['dead']}")
-
-        for d in dead:
-            host = normalize_host(d)
-            if host in discovered_suffixes and host not in overlay_new:
-                merged["domain_suffix"].discard(host)
-                merged["domain"].discard(host)
-
-        if dead:
-            dead_path = dist_dir / f"{output}.dead.json"
-            dist_dir.mkdir(parents=True, exist_ok=True)
-            dead_path.write_text(
-                json.dumps(sorted(dead), ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
-    elif skip_dns_verify:
-        print("  dns-verify skipped")
-
-    # 4.5) 本次要保存的发现状态
-    if kind == "geosite" and not skip_discover and discover_stats.get("enabled"):
-        new_state = {} if related_off else {h: today.isoformat() for h in discovered_suffixes if h in merged["domain_suffix"]}  # 相关域名关闭时清空旧状态（含历史上混进来的）
-        for h in carried:
-            if h in merged["domain_suffix"] and h in (prev_state or {}):
-                new_state[h] = (prev_state or {})[h]
-        discover_stats["carried"] = len(carried)
-    else:
-        new_state = dict(prev_state or {})  # 没跑发现就原样保留，绝不清空
+    # 注：v3.1 里旧的「发现项 DNS 验证剔除」已由验证电池替代；overlay 保底项保留（人工意图优先）。
 
     # 5) 覆盖去重：去掉已被 domain_suffix 覆盖的精确 domain / 冗余长 suffix
     merged, collapse_stats = collapse_bucket(merged)
@@ -697,6 +934,57 @@ def build_one(
     # 6) 过滤
     filtered = apply_filters(merged, filters)
     print(f"  filter items={count_items(filtered)}")
+
+    # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
+    #      seeds / 官方源是人工/厂商意图，不在抽查池里
+    rescan_stats: Dict[str, Any] = {"sampled": 0, "impersonation_hit": [], "dns_dead_moved": []}
+    rescan_dead_out = dict(rescan_dead or {})
+    if kind == "geosite" and ctx is not None:
+        trusted = set(seed_set) | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)}
+        pool = sorted((filtered["domain"] | filtered["domain_suffix"]) - trusted)
+        n = min(int(vcfg("rescan_daily_sample") or 50),
+                int(len(pool) * float(vcfg("rescan_daily_ratio") or 0.05)))
+        if n > 0 and pool:
+            rng = random.Random(f"{today_str}:{output}")  # 当天确定性抽样，可复现
+            sample = rng.sample(pool, min(n, len(pool)))
+            rescan_stats["sampled"] = len(sample)
+            rescan_drop_dead = int(vcfg("quarantine_rescan_days_dead") or 3)
+            clean: List[str] = []
+            for h in sample:
+                rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"])
+                if rej:
+                    filtered["domain"].discard(h)
+                    filtered["domain_suffix"].discard(h)
+                    records[h] = new_quarantine_record(
+                        h, "quarantine", {"reason": f"rescan:{rej}", "signals": []}, "rescan", today_str)
+                    rescan_stats["impersonation_hit"].append(h)
+                    rescan_dead_out.pop(h, None)
+                else:
+                    clean.append(h)
+            if clean:
+                if check_dns:
+                    _, rescan_dead_hosts = verify_hosts(set(clean), workers=dns_workers)
+                else:
+                    rescan_dead_hosts = set()
+                for h in clean:
+                    if h in rescan_dead_hosts:
+                        d = int(rescan_dead_out.get(h, 0)) + 1
+                        if d >= rescan_drop_dead:
+                            filtered["domain"].discard(h)
+                            filtered["domain_suffix"].discard(h)
+                            records[h] = new_quarantine_record(
+                                h, "quarantine", {"reason": "rescan:dns_dead", "dead": True, "signals": []},
+                                "rescan", today_str)
+                            rescan_stats["dns_dead_moved"].append(h)
+                            rescan_dead_out.pop(h, None)
+                        else:
+                            rescan_dead_out[h] = d
+                    else:
+                        rescan_dead_out.pop(h, None)
+            if rescan_stats["impersonation_hit"] or rescan_stats["dns_dead_moved"]:
+                print(f"  存量抽查：仿冒命中 {len(rescan_stats['impersonation_hit'])} / "
+                      f"DNS 死亡打回 {len(rescan_stats['dns_dead_moved'])}")
+    verification["rescan"] = rescan_stats
 
     # 7) 生成
     payload = bucket_to_ruleset(filtered, rule_set_version)
@@ -713,13 +1001,16 @@ def build_one(
         "kind": kind,
         "items": count_items(filtered),
         "upstream_items": upstream_items,
-        "state": new_state,
+        "state": {},  # v3.1：相关域名改由 state/quarantine.json 持久化，此处留空
         "srs": str(srs_path.relative_to(ROOT)),
         "counts": {k: len(filtered[k]) for k in LIST_KEYS if filtered[k]},
         "discover": discover_stats,
-        "dns_verify": dns_stats,
+        "dns_verify": {"checked": 0, "alive": 0, "dead": 0, "note": "v3.1 起由验证电池替代"},
         "collapse": collapse_stats,
         "new_suffix_from_discover": len(discovered_suffixes),
+        "verification": verification,
+        "quarantine_records": records,
+        "rescan_dead_out": rescan_dead_out,
     }
 
 
@@ -729,7 +1020,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--refresh", action="store_true", help="清空上游 cache 并重新发现")
     p.add_argument("--source-only", action="store_true", help="只拉 JSON 源，跳过 binary 反编译")
     p.add_argument("--skip-discover", action="store_true", help="跳过 CT 自动发现")
-    p.add_argument("--skip-dns-verify", action="store_true", help="跳过 DNS 存活验证")
+    p.add_argument("--skip-dns-verify", action="store_true",
+                   help="跳过 DNS 存活验证（仅本地调试用：验证电池/隔离区/抽查中的 DNS 一律视为存活，生产勿用）")
     p.add_argument("--dns-workers", type=int, default=32, help="DNS 验证并发数")
     p.add_argument("--no-guard", action="store_true", help="关闭「上游条目数骤降」保护（确认上游确实缩水时用）")
     return p.parse_args()
@@ -747,28 +1039,110 @@ def main() -> int:
         return 1
 
     if args.refresh and CACHE_DIR.exists():
+        # v3.1：--refresh 只清空上游缓存，保留 cache/discover（独立 7 天 TTL，见 verify.json）
+        disc = CACHE_DIR / "discover"
+        tmp = None
+        if disc.exists():
+            tmp = Path(tempfile.mkdtemp()) / "discover"
+            shutil.move(str(disc), str(tmp))
         shutil.rmtree(CACHE_DIR)
-        print("已清空 cache")
+        if tmp is not None:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(tmp), str(disc))
+        print("已清空上游 cache（discover 缓存保留，按 TTL 失效）")
+
+    dry_run = bool(vcfg("dry_run"))
+    if dry_run:
+        print("\n!! verify.json dry_run=true：验证决策只记录进报告，不改变发布内容（Phase 0 report-only）")
+
+    # v3.1 §4 官方源：厂商自己发布的机器可读列表，唯一无条件 admit
+    print("\n== 官方源 ==")
+    official: Dict[str, Set[str]] = {}
+    for output, fetcher in OFFICIAL_SOURCES.items():
+        try:
+            official[output] = set(fetcher())
+            print(f"  {output}: {len(official[output])} apex")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  ! 官方源 {output} 失败，本轮跳过（不阻断）: {exc}")
+            official[output] = set()
+
+    # v3.1 §5.1 隔离区状态：上次发布的 state/quarantine.json
+    prev_quarantine_all = load_quarantine()
+    prev_quarantine = prev_quarantine_all.get("entries") or {}
+    prev_rescan_dead = prev_quarantine_all.get("rescan_dead") or {}
 
     only: Optional[Set[str]] = set(args.only) if args.only else None
     summaries: List[Dict[str, Any]] = []
     previous_counts = {} if args.no_guard else load_previous_upstream_counts()
-    prev_state_all = load_previous_state()
-    blacklist = load_json(ROOT / "blacklist.json").get("shared_infrastructure_apex") if (ROOT / "blacklist.json").exists() else []
+    # v3.1：旧的 discovered-state 累积机制已由隔离区替代，不再读取
+    bl_data = load_json(ROOT / "blacklist.json") if (ROOT / "blacklist.json").exists() else {}
+    blacklist = list(bl_data.get("shared_infrastructure_apex") or []) + list(bl_data.get("auto_blacklisted_apex") or [])
     print("\n== 计算补充上游（黑名单 + 冲突过滤）==")
-    supplements = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
-    mode = str(defaults.get("supplement_mode", "allowlist"))
+    supplements_raw = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
+
+    # v3.1 §6.6 自动黑名单：被 ≥2 个集合的补充上游同时要的第三方域，记入 auto 段
+    auto_bl = set()
+    for hosts in _AMBIGUOUS.values():
+        auto_bl |= hosts
+    if auto_bl:
+        bl_data["auto_blacklisted_apex"] = sorted(set(bl_data.get("auto_blacklisted_apex") or []) | auto_bl)
+        (ROOT / "blacklist.json").write_text(json.dumps(bl_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"  自动黑名单 +{len(auto_bl)} 条（累计 {len(bl_data['auto_blacklisted_apex'])}，已写入 blacklist.json 的 auto 段）")
+
+    mode = str(vcfg("supplement_mode") or "verify")
     allow_all = load_json(ROOT / "supplement_allow.json") if (ROOT / "supplement_allow.json").exists() else {}
+    supplements: Dict[str, Dict[str, Set[str]]] = {}
+    supplement_report: Dict[str, Dict[str, List[str]]] = {}
+    quarantine_new: Dict[str, Dict[str, Dict[str, Any]]] = {}  # output -> {apex: record}
+    today_str = dt.date.today().isoformat()
     if mode == "allowlist":
         for e in catalog.get("rulesets") or []:
             t = e["tag"]
-            if t not in supplements:
+            if t not in supplements_raw:
                 continue
+            bkt = empty_bucket()
             ok = set(allow_all.get(e["output"]) or [])
             for kk in ("domain", "domain_suffix"):
-                supplements[t][kk] = {x for x in supplements[t][kk] if x in ok}
-            print(f"  [{t}] 白名单模式：并入 {len(supplements[t]['domain']) + len(supplements[t]['domain_suffix'])} 条")
+                bkt[kk] = {x for x in supplements_raw[t][kk] if x in ok}
+            supplements[t] = bkt
+            print(f"  [{t}] 白名单模式：并入 {len(bkt['domain']) + len(bkt['domain_suffix'])} 条")
+    elif mode == "verify":
+        print("  补充上游为 verify 模式：候选过验证电池（supplement_allow.json 降级为手工 override）")
+        for e in catalog.get("rulesets") or []:
+            t, out = e["tag"], e["output"]
+            if t not in supplements_raw:
+                continue
+            ctx = make_verify_ctx(e, official.get(out, set()), check_dns=not args.skip_dns_verify)
+            bkt = empty_bucket()
+            rep: Dict[str, List[str]] = {"admit": [], "quarantine": [], "pending_review": [], "reject": []}
+            allow_ok = set(allow_all.get(out) or [])
+            for kk in ("domain", "domain_suffix"):
+                for h in sorted(supplements_raw[t][kk]):
+                    # 人工 override 优先级最高（写死）：allowlist 里的直接放行，不走验证电池
+                    if not dry_run and h in allow_ok:
+                        bkt[kk].add(h)
+                        rep["admit"].append(h)
+                        continue
+                    decision, info = verify_candidate(h, ctx)
+                    rep[decision].append(h)
+                    if decision == "reject":
+                        continue
+                    if dry_run:
+                        # report-only：实际并入仍走旧白名单，验证决策只记录
+                        if h in allow_ok:
+                            bkt[kk].add(h)
+                    elif decision == "admit":
+                        bkt[kk].add(h)
+                    else:  # quarantine / pending_review → 进隔离区，本轮不并入
+                        quarantine_new.setdefault(out, {})[h] = new_quarantine_record(
+                            h, decision, info, "supplement", today_str)
+            supplements[t] = bkt
+            supplement_report[t] = rep
+            print(f"  [{t}] verify: admit={len(rep['admit'])} quarantine={len(rep['quarantine'])} "
+                  f"pending_review={len(rep['pending_review'])} reject={len(rep['reject'])}"
+                  + ("（dry_run：实际并入走旧白名单）" if dry_run else ""))
     else:
+        supplements = supplements_raw
         print("  补充上游为 auto 模式：并入全部通过黑名单与冲突过滤的条目")
 
     for entry in catalog.get("rulesets") or []:
@@ -789,20 +1163,45 @@ def main() -> int:
             previous_counts=previous_counts,
             guard=not args.no_guard,
             supplement=supplements.get(entry["tag"]),
-            prev_state=prev_state_all.get(entry["output"]),
+            prev_state=None,  # v3.1：旧累积机制已由隔离区替代
+            # v3.1 新增
+            quarantine_records={**(prev_quarantine.get(entry["output"]) or {}),
+                                **(quarantine_new.get(entry["output"]) or {})},
+            rescan_dead=dict(prev_rescan_dead.get(entry["output"]) or {}),
+            official_set=official.get(entry["output"], set()),
+            dry_run=dry_run,
+            supplement_verify=supplement_report.get(entry["tag"]),
         )
         summaries.append(summary)
 
-    state_out = {x["output"]: x.get("state") or {} for x in summaries if x.get("kind", "geosite") == "geosite"}
-    for o, v in prev_state_all.items():  # 本次没处理的集合（如 --only 只跑部分）也原样保留
-        state_out.setdefault(o, v)
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     (DIST_DIR / "discovered-state.json").write_text(
-        json.dumps({"version": 1, "retention_days": STATE_RETENTION_DAYS,
-                    "updated": dt.date.today().isoformat(), "entries": {k: dict(sorted(v.items())) for k, v in sorted(state_out.items())}},
+        json.dumps({"version": 1,
+                    "note": "v3.1 起相关域名改由 state/quarantine.json 持久化，此文件仅保留占位",
+                    "updated": dt.date.today().isoformat(), "entries": {}},
+                   ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    # v3.1 §5.1：隔离区状态发布（state/quarantine.json），下次构建读回
+    quarantine_out: Dict[str, Dict[str, Any]] = {}
+    rescan_dead_out: Dict[str, Dict[str, int]] = {}
+    for x in summaries:
+        q = x.get("quarantine_records")
+        if isinstance(q, dict):
+            quarantine_out[x["output"]] = q
+        rd = x.get("rescan_dead_out")
+        if isinstance(rd, dict):
+            rescan_dead_out[x["output"]] = rd
+    for o, v in (prev_quarantine or {}).items():  # 本次没处理的集合原样保留
+        quarantine_out.setdefault(o, v)
+    for o, v in (prev_rescan_dead or {}).items():
+        rescan_dead_out.setdefault(o, v)
+    (DIST_DIR / "quarantine-state.json").write_text(
+        json.dumps({"version": 1, "updated": dt.date.today().isoformat(),
+                    "entries": quarantine_out, "rescan_dead": rescan_dead_out},
                    ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     for x in summaries:
         x.pop("state", None)  # build-report 里不放状态，避免膨胀
+        x.pop("quarantine_records", None)
+        x.pop("rescan_dead_out", None)
     report = DIST_DIR / "build-report.json"
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(summaries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -810,6 +1209,7 @@ def main() -> int:
     for s in summaries:
         disc = s.get("discover") or {}
         col = s.get("collapse") or {}
+        ver = s.get("verification") or {}
         extra = ""
         if disc.get("enabled"):
             extra = (
@@ -817,6 +1217,10 @@ def main() -> int:
                 f" related_apex={disc.get('related_apex', 0)}"
                 f" collapse_drop_domain={col.get('domain_dropped', 0)}"
             )
+        if ver:
+            q = ver.get("quarantine") or {}
+            extra += (f" | 隔离:转正{q.get('promoted', 0)}"
+                      f"/待审{q.get('pending_review', 0)}/保留{q.get('kept', 0)}")
         print(f"  - {s['tag']}: {s['items']} items → {s['srs']}{extra}")
     return 0
 
