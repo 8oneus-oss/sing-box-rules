@@ -21,6 +21,9 @@ on:
       - "publish_layout.py"
       - "check_samples.py"
       - "samples.json"
+      - "verify.py"
+      - "official_lists.py"
+      - "verify.json"
       - ".github/workflows/publish.yml"
 
 permissions:
