@@ -9,10 +9,10 @@
   },
   "remove": {
     "domain_suffix": [
-
+      "analytics.tiktok.com"
     ],
     "domain": [
-
+      "analytics.tiktok.com"
     ]
   }
 }
