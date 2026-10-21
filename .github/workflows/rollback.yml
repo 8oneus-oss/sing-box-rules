@@ -1,0 +1,35 @@
+name: Rollback rule-set
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "回滚目标：填 rule-set 分支的 commit SHA，或填 previous 回到上一个提交"
+        required: true
+        default: "previous"
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout rule-set branch
+        uses: actions/checkout@v4
+        with:
+          ref: rule-set
+          fetch-depth: 20
+
+      - name: Reset to target
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.target }}" = "previous" ]; then
+            TARGET=$(git rev-parse HEAD~1)
+          else
+            TARGET="${{ inputs.target }}"
+          fi
+          echo "回滚到: $TARGET"
+          git rev-parse --verify "$TARGET^{commit}" >/dev/null
+          git reset --hard "$TARGET"
+          git log --oneline -3
+
+      - name: Force-push rule-set branch
+        run: git push --force-with-lease origin HEAD:rule-set

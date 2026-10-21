@@ -132,5 +132,5 @@ python3 check_samples.py
 
 - 官方更新是否滞后，没有长期数据证明；目前能确认的是：官方条目 0 丢失，另有一批官方没有的域名被接住。
 - 验证电池是精确率优先：合法新域名可能被隔离几天才转正；`pending_review` 需要人工看。自动验证回答"像不像这家厂商"，回答不了"该不该走这个出口"——那是你的 sing-box 配置（规则顺序）决定的，本仓库不提供配置。
-- 发布分支每次整体覆盖，没有历史版本可回滚（回滚方案待定）。
+- 发布分支保留历史（不再 force_orphan）：坏发布可一键回滚——Actions → Rollback rule-set → Run workflow，默认回到上一个提交，或填指定的 commit SHA。
 - 上游（MetaCubeX/SagerNet/v2fly/blackmatrix7/SukkaW）和证书透明度 API 的质量、稳定性不在本仓库控制内。

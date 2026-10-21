@@ -79,6 +79,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./publish-out
           publish_branch: rule-set
-          force_orphan: true
+          # 不再 force_orphan：保留历史，回滚时直接 reset 到上一个提交（见 rollback.yml）
           enable_jekyll: true
           commit_message: "chore: update rule-set"
