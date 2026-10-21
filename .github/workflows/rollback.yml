@@ -8,6 +8,9 @@ on:
         required: true
         default: "previous"
 
+permissions:
+  contents: write  # 需要 force-push rule-set 分支（仓库默认 workflow 权限是 read）
+
 jobs:
   rollback:
     runs-on: ubuntu-latest
