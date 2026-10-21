@@ -34,7 +34,7 @@
 | 上游新条目检查 | 与上次发布 diff，新增条目过仿冒筛查 + DNS（默认只报告，`upstream_check_mode`） |
 | 存量抽查复验 | 每天抽查已发布条目（5%/50 个），DNS 死亡的进隔离区 |
 | 加载校验 | 每个 `.srs` 用 `sing-box check` + `decompile` 校验 |
-| 样本检查 | `check_samples.py` 按 `samples.json` 检查"该命中的命中、不该命中的不命中"，外加"验证隔离/待审/拒绝的条目不得出现在产物中"（人工 overlay 豁免）；任何一条不符就停止发布 |
+| 样本检查 | `check_samples.py` 按 `samples.json` 检查"该命中的命中、不该命中的不命中"，外加"验证隔离/待审/拒绝的条目不得出现在产物中"（人工 overlay 豁免）+"人工 overlay 的每一条必须出现在产物中"（`overlay_must_hit`，防手写清单被误删）；任何一条不符就停止发布 |
 
 `verify.json` 的 `dry_run: true` 时为观察模式：验证决策只记录进 `build-report.json`，不改变发布内容。
 
@@ -66,6 +66,12 @@ https://raw.githubusercontent.com/8oneus-oss/sing-box-rules/rule-set/
 | Binance / Bybit / OKX / Gate.io | `geosite/<name>.srs` |
 | 中国大陆域名 | `geosite/geolocation-cn.srs` |
 | 中国大陆IP | `geoip/cn.srs` |
+| 美国域名（人工） | `geosite/us-domains.srs` |
+| 新加坡域名（人工） | `geosite/sg-domains.srs` |
+| 美国大流量CDN（人工） | `geosite/us-cdn.srs` |
+| 苹果微软下载直连（人工） | `geosite/dl-direct.srs` |
+
+> 人工清单（us-domains/sg-domains/us-cdn/dl-direct）只允许人工维护，不做自动发现；其中 us-cdn 与 Meta/Twitter、dl-direct 与 Apple/Microsoft/大陆域名有少量重叠，走向靠你 sing-box 模板里的规则顺序决定。
 
 ```json
 {
@@ -83,7 +89,7 @@ https://raw.githubusercontent.com/8oneus-oss/sing-box-rules/rule-set/
 catalog.json            构建哪些规则集、上游地址（role: supplement 为补充上游）
 verify.json             验证电池阈值（隔离天数、dry_run 开关等），改阈值不用改代码
 seeds/                  种子主域名（直接并入，人工意图）
-overlays/               人工增删（add / remove），最高优先级
+overlays/               人工增删（add / remove），最高优先级；us-domains/sg-domains/us-cdn/dl-direct 四个纯人工清单也在此目录（详见 overlays/README.md）
 blacklist.json          补充上游的共享基础设施黑名单
 supplement_allow.json   人工 override（直接放行，最高优先级）
 samples.json            发布前样本清单（must_hit / must_not_hit）
@@ -104,6 +110,7 @@ test_verify.py          验证电池单元测试
 |---|---|
 | 上游缺某个厂商根域 | `seeds/<name>.json` 的 `seeds` |
 | 强制加入 / 删除某个域名 | `overlays/<name>.json` 的 `add` / `remove` |
+| 改四个纯人工清单（美/新/CDN/下载直连） | 直接编辑 `overlays/us-domains.json` 等的 `add.domain_suffix`（详见 `overlays/README.md`），金融类宁缺毋滥 |
 | 放行某个被隔离/待审的条目 | `supplement_allow.json`（人工 override，直接放行） |
 | 调验证严格程度 | `verify.json` 的阈值（隔离天数、仿冒距离等） |
 | 关掉观察模式正式启用 | `verify.json` 的 `dry_run` 改 `false` |
