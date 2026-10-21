@@ -45,6 +45,7 @@ def main() -> int:
     must_hit: Dict[str, List[str]] = cfg.get("must_hit", {})
     must_not_hit: Dict[str, List[str]] = cfg.get("must_not_hit", {})
     miss_all: List[str] = cfg.get("must_miss_everywhere", [])
+    overlay_must_hit: List[str] = cfg.get("overlay_must_hit", [])
 
     failures: List[str] = []
     checked = 0
@@ -116,6 +117,21 @@ def main() -> int:
                 if x:
                     out.add(x)
         return out
+
+    # 人工 overlay 完整性：overlays/<o>.json 里 add 的每一条，必须出现在产物里。
+    # 防止手写清单（银行/券商/支付等）在构建过程中被过滤、折叠或误删而无人察觉。
+    for name in overlay_must_hit:
+        ov_file = ROOT / "overlays" / f"{name}.json"
+        if not ov_file.is_file():
+            failures.append(f"[缺 overlay] 找不到 overlays/{name}.json")
+            continue
+        p = srs_of(name)
+        if p is None:
+            continue
+        for d in sorted(overlay_added(name)):
+            checked += 1
+            if hit(p, d) is False:
+                failures.append(f"[人工条目缺失] {d} 写在 overlays/{name}.json 的 add 里，但产物 {name} 没命中")
 
     report_path = dist / "build-report.json"
     if report_path.is_file():

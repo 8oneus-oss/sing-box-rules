@@ -365,6 +365,30 @@
      "format": "binary"
     }
    ]
+  },
+  {
+   "tag": "美国域名",
+   "output": "us-domains",
+   "kind": "geosite",
+   "upstreams": []
+  },
+  {
+   "tag": "新加坡域名",
+   "output": "sg-domains",
+   "kind": "geosite",
+   "upstreams": []
+  },
+  {
+   "tag": "美国大流量CDN",
+   "output": "us-cdn",
+   "kind": "geosite",
+   "upstreams": []
+  },
+  {
+   "tag": "苹果微软下载直连",
+   "output": "dl-direct",
+   "kind": "geosite",
+   "upstreams": []
   }
  ]
 }
