@@ -1103,7 +1103,7 @@
    "officeppe.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1115,7 +1115,7 @@
    "whiteboard.ms": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1134,7 +1134,7 @@
    "gaze.red": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1146,7 +1146,7 @@
    "gaze.show": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1158,7 +1158,7 @@
    "gazes.store": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1170,7 +1170,7 @@
    "gazes.top": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1185,7 +1185,7 @@
    "adspower.net": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1198,7 +1198,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1209,7 +1209,7 @@
    "ally.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1221,7 +1221,7 @@
    "allybank.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1233,7 +1233,7 @@
    "americanexpress.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1245,7 +1245,7 @@
    "bankofamerica.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1258,7 +1258,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1269,7 +1269,7 @@
    "braintreegateway.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1281,7 +1281,7 @@
    "braintreepayments.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1293,7 +1293,7 @@
    "capitalone.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1305,7 +1305,7 @@
    "capitalone360.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1317,7 +1317,7 @@
    "cash.app": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1329,7 +1329,7 @@
    "cash.me": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1341,7 +1341,7 @@
    "chase.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1353,7 +1353,7 @@
    "citi.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1365,7 +1365,7 @@
    "citibank.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1377,7 +1377,7 @@
    "discover.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1389,7 +1389,7 @@
    "earlywarning.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1401,7 +1401,7 @@
    "fidelity.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1413,7 +1413,7 @@
    "ibkr.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1425,7 +1425,7 @@
    "id.me": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1437,7 +1437,7 @@
    "interactivebrokers.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1449,7 +1449,7 @@
    "irs.gov": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1461,7 +1461,7 @@
    "issquareup.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1473,7 +1473,7 @@
    "link.co": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1485,7 +1485,7 @@
    "link.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1497,7 +1497,7 @@
    "merrilledge.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1509,7 +1509,7 @@
    "ml.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1522,7 +1522,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1533,7 +1533,7 @@
    "paypal.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1545,7 +1545,7 @@
    "paypal.me": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1557,7 +1557,7 @@
    "paypalobjects.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1569,7 +1569,7 @@
    "plaid.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1582,7 +1582,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1593,7 +1593,7 @@
    "pnc.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1605,7 +1605,7 @@
    "py.pl": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1617,7 +1617,7 @@
    "schwab.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1629,7 +1629,7 @@
    "square.site": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1641,7 +1641,7 @@
    "squarecdn.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1654,7 +1654,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1665,7 +1665,7 @@
    "squareup.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1677,7 +1677,7 @@
    "stripe.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1689,7 +1689,7 @@
    "stripe.network": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1701,7 +1701,7 @@
    "stripeassets.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1713,7 +1713,7 @@
    "stripecdn.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1725,7 +1725,7 @@
    "talkatone.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1737,7 +1737,7 @@
    "tktn.at": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1749,7 +1749,7 @@
    "tktn.be": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1762,7 +1762,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1773,7 +1773,7 @@
    "usbank.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1785,7 +1785,7 @@
    "venmo.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1798,7 +1798,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -1809,7 +1809,7 @@
    "wellsfargo.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1821,7 +1821,7 @@
    "wellsfargoadvisors.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1833,7 +1833,7 @@
    "zelle.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1845,7 +1845,7 @@
    "zellepay.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1859,7 +1859,7 @@
    "dbs.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1871,7 +1871,7 @@
    "dbs.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1883,7 +1883,7 @@
    "fsmone.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1895,7 +1895,7 @@
    "fsmone.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1907,7 +1907,7 @@
    "ifastgb.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1919,7 +1919,7 @@
    "ifastgm.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1931,7 +1931,7 @@
    "itiger.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1943,7 +1943,7 @@
    "moomoo.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1955,7 +1955,7 @@
    "moomoo.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1967,7 +1967,7 @@
    "ocbc.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1979,7 +1979,7 @@
    "ocbc.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -1991,7 +1991,7 @@
    "posb.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2003,7 +2003,7 @@
    "tigerbrokers.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2015,7 +2015,7 @@
    "transferwise.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2027,7 +2027,7 @@
    "uob.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2039,7 +2039,7 @@
    "uob.com.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2051,7 +2051,7 @@
    "usmart.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2063,7 +2063,7 @@
    "usmart.sg": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2075,7 +2075,7 @@
    "wise.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2090,7 +2090,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -2101,7 +2101,7 @@
    "fbcdn.net": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2113,7 +2113,7 @@
    "googlevideo.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2126,7 +2126,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -2140,7 +2140,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -2152,7 +2152,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -2163,7 +2163,7 @@
    "mzstatic.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2175,7 +2175,7 @@
    "swcdn.apple.com": {
     "first_seen": "2026-10-21",
     "pending_review": false,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
     "last_check": "2026-10-21",
     "signals": [
@@ -2188,7 +2188,7 @@
     "first_seen": "2026-10-21",
     "pending_review": false,
     "consecutive_pass": 7,
-    "consecutive_dead": 1,
+    "consecutive_dead": 2,
     "last_check": "2026-10-21",
     "signals": [
      "migrated"
@@ -2201,93 +2201,92 @@
  "rescan_dead": {
   "youtube": {},
   "google": {
-   "google-syndication.com": 1
+   "google-syndication.com": 2
   },
   "ai": {
-   "comfyci.org": 1
+   "comfyci.org": 2
   },
   "meta": {
-   "tfbnw.net": 1,
-   "fbrpms.com": 1
+   "tfbnw.net": 2,
+   "fbrpms.com": 2
   },
   "apple": {
-   "cheapbeatsbydreoutlet.com": 1,
-   "drebeatspill.com": 1,
-   "beats-bydrestore.com": 1,
-   "sulwerphoto.com": 1,
-   "itunes-apple.cn": 1,
-   "applepay.jp": 1,
-   "beatsbydrsmonsterinusa.com": 1,
-   "cozydrdrebeats.com": 1,
-   "applestor.com": 1,
-   "cheapdrdrebeatsca.com": 1,
-   "apple-usa.net": 1,
-   "airmay.com": 1,
-   "2013cheapestbeats.com": 1,
-   "ios-icloud.com": 1,
-   "iphoto.wang": 1,
-   "launchpad.wang": 1,
-   "dreprofy.com": 1,
-   "rbsgr.com": 1,
-   "iphone-x.tv": 1,
-   "buydrdrebeatbox.com": 1,
-   "pocketbiketrader.com": 1,
-   "appleappstore.tv": 1,
-   "applepaycash.tv": 1,
-   "beatsbydre4usales.com": 1,
-   "shopdrebeats.com": 1,
-   "cheapheadphonesland.com": 1,
-   "cooliphonecasesstore.com": 1,
-   "musickit.net": 1,
-   "headphones-dre.com": 1,
-   "beats-bydreoutletssale.net": 1
+   "cheapbeatsbydreoutlet.com": 2,
+   "drebeatspill.com": 2,
+   "beats-bydrestore.com": 2,
+   "sulwerphoto.com": 2,
+   "itunes-apple.cn": 2,
+   "applepay.jp": 2,
+   "beatsbydrsmonsterinusa.com": 2,
+   "cozydrdrebeats.com": 2,
+   "applestor.com": 2,
+   "cheapdrdrebeatsca.com": 2,
+   "apple-usa.net": 2,
+   "2013cheapestbeats.com": 2,
+   "ios-icloud.com": 2,
+   "iphoto.wang": 2,
+   "launchpad.wang": 2,
+   "dreprofy.com": 2,
+   "rbsgr.com": 2,
+   "iphone-x.tv": 2,
+   "buydrdrebeatbox.com": 2,
+   "pocketbiketrader.com": 2,
+   "appleappstore.tv": 2,
+   "applepaycash.tv": 2,
+   "beatsbydre4usales.com": 2,
+   "shopdrebeats.com": 2,
+   "cheapheadphonesland.com": 2,
+   "cooliphonecasesstore.com": 2,
+   "musickit.net": 2,
+   "headphones-dre.com": 2,
+   "beats-bydreoutletssale.net": 2
   },
   "github": {},
   "microsoft": {
-   "azchcdnp.com": 1,
-   "msauth.cn": 1,
-   "masalladeloslimites.com": 1,
-   "azure-dns.net": 1,
-   "azchcdng.com": 1,
-   "nelreports.net": 1,
-   "azure-dns.org": 1,
-   "azchcdnf.com": 1,
-   "live.net": 1
+   "azchcdnp.com": 2,
+   "msauth.cn": 2,
+   "masalladeloslimites.com": 2,
+   "azure-dns.net": 2,
+   "azchcdng.com": 2,
+   "nelreports.net": 2,
+   "azure-dns.org": 2,
+   "azchcdnf.com": 2,
+   "live.net": 2
   },
   "twitter": {
-   "twitterstat.us": 1
+   "twitterstat.us": 2
   },
   "binance": {
-   "binance.net": 1,
-   "bmwweb.solutions": 1
+   "binance.net": 2,
+   "bmwweb.solutions": 2
   },
   "bybit": {},
   "okx": {},
   "gateio": {},
   "geolocation-cn": {
-   "jdcloudvideo.net": 1,
-   "xiaomidns.cn": 1,
-   "bytelb.net": 1,
-   "chinanetcenter.com": 1,
-   "ccbfutures.cn": 1,
-   "ckxx.net": 1,
-   "km8g.cn": 1,
-   "toscdn.com": 1,
-   "yzcdn.cn": 1,
-   "volccdn1.com": 1,
-   "xa-bank.com": 1,
-   "cdnhwcxcy07.com": 1,
-   "vecloudgame.com": 1,
-   "abhouses.com": 1,
-   "bytedgames.com": 1,
-   "jclouddns.net": 1,
-   "meegobeta.com": 1,
-   "feishuimg-pre.com": 1,
-   "ruan8.com": 1,
-   "muwai.com": 1,
-   "appjiagu.com": 1,
-   "jvoice.cn": 1,
-   "azchcdnf.com": 1
+   "jdcloudvideo.net": 2,
+   "xiaomidns.cn": 2,
+   "bytelb.net": 2,
+   "chinanetcenter.com": 2,
+   "ccbfutures.cn": 2,
+   "ckxx.net": 2,
+   "km8g.cn": 2,
+   "toscdn.com": 2,
+   "yzcdn.cn": 2,
+   "volccdn1.com": 2,
+   "xa-bank.com": 2,
+   "cdnhwcxcy07.com": 2,
+   "vecloudgame.com": 2,
+   "abhouses.com": 2,
+   "bytedgames.com": 2,
+   "jclouddns.net": 2,
+   "meegobeta.com": 2,
+   "feishuimg-pre.com": 2,
+   "ruan8.com": 2,
+   "muwai.com": 2,
+   "appjiagu.com": 2,
+   "jvoice.cn": 2,
+   "azchcdnf.com": 2
   },
   "geoip-cn": {},
   "us-domains": {},
