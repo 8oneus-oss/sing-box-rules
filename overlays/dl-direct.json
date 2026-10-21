@@ -1,0 +1,11 @@
+{
+  "add": {
+    "domain_suffix": [
+      "swcdn.apple.com",
+      "cdn-apple.com",
+      "mzstatic.com",
+      "windowsupdate.com",
+      "delivery.mp.microsoft.com"
+    ]
+  }
+}
