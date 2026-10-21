@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "dbs.com",
+        "dbs.com.sg",
+        "fsmone.com",
+        "fsmone.com.sg",
+        "ifastgb.com",
+        "ifastgm.com.sg",
+        "itiger.com",
+        "moomoo.com",
+        "moomoo.sg",
+        "ocbc.com",
+        "ocbc.com.sg",
+        "posb.com.sg",
+        "tigerbrokers.com.sg",
+        "transferwise.com",
+        "uob.com",
+        "uob.com.sg",
+        "usmart.com",
+        "usmart.sg",
+        "wise.com"
+      ]
+    }
+  ]
+}

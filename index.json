@@ -1,0 +1,472 @@
+{
+  "generated_at": "2026-10-21T14:39:40Z",
+  "layout": {
+    "geosite": "geosite/<name>.srs",
+    "geoip": "geoip/<name>.srs"
+  },
+  "rulesets": [
+    {
+      "tag": "YouTube",
+      "kind": "geosite",
+      "file": "geosite/youtube.srs",
+      "url_path": "geosite/youtube.srs",
+      "items": 176,
+      "upstream_items": 179,
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 175
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 6,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 0,
+        "domain_suffix": 6,
+        "domain": 0,
+        "skipped_ct": true
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "谷歌美国",
+      "kind": "geosite",
+      "file": "geosite/google.srs",
+      "url_path": "geosite/google.srs",
+      "items": 855,
+      "upstream_items": 1091,
+      "counts": {
+        "domain": 19,
+        "domain_suffix": 834,
+        "domain_regex": 2
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 7,
+        "raw": 3018,
+        "related_apex": 500,
+        "related_cap": 500,
+        "domain_suffix": 507,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "AI服务",
+      "kind": "geosite",
+      "file": "geosite/ai.srs",
+      "url_path": "geosite/ai.srs",
+      "items": 207,
+      "upstream_items": 205,
+      "counts": {
+        "domain": 31,
+        "domain_suffix": 175,
+        "domain_regex": 1
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 17,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 17,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Meta",
+      "kind": "geosite",
+      "file": "geosite/meta.srs",
+      "url_path": "geosite/meta.srs",
+      "items": 553,
+      "upstream_items": 555,
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 552
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 9,
+        "raw": 224,
+        "related_apex": 5,
+        "related_cap": 500,
+        "domain_suffix": 14,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Apple",
+      "kind": "geosite",
+      "file": "geosite/apple.srs",
+      "url_path": "geosite/apple.srs",
+      "items": 1586,
+      "upstream_items": 1791,
+      "counts": {
+        "domain": 48,
+        "domain_suffix": 1538
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "GitHub",
+      "kind": "geosite",
+      "file": "geosite/github.srs",
+      "url_path": "geosite/github.srs",
+      "items": 59,
+      "upstream_items": 65,
+      "counts": {
+        "domain": 28,
+        "domain_suffix": 31
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Microsoft",
+      "kind": "geosite",
+      "file": "geosite/microsoft.srs",
+      "url_path": "geosite/microsoft.srs",
+      "items": 691,
+      "upstream_items": 761,
+      "counts": {
+        "domain": 16,
+        "domain_suffix": 672,
+        "domain_keyword": 3
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 9,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 0,
+        "domain_suffix": 9,
+        "domain": 0,
+        "skipped_ct": true
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Twitter",
+      "kind": "geosite",
+      "file": "geosite/twitter.srs",
+      "url_path": "geosite/twitter.srs",
+      "items": 26,
+      "upstream_items": 24,
+      "counts": {
+        "domain_suffix": 26
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 4,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 4,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Binance",
+      "kind": "geosite",
+      "file": "geosite/binance.srs",
+      "url_path": "geosite/binance.srs",
+      "items": 48,
+      "upstream_items": 45,
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 46
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Bybit",
+      "kind": "geosite",
+      "file": "geosite/bybit.srs",
+      "url_path": "geosite/bybit.srs",
+      "items": 18,
+      "upstream_items": 16,
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 16
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 5,
+        "raw": 27,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 5,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "OKX",
+      "kind": "geosite",
+      "file": "geosite/okx.srs",
+      "url_path": "geosite/okx.srs",
+      "items": 11,
+      "upstream_items": 10,
+      "counts": {
+        "domain_suffix": 11
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 3,
+        "raw": 0,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 3,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "Gate.io",
+      "kind": "geosite",
+      "file": "geosite/gateio.srs",
+      "url_path": "geosite/gateio.srs",
+      "items": 9,
+      "upstream_items": 8,
+      "counts": {
+        "domain_suffix": 9
+      },
+      "discover": {
+        "enabled": true,
+        "seeds": 4,
+        "raw": 6,
+        "related_apex": 0,
+        "related_cap": 500,
+        "domain_suffix": 4,
+        "domain": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "中国大陆域名",
+      "kind": "geosite",
+      "file": "geosite/geolocation-cn.srs",
+      "url_path": "geosite/geolocation-cn.srs",
+      "items": 8838,
+      "upstream_items": 9361,
+      "counts": {
+        "domain": 529,
+        "domain_suffix": 8301,
+        "domain_regex": 8
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "中国大陆IP",
+      "kind": "geoip",
+      "file": "geoip/cn.srs",
+      "url_path": "geoip/cn.srs",
+      "items": 11177,
+      "upstream_items": 11177,
+      "counts": {
+        "ip_cidr": 11177
+      },
+      "discover": {
+        "enabled": false
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "美国域名",
+      "kind": "geosite",
+      "file": "geosite/us-domains.srs",
+      "url_path": "geosite/us-domains.srs",
+      "items": 56,
+      "upstream_items": 0,
+      "counts": {
+        "domain_suffix": 56
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "新加坡域名",
+      "kind": "geosite",
+      "file": "geosite/sg-domains.srs",
+      "url_path": "geosite/sg-domains.srs",
+      "items": 19,
+      "upstream_items": 0,
+      "counts": {
+        "domain_suffix": 19
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "美国大流量CDN",
+      "kind": "geosite",
+      "file": "geosite/us-cdn.srs",
+      "url_path": "geosite/us-cdn.srs",
+      "items": 4,
+      "upstream_items": 0,
+      "counts": {
+        "domain_suffix": 4
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    },
+    {
+      "tag": "苹果微软下载直连",
+      "kind": "geosite",
+      "file": "geosite/dl-direct.srs",
+      "url_path": "geosite/dl-direct.srs",
+      "items": 5,
+      "upstream_items": 0,
+      "counts": {
+        "domain_suffix": 5
+      },
+      "discover": {
+        "enabled": false,
+        "seeds": 0,
+        "raw": 0,
+        "related_apex": 0
+      },
+      "dns_verify": {
+        "checked": 0,
+        "alive": 0,
+        "dead": 0,
+        "note": "v3.1 起由验证电池替代"
+      }
+    }
+  ]
+}

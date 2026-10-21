@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "cdninstagram.com",
+        "fbcdn.net",
+        "googlevideo.com",
+        "twimg.com"
+      ]
+    }
+  ]
+}
