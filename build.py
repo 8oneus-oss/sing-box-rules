@@ -93,6 +93,7 @@ def make_verify_ctx(entry: Dict[str, Any], official: Set[str], check_dns: bool =
     brand = seeds[0].split(".")[0] if seeds else ""
     return {
         "brand": brand,
+        "sub_brands": tuple(cfg.get("sub_brands") or ()),
         "known_slds": {s.split(".")[0] for s in seeds},
         "known_tlds": {s.rsplit(".", 1)[-1] for s in seeds if "." in s},
         "keywords": tuple(vcfg("phish_keywords") or ()),
@@ -139,12 +140,13 @@ def update_quarantine_for_output(
     known_slds = ctx.get("known_slds") or set()
     keywords = ctx.get("keywords") or ()
     max_distance = int(ctx.get("max_distance") or 2)
+    sub_brands = tuple(ctx.get("sub_brands") or ())
 
     # 先过本地仿冒筛查（快），再批量 DNS
     candidates = {}
     dropped = 0
     for apex, rec in records.items():
-        if impersonation_screen(apex, brand, known_slds, keywords, max_distance):
+        if impersonation_screen(apex, brand, known_slds, keywords, max_distance, sub_brands):
             dropped += 1
             continue
         candidates[apex] = dict(rec)
@@ -856,7 +858,7 @@ def build_one(
         else:
             up_alive = set(new_hosts) if not check_dns else set()
         for h in sorted(new_hosts):
-            rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"])
+            rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"], tuple(ctx.get("sub_brands") or ()))
             alive = h in up_alive
             if rej or not alive:
                 upstream_new_report["suspicious"].append({"apex": h, "reason": rej or "dns_dead"})
@@ -937,6 +939,19 @@ def build_one(
     filtered = apply_filters(merged, filters)
     print(f"  filter items={count_items(filtered)}")
 
+    # 6.2) 仿冒店铺黑名单：剔除已确认的 counterfeit_shops（2026-10-22 从 Apple 集合清理）
+    try:
+        _bl = load_json(ROOT / "blacklist.json") or {}
+        _cf = _bl.get("counterfeit_shops") or []
+        if _cf:
+            before = count_items(filtered)
+            filtered = drop_blacklisted(filtered, _cf)
+            after = count_items(filtered)
+            if before != after:
+                print(f"  counterfeit_shops 剔除 {before - after} 条")
+    except Exception:  # noqa: BLE001
+        pass
+
     # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
     #      seeds / 官方源是人工/厂商意图，不在抽查池里
     rescan_stats: Dict[str, Any] = {"sampled": 0, "impersonation_hit": [], "dns_dead_moved": []}
@@ -953,7 +968,7 @@ def build_one(
             rescan_drop_dead = int(vcfg("quarantine_rescan_days_dead") or 3)
             clean: List[str] = []
             for h in sample:
-                rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"])
+                rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"], tuple(ctx.get("sub_brands") or ()))
                 if rej:
                     filtered["domain"].discard(h)
                     filtered["domain_suffix"].discard(h)
@@ -1078,7 +1093,11 @@ def main() -> int:
     previous_counts = {} if args.no_guard else load_previous_upstream_counts()
     # v3.1：旧的 discovered-state 累积机制已由隔离区替代，不再读取
     bl_data = load_json(ROOT / "blacklist.json") if (ROOT / "blacklist.json").exists() else {}
-    blacklist = list(bl_data.get("shared_infrastructure_apex") or []) + list(bl_data.get("auto_blacklisted_apex") or [])
+    blacklist = (
+        list(bl_data.get("shared_infrastructure_apex") or [])
+        + list(bl_data.get("auto_blacklisted_apex") or [])
+        + list(bl_data.get("counterfeit_shops") or [])
+    )
     print("\n== 计算补充上游（黑名单 + 冲突过滤）==")
     supplements_raw = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
 

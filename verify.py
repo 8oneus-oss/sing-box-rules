@@ -39,11 +39,14 @@ def impersonation_screen(
     known_slds: set,
     keywords: tuple = (),
     max_distance: int = 2,
+    sub_brands: tuple = (),
 ) -> Optional[str]:
     """仿冒筛查。命中返回拒因，无问题返回 None。
 
     实测（50 标注域名）：5/5 钓鱼拦截，对 ground truth 0 误杀。
     brand 取 seeds[0] 的 SLD；brand 为空时无法判断，返回 None。
+    sub_brands: 子品牌（如 Apple 的 beats/itunes），同样受筛查保护。
+    另检测无分隔符的店铺拼接（如 2013cheapbeatsbydre.com）。
     """
     a = normalize_host(apex)
     if not a or "." not in a:
@@ -53,13 +56,31 @@ def impersonation_screen(
     brand = brand.lower()
     if "--" in a or "xn--" in a:
         return "双连字符/IDN"
+    # 主品牌 + 子品牌一起查
+    all_brands = [brand] + [b.lower() for b in (sub_brands or ())]
     if keywords:
         kw = "|".join(re.escape(k) for k in keywords)
-        if re.search(rf"{re.escape(brand)}[-_]({kw})", a) or re.search(
-            rf"({kw})[-_]{re.escape(brand)}", a
-        ):
-            return "品牌+敏感词"
+        for b in all_brands:
+            if re.search(rf"{re.escape(b)}[-_]({kw})", a) or re.search(
+                rf"({kw})[-_]{re.escape(b)}", a
+            ):
+                return "品牌+敏感词"
+    # 店铺拼接：子品牌 + 商业词无分隔符拼接（如 2013cheapbeatsbydre.com）
+    # 主品牌不查此项（避免误伤官方域名，官方域名由 official 放行）
+    shop_words = (
+        "cheap|shop|store|online|sale|outlet|discount|buy|deals|"
+        "wholesale|replica|clearance|blackfriday|cybermonday|"
+        # 多语言"礼物/天数"（假货店常用：12diasderegalosdeitunes）
+        "regalo|presente|cadeau|dias|jours|gift"
+    )
     sld = a.split(".")[0]
+    for b in [x for x in all_brands if x != brand]:
+        if b in sld:
+            # 商业词拼接，或年份+子品牌（如 2013beats）
+            if re.search(shop_words, sld, re.I) or re.search(r"19\d{2}|20\d{2}", sld):
+                # 排除主品牌官方子域名（如 beats.apple.com）
+                if not a.endswith("." + brand + ".com") and brand not in sld:
+                    return "仿冒店铺拼接"
     if sld != brand and len(sld) >= 3 and _levenshtein(sld, brand, max_distance) <= max_distance:
         return "疑似 typosquat"
     return None
@@ -110,9 +131,10 @@ def verify_candidate(apex: str, ctx: Dict[str, Any]) -> Tuple[str, Dict[str, Any
     known_tlds = ctx.get("known_tlds") or set()
     keywords = tuple(ctx.get("keywords") or ())
     max_distance = int(ctx.get("max_distance", 2))
+    sub_brands = tuple(ctx.get("sub_brands") or ())
     official = ctx.get("official") or set()
 
-    rej = impersonation_screen(a, brand, known_slds, keywords, max_distance)
+    rej = impersonation_screen(a, brand, known_slds, keywords, max_distance, sub_brands)
     if rej:
         return "reject", {"reason": rej}
     if a in official or covered_by_suffix(a, official):
