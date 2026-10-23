@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:11:38Z",
+  "generated_at": "2026-10-23T15:43:40Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -66,17 +66,17 @@
       "kind": "geosite",
       "file": "geosite/ai.srs",
       "url_path": "geosite/ai.srs",
-      "items": 207,
+      "items": 206,
       "upstream_items": 205,
       "counts": {
         "domain": 31,
-        "domain_suffix": 175,
+        "domain_suffix": 174,
         "domain_regex": 1
       },
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1882,
+        "raw": 1894,
         "related_apex": 1,
         "related_cap": 500,
         "domain_suffix": 18,
@@ -94,11 +94,11 @@
       "kind": "geosite",
       "file": "geosite/meta.srs",
       "url_path": "geosite/meta.srs",
-      "items": 552,
+      "items": 548,
       "upstream_items": 555,
       "counts": {
         "domain": 1,
-        "domain_suffix": 551
+        "domain_suffix": 547
       },
       "discover": {
         "enabled": true,
@@ -157,7 +157,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 201,
+        "raw": 530,
         "related_apex": 0,
         "related_cap": 500,
         "domain_suffix": 5,
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 690,
+      "items": 680,
       "upstream_items": 761,
       "counts": {
         "domain": 16,
-        "domain_suffix": 671,
+        "domain_suffix": 661,
         "domain_keyword": 3
       },
       "discover": {
@@ -318,10 +318,10 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 30,
-        "related_apex": 3,
+        "raw": 39,
+        "related_apex": 0,
         "related_cap": 500,
-        "domain_suffix": 7,
+        "domain_suffix": 4,
         "domain": 0
       },
       "dns_verify": {
@@ -336,11 +336,11 @@
       "kind": "geosite",
       "file": "geosite/geolocation-cn.srs",
       "url_path": "geosite/geolocation-cn.srs",
-      "items": 8838,
+      "items": 8821,
       "upstream_items": 9361,
       "counts": {
         "domain": 529,
-        "domain_suffix": 8301,
+        "domain_suffix": 8284,
         "domain_regex": 8
       },
       "discover": {
