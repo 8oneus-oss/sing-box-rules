@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T01:27:54Z",
+  "generated_at": "2026-10-23T11:03:05Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1894,
-        "related_apex": 1,
+        "raw": 1889,
+        "related_apex": 26,
         "related_cap": 500,
-        "domain_suffix": 18,
+        "domain_suffix": 43,
         "domain": 0
       },
       "dns_verify": {
@@ -103,7 +103,7 @@
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 6185,
+        "raw": 6240,
         "related_apex": 24,
         "related_cap": 500,
         "domain_suffix": 33,
@@ -121,19 +121,19 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1322,
+      "items": 1314,
       "upstream_items": 1791,
       "counts": {
         "domain": 48,
-        "domain_suffix": 1274
+        "domain_suffix": 1266
       },
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 7818,
-        "related_apex": 28,
+        "raw": 7386,
+        "related_apex": 6,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 11,
         "domain": 0
       },
       "dns_verify": {
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 690,
+      "items": 691,
       "upstream_items": 761,
       "counts": {
         "domain": 16,
-        "domain_suffix": 671,
+        "domain_suffix": 672,
         "domain_keyword": 3
       },
       "discover": {
@@ -212,7 +212,7 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 1591,
+        "raw": 1590,
         "related_apex": 70,
         "related_cap": 500,
         "domain_suffix": 74,
@@ -239,7 +239,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 941,
+        "raw": 950,
         "related_apex": 3,
         "related_cap": 500,
         "domain_suffix": 8,
@@ -266,10 +266,10 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 163,
-        "related_apex": 1,
+        "raw": 217,
+        "related_apex": 16,
         "related_cap": 500,
-        "domain_suffix": 6,
+        "domain_suffix": 21,
         "domain": 0
       },
       "dns_verify": {
@@ -292,7 +292,7 @@
       "discover": {
         "enabled": true,
         "seeds": 3,
-        "raw": 125,
+        "raw": 137,
         "related_apex": 1,
         "related_cap": 500,
         "domain_suffix": 4,
@@ -318,7 +318,7 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 39,
+        "raw": 33,
         "related_apex": 0,
         "related_cap": 500,
         "domain_suffix": 4,
