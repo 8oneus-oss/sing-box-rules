@@ -1,5 +1,5 @@
 {
-  "说明": "共享基础设施/通用第三方的主域名。只用于「补充上游」（v2fly、blackmatrix7）新带来的条目：条目等于这些域名或在它们之下，一律丢弃，避免把别人的 CDN 整个划进某个厂商。官方上游的条目不受影响。 counterfeit_shops：已确认的仿冒店铺域名（2026-10-22 从 Apple 集合清理），构建时从最终产物中剔除。",
+  "说明": "共享基础设施/通用第三方的主域名。只用于「补充上游」（v2fly、blackmatrix7）新带来的条目：条目等于这些域名或在它们之下，一律丢弃，避免把别人的 CDN 整个划进某个厂商。官方上游的条目不受影响。 counterfeit_shops：已确认的仿冒店铺域名（2026-10-22 从 Apple 集合清理），构建时从最终产物中剔除。 revoked_allowlist：曾在 supplement_allow.json 中因 ownership 未确认而移除的域名，永久不信任，构建时从最终产物中剔除（2026-10-23）。",
   "shared_infrastructure_apex": [
     "akamai.net",
     "akadns.net",
@@ -299,5 +299,10 @@
     "topbeatsbydrdreoutlet.com",
     "topbeatsforsale.com",
     "usa-beatsbydreheadphonesonsale.net"
+  ],
+  "revoked_allowlist": [
+    "whatsapp.biz",
+    "getmicrosoftkey.com",
+    "twimg.org"
   ]
 }

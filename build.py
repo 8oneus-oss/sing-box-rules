@@ -940,15 +940,16 @@ def build_one(
     print(f"  filter items={count_items(filtered)}")
 
     # 6.2) 仿冒店铺黑名单：剔除已确认的 counterfeit_shops（2026-10-22 从 Apple 集合清理）
+    # 6.3) 已撤销白名单：剔除 revoked_allowlist（2026-10-23，ownership 未确认而移除的域名，永久不信任）
     try:
         _bl = load_json(ROOT / "blacklist.json") or {}
-        _cf = _bl.get("counterfeit_shops") or []
+        _cf = (_bl.get("counterfeit_shops") or []) + (_bl.get("revoked_allowlist") or [])
         if _cf:
             before = count_items(filtered)
             filtered = drop_blacklisted(filtered, _cf)
             after = count_items(filtered)
             if before != after:
-                print(f"  counterfeit_shops 剔除 {before - after} 条")
+                print(f"  counterfeit_shops+revoked_allowlist 剔除 {before - after} 条")
     except Exception:  # noqa: BLE001
         pass
 
@@ -1097,6 +1098,7 @@ def main() -> int:
         list(bl_data.get("shared_infrastructure_apex") or [])
         + list(bl_data.get("auto_blacklisted_apex") or [])
         + list(bl_data.get("counterfeit_shops") or [])
+        + list(bl_data.get("revoked_allowlist") or [])
     )
     print("\n== 计算补充上游（黑名单 + 冲突过滤）==")
     supplements_raw = compute_supplements(catalog.get("rulesets") or [], filters, blacklist or [])
