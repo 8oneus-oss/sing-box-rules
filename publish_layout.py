@@ -69,6 +69,12 @@ def prepare_publish_tree(dist: pathlib.Path, out: pathlib.Path) -> Dict[str, Any
         (out / "state").mkdir(parents=True, exist_ok=True)
         shutil.copy2(q_src, out / "state" / "quarantine.json")
 
+    # v3.1-fix：构建报告随规则集发布（含 rescan 主上游告警、转正统计等）
+    r_src = dist / "build-report.json"
+    if r_src.exists():
+        (out / "state").mkdir(parents=True, exist_ok=True)
+        shutil.copy2(r_src, out / "state" / "build-report.json")
+
     index = {
         "generated_at": datetime.datetime.now(datetime.timezone.utc)
         .replace(microsecond=0)
