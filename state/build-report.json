@@ -1,0 +1,2751 @@
+[
+  {
+    "tag": "YouTube",
+    "output": "youtube",
+    "kind": "geosite",
+    "items": 177,
+    "upstream_items": 179,
+    "srs": "dist/youtube.srs",
+    "counts": {
+      "domain": 1,
+      "domain_suffix": 176
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 6,
+      "raw": 0,
+      "related_apex": 0,
+      "related_cap": 0,
+      "domain_suffix": 6,
+      "domain": 0,
+      "skipped_ct": true
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 1,
+      "domain_after": 1,
+      "domain_dropped": 0,
+      "suffix_before": 178,
+      "suffix_after": 176,
+      "suffix_dropped": 2
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 0,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 8,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "谷歌美国",
+    "output": "google",
+    "kind": "geosite",
+    "items": 856,
+    "upstream_items": 1091,
+    "srs": "dist/google.srs",
+    "counts": {
+      "domain": 19,
+      "domain_suffix": 835,
+      "domain_regex": 2
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 7,
+      "raw": 545,
+      "related_apex": 70,
+      "related_cap": 500,
+      "domain_suffix": 77,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 236,
+      "domain_after": 19,
+      "domain_dropped": 217,
+      "suffix_before": 860,
+      "suffix_after": 835,
+      "suffix_dropped": 25
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "abc.xyz",
+          "amp.dev",
+          "ampproject.com",
+          "ampproject.net",
+          "androidtv.com",
+          "app-measurement.net",
+          "capitalg.com",
+          "certificate-transparency.dev",
+          "chromeexperiments.com",
+          "chromercise.com",
+          "crbug.com",
+          "creativelab5.com",
+          "crrev.com",
+          "data-vocabulary.org",
+          "deja.com",
+          "digisfera.com",
+          "digitalattackmap.com",
+          "getmdl.io",
+          "getoutline.org",
+          "gv.com",
+          "gwtproject.org",
+          "neverware.com",
+          "plus.codes",
+          "redhotlabs.com",
+          "schema.org",
+          "shattered.io",
+          "teachparentstech.org",
+          "verily.com",
+          "waveprotocol.org",
+          "waymo.com",
+          "zynamics.com"
+        ],
+        "pending_review": [
+          "googlemashups.com",
+          "googlescholar.com"
+        ],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 63,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 21
+      },
+      "rescan": {
+        "sampled": 42,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "AI服务",
+    "output": "ai",
+    "kind": "geosite",
+    "items": 207,
+    "upstream_items": 205,
+    "srs": "dist/ai.srs",
+    "counts": {
+      "domain": 31,
+      "domain_suffix": 175,
+      "domain_regex": 1
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 17,
+      "raw": 1882,
+      "related_apex": 1,
+      "related_cap": 500,
+      "domain_suffix": 18,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 31,
+      "domain_after": 31,
+      "domain_dropped": 0,
+      "suffix_before": 176,
+      "suffix_after": 175,
+      "suffix_dropped": 1
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "cdn.usefathom.com",
+          "static.cloudflareinsights.com",
+          "ai.com",
+          "auth0.com",
+          "challenges.cloudflare.com",
+          "client-api.arkoselabs.com",
+          "events.statsigapi.net",
+          "featuregates.org",
+          "g.ai",
+          "identrust.com",
+          "intercom.io",
+          "intercomcdn.com",
+          "launchdarkly.com",
+          "observeit.net",
+          "segment.io",
+          "sentry.io",
+          "stripe.com"
+        ],
+        "pending_review": [
+          "openai-api.arkoselabs.com",
+          "openaicom.imgix.net"
+        ],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "comicgems.com"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 56,
+        "promoted": 0,
+        "dropped": 1,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 9,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Meta",
+    "output": "meta",
+    "kind": "geosite",
+    "items": 552,
+    "upstream_items": 555,
+    "srs": "dist/meta.srs",
+    "counts": {
+      "domain": 1,
+      "domain_suffix": 551
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 9,
+      "raw": 6240,
+      "related_apex": 24,
+      "related_cap": 500,
+      "domain_suffix": 33,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 2,
+      "domain_after": 1,
+      "domain_dropped": 1,
+      "suffix_before": 555,
+      "suffix_after": 551,
+      "suffix_dropped": 4
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "facebookquotes4u.com",
+          "fbaddins.com",
+          "instagr.am"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "skamms.com",
+          "sayursayur.com",
+          "doublers.org",
+          "wpthm.ir",
+          "yudumay.com",
+          "cardsforu.com",
+          "akuevi.net",
+          "atashkarco.ir",
+          "przestrzenfb.com",
+          "991e6341910fb.com",
+          "songsne.com",
+          "f1243.net",
+          "duhocnhe.com",
+          "sorgu2.com",
+          "digi-worx.com",
+          "vietnamyo.com",
+          "albayrakyangin.com"
+        ],
+        "pending_review": [],
+        "reject": [
+          {
+            "apex": "com----m.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "hkg---whatsapp.com",
+            "reason": "双连字符/IDN"
+          }
+        ]
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 17,
+        "promoted": 0,
+        "dropped": 1,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 27,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Apple",
+    "output": "apple",
+    "kind": "geosite",
+    "items": 1318,
+    "upstream_items": 1791,
+    "srs": "dist/apple.srs",
+    "counts": {
+      "domain": 48,
+      "domain_suffix": 1270
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 5,
+      "raw": 7818,
+      "related_apex": 28,
+      "related_cap": 500,
+      "domain_suffix": 33,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 249,
+      "domain_after": 48,
+      "domain_dropped": 201,
+      "suffix_before": 1544,
+      "suffix_after": 1539,
+      "suffix_dropped": 5
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "apple.com.mwcname.com",
+          "appstore.com",
+          "cdn-apple-mapkit.com",
+          "digicert.com",
+          "organicfruitapps.com",
+          "vertexsmb.com"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "premiumicloud.com",
+          "com-assist.eu",
+          "sneakysasquatch.com"
+        ],
+        "pending_review": [],
+        "reject": [
+          {
+            "apex": "com----log.in",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "com---log.in",
+            "reason": "双连字符/IDN"
+          }
+        ]
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 289,
+        "suspicious": [
+          {
+            "apex": "100beatscheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasdepresentesdeitunes.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.cl",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.co",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.co.cr",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.co.ni",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.co.ve",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.com.co",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.com.hn",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.com.ni",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.com.ve",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.cr",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.gt",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.hn",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12diasderegalosdeitunes.pe",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "12joursdecadeauxdeitunes.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013beatsbydrdreonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013beatsbydrdreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013beatsbydreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013beatshdcybermonday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013cheapestbeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013newbeatsworld.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2013pascherbeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2014cheapbeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "2buybeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "apple-itunes.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "applenews.tv",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "aucheapbeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "audiomonsterbeatsonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "auricularesbeatsbaratosshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydrecheapsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydreoutletonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydreoutletsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydreoutletsale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydreoutletssale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-bydrestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-headphones-buy-cheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats-sale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats4outlets.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beats4salecheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsallsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbestdeals.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsblackfridaydeals.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsblackfridayretails.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsboxingdayuksale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdre-online.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdre-onsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdre-store.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdre-store.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdre4sale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdreoutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdresale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrdrestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre-headphonesshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre-outlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre-outletsale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre-outletstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre-store.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre2081.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydre411.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatsbydre4usales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreausale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreaustralia-sale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreaustraliaonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreaustraliaonlines.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreaustraliasales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreblackfriday2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreblackfridaypro.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecheap-outletstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecheaper.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecheaponlinesales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecybermondaydeals2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecybermondaydeals2013.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydredealsblackfriday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydredealscybermonday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrediscount.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrediscountonline.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreexecutivesale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreformall2013-nl.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreforsalesonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreforshop2013-nl.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreforstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreforyououtlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreireland-sales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreirelandonlines.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreirelandsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreirelandsonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydremall2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreoksale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreonlie2013-nl.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreonlines-ireland.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreonlines-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreonlinesale-nz.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreoutletsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreoutletscheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrerealstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydres-shop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresale-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresalemall2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresaleonlines-nz.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresales.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresalesonline-australia.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreshop-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydreshops.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresingaporesale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresold.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatsbydresolohdonline-canada.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydresonline-nz.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydressale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydressolo.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatsbydrestorevip.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydretoutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatscheap-nz.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatscheap-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatscheapforsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatscollection2014.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatscustomblackfriday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdanmark2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdrdre-solo.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatsdrdre2014.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdre4cheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdrecheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdreforsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdrenewcolorful4usale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdreoutletsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdresale2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdresalestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsdresolo2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsfacstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsfactoroutlets.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsforcheap-usa.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsheadphones-discount.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsheadphonesale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsheadphonesforcheap.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsheadphonesonline.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatshopuk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsmonstersales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsnzsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsodre.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatsonblackfriday2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsoutlet.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsoutletanytime.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsoutletonlines.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatspromonsterjp.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatssales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatssaleus.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatssaustraliabuy.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsshop-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsshop-usa.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsshopstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatssingaporeshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatstoreusa.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatswholesale.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatswirelesscheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "blackfridaydrebeatsnew.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "blackfridaydrebeatsshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buy-from-shanghai.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "buybeatsbydre-uk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buybeatsheadphonesbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buycheapbeatsbus.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buycheapbeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buycheapbeatsbydreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "buycheapbeatsdreuk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "casquebeatsdre2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "casquebeatspascher2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "casquemonsterbeatsbydre2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheap-beats-by-dre.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheap-beatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeats.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeats365.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeats4sale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsaustraliasale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbus.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydr.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydrdrepro.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydre-au.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydre99.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydrefau.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydremall.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydremonster.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydrenz.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydreonsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydreoutlet-nz.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydreoutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydreoutlets2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydresale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydrestudioedition.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsbydrestudioutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsdrdresolo.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsdrestudios.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsheadphone2014.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsheadphones.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsie.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsla.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatssale4u.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapbeatsshopbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapcustombeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapdrdrebeats8.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapdrdrebeatsca.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapdrebeats8.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheaperbeatsbydresale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapestbeatsdrdre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapmonsterbeatsbydrdre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapmonsterbeatsheadsets.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapmonsterbeatssale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapmonsterbeatsusa.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapmonstersbeatsonsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapnewbeatsbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cheapwirelessbeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "coolmonster.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "custombeatsbydrebuy.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "custombeatsdeals.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "custombeatsforcheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "cybermondaybeats4sale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "dashwood360.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "dealsbeatsblackfriday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "discountbeatsbydre-us.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "discountbeatsstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrebeatsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrebeatsdesale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrebeatsdiscount.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrebeatsretail2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrebeatssale7.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drdrefnac.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "drdreprobeatssale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeats-singaporecheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeats-singaporecheap.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsaustralia-cheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsaustralia-cheap.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsbuy.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsbydreoutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsforsaleus.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatshome.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "drebeatsoutletstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatssolocybermondaysale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "drebeatsstudio2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "dremonsterbeatsoutlets.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "esbeatsbydrebuy.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "fr-beatsbydrestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "getdrebeatssale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "headphoneses.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "hotbeatsonsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "ibook.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "iphonehangzhou.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "itunesstore.co",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "iutunes.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "kickshatchannel.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "monbeats2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeats-cheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeats-onsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeats365buy.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsalestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsbydre2015.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsbydreaustraliacheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsbydreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsdrdrecheap.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsforsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsonlinestoreuk.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsoutlet.us",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatssales.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsshops.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatsstore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monstercheapbeatss.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monstershopcheapbeats.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "mybeatsbydreuk.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "mybeatscheapbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "newbeatsblackfriday.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "officialbeatsbydreshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "officialbeatsbydrestore.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "onbeatsbydresale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "onlinemonsterbeatsonsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "outletbeatsshop.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "pillbeatsblackfridaysale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "prostudiobeatscybersale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "salebeatslasteststyle4you.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "saleblackfridaydrebeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "shopbeatsdre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "shopbydre.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "shopcustomizedbeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "shopdrebeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "shopmonsterbeats.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "thebeatsheadphonesale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "topbeatsbydrdreoutlet.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "topbeatsforsale.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "usa-beatsbydreheadphonesonsale.net",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "wwwlapple.com",
+            "reason": "dns_dead"
+          }
+        ]
+      },
+      "quarantine": {
+        "kept": 3,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 50,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": [
+          {
+            "domain": "beatbydre2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "domain": "appletv.fr",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "apple",
+            "reason": "格式异常"
+          },
+          {
+            "domain": "appleid.hk",
+            "reason": "疑似 typosquat"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "tag": "GitHub",
+    "output": "github",
+    "kind": "geosite",
+    "items": 59,
+    "upstream_items": 65,
+    "srs": "dist/github.srs",
+    "counts": {
+      "domain": 28,
+      "domain_suffix": 31
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 5,
+      "raw": 201,
+      "related_apex": 0,
+      "related_cap": 500,
+      "domain_suffix": 5,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 32,
+      "domain_after": 28,
+      "domain_dropped": 4,
+      "suffix_before": 33,
+      "suffix_after": 31,
+      "suffix_dropped": 2
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "rawgit.com",
+          "rawgithub.com"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 0,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 2,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Microsoft",
+    "output": "microsoft",
+    "kind": "geosite",
+    "items": 690,
+    "upstream_items": 761,
+    "srs": "dist/microsoft.srs",
+    "counts": {
+      "domain": 16,
+      "domain_suffix": 671,
+      "domain_keyword": 3
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 9,
+      "raw": 0,
+      "related_apex": 0,
+      "related_cap": 0,
+      "domain_suffix": 9,
+      "domain": 0,
+      "skipped_ct": true
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 112,
+      "domain_after": 16,
+      "domain_dropped": 96,
+      "suffix_before": 809,
+      "suffix_after": 672,
+      "suffix_dropped": 137
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [
+          "acompli.net",
+          "assets-yammer.com",
+          "azure-apim.net",
+          "azurerms.com",
+          "cortana.ai",
+          "lync.com",
+          "microsoftusercontent.com",
+          "msauthimages.net",
+          "msftidentity.com",
+          "omniroot.com",
+          "outlookmobile.com",
+          "phonefactor.net",
+          "public-trust.com",
+          "yammerusercontent.com"
+        ],
+        "quarantine": [
+          "acompli.com",
+          "aicscience.com",
+          "azurefd.us",
+          "bbing.com",
+          "bibg.com",
+          "biing.com",
+          "binb.com",
+          "binf.com",
+          "bing135.com",
+          "bing4.com",
+          "binginternal.com",
+          "bingit.net",
+          "bingiton.com",
+          "bingj.com",
+          "bingpix.com",
+          "bingpk.com",
+          "bings.com",
+          "bingtoolbar.com",
+          "bingtranslator.com",
+          "biying.cn",
+          "biying.com",
+          "biying.com.cn",
+          "cs11.wpc.v0cdn.net",
+          "cs9.wac.phicdn.net",
+          "discoverbing.com",
+          "dwh5.com",
+          "e-msedge.net",
+          "evoke-windowsservices-tas.msedge",
+          "explorebing.com",
+          "fabric.io",
+          "groupme.com",
+          "helpshift.com",
+          "here.com",
+          "here.net",
+          "heremaps.cn",
+          "hockeyapp.net",
+          "joinms.com",
+          "joinms.com.cn",
+          "joinmva.com",
+          "live.cn",
+          "localytics.com",
+          "mapblast.com",
+          "mappoint.com",
+          "mesh.com",
+          "microsoft-tst.com",
+          "microsoft.com.nsatc.net",
+          "microsoftemail.com",
+          "microsoftonline-p.net",
+          "mmais.com.cn",
+          "msa.akadns6.net",
+          "msappproxy.net",
+          "msftcenterone.cn",
+          "msignitechina.com",
+          "msminico.cn",
+          "msminico.com.cn",
+          "msn.com.cn",
+          "msn.com.nsatc.net",
+          "msn.com.tw",
+          "msnmaps.com",
+          "msopentech.cn",
+          "mstea.ms",
+          "msvevent.com",
+          "msxiaobing.com",
+          "msxiaoice.com",
+          "msxiaona.cn",
+          "myhomemsn.com",
+          "oaspapps.com",
+          "officedev.cn",
+          "officeppe.net",
+          "onecollector.cloudapp.aria",
+          "optimizely.com",
+          "osdinfra.net",
+          "outlookgroups.ms",
+          "ovi.com.cn",
+          "playfabapi.cn",
+          "playfabcn.com",
+          "renlifang.com",
+          "sclive.net",
+          "skypeforbusiness.com",
+          "sway-extensions.com",
+          "syncshop.cn",
+          "uservoice.com",
+          "vip5.afdorigin-prod-am02.afdogw.com",
+          "windows-ppe.net",
+          "windowslive.cn",
+          "winmp.cn",
+          "wlxrs.com",
+          "working-bing-int.com",
+          "wunderlist.com"
+        ],
+        "pending_review": [
+          "microsoft-online.cn",
+          "microsoft-online.com.cn",
+          "microsoftestore.com.hk"
+        ],
+        "reject": [
+          "microsoftol.com",
+          "microsoftol.com.cn",
+          "onmicrosoft.com"
+        ]
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 184,
+      "upstream_new": {
+        "new": 2,
+        "suspicious": [
+          {
+            "apex": "live.net",
+            "reason": "dns_dead"
+          }
+        ]
+      },
+      "quarantine": {
+        "kept": 2,
+        "promoted": 0,
+        "dropped": 1,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 30,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Twitter",
+    "output": "twitter",
+    "kind": "geosite",
+    "items": 25,
+    "upstream_items": 24,
+    "srs": "dist/twitter.srs",
+    "counts": {
+      "domain_suffix": 25
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 4,
+      "raw": 1590,
+      "related_apex": 70,
+      "related_cap": 500,
+      "domain_suffix": 74,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 25,
+      "suffix_after": 25,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "twimg.co"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "6k8x.com",
+          "6r8x.com",
+          "3e1x.com",
+          "9e6x.com",
+          "9e9x.com",
+          "9e8x.com",
+          "65e7t.co",
+          "37e90x.com",
+          "testset.com",
+          "zuffixx.com",
+          "hothit.co",
+          "flachsat.com",
+          "02e51x.com",
+          "6e6x.com",
+          "shopcampsitesport.com",
+          "6e7x.com",
+          "www-visit-x.com",
+          "0e1x.com",
+          "3e3x.com",
+          "a-best.co",
+          "7e0x.com",
+          "sqlyxx.com",
+          "5e1x.com",
+          "6e4x.com",
+          "zgsxhx.com",
+          "wisit-x.com",
+          "7e2x.com",
+          "x.commerce",
+          "cam-box.com",
+          "chunsungx.com",
+          "91e7x.com",
+          "business-equipment.co",
+          "flower-cart.co",
+          "fbsight.com",
+          "8e6x.com",
+          "6e9x.com",
+          "8d9x.com",
+          "campsummittx.com",
+          "1e1x.com",
+          "0e9x.com",
+          "5e5x.com",
+          "9e1x.com",
+          "tee-shirt.co",
+          "9e4x.com",
+          "bugit.co",
+          "4e7x.com",
+          "2e1x.com",
+          "8e3x.com",
+          "amber-dutchtreat.com",
+          "serbest.co",
+          "006e7x.com",
+          "visi-x.com",
+          "flipmart.co",
+          "lobby-x.com",
+          "runnerhx.com",
+          "antiqcart.co",
+          "86e7x.com",
+          "join-x.com",
+          "6m8x.com",
+          "bdsmhit.com",
+          "5e0x.com",
+          "santaincevent.com",
+          "1e4x.com"
+        ],
+        "pending_review": [],
+        "reject": [
+          {
+            "apex": "digital---x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "brand-----x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "x-x-----------------------------------------------------------x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "all-i-am-tf-weak-https---t.co",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "games---x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "http---twitter.com",
+            "reason": "双连字符/IDN"
+          }
+        ]
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 64,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 1,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Binance",
+    "output": "binance",
+    "kind": "geosite",
+    "items": 48,
+    "upstream_items": 45,
+    "srs": "dist/binance.srs",
+    "counts": {
+      "domain": 2,
+      "domain_suffix": 46
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 5,
+      "raw": 950,
+      "related_apex": 3,
+      "related_cap": 500,
+      "domain_suffix": 8,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 2,
+      "domain_after": 2,
+      "domain_dropped": 0,
+      "suffix_before": 46,
+      "suffix_after": 46,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [
+          "appsflayer.com",
+          "binancefuture.com",
+          "bnappzh.co",
+          "bnbzh.ac"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "prebinance.com"
+        ],
+        "pending_review": [],
+        "reject": [
+          {
+            "apex": "www---binance.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "www----binance.com",
+            "reason": "双连字符/IDN"
+          }
+        ]
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 1,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 2,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": [
+          {
+            "domain": "binancezh.mobi",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "binancezh.cc",
+            "reason": "疑似 typosquat"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "tag": "Bybit",
+    "output": "bybit",
+    "kind": "geosite",
+    "items": 18,
+    "upstream_items": 16,
+    "srs": "dist/bybit.srs",
+    "counts": {
+      "domain": 2,
+      "domain_suffix": 16
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 5,
+      "raw": 163,
+      "related_apex": 1,
+      "related_cap": 500,
+      "domain_suffix": 6,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 2,
+      "domain_after": 2,
+      "domain_dropped": 0,
+      "suffix_before": 16,
+      "suffix_after": 16,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 10,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "OKX",
+    "output": "okx",
+    "kind": "geosite",
+    "items": 11,
+    "upstream_items": 10,
+    "srs": "dist/okx.srs",
+    "counts": {
+      "domain_suffix": 11
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 3,
+      "raw": 137,
+      "related_apex": 1,
+      "related_cap": 500,
+      "domain_suffix": 4,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 11,
+      "suffix_after": 11,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "3e8okx.com"
+        ],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 1,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "Gate.io",
+    "output": "gateio",
+    "kind": "geosite",
+    "items": 9,
+    "upstream_items": 8,
+    "srs": "dist/gateio.srs",
+    "counts": {
+      "domain_suffix": 9
+    },
+    "discover": {
+      "enabled": true,
+      "seeds": 4,
+      "raw": 30,
+      "related_apex": 3,
+      "related_cap": 500,
+      "domain_suffix": 7,
+      "domain": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 9,
+      "suffix_after": 9,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "discover": {
+        "admit": [],
+        "quarantine": [
+          "studiotv.net"
+        ],
+        "pending_review": [],
+        "reject": [
+          {
+            "apex": "gate51.club",
+            "reason": "疑似 typosquat"
+          }
+        ]
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 1,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "中国大陆域名",
+    "output": "geolocation-cn",
+    "kind": "geosite",
+    "items": 8838,
+    "upstream_items": 9361,
+    "srs": "dist/geolocation-cn.srs",
+    "counts": {
+      "domain": 529,
+      "domain_suffix": 8301,
+      "domain_regex": 8
+    },
+    "discover": {
+      "enabled": false,
+      "seeds": 0,
+      "raw": 0,
+      "related_apex": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 604,
+      "domain_after": 529,
+      "domain_dropped": 75,
+      "suffix_before": 8752,
+      "suffix_after": 8301,
+      "suffix_dropped": 451
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 13,
+        "suspicious": [
+          {
+            "apex": ".alibaba",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".alipay",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".citic",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".icbc",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".sina",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".taobao",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".tmall",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".unicom",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".weibo",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".xn--8y0a063a",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".xn--9krt00a",
+            "reason": "格式异常"
+          },
+          {
+            "apex": ".xn--fiq64b",
+            "reason": "格式异常"
+          }
+        ]
+      },
+      "quarantine": {
+        "kept": 4,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 50,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "中国大陆IP",
+    "output": "geoip-cn",
+    "kind": "geoip",
+    "items": 11176,
+    "upstream_items": 11176,
+    "srs": "dist/geoip-cn.srs",
+    "counts": {
+      "ip_cidr": 11176
+    },
+    "discover": {
+      "enabled": false
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 0,
+      "suffix_after": 0,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 0,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "美国域名",
+    "output": "us-domains",
+    "kind": "geosite",
+    "items": 56,
+    "upstream_items": 0,
+    "srs": "dist/us-domains.srs",
+    "counts": {
+      "domain_suffix": 56
+    },
+    "discover": {
+      "enabled": false,
+      "seeds": 0,
+      "raw": 0,
+      "related_apex": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 56,
+      "suffix_after": 56,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 56,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 2,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "新加坡域名",
+    "output": "sg-domains",
+    "kind": "geosite",
+    "items": 19,
+    "upstream_items": 0,
+    "srs": "dist/sg-domains.srs",
+    "counts": {
+      "domain_suffix": 19
+    },
+    "discover": {
+      "enabled": false,
+      "seeds": 0,
+      "raw": 0,
+      "related_apex": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 19,
+      "suffix_after": 19,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 19,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "美国大流量CDN",
+    "output": "us-cdn",
+    "kind": "geosite",
+    "items": 4,
+    "upstream_items": 0,
+    "srs": "dist/us-cdn.srs",
+    "counts": {
+      "domain_suffix": 4
+    },
+    "discover": {
+      "enabled": false,
+      "seeds": 0,
+      "raw": 0,
+      "related_apex": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 4,
+      "suffix_after": 4,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 4,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  },
+  {
+    "tag": "苹果微软下载直连",
+    "output": "dl-direct",
+    "kind": "geosite",
+    "items": 5,
+    "upstream_items": 0,
+    "srs": "dist/dl-direct.srs",
+    "counts": {
+      "domain_suffix": 5
+    },
+    "discover": {
+      "enabled": false,
+      "seeds": 0,
+      "raw": 0,
+      "related_apex": 0
+    },
+    "dns_verify": {
+      "checked": 0,
+      "alive": 0,
+      "dead": 0,
+      "note": "v3.1 起由验证电池替代"
+    },
+    "collapse": {
+      "domain_before": 0,
+      "domain_after": 0,
+      "domain_dropped": 0,
+      "suffix_before": 5,
+      "suffix_after": 5,
+      "suffix_dropped": 0
+    },
+    "new_suffix_from_discover": 0,
+    "verification": {
+      "dry_run": true,
+      "supplement": {},
+      "discover": {
+        "admit": [],
+        "quarantine": [],
+        "pending_review": [],
+        "reject": []
+      },
+      "official_admit": 0,
+      "upstream_new": {
+        "new": 0,
+        "suspicious": []
+      },
+      "quarantine": {
+        "kept": 5,
+        "promoted": 0,
+        "dropped": 0,
+        "pending_review": 0
+      },
+      "rescan": {
+        "sampled": 0,
+        "impersonation_hit": [],
+        "dns_dead_moved": [],
+        "main_upstream_hit": []
+      }
+    }
+  }
+]
