@@ -758,6 +758,8 @@ def build_one(
     merged = merge_buckets(buckets)
     upstream_items = count_items(merged)
     print(f"  merge items={upstream_items}")
+    # v3.1-fix: 记录主上游域名集合，rescan 时主上游命中只报告不删除（官方 0 丢失原则）
+    main_upstream_domains = set(merged.get("domain", set())) | set(merged.get("domain_suffix", set()))
 
     if guard and previous_counts:
         prev = previous_counts.get(tag)
@@ -912,6 +914,28 @@ def build_one(
         if promoted:
             merged["domain_suffix"] |= promoted
             print(f"  隔离区转正 {len(promoted)} 条并入")
+            # v3.1-fix: 转正域名自动追加到 samples.json 的 must_hit（每集合 FIFO 保留 200 条）
+            try:
+                _samples_path = ROOT / "samples.json"
+                if _samples_path.exists():
+                    _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
+                    _mh = _samples.setdefault("must_hit", {})
+                    _lst = _mh.setdefault(tag, [])
+                    _existing = set(_lst)
+                    _added = 0
+                    for _apex in sorted(promoted):
+                        if _apex not in _existing:
+                            _lst.append(_apex)
+                            _existing.add(_apex)
+                            _added += 1
+                    # FIFO: 只保留最近 200 条
+                    if len(_lst) > 200:
+                        _lst[:] = _lst[-200:]
+                    if _added:
+                        _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                        print(f"  样本库追加 {tag}: +{_added} 条")
+            except Exception as _e:
+                print(f"  (样本库追加失败，不影响构建: {_e})")
         print(f"  隔离区：保留 {qstats['kept']} / 待审 {qstats['pending_review']} / "
               f"转正 {qstats['promoted']} / 丢弃 {qstats['dropped']}")
     verification["quarantine"] = qstats
@@ -955,7 +979,8 @@ def build_one(
 
     # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
     #      seeds / 官方源是人工/厂商意图，不在抽查池里
-    rescan_stats: Dict[str, Any] = {"sampled": 0, "impersonation_hit": [], "dns_dead_moved": []}
+    #      v3.1-fix: 主上游命中仿冒筛查只报告不删除（官方 0 丢失原则）
+    rescan_stats: Dict[str, Any] = {"sampled": 0, "impersonation_hit": [], "dns_dead_moved": [], "main_upstream_hit": []}
     rescan_dead_out = dict(rescan_dead or {})
     if kind == "geosite" and ctx is not None:
         trusted = set(seed_set) | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)}
@@ -971,11 +996,16 @@ def build_one(
             for h in sample:
                 rej = impersonation_screen(h, ctx["brand"], ctx["known_slds"], ctx["keywords"], ctx["max_distance"], tuple(ctx.get("sub_brands") or ()))
                 if rej:
-                    filtered["domain"].discard(h)
-                    filtered["domain_suffix"].discard(h)
-                    records[h] = new_quarantine_record(
-                        h, "quarantine", {"reason": f"rescan:{rej}", "signals": []}, "rescan", today_str)
-                    rescan_stats["impersonation_hit"].append(h)
+                    if h in main_upstream_domains:
+                        # 主上游：只报告，不删除（官方 0 丢失原则）
+                        rescan_stats["main_upstream_hit"].append({"domain": h, "reason": rej})
+                    else:
+                        # 补充上游/CT：删除+隔离（原有行为）
+                        filtered["domain"].discard(h)
+                        filtered["domain_suffix"].discard(h)
+                        records[h] = new_quarantine_record(
+                            h, "quarantine", {"reason": f"rescan:{rej}", "signals": []}, "rescan", today_str)
+                        rescan_stats["impersonation_hit"].append(h)
                     rescan_dead_out.pop(h, None)
                 else:
                     clean.append(h)
@@ -999,9 +1029,10 @@ def build_one(
                             rescan_dead_out[h] = d
                     else:
                         rescan_dead_out.pop(h, None)
-            if rescan_stats["impersonation_hit"] or rescan_stats["dns_dead_moved"]:
+            if rescan_stats["impersonation_hit"] or rescan_stats["dns_dead_moved"] or rescan_stats["main_upstream_hit"]:
                 print(f"  存量抽查：仿冒命中 {len(rescan_stats['impersonation_hit'])} / "
-                      f"DNS 死亡打回 {len(rescan_stats['dns_dead_moved'])}")
+                      f"DNS 死亡打回 {len(rescan_stats['dns_dead_moved'])} / "
+                      f"主上游告警 {len(rescan_stats['main_upstream_hit'])}（仅报告未删除）")
     verification["rescan"] = rescan_stats
 
     # 7) 生成
