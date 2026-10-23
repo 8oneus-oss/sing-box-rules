@@ -1,6 +1,6 @@
 # sing-box-rules
 
-面向 [sing-box](https://sing-box.sagernet.org/) 的自建分流规则集流水线：每天在 GitHub Actions 上合并多个上游、过滤、去重、校验、编译 `.srs`，并按功能分目录发布。
+面向 [sing-box](https://sing-box.sagernet.org/) 的自建分流规则集流水线：每天在 GitHub Actions 上构建、校验、编译 `.srs`，并按功能分目录发布。
 
 > 仓库：https://github.com/8oneus-oss/sing-box-rules  
 > 产物分支：[`rule-set`](https://github.com/8oneus-oss/sing-box-rules/tree/rule-set)  
@@ -8,11 +8,29 @@
 
 ---
 
+## 双轨制：自动轨 × 人工轨
+
+本仓库产出 18 个规则集，分两条轨道，**互不干扰**：
+
+| | 自动轨（14 个） | 人工轨（4 个） |
+|---|---|---|
+| **集合** | YouTube、谷歌美国、AI服务、Meta、Apple、GitHub、Microsoft、Twitter、Binance、Bybit、OKX、Gate.io、中国大陆域名、中国大陆IP | us-domains（美国域名）、sg-domains（新加坡域名）、us-cdn（美国大流量CDN）、dl-direct（苹果微软下载直连） |
+| **数据来源** | 上游合并 + CT 自动发现 | **纯手写**，无上游、无自动发现 |
+| **验证** | 验证电池（仿冒筛查 + DNS）→ 隔离区观察 7 天 → 自动转正 | 不验证，人工对每一条负责 |
+| **更新** | 每天自动构建 | 人工编辑 `overlays/` 后触发构建 |
+| **适用** | 厂商服务域名，量大、变化快 | 银行、券商、CDN，**宁缺毋滥**，金融类尤其谨慎 |
+
+**为什么分两轨**：银行券商的域名（如 `ally.com`、`dbs.com.sg`）错一条就可能转错账，不能交给机器自动发现；CDN 域名（如 `googlevideo.com`）走哪个出口是成本和隐私的权衡，得人拍板。这 4 个清单只允许人工维护，详见 `overlays/README.md`。
+
+---
+
 ## 目标
 
-官方 sing-geosite 更新慢、覆盖不全，导致有的域名没走到该走的出口。本仓库在**不丢失官方任何条目**的前提下，补上官方没收录的域名，并保证每一条新增都有来历。
+官方 sing-geosite 更新慢、覆盖不全，导致有的域名没走到该走的出口。本仓库在**不丢失官方任何条目**的前提下，补上官方没收录的域名，并保证自动轨的每一条新增都有来历、可验证。
 
-## 流水线
+## 流水线（自动轨）
+
+以下流程只适用于自动轨的 14 个集合。人工轨的 4 个清单不走这些步骤，直接由 `overlays/` 编译发布。
 
 ```text
 合并主上游 → 补充上游（验证电池）→ 官方源（M365）→ 种子 → CT 自动发现（验证电池）
@@ -57,19 +75,19 @@
 https://raw.githubusercontent.com/8oneus-oss/sing-box-rules/rule-set/
 ```
 
-| 功能 | 路径 |
-|------|------|
-| YouTube | `geosite/youtube.srs` |
-| 谷歌美国 | `geosite/google.srs` |
-| AI服务 | `geosite/ai.srs` |
-| Meta / Apple / GitHub / Microsoft / Twitter | `geosite/<name>.srs` |
-| Binance / Bybit / OKX / Gate.io | `geosite/<name>.srs` |
-| 中国大陆域名 | `geosite/geolocation-cn.srs` |
-| 中国大陆IP | `geoip/cn.srs` |
-| 美国域名（人工） | `geosite/us-domains.srs` |
-| 新加坡域名（人工） | `geosite/sg-domains.srs` |
-| 美国大流量CDN（人工） | `geosite/us-cdn.srs` |
-| 苹果微软下载直连（人工） | `geosite/dl-direct.srs` |
+| 功能 | 路径 | 轨道 |
+|------|------|------|
+| YouTube | `geosite/youtube.srs` | 自动 |
+| 谷歌美国 | `geosite/google.srs` | 自动 |
+| AI服务 | `geosite/ai.srs` | 自动 |
+| Meta / Apple / GitHub / Microsoft / Twitter | `geosite/<name>.srs` | 自动 |
+| Binance / Bybit / OKX / Gate.io | `geosite/<name>.srs` | 自动 |
+| 中国大陆域名 | `geosite/geolocation-cn.srs` | 自动 |
+| 中国大陆IP | `geoip/cn.srs` | 自动 |
+| 美国域名 | `geosite/us-domains.srs` | **人工** |
+| 新加坡域名 | `geosite/sg-domains.srs` | **人工** |
+| 美国大流量CDN | `geosite/us-cdn.srs` | **人工** |
+| 苹果微软下载直连 | `geosite/dl-direct.srs` | **人工** |
 
 > 人工清单（us-domains/sg-domains/us-cdn/dl-direct）只允许人工维护，不做自动发现；其中 us-cdn 与 Meta/Twitter、dl-direct 与 Apple/Microsoft/大陆域名有少量重叠，走向靠你 sing-box 模板里的规则顺序决定。
 
