@@ -54,7 +54,7 @@
 | 加载校验 | 每个 `.srs` 用 `sing-box check` + `decompile` 校验 |
 | 样本检查 | `check_samples.py` 按 `samples.json` 检查"该命中的命中、不该命中的不命中"，外加"验证隔离/待审/拒绝的条目不得出现在产物中"（人工 overlay 豁免）+"人工 overlay 的每一条必须出现在产物中"（`overlay_must_hit`，防手写清单被误删）；任何一条不符就停止发布 |
 
-`verify.json` 的 `dry_run: true` 时为观察模式：验证决策只记录进 `build-report.json`，不改变发布内容。
+`verify.json` 的 `dry_run: false` 时为正式模式：验证电池与隔离区转正机制正式接管，7 次通过的域名自动转正进产物。2026-10-24 起正式启用（Phase 0 提前结束）。
 
 每天北京时间约 07:00 自动构建；构建超过 90 分钟会被终止且**不发布**，客户端继续用上一次的版本。同一时间只允许一个构建。
 
@@ -131,7 +131,7 @@ test_verify.py          验证电池单元测试
 | 改四个纯人工清单（美/新/CDN/下载直连） | 直接编辑 `overlays/us-domains.json` 等的 `add.domain_suffix`（详见 `overlays/README.md`），金融类宁缺毋滥 |
 | 放行某个被隔离/待审的条目 | `supplement_allow.json`（人工 override，直接放行） |
 | 调验证严格程度 | `verify.json` 的阈值（隔离天数、仿冒距离等） |
-| 关掉观察模式正式启用 | `verify.json` 的 `dry_run` 改 `false` |
+| 重新开启观察模式 | `verify.json` 的 `dry_run` 改 `true`（仅记录不转正） |
 | 某个域名走错出口 | 往 `samples.json` 加一行，防止以后回归 |
 
 改 `seeds/`、`overlays/`、`blacklist.json`、`supplement_allow.json`、`catalog.json`、`verify.json` 等会自动触发构建。

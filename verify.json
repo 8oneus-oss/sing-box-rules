@@ -1,1 +1,28 @@
-{"discover_cache_ttl_days":7,"discover_default_max_related":500,"dry_run":true,"phish_keywords":["login","verify","secure","account","wallet","support","update","signin","auth","password","airdrop","bonus"],"quarantine_days":7,"quarantine_drop_dead_days":7,"quarantine_rescan_days_dead":3,"rescan_daily_ratio":0.05,"rescan_daily_sample":50,"supplement_mode":"verify","typosquat_max_distance":2,"upstream_check_mode":"report","说明":"验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0（1 周）后按实际数据调优。"}
+{
+  "discover_cache_ttl_days": 7,
+  "discover_default_max_related": 500,
+  "dry_run": false,
+  "phish_keywords": [
+    "login",
+    "verify",
+    "secure",
+    "account",
+    "wallet",
+    "support",
+    "update",
+    "signin",
+    "auth",
+    "password",
+    "airdrop",
+    "bonus"
+  ],
+  "quarantine_days": 7,
+  "quarantine_drop_dead_days": 7,
+  "quarantine_rescan_days_dead": 3,
+  "rescan_daily_ratio": 0.05,
+  "rescan_daily_sample": 50,
+  "supplement_mode": "verify",
+  "typosquat_max_distance": 2,
+  "upstream_check_mode": "report",
+  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 已结束（2026-10-24 提前启用），正式防护已开启。"
+}
