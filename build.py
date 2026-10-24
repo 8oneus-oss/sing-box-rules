@@ -914,28 +914,10 @@ def build_one(
         if promoted:
             merged["domain_suffix"] |= promoted
             print(f"  隔离区转正 {len(promoted)} 条并入")
-            # v3.1-fix: 转正域名自动追加到 samples.json 的 must_hit（每集合 FIFO 保留 200 条）
-            try:
-                _samples_path = ROOT / "samples.json"
-                if _samples_path.exists():
-                    _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
-                    _mh = _samples.setdefault("must_hit", {})
-                    _lst = _mh.setdefault(output, [])
-                    _existing = set(_lst)
-                    _added = 0
-                    for _apex in sorted(promoted):
-                        if _apex not in _existing:
-                            _lst.append(_apex)
-                            _existing.add(_apex)
-                            _added += 1
-                    # FIFO: 只保留最近 200 条
-                    if len(_lst) > 200:
-                        _lst[:] = _lst[-200:]
-                    if _added:
-                        _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-                        print(f"  样本库追加 {output}: +{_added} 条")
-            except Exception as _e:
-                print(f"  (样本库追加失败，不影响构建: {_e})")
+            # v3.1-fix: 转正域名先记下来，等过滤后只把真正进产物的追加到样本库
+            promoted_for_samples = set(promoted)
+        else:
+            promoted_for_samples = set()
         print(f"  隔离区：保留 {qstats['kept']} / 待审 {qstats['pending_review']} / "
               f"转正 {qstats['promoted']} / 丢弃 {qstats['dropped']}")
     verification["quarantine"] = qstats
@@ -976,6 +958,32 @@ def build_one(
                 print(f"  counterfeit_shops+revoked_allowlist 剔除 {before - after} 条")
     except Exception:  # noqa: BLE001
         pass
+
+    # v3.1-fix: 转正域名追加到样本库（只加真正进产物的，过滤/黑名单剔除的不加，否则 Check samples 会失败）
+    if 'promoted_for_samples' in locals() and promoted_for_samples:
+        try:
+            _final_domains = set(filtered.get("domain", set())) | set(filtered.get("domain_suffix", set()))
+            _to_add = sorted(p for p in promoted_for_samples if p in _final_domains)
+            if _to_add:
+                _samples_path = ROOT / "samples.json"
+                if _samples_path.exists():
+                    _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
+                    _mh = _samples.setdefault("must_hit", {})
+                    _lst = _mh.setdefault(output, [])
+                    _existing = set(_lst)
+                    _added = 0
+                    for _apex in _to_add:
+                        if _apex not in _existing:
+                            _lst.append(_apex)
+                            _existing.add(_apex)
+                            _added += 1
+                    if len(_lst) > 200:
+                        _lst[:] = _lst[-200:]
+                    if _added:
+                        _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                        print(f"  样本库追加 {output}: +{_added} 条")
+        except Exception as _e:
+            print(f"  (样本库追加失败，不影响构建: {_e})")
 
     # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
     #      seeds / 官方源是人工/厂商意图，不在抽查池里
