@@ -959,32 +959,6 @@ def build_one(
     except Exception:  # noqa: BLE001
         pass
 
-    # v3.1-fix: 转正域名追加到样本库（只加真正进产物的，过滤/黑名单剔除的不加，否则 Check samples 会失败）
-    if 'promoted_for_samples' in locals() and promoted_for_samples:
-        try:
-            _final_domains = set(filtered.get("domain", set())) | set(filtered.get("domain_suffix", set()))
-            _to_add = sorted(p for p in promoted_for_samples if p in _final_domains)
-            if _to_add:
-                _samples_path = ROOT / "samples.json"
-                if _samples_path.exists():
-                    _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
-                    _mh = _samples.setdefault("must_hit", {})
-                    _lst = _mh.setdefault(output, [])
-                    _existing = set(_lst)
-                    _added = 0
-                    for _apex in _to_add:
-                        if _apex not in _existing:
-                            _lst.append(_apex)
-                            _existing.add(_apex)
-                            _added += 1
-                    if len(_lst) > 200:
-                        _lst[:] = _lst[-200:]
-                    if _added:
-                        _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-                        print(f"  样本库追加 {output}: +{_added} 条")
-        except Exception as _e:
-            print(f"  (样本库追加失败，不影响构建: {_e})")
-
     # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
     #      seeds / 官方源是人工/厂商意图，不在抽查池里
     #      v3.1-fix: 主上游命中仿冒筛查只报告不删除（官方 0 丢失原则）
@@ -1042,6 +1016,32 @@ def build_one(
                       f"DNS 死亡打回 {len(rescan_stats['dns_dead_moved'])} / "
                       f"主上游告警 {len(rescan_stats['main_upstream_hit'])}（仅报告未删除）")
     verification["rescan"] = rescan_stats
+
+    # v3.1-fix: 转正域名追加到样本库（在 rescan 之后，只加最终进产物的，否则 Check samples 会失败）
+    if 'promoted_for_samples' in locals() and promoted_for_samples:
+        try:
+            _final_domains = set(filtered.get("domain", set())) | set(filtered.get("domain_suffix", set()))
+            _to_add = sorted(p for p in promoted_for_samples if p in _final_domains)
+            if _to_add:
+                _samples_path = ROOT / "samples.json"
+                if _samples_path.exists():
+                    _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
+                    _mh = _samples.setdefault("must_hit", {})
+                    _lst = _mh.setdefault(output, [])
+                    _existing = set(_lst)
+                    _added = 0
+                    for _apex in _to_add:
+                        if _apex not in _existing:
+                            _lst.append(_apex)
+                            _existing.add(_apex)
+                            _added += 1
+                    if len(_lst) > 200:
+                        _lst[:] = _lst[-200:]
+                    if _added:
+                        _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                        print(f"  样本库追加 {output}: +{_added} 条")
+        except Exception as _e:
+            print(f"  (样本库追加失败，不影响构建: {_e})")
 
     # 7) 生成
     payload = bucket_to_ruleset(filtered, rule_set_version)
