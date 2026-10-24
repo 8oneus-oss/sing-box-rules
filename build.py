@@ -914,6 +914,13 @@ def build_one(
         if promoted:
             merged["domain_suffix"] |= promoted
             print(f"  隔离区转正 {len(promoted)} 条并入")
+            # v3.1-fix: 转正域名写入 dist/promoted-{output}.json，供构建后同步样本脚本使用
+            # （不在构建主流程里改 samples.json，避免时序问题）
+            try:
+                _promoted_path = dist_dir / f"promoted-{output}.json"
+                _promoted_path.write_text(json.dumps(sorted(promoted), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            except Exception:
+                pass
         print(f"  隔离区：保留 {qstats['kept']} / 待审 {qstats['pending_review']} / "
               f"转正 {qstats['promoted']} / 丢弃 {qstats['dropped']}")
     verification["quarantine"] = qstats
