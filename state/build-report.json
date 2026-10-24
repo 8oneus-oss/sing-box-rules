@@ -168,7 +168,20 @@
         "sampled": 42,
         "impersonation_hit": [],
         "dns_dead_moved": [],
-        "main_upstream_hit": []
+        "main_upstream_hit": [
+          {
+            "domain": "gmail",
+            "reason": "格式异常"
+          },
+          {
+            "domain": "googlr.com",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "gogle.com",
+            "reason": "疑似 typosquat"
+          }
+        ]
       }
     }
   },
@@ -176,21 +189,21 @@
     "tag": "AI服务",
     "output": "ai",
     "kind": "geosite",
-    "items": 206,
+    "items": 207,
     "upstream_items": 205,
     "srs": "dist/ai.srs",
     "counts": {
       "domain": 31,
-      "domain_suffix": 174,
+      "domain_suffix": 175,
       "domain_regex": 1
     },
     "discover": {
       "enabled": true,
       "seeds": 17,
-      "raw": 1894,
-      "related_apex": 1,
+      "raw": 1757,
+      "related_apex": 3,
       "related_cap": 500,
-      "domain_suffix": 18,
+      "domain_suffix": 20,
       "domain": 0
     },
     "dns_verify": {
@@ -240,6 +253,8 @@
       "discover": {
         "admit": [],
         "quarantine": [
+          "material.security",
+          "cloudflaressl.com",
           "comicgems.com"
         ],
         "pending_review": [],
@@ -247,21 +262,24 @@
       },
       "official_admit": 0,
       "upstream_new": {
-        "new": 0,
-        "suspicious": []
+        "new": 1,
+        "suspicious": [
+          {
+            "apex": "grazie.aws.intellij.net",
+            "reason": "dns_dead"
+          }
+        ]
       },
       "quarantine": {
         "kept": 56,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 1,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 9,
         "impersonation_hit": [],
-        "dns_dead_moved": [
-          "grazie.aws.intellij.net"
-        ],
+        "dns_dead_moved": [],
         "main_upstream_hit": []
       }
     }
@@ -270,12 +288,12 @@
     "tag": "Meta",
     "output": "meta",
     "kind": "geosite",
-    "items": 548,
+    "items": 552,
     "upstream_items": 555,
     "srs": "dist/meta.srs",
     "counts": {
       "domain": 1,
-      "domain_suffix": 547
+      "domain_suffix": 551
     },
     "discover": {
       "enabled": true,
@@ -316,40 +334,57 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "skamms.com",
-          "przestrzenfb.com",
+          "sayursayur.com",
+          "sorgu2.com",
+          "akuevi.net",
+          "wpthm.ir",
+          "digi-worx.com",
+          "albayrakyangin.com",
+          "doublers.org",
+          "cardsforu.com",
           "991e6341910fb.com",
           "atashkarco.ir",
-          "vietnamyo.com",
-          "sorgu2.com",
-          "doublers.org",
+          "przestrzenfb.com",
           "duhocnhe.com",
-          "sayursayur.com",
           "songsne.com",
-          "cardsforu.com",
-          "wpthm.ir",
-          "akuevi.net",
-          "digi-worx.com",
+          "skamms.com",
+          "f1243.net",
           "yudumay.com",
-          "albayrakyangin.com",
-          "f1243.net"
+          "vietnamyo.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "com----m.com",
+            "apex": "hkg---whatsapp.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "hkg---whatsapp.com",
+            "apex": "com----m.com",
             "reason": "双连字符/IDN"
           }
         ]
       },
       "official_admit": 0,
       "upstream_new": {
-        "new": 0,
-        "suspicious": []
+        "new": 4,
+        "suspicious": [
+          {
+            "apex": "expresswifi.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "igcdn.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "oculusconnect.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "theinstagramhack.com",
+            "reason": "dns_dead"
+          }
+        ]
       },
       "quarantine": {
         "kept": 17,
@@ -360,12 +395,7 @@
       "rescan": {
         "sampled": 27,
         "impersonation_hit": [],
-        "dns_dead_moved": [
-          "oculusconnect.com",
-          "expresswifi.com",
-          "theinstagramhack.com",
-          "igcdn.com"
-        ],
+        "dns_dead_moved": [],
         "main_upstream_hit": []
       }
     }
@@ -374,20 +404,20 @@
     "tag": "Apple",
     "output": "apple",
     "kind": "geosite",
-    "items": 1318,
+    "items": 1317,
     "upstream_items": 1791,
     "srs": "dist/apple.srs",
     "counts": {
       "domain": 48,
-      "domain_suffix": 1270
+      "domain_suffix": 1269
     },
     "discover": {
       "enabled": true,
       "seeds": 5,
-      "raw": 7818,
-      "related_apex": 28,
+      "raw": 4750,
+      "related_apex": 5,
       "related_cap": 500,
-      "domain_suffix": 33,
+      "domain_suffix": 10,
       "domain": 0
     },
     "dns_verify": {
@@ -424,17 +454,16 @@
         "admit": [],
         "quarantine": [
           "premiumicloud.com",
-          "sneakysasquatch.com",
           "com-assist.eu"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "com----log.in",
+            "apex": "com---log.in",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "com---log.in",
+            "apex": "com----log.in",
             "reason": "双连字符/IDN"
           }
         ]
@@ -1530,22 +1559,16 @@
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "beatsbydre411.com"
+        ],
         "main_upstream_hit": [
           {
-            "domain": "beatbydre2013.com",
-            "reason": "仿冒店铺拼接"
-          },
-          {
-            "domain": "appletv.fr",
+            "domain": "appl4e.com",
             "reason": "疑似 typosquat"
           },
           {
-            "domain": "apple",
-            "reason": "格式异常"
-          },
-          {
-            "domain": "appleid.hk",
+            "domain": "appla.com",
             "reason": "疑似 typosquat"
           }
         ]
@@ -1627,12 +1650,12 @@
     "tag": "Microsoft",
     "output": "microsoft",
     "kind": "geosite",
-    "items": 680,
+    "items": 690,
     "upstream_items": 761,
     "srs": "dist/microsoft.srs",
     "counts": {
       "domain": 16,
-      "domain_suffix": 661,
+      "domain_suffix": 671,
       "domain_keyword": 3
     },
     "discover": {
@@ -1789,8 +1812,49 @@
       },
       "official_admit": 184,
       "upstream_new": {
-        "new": 1,
-        "suspicious": []
+        "new": 11,
+        "suspicious": [
+          {
+            "apex": "21vbc.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "azure-dns.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "azurestaticapps.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "management-azure-devices.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "microsoftazurestatus.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "mschcdn.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "office365tw.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "sfbassets.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "skype-edf.akadns.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "xboxab.com",
+            "reason": "dns_dead"
+          }
+        ]
       },
       "quarantine": {
         "kept": 2,
@@ -1801,19 +1865,13 @@
       "rescan": {
         "sampled": 30,
         "impersonation_hit": [],
-        "dns_dead_moved": [
-          "skype-edf.akadns.net",
-          "management-azure-devices.net",
-          "sfbassets.com",
-          "mschcdn.com",
-          "21vbc.com",
-          "xboxab.com",
-          "office365tw.com",
-          "azure-dns.com",
-          "azurestaticapps.net",
-          "microsoftazurestatus.cn"
-        ],
-        "main_upstream_hit": []
+        "dns_dead_moved": [],
+        "main_upstream_hit": [
+          {
+            "domain": "hotmail",
+            "reason": "格式异常"
+          }
+        ]
       }
     }
   },
@@ -1830,10 +1888,10 @@
     "discover": {
       "enabled": true,
       "seeds": 4,
-      "raw": 1590,
-      "related_apex": 70,
+      "raw": 793,
+      "related_apex": 20,
       "related_cap": 500,
-      "domain_suffix": 74,
+      "domain_suffix": 24,
       "domain": 0
     },
     "dns_verify": {
@@ -1864,94 +1922,32 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "0e1x.com",
-          "zgsxhx.com",
-          "5e1x.com",
-          "3e3x.com",
-          "fbsight.com",
-          "wisit-x.com",
-          "chunsungx.com",
-          "9e4x.com",
-          "2e1x.com",
-          "lobby-x.com",
-          "visi-x.com",
-          "join-x.com",
-          "amber-dutchtreat.com",
           "flower-cart.co",
-          "7e2x.com",
-          "www-visit-x.com",
-          "8e6x.com",
-          "bdsmhit.com",
-          "37e90x.com",
-          "1e1x.com",
-          "65e7t.co",
-          "6e4x.com",
-          "8d9x.com",
-          "cam-box.com",
-          "campsummittx.com",
-          "serbest.co",
-          "9e8x.com",
-          "santaincevent.com",
-          "tee-shirt.co",
-          "flachsat.com",
-          "9e1x.com",
-          "3e1x.com",
-          "sqlyxx.com",
-          "6r8x.com",
-          "9e9x.com",
-          "1e4x.com",
-          "business-equipment.co",
-          "hothit.co",
-          "5e5x.com",
-          "antiqcart.co",
-          "shopcampsitesport.com",
-          "6e9x.com",
-          "91e7x.com",
-          "5e0x.com",
           "a-best.co",
-          "6k8x.com",
-          "86e7x.com",
+          "hothit.co",
+          "antiqcart.co",
+          "business-equipment.co",
+          "amber-dutchtreat.com",
+          "bdsmhit.com",
+          "tee-shirt.co",
           "flipmart.co",
-          "6e6x.com",
-          "02e51x.com",
-          "0e9x.com",
-          "6e7x.com",
-          "runnerhx.com",
-          "4e7x.com",
-          "9e6x.com",
+          "serbest.co",
+          "santaincevent.com",
           "testset.com",
-          "zuffixx.com",
-          "6m8x.com",
-          "7e0x.com",
-          "x.commerce",
           "bugit.co",
-          "006e7x.com",
-          "8e3x.com"
+          "flachsat.com",
+          "65e7t.co",
+          "shopcampsitesport.com",
+          "fbsight.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "digital---x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "games---x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "brand-----x.com",
+            "apex": "http---twitter.com",
             "reason": "双连字符/IDN"
           },
           {
             "apex": "all-i-am-tf-weak-https---t.co",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "x-x-----------------------------------------------------------x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "http---twitter.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -2031,11 +2027,11 @@
         "pending_review": [],
         "reject": [
           {
-            "apex": "www----binance.com",
+            "apex": "www---binance.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "www---binance.com",
+            "apex": "www----binance.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -2057,11 +2053,7 @@
         "dns_dead_moved": [],
         "main_upstream_hit": [
           {
-            "domain": "binancezh.mobi",
-            "reason": "疑似 typosquat"
-          },
-          {
-            "domain": "binancezh.cc",
+            "domain": "binancezh.link",
             "reason": "疑似 typosquat"
           }
         ]
@@ -2123,9 +2115,9 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 10,
+        "kept": 5,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 5,
         "pending_review": 0
       },
       "rescan": {
@@ -2218,7 +2210,7 @@
     "discover": {
       "enabled": true,
       "seeds": 4,
-      "raw": 39,
+      "raw": 27,
       "related_apex": 0,
       "related_cap": 500,
       "domain_suffix": 4,
@@ -2276,12 +2268,12 @@
     "tag": "中国大陆域名",
     "output": "geolocation-cn",
     "kind": "geosite",
-    "items": 8821,
+    "items": 8838,
     "upstream_items": 9361,
     "srs": "dist/geolocation-cn.srs",
     "counts": {
       "domain": 529,
-      "domain_suffix": 8284,
+      "domain_suffix": 8301,
       "domain_regex": 8
     },
     "discover": {
@@ -2316,7 +2308,7 @@
       },
       "official_admit": 0,
       "upstream_new": {
-        "new": 13,
+        "new": 30,
         "suspicious": [
           {
             "apex": ".alibaba",
@@ -2365,37 +2357,87 @@
           {
             "apex": ".xn--fiq64b",
             "reason": "格式异常"
+          },
+          {
+            "apex": "51ctocdn.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "71acg.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "azure-dns-9.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "bytegeckoext.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "caijingwu.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "cdnhwccvo19.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "cdnhwctxz24.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "diandianlife.top",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "hntv.tv",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "letvimg.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "ppxhhh.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "rmwxgame.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "shang360.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "sunlife-everbright.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "tdnsv4.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "ttgslb.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "vcloudapi.com",
+            "reason": "dns_dead"
           }
         ]
       },
       "quarantine": {
-        "kept": 3,
+        "kept": 4,
         "promoted": 0,
-        "dropped": 1,
+        "dropped": 0,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
-        "dns_dead_moved": [
-          "ppxhhh.com",
-          "sunlife-everbright.com",
-          "cdnhwccvo19.cn",
-          "bytegeckoext.com",
-          "diandianlife.top",
-          "51ctocdn.cn",
-          "tdnsv4.com",
-          "hntv.tv",
-          "caijingwu.com",
-          "rmwxgame.com",
-          "shang360.com",
-          "ttgslb.com",
-          "cdnhwctxz24.com",
-          "vcloudapi.com",
-          "letvimg.com",
-          "azure-dns-9.cn",
-          "71acg.net"
-        ],
+        "dns_dead_moved": [],
         "main_upstream_hit": []
       }
     }
@@ -2404,11 +2446,11 @@
     "tag": "中国大陆IP",
     "output": "geoip-cn",
     "kind": "geoip",
-    "items": 11176,
-    "upstream_items": 11176,
+    "items": 11174,
+    "upstream_items": 11174,
     "srs": "dist/geoip-cn.srs",
     "counts": {
-      "ip_cidr": 11176
+      "ip_cidr": 11174
     },
     "discover": {
       "enabled": false
