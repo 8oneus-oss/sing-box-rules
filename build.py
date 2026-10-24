@@ -920,7 +920,7 @@ def build_one(
                 if _samples_path.exists():
                     _samples = json.loads(_samples_path.read_text(encoding="utf-8"))
                     _mh = _samples.setdefault("must_hit", {})
-                    _lst = _mh.setdefault(tag, [])
+                    _lst = _mh.setdefault(output, [])
                     _existing = set(_lst)
                     _added = 0
                     for _apex in sorted(promoted):
@@ -933,7 +933,7 @@ def build_one(
                         _lst[:] = _lst[-200:]
                     if _added:
                         _samples_path.write_text(json.dumps(_samples, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-                        print(f"  样本库追加 {tag}: +{_added} 条")
+                        print(f"  样本库追加 {output}: +{_added} 条")
             except Exception as _e:
                 print(f"  (样本库追加失败，不影响构建: {_e})")
         print(f"  隔离区：保留 {qstats['kept']} / 待审 {qstats['pending_review']} / "
