@@ -2,7 +2,7 @@
 """构建后同步样本库（独立步骤，不在构建主流程里）。
 
 读取 dist/promoted-*.json（构建时记录的转正域名），
-用 sing-box 逐个验证是否确实在最终 .srs 产物里，
+每个 .srs 只反编译一次，批量验证域名是否确实在最终产物里，
 只把确认在产物里的追加到 samples.json 的 must_hit。
 
 用法：python3 sync_samples.py [--dist dist] [--samples samples.json]
@@ -12,50 +12,34 @@ import argparse
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
 
-def match(sing_box: Path, srs_path: Path, domain: str) -> bool:
-    """用 sing-box 检查域名是否命中规则集。"""
-    # 复用 check_samples.py 的 match 逻辑（简化版：用 sing-box rule-set match）
-    import tempfile
-    import os
-    cfg = {
-        "log": {"level": "error"},
-        "route": {
-            "rules": [{"rule_set": "test", "outbound": "direct"}],
-            "rule_set": [{"type": "local", "tag": "test", "format": "binary", "path": str(srs_path)}],
-            "final": "direct",
-        },
-        "outbounds": [{"type": "direct", "tag": "direct"}],
-    }
+def decompile_srs(sing_box: str, srs_path: Path) -> dict:
+    """反编译一次 .srs，返回规则数据。"""
     with tempfile.TemporaryDirectory() as td:
-        cfg_path = Path(td) / "cfg.json"
-        cfg_path.write_text(json.dumps(cfg), encoding="utf-8")
-        # 用 sing-box 的 rule-set match 功能（通过 check 命令的变通方式）
-        # 实际用 sing-box 的 "rule-set" 测试：创建一个测试配置并检查
-        # 简化：直接用 python 的方式检查 .srs 是否包含该域名
-        # 这里用 sing-box decompile 后检查
         out = Path(td) / "decompiled.json"
         result = subprocess.run(
-            [str(sing_box), "rule-set", "decompile", str(srs_path), "-o", str(out)],
-            capture_output=True, text=True, timeout=30,
+            [sing_box, "rule-set", "decompile", str(srs_path), "-o", str(out)],
+            capture_output=True, text=True, timeout=60,
         )
         if result.returncode != 0:
-            return False
-        data = json.loads(out.read_text(encoding="utf-8"))
-        rules = data.get("rules", [])
-        for r in rules:
-            # domain_suffix 匹配：域名等于后缀或以 .后缀结尾
-            for suffix in r.get("domain_suffix", []):
-                if domain == suffix or domain.endswith("." + suffix):
-                    return True
-            # domain 精确匹配
-            if domain in r.get("domain", []):
+            raise RuntimeError(f"decompile 失败 {srs_path.name}: {result.stderr[:200]}")
+        return json.loads(out.read_text(encoding="utf-8"))
+
+
+def domain_in_rules(domain: str, rules: list) -> bool:
+    """检查域名是否命中规则（domain 精确或 domain_suffix 后缀）。"""
+    for r in rules:
+        if domain in r.get("domain", []):
+            return True
+        for suffix in r.get("domain_suffix", []):
+            if domain == suffix or domain.endswith("." + suffix):
                 return True
-        return False
+    return False
 
 
 def main() -> int:
@@ -77,7 +61,6 @@ def main() -> int:
 
     total_added = 0
     for promoted_file in sorted(dist.glob("promoted-*.json")):
-        # promoted-twitter.json -> twitter
         output = promoted_file.stem[len("promoted-"):]
         try:
             domains = json.loads(promoted_file.read_text(encoding="utf-8"))
@@ -90,23 +73,26 @@ def main() -> int:
             print(f"  警告：{output}.srs 不存在，跳过")
             continue
 
+        # 每个 .srs 只反编译一次
+        try:
+            data = decompile_srs(args.sing_box, srs_path)
+            rules = data.get("rules", [])
+        except Exception as e:
+            print(f"  警告：反编译 {output}.srs 失败：{e}")
+            continue
+
         lst = must_hit.setdefault(output, [])
         existing = set(lst)
         added = 0
         for domain in sorted(domains):
             if domain in existing:
                 continue
-            # 验证确实在最终产物里
-            try:
-                if match(Path(args.sing_box), srs_path, domain):
-                    lst.append(domain)
-                    existing.add(domain)
-                    added += 1
-                else:
-                    print(f"  跳过 {domain}（不在 {output}.srs 里）")
-            except Exception as e:
-                print(f"  警告：验证 {domain} 失败：{e}")
-                continue
+            if domain_in_rules(domain, rules):
+                lst.append(domain)
+                existing.add(domain)
+                added += 1
+            else:
+                print(f"  跳过 {domain}（不在 {output}.srs 里）")
 
         if len(lst) > 200:
             lst[:] = lst[-200:]
