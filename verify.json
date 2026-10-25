@@ -23,6 +23,6 @@
   "rescan_daily_sample": 50,
   "supplement_mode": "verify",
   "typosquat_max_distance": 2,
-  "upstream_check_mode": "report",
+  "upstream_check_mode": "quarantine",
   "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 已结束（2026-10-24 提前启用），正式防护已开启。"
 }
