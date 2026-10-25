@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T15:30:57Z",
+  "generated_at": "2026-10-25T13:19:55Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -48,10 +48,10 @@
       "discover": {
         "enabled": true,
         "seeds": 7,
-        "raw": 1174,
-        "related_apex": 270,
+        "raw": 545,
+        "related_apex": 70,
         "related_cap": 500,
-        "domain_suffix": 277,
+        "domain_suffix": 77,
         "domain": 0
       },
       "dns_verify": {
@@ -76,7 +76,7 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1812,
+        "raw": 1895,
         "related_apex": 1,
         "related_cap": 500,
         "domain_suffix": 18,
@@ -103,10 +103,10 @@
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 5868,
-        "related_apex": 11,
+        "raw": 6240,
+        "related_apex": 24,
         "related_cap": 500,
-        "domain_suffix": 20,
+        "domain_suffix": 33,
         "domain": 0
       },
       "dns_verify": {
@@ -121,19 +121,19 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1317,
-      "upstream_items": 1791,
+      "items": 1315,
+      "upstream_items": 1790,
       "counts": {
         "domain": 48,
-        "domain_suffix": 1269
+        "domain_suffix": 1267
       },
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 7386,
-        "related_apex": 6,
+        "raw": 7818,
+        "related_apex": 28,
         "related_cap": 500,
-        "domain_suffix": 11,
+        "domain_suffix": 33,
         "domain": 0
       },
       "dns_verify": {
@@ -292,10 +292,10 @@
       "discover": {
         "enabled": true,
         "seeds": 3,
-        "raw": 35,
-        "related_apex": 0,
+        "raw": 137,
+        "related_apex": 1,
         "related_cap": 500,
-        "domain_suffix": 3,
+        "domain_suffix": 4,
         "domain": 0
       },
       "dns_verify": {
@@ -337,10 +337,10 @@
       "file": "geosite/geolocation-cn.srs",
       "url_path": "geosite/geolocation-cn.srs",
       "items": 8839,
-      "upstream_items": 9362,
+      "upstream_items": 9379,
       "counts": {
-        "domain": 529,
-        "domain_suffix": 8302,
+        "domain": 531,
+        "domain_suffix": 8300,
         "domain_regex": 8
       },
       "discover": {
