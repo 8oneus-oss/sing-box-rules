@@ -24,6 +24,7 @@ on:
       - "verify.py"
       - "official_lists.py"
       - "verify.json"
+      - "sync_samples.py"
       - ".github/workflows/publish.yml"
 
 permissions:
