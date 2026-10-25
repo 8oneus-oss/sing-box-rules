@@ -119,6 +119,39 @@ def new_quarantine_record(
     }
 
 
+def merge_quarantine_record(
+    old: Dict[str, Any], new: Dict[str, Any]
+) -> Dict[str, Any]:
+    """合并单条隔离区记录：新发现不重置旧计数。
+
+    保留最早 first_seen、最大 consecutive_pass/consecutive_dead；
+    pending_review 一旦置位不因重新发现而清除（fail-safe）；
+    其余字段取新记录（当轮证据）。
+    """
+    old_seen = old.get("first_seen") or new.get("first_seen")
+    new_seen = new.get("first_seen") or old.get("first_seen")
+    return {
+        **new,
+        "first_seen": min(old_seen, new_seen) if old_seen and new_seen else (old_seen or new_seen),
+        "consecutive_pass": max(int(old.get("consecutive_pass", 0) or 0), int(new.get("consecutive_pass", 0) or 0)),
+        "consecutive_dead": max(int(old.get("consecutive_dead", 0) or 0), int(new.get("consecutive_dead", 0) or 0)),
+        "pending_review": bool(old.get("pending_review")) or bool(new.get("pending_review")),
+    }
+
+
+def upsert_quarantine_record(
+    records: Dict[str, Dict[str, Any]], apex: str, new: Dict[str, Any]
+) -> None:
+    """向隔离区写入一条记录：已存在则合并保留计数，不存在则全新写入。
+
+    build_one 里 CT 发现/上游新条目/rescan 直接覆盖写曾导致计数重启
+    （#64 实测 cloudflaressl.com 4→2；补充上游路径已由
+    merge_quarantine_records 管住）；统一走 upsert，语义与合并一致。
+    """
+    old = records.get(apex)
+    records[apex] = merge_quarantine_record(old, new) if old is not None else new
+
+
 def merge_quarantine_records(
     prev: Dict[str, Dict[str, Any]], new: Dict[str, Dict[str, Any]]
 ) -> Dict[str, Dict[str, Any]]:
@@ -135,16 +168,8 @@ def merge_quarantine_records(
         old = merged.get(apex)
         if old is None:
             merged[apex] = rec
-            continue
-        old_seen = old.get("first_seen") or rec.get("first_seen")
-        new_seen = rec.get("first_seen") or old.get("first_seen")
-        merged[apex] = {
-            **rec,
-            "first_seen": min(old_seen, new_seen) if old_seen and new_seen else (old_seen or new_seen),
-            "consecutive_pass": max(int(old.get("consecutive_pass", 0) or 0), int(rec.get("consecutive_pass", 0) or 0)),
-            "consecutive_dead": max(int(old.get("consecutive_dead", 0) or 0), int(rec.get("consecutive_dead", 0) or 0)),
-            "pending_review": bool(old.get("pending_review")) or bool(rec.get("pending_review")),
-        }
+        else:
+            merged[apex] = merge_quarantine_record(old, rec)
     return merged
 
 
@@ -864,7 +889,7 @@ def build_one(
                         discovered_suffixes.add(s)
                     # dry_run（Phase 0 report-only）：只记录决策，不并入发布内容
                 else:
-                    records[s] = new_quarantine_record(s, decision, info, "ct", today_str)
+                    upsert_quarantine_record(records, s, new_quarantine_record(s, decision, info, "ct", today_str))
                     vd["pending_review" if decision == "pending_review" else "quarantine"].append(s)
             print(f"  discover seeds 并入 {len(seed_set & merged['domain_suffix'])}/{len(seed_set)}；"
                   f"related: admit={len(vd['admit'])} quarantine={len(vd['quarantine'])} "
@@ -896,10 +921,11 @@ def build_one(
                 if mode_up == "quarantine":
                     merged["domain"].discard(h)
                     merged["domain_suffix"].discard(h)
-                    records[h] = new_quarantine_record(
-                        h, "pending_review" if (rej and ctx["brand"] and ctx["brand"] in h) else "quarantine",
-                        {"reason": rej or "dns_dead", "dead": not alive, "signals": []},
-                        "upstream", today_str)
+                    upsert_quarantine_record(
+                        records, h, new_quarantine_record(
+                            h, "pending_review" if (rej and ctx["brand"] and ctx["brand"] in h) else "quarantine",
+                            {"reason": rej or "dns_dead", "dead": not alive, "signals": []},
+                            "upstream", today_str))
         if upstream_new_report["suspicious"]:
             print(f"  上游新条目：新增 {len(new_hosts)}，可疑 {len(upstream_new_report['suspicious'])}（模式={mode_up}）")
     verification["upstream_new"] = upstream_new_report
@@ -1017,8 +1043,9 @@ def build_one(
                         # 补充上游/CT：删除+隔离（原有行为）
                         filtered["domain"].discard(h)
                         filtered["domain_suffix"].discard(h)
-                        records[h] = new_quarantine_record(
-                            h, "quarantine", {"reason": f"rescan:{rej}", "signals": []}, "rescan", today_str)
+                        upsert_quarantine_record(
+                            records, h, new_quarantine_record(
+                                h, "quarantine", {"reason": f"rescan:{rej}", "signals": []}, "rescan", today_str))
                         rescan_stats["impersonation_hit"].append(h)
                     rescan_dead_out.pop(h, None)
                 else:
@@ -1034,9 +1061,10 @@ def build_one(
                         if d >= rescan_drop_dead:
                             filtered["domain"].discard(h)
                             filtered["domain_suffix"].discard(h)
-                            records[h] = new_quarantine_record(
-                                h, "quarantine", {"reason": "rescan:dns_dead", "dead": True, "signals": []},
-                                "rescan", today_str)
+                            upsert_quarantine_record(
+                                records, h, new_quarantine_record(
+                                    h, "quarantine", {"reason": "rescan:dns_dead", "dead": True, "signals": []},
+                                    "rescan", today_str))
                             rescan_stats["dns_dead_moved"].append(h)
                             rescan_dead_out.pop(h, None)
                         else:
