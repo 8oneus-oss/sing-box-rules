@@ -1,7 +1,7 @@
 {
   "discover_cache_ttl_days": 7,
   "discover_default_max_related": 500,
-  "dry_run": false,
+  "dry_run": true,
   "phish_keywords": [
     "login",
     "verify",
@@ -24,5 +24,5 @@
   "supplement_mode": "verify",
   "typosquat_max_distance": 2,
   "upstream_check_mode": "quarantine",
-  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 已结束（2026-10-24 提前启用），正式防护已开启。"
+  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 观察期（dry_run=true，只记录不转正），满 7 天后按实际数据调优再正式启用。"
 }
