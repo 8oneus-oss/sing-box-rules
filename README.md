@@ -49,7 +49,7 @@
 | overlays | 人工强制增删，**最高优先级**（高于验证电池），在隔离区之后应用 |
 | 覆盖去重 | 删掉已被 `domain_suffix` 覆盖的精确 `domain` 和冗余长 suffix，匹配结果不变 |
 | 上游缩水保护 | 配置的上游全部失败，或合并后的条目数比上次发布低于 80%，本次构建失败，**不发布** |
-| 上游新条目检查 | 与上次发布 diff，新增条目过仿冒筛查 + DNS（默认只报告，`upstream_check_mode`） |
+| 上游新条目检查 | 与上次发布 diff，新增条目过仿冒筛查 + DNS；筛查命中的当轮即从产物剔除（`upstream_check_mode=quarantine`），不进隔离区，留存位置是当轮 build-report 的 upstream_new.suspicious 列表 |
 | 存量抽查复验 | 每天抽查已发布条目（5%/50 个），DNS 死亡的进隔离区 |
 | 加载校验 | 每个 `.srs` 用 `sing-box check` + `decompile` 校验 |
 | 样本检查 | `check_samples.py` 按 `samples.json` 检查"该命中的命中、不该命中的不命中"，外加"验证隔离/待审/拒绝的条目不得出现在产物中"（人工 overlay 豁免）+"人工 overlay 的每一条必须出现在产物中"（`overlay_must_hit`，防手写清单被误删）；任何一条不符就停止发布 |

@@ -119,6 +119,35 @@ def new_quarantine_record(
     }
 
 
+def merge_quarantine_records(
+    prev: Dict[str, Dict[str, Any]], new: Dict[str, Dict[str, Any]]
+) -> Dict[str, Dict[str, Any]]:
+    """合并上轮隔离区与本轮新发现：新发现不重置旧计数。
+
+    旧写法 {**prev, **new} 是新记录整体覆盖旧记录：某域名被重新发现为
+    新候选时，first_seen/consecutive_pass 会重启（如 ai 集两条 4→2），
+    只推迟转正、不丢数据，但计数语义是错的。合并时保留最早 first_seen、
+    最大 consecutive_pass/consecutive_dead；pending_review 一旦置位不因
+    重新发现而清除（fail-safe）；其余字段取新记录（当轮证据）。
+    """
+    merged = dict(prev or {})
+    for apex, rec in (new or {}).items():
+        old = merged.get(apex)
+        if old is None:
+            merged[apex] = rec
+            continue
+        old_seen = old.get("first_seen") or rec.get("first_seen")
+        new_seen = rec.get("first_seen") or old.get("first_seen")
+        merged[apex] = {
+            **rec,
+            "first_seen": min(old_seen, new_seen) if old_seen and new_seen else (old_seen or new_seen),
+            "consecutive_pass": max(int(old.get("consecutive_pass", 0) or 0), int(rec.get("consecutive_pass", 0) or 0)),
+            "consecutive_dead": max(int(old.get("consecutive_dead", 0) or 0), int(rec.get("consecutive_dead", 0) or 0)),
+            "pending_review": bool(old.get("pending_review")) or bool(rec.get("pending_review")),
+        }
+    return merged
+
+
 def update_quarantine_for_output(
     records: Dict[str, Dict[str, Any]],
     ctx: Dict[str, Any],
@@ -1204,8 +1233,9 @@ def main() -> int:
             supplement=supplements.get(entry["tag"]),
             prev_state=None,  # v3.1：旧累积机制已由隔离区替代
             # v3.1 新增
-            quarantine_records={**(prev_quarantine.get(entry["output"]) or {}),
-                                **(quarantine_new.get(entry["output"]) or {})},
+            quarantine_records=merge_quarantine_records(
+                prev_quarantine.get(entry["output"]),
+                quarantine_new.get(entry["output"])),
             rescan_dead=dict(prev_rescan_dead.get(entry["output"]) or {}),
             official_set=official.get(entry["output"], set()),
             dry_run=dry_run,

@@ -24,5 +24,5 @@
   "supplement_mode": "verify",
   "typosquat_max_distance": 2,
   "upstream_check_mode": "quarantine",
-  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 观察期（dry_run=true，只记录不转正），满 7 天后按实际数据调优再正式启用。"
+  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 观察期（dry_run=true，只记录不转正），满 7 天后按实际数据调优再正式启用。upstream_check_mode=quarantine 的实际行为：筛查命中的上游条目本轮即丢弃、不进隔离区，留存位置是当轮 build-report 的 upstream_new.suspicious 列表。"
 }
