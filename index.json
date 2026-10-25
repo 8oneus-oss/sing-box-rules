@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T13:19:55Z",
+  "generated_at": "2026-10-25T16:34:01Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1895,
-        "related_apex": 1,
+        "raw": 1626,
+        "related_apex": 9,
         "related_cap": 500,
-        "domain_suffix": 18,
+        "domain_suffix": 26,
         "domain": 0
       },
       "dns_verify": {
@@ -103,10 +103,10 @@
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 6240,
-        "related_apex": 24,
+        "raw": 5103,
+        "related_apex": 7,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 16,
         "domain": 0
       },
       "dns_verify": {
@@ -121,19 +121,19 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1315,
+      "items": 1312,
       "upstream_items": 1790,
       "counts": {
         "domain": 48,
-        "domain_suffix": 1267
+        "domain_suffix": 1264
       },
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 7818,
-        "related_apex": 28,
+        "raw": 7386,
+        "related_apex": 6,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 11,
         "domain": 0
       },
       "dns_verify": {
@@ -212,10 +212,10 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 1591,
-        "related_apex": 70,
+        "raw": 1528,
+        "related_apex": 75,
         "related_cap": 500,
-        "domain_suffix": 74,
+        "domain_suffix": 79,
         "domain": 0
       },
       "dns_verify": {
@@ -266,10 +266,10 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 163,
-        "related_apex": 1,
+        "raw": 34,
+        "related_apex": 0,
         "related_cap": 500,
-        "domain_suffix": 6,
+        "domain_suffix": 5,
         "domain": 0
       },
       "dns_verify": {
@@ -292,7 +292,7 @@
       "discover": {
         "enabled": true,
         "seeds": 3,
-        "raw": 137,
+        "raw": 132,
         "related_apex": 1,
         "related_cap": 500,
         "domain_suffix": 4,
@@ -318,7 +318,7 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 39,
+        "raw": 33,
         "related_apex": 0,
         "related_cap": 500,
         "domain_suffix": 4,
@@ -450,10 +450,10 @@
       "kind": "geosite",
       "file": "geosite/dl-direct.srs",
       "url_path": "geosite/dl-direct.srs",
-      "items": 5,
+      "items": 6,
       "upstream_items": 0,
       "counts": {
-        "domain_suffix": 5
+        "domain_suffix": 6
       },
       "discover": {
         "enabled": false,
