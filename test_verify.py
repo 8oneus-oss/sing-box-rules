@@ -76,6 +76,62 @@ check("candidate pending_review", d, "pending_review")
 d, _ = verify_candidate("safu.im", ctx())
 check("candidate quarantine", d, "quarantine")
 
+# --- check_samples：转正竞态与可信来源裁决 ---
+import json as _json
+import tempfile as _tempfile
+
+from check_samples import covered_by_suffix, promoted_apex, report_bad_entries
+
+check("suffix exact", covered_by_suffix("a.com", {"a.com"}), True)
+check("suffix covered", covered_by_suffix("x.a.com", {"a.com"}), True)
+check("suffix no partial-label", covered_by_suffix("onmicrosoft.com", {"microsoft.com"}), False)
+check("suffix empty", covered_by_suffix("a.com", set()), False)
+
+
+def _ver(discover=None, supplement=None, trusted=None, dry_run=False):
+    return {"dry_run": dry_run,
+            "discover": discover or {"reject": [], "quarantine": [], "pending_review": []},
+            "supplement": supplement or {"reject": [], "quarantine": [], "pending_review": []},
+            "trusted": trusted or {"domain": [], "domain_suffix": []}}
+
+
+# 转正竞态：discover-quarantine + 本轮转正 → 排除；discover-reject + 转正 → 保留（真冲突必报）
+check("race discover-quarantine promoted excluded",
+      report_bad_entries(_ver(discover={"reject": [], "quarantine": ["promoted.com"], "pending_review": []}),
+                         set(), {"promoted.com"}), [])
+check("race discover-reject promoted kept",
+      report_bad_entries(_ver(discover={"reject": ["promoted.com"], "quarantine": [], "pending_review": []}),
+                         set(), {"promoted.com"}), [("reject", "promoted.com")])
+check("race supplement-quarantine promoted excluded",
+      report_bad_entries(_ver(supplement={"reject": [], "quarantine": ["promoted.com"], "pending_review": []}),
+                         set(), {"promoted.com"}), [])
+# 可信来源：supplement-reject 被 trusted 精确覆盖 → 排除；supplement-quarantine 被后缀覆盖 → 排除
+check("trusted exact covers supplement-reject",
+      report_bad_entries(_ver(supplement={"reject": ["t.com"], "quarantine": [], "pending_review": []},
+                              trusted={"domain": ["t.com"], "domain_suffix": []}),
+                         set(), set()), [])
+check("trusted suffix covers supplement-quarantine",
+      report_bad_entries(_ver(supplement={"reject": [], "quarantine": ["x.trusted.com"], "pending_review": []},
+                              trusted={"domain": [], "domain_suffix": ["trusted.com"]}),
+                         set(), set()), [])
+# 旧行为保留：普通 bad 保留、human_added 排除、dry_run 跳过 supplement
+check("plain bad kept",
+      report_bad_entries(_ver(discover={"reject": ["bad.com"], "quarantine": [], "pending_review": []}),
+                         set(), set()), [("reject", "bad.com")])
+check("human_added excluded",
+      report_bad_entries(_ver(discover={"reject": ["bad.com"], "quarantine": [], "pending_review": []}),
+                         {"bad.com"}, set()), [])
+check("dry_run skips supplement",
+      report_bad_entries(_ver(supplement={"reject": ["s.com"], "quarantine": [], "pending_review": []},
+                              dry_run=True),
+                         set(), set()), [])
+# promoted_apex：读文件 + 归一化；缺失为空集
+with _tempfile.TemporaryDirectory() as td:
+    _p = Path(td) / "promoted-x.json"
+    _p.write_text(_json.dumps(["  Foo.COM.", "bar.com"]), encoding="utf-8")
+    check("promoted_apex normalizes", promoted_apex(Path(td), "x"), {"foo.com", "bar.com"})
+    check("promoted_apex missing empty", promoted_apex(Path(td), "y"), set())
+
 print()
 if FAILURES:
     print(f"{len(FAILURES)} 失败：")

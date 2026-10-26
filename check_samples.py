@@ -33,6 +33,74 @@ def match(sing_box: Path, srs: Path, domain: str) -> bool:
     return any(line.startswith("match") for line in out.splitlines())
 
 
+def _norm_apex(x: str) -> str:
+    return str(x).strip().lower().rstrip(".")
+
+
+def promoted_apex(dist: Path, output: str) -> Set[str]:
+    """本轮转正条目（build.py 写入 dist/promoted-{output}.json；缺失即为空集）。"""
+    p = dist / f"promoted-{output}.json"
+    if not p.is_file():
+        return set()
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    return {_norm_apex(x) for x in (data or []) if _norm_apex(x)}
+
+
+def covered_by_suffix(apex: str, suffixes: Set[str]) -> bool:
+    """apex 是否被任一 suffix 覆盖（精确相等或 .后缀匹配，与 build.py 同语义）。"""
+    return any(s and (apex == s or apex.endswith("." + s)) for s in suffixes)
+
+
+def report_bad_entries(
+    ver: Dict, human_added: Set[str], promoted: Set[str]
+) -> List[Tuple[str, str]]:
+    """从构建报告拼出“不得出现在产物中”的条目（v3.1 §8），含两处裁决：
+
+    1. 本轮转正竞态：旧记录达标转正的条目，本轮又被再发现记入 quarantine 名单；
+       转正是合法结果，quarantine 备注已过时——仅 quarantine 段排除本轮转正条目。
+       reject/pending_review 与转正不可能同轮共存（同一筛查、同 ctx 下筛查命中即丢弃、
+       待审永不自动转正），若出现必是真冲突，检查必须继续报错，不排除。
+    2. 可信来源优先：主上游 / 官方源 / 种子是绕过验证电池的设计（官方 0 丢失、
+       官方无条件 admit、种子人工意图），筛查 verdict 不得否决它们；
+       verification["trusted"]（build.py 记录）覆盖的条目从 bad 名单剔除。
+       旧报告无 trusted 键时退化为旧行为。
+    """
+    trusted = ver.get("trusted") or {}
+    trusted_domain = {_norm_apex(x) for x in (trusted.get("domain") or [])}
+    trusted_suffix = {_norm_apex(x) for x in (trusted.get("domain_suffix") or [])}
+
+    def trusted_covered(apex: str) -> bool:
+        return apex in trusted_domain or covered_by_suffix(apex, trusted_suffix)
+
+    bad: List[Tuple[str, str]] = []
+    disc = ver.get("discover") or {}
+    for sec in ("reject", "quarantine", "pending_review"):
+        for item in disc.get(sec, []) or []:
+            apex = item["apex"] if isinstance(item, dict) else item
+            apex = _norm_apex(apex)
+            if not apex or apex in human_added or trusted_covered(apex):
+                continue
+            if sec == "quarantine" and apex in promoted:
+                continue
+            bad.append((sec, apex))
+    # dry_run 下 supplement 的验证决策只是"假设"（实际仍走旧白名单），不检查；
+    # 非 dry_run 下 supplement 的 quarantine/pending_review 确实未并入，必须检查
+    if not ver.get("dry_run"):
+        supp = ver.get("supplement") or {}
+        for sec in ("reject", "quarantine", "pending_review"):
+            for apex in supp.get(sec, []) or []:
+                apex = _norm_apex(apex)
+                if not apex or apex in human_added or trusted_covered(apex):
+                    continue
+                if sec == "quarantine" and apex in promoted:
+                    continue
+                bad.append((sec, apex))
+    return bad
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dist", default=str(ROOT / "dist"), help="build.py 的输出目录")
@@ -145,21 +213,7 @@ def main() -> int:
                 continue
             ver = r.get("verification") or {}
             human_added = overlay_added(name)
-            bad: List[Tuple[str, str]] = []
-            disc = ver.get("discover") or {}
-            for sec in ("reject", "quarantine", "pending_review"):
-                for item in disc.get(sec, []) or []:
-                    apex = item["apex"] if isinstance(item, dict) else item
-                    apex = str(apex).strip().lower().rstrip(".")
-                    if apex and apex not in human_added:
-                        bad.append((sec, apex))
-            # dry_run 下 supplement 的验证决策只是"假设"（实际仍走旧白名单），不检查；
-            # 非 dry_run 下 supplement 的 quarantine/pending_review 确实未并入，必须检查
-            if not ver.get("dry_run"):
-                supp = ver.get("supplement") or {}
-                for sec in ("reject", "quarantine", "pending_review"):
-                    for apex in supp.get(sec, []) or []:
-                        bad.append((sec, apex))
+            bad = report_bad_entries(ver, human_added, promoted_apex(dist, name))
             p = srs_of(name)
             if p is None or not bad:
                 continue

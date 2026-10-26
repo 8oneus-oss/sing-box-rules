@@ -814,6 +814,10 @@ def build_one(
     print(f"  merge items={upstream_items}")
     # v3.1-fix: 记录主上游域名集合，rescan 时主上游命中只报告不删除（官方 0 丢失原则）
     main_upstream_domains = set(merged.get("domain", set())) | set(merged.get("domain_suffix", set()))
+    # v3.1-fix: 可信来源快照（主上游 + 官方源 + 种子）：筛查 verdict 不得否决可信来源
+    # 的条目；check_samples 用 verification["trusted"] 裁决 supplement/discover bad 名单。
+    trusted_domain: Set[str] = set(merged.get("domain", set()))
+    trusted_suffix: Set[str] = set(merged.get("domain_suffix", set()))
 
     if guard and previous_counts:
         prev = previous_counts.get(tag)
@@ -830,6 +834,7 @@ def build_one(
         off = {x for x in off if x and "." in x and not _PUBLIC_SUFFIX_LIKE.match(x)}
         merged["domain_suffix"] |= off
         official_added = len(off)
+        trusted_suffix |= off
         print(f"  + 官方源 {official_added} apex（直接并入，仍过后续去重/过滤）")
 
     if supplement and (supplement["domain"] or supplement["domain_suffix"]):
@@ -897,6 +902,14 @@ def build_one(
                   f"丢弃(公共后缀/跨集合)={discover_dropped}")
         else:
             print("  discover (no seeds)")
+
+    # 可信来源快照收尾：种子是人工意图，同样高于筛查 verdict（种子未并入时不影响检查，
+    # 因为检查只测产物命中；并入的种子若被筛查否决，check_samples 据此放行）。
+    trusted_suffix |= seed_set
+    verification["trusted"] = {
+        "domain": sorted(trusted_domain),
+        "domain_suffix": sorted(trusted_suffix),
+    }
 
     # 2.5) 上游新条目检查（v3.1 §6.3）：与上次发布 diff，新增条目过仿冒筛查 + DNS
     prev_published: Set[str] = set()
@@ -1128,6 +1141,14 @@ def main() -> int:
     if not SING_BOX.is_file():
         print(f"缺少 {SING_BOX}，请先下载 sing-box", file=sys.stderr)
         return 1
+
+    # v3.1-fix: 转正文件是单轮产物，旧文件残留会让 check_samples 误排除；
+    # 构建开始即清理，保证本轮检查只认本轮转正。
+    for stale in DIST_DIR.glob("promoted-*.json"):
+        try:
+            stale.unlink()
+        except OSError:
+            pass
 
     if args.refresh and CACHE_DIR.exists():
         # v3.1：--refresh 只清空上游缓存，保留 cache/discover（独立 7 天 TTL，见 verify.json）
