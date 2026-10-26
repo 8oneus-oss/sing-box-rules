@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T01:19:06Z",
+  "generated_at": "2026-10-26T15:32:14Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1802,
-        "related_apex": 28,
+        "raw": 1894,
+        "related_apex": 1,
         "related_cap": 500,
-        "domain_suffix": 45,
+        "domain_suffix": 18,
         "domain": 0
       },
       "dns_verify": {
@@ -103,10 +103,10 @@
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 6160,
-        "related_apex": 25,
+        "raw": 6238,
+        "related_apex": 24,
         "related_cap": 500,
-        "domain_suffix": 34,
+        "domain_suffix": 33,
         "domain": 0
       },
       "dns_verify": {
@@ -121,11 +121,11 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1303,
+      "items": 1299,
       "upstream_items": 1790,
       "counts": {
         "domain": 48,
-        "domain_suffix": 1255
+        "domain_suffix": 1251
       },
       "discover": {
         "enabled": true,
