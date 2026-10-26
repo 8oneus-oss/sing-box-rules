@@ -49,6 +49,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Run unit tests (fail fast)
+        run: python3 test_verify.py
+
       - name: Install sing-box
         env:
           SING_BOX_VERSION: "1.14.2"
