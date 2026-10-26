@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T17:30:32Z",
+  "generated_at": "2026-10-26T01:19:06Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -38,11 +38,11 @@
       "kind": "geosite",
       "file": "geosite/google.srs",
       "url_path": "geosite/google.srs",
-      "items": 856,
+      "items": 855,
       "upstream_items": 1091,
       "counts": {
         "domain": 19,
-        "domain_suffix": 835,
+        "domain_suffix": 834,
         "domain_regex": 2
       },
       "discover": {
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1781,
-        "related_apex": 2,
+        "raw": 1802,
+        "related_apex": 28,
         "related_cap": 500,
-        "domain_suffix": 19,
+        "domain_suffix": 45,
         "domain": 0
       },
       "dns_verify": {
@@ -103,10 +103,10 @@
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 2974,
-        "related_apex": 24,
+        "raw": 6160,
+        "related_apex": 25,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 34,
         "domain": 0
       },
       "dns_verify": {
@@ -130,10 +130,10 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 7818,
-        "related_apex": 28,
+        "raw": 7386,
+        "related_apex": 6,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 11,
         "domain": 0
       },
       "dns_verify": {
@@ -157,7 +157,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 484,
+        "raw": 530,
         "related_apex": 0,
         "related_cap": 500,
         "domain_suffix": 5,
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 677,
+      "items": 679,
       "upstream_items": 761,
       "counts": {
         "domain": 16,
-        "domain_suffix": 658,
+        "domain_suffix": 660,
         "domain_keyword": 3
       },
       "discover": {
@@ -212,7 +212,7 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 1590,
+        "raw": 1591,
         "related_apex": 70,
         "related_cap": 500,
         "domain_suffix": 74,
@@ -266,7 +266,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 142,
+        "raw": 163,
         "related_apex": 1,
         "related_cap": 500,
         "domain_suffix": 6,
