@@ -36,7 +36,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [],
         "quarantine": [],
@@ -251,11 +251,11 @@
         "dns_dead_moved": [],
         "main_upstream_hit": [
           {
-            "domain": "youtubego.in",
+            "domain": "youtubei.googleapis.com",
             "reason": "疑似 typosquat"
           },
           {
-            "domain": "youtubego.co.id",
+            "domain": "youtubego.co.in",
             "reason": "疑似 typosquat"
           }
         ]
@@ -266,12 +266,12 @@
     "tag": "谷歌美国",
     "output": "google",
     "kind": "geosite",
-    "items": 855,
+    "items": 927,
     "upstream_items": 1091,
     "srs": "dist/google.srs",
     "counts": {
       "domain": 19,
-      "domain_suffix": 834,
+      "domain_suffix": 906,
       "domain_regex": 2
     },
     "discover": {
@@ -293,27 +293,29 @@
       "domain_before": 236,
       "domain_after": 19,
       "domain_dropped": 217,
-      "suffix_before": 859,
-      "suffix_after": 834,
+      "suffix_before": 932,
+      "suffix_after": 907,
       "suffix_dropped": 25
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
-        "quarantine": [
+        "admit": [
           "abc.xyz",
-          "amp.dev",
           "ampproject.com",
           "ampproject.net",
           "androidtv.com",
           "app-measurement.net",
+          "crbug.com",
+          "waymo.com"
+        ],
+        "quarantine": [
+          "amp.dev",
           "capitalg.com",
           "certificate-transparency.dev",
           "chromeexperiments.com",
           "chromercise.com",
-          "crbug.com",
           "creativelab5.com",
           "crrev.com",
           "data-vocabulary.org",
@@ -332,7 +334,6 @@
           "teachparentstech.org",
           "verily.com",
           "waveprotocol.org",
-          "waymo.com",
           "zynamics.com"
         ],
         "pending_review": [
@@ -1453,23 +1454,21 @@
         ]
       },
       "quarantine": {
-        "kept": 74,
-        "promoted": 0,
-        "dropped": 3,
-        "pending_review": 23
+        "kept": 24,
+        "promoted": 73,
+        "dropped": 0,
+        "pending_review": 25
       },
       "rescan": {
-        "sampled": 42,
+        "sampled": 45,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "appbridge.it"
+        ],
         "main_upstream_hit": [
           {
-            "domain": "gbiz",
-            "reason": "格式异常"
-          },
-          {
-            "domain": "goog",
-            "reason": "格式异常"
+            "domain": "gogole.com",
+            "reason": "疑似 typosquat"
           }
         ]
       }
@@ -1479,21 +1478,21 @@
     "tag": "AI服务",
     "output": "ai",
     "kind": "geosite",
-    "items": 207,
+    "items": 259,
     "upstream_items": 205,
     "srs": "dist/ai.srs",
     "counts": {
       "domain": 31,
-      "domain_suffix": 175,
+      "domain_suffix": 227,
       "domain_regex": 1
     },
     "discover": {
       "enabled": true,
       "seeds": 17,
-      "raw": 1894,
-      "related_apex": 1,
+      "raw": 1770,
+      "related_apex": 26,
       "related_cap": 500,
-      "domain_suffix": 18,
+      "domain_suffix": 43,
       "domain": 0
     },
     "dns_verify": {
@@ -1506,19 +1505,20 @@
       "domain_before": 31,
       "domain_after": 31,
       "domain_dropped": 0,
-      "suffix_before": 176,
-      "suffix_after": 175,
+      "suffix_before": 229,
+      "suffix_after": 228,
       "suffix_dropped": 1
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
+        "admit": [
+          "ai.com"
+        ],
         "quarantine": [
           "cdn.usefathom.com",
           "static.cloudflareinsights.com",
-          "ai.com",
           "auth0.com",
           "challenges.cloudflare.com",
           "client-api.arkoselabs.com",
@@ -1543,7 +1543,28 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "comicgems.com"
+          "opentable.ie",
+          "getjusto.com",
+          "digitalocean.com",
+          "blockchain.com",
+          "razorpay.com",
+          "opentable.jp",
+          "mozzartbet.com",
+          "hexagon-cdn.com",
+          "costargroup.com",
+          "cloudflaressl.com",
+          "experticity.com",
+          "hopper.com",
+          "opentable.de",
+          "comicgems.com",
+          "bitinvestor.net",
+          "inflowpay.com",
+          "gr4vy.com",
+          "markt.de",
+          "opentable.nl",
+          "pantheon.io",
+          "opentable.com",
+          "rocketapis.com"
         ],
         "pending_review": [],
         "reject": []
@@ -1765,15 +1786,17 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 64,
-        "promoted": 0,
-        "dropped": 1,
-        "pending_review": 0
+        "kept": 27,
+        "promoted": 53,
+        "dropped": 0,
+        "pending_review": 1
       },
       "rescan": {
-        "sampled": 9,
+        "sampled": 11,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "anthropic.team"
+        ],
         "main_upstream_hit": []
       }
     }
@@ -1782,17 +1805,17 @@
     "tag": "Meta",
     "output": "meta",
     "kind": "geosite",
-    "items": 552,
+    "items": 559,
     "upstream_items": 555,
     "srs": "dist/meta.srs",
     "counts": {
       "domain": 1,
-      "domain_suffix": 551
+      "domain_suffix": 558
     },
     "discover": {
       "enabled": true,
       "seeds": 9,
-      "raw": 6238,
+      "raw": 6185,
       "related_apex": 24,
       "related_cap": 500,
       "domain_suffix": 33,
@@ -1808,19 +1831,20 @@
       "domain_before": 2,
       "domain_after": 1,
       "domain_dropped": 1,
-      "suffix_before": 555,
-      "suffix_after": 551,
+      "suffix_before": 562,
+      "suffix_after": 558,
       "suffix_dropped": 4
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
-        "quarantine": [
-          "facebookquotes4u.com",
+        "admit": [
           "fbaddins.com",
           "instagr.am"
+        ],
+        "quarantine": [
+          "facebookquotes4u.com"
         ],
         "pending_review": [],
         "reject": []
@@ -1828,32 +1852,32 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "f1243.net",
-          "duhocnhe.com",
-          "sayursayur.com",
+          "yudumay.com",
+          "przestrzenfb.com",
+          "vietnamyo.com",
+          "sorgu2.com",
+          "skamms.com",
+          "cardsforu.com",
           "atashkarco.ir",
-          "doublers.org",
-          "991e6341910fb.com",
-          "songsne.com",
           "digi-worx.com",
           "akuevi.net",
           "wpthm.ir",
-          "vietnamyo.com",
-          "sorgu2.com",
-          "yudumay.com",
-          "przestrzenfb.com",
-          "cardsforu.com",
+          "f1243.net",
+          "doublers.org",
+          "songsne.com",
           "albayrakyangin.com",
-          "skamms.com"
+          "sayursayur.com",
+          "duhocnhe.com",
+          "991e6341910fb.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "com----m.com",
+            "apex": "hkg---whatsapp.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "hkg---whatsapp.com",
+            "apex": "com----m.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -2425,9 +2449,9 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 17,
-        "promoted": 0,
-        "dropped": 0,
+        "kept": 1,
+        "promoted": 7,
+        "dropped": 10,
         "pending_review": 0
       },
       "rescan": {
@@ -2442,12 +2466,12 @@
     "tag": "Apple",
     "output": "apple",
     "kind": "geosite",
-    "items": 1299,
+    "items": 1297,
     "upstream_items": 1790,
     "srs": "dist/apple.srs",
     "counts": {
       "domain": 48,
-      "domain_suffix": 1251
+      "domain_suffix": 1249
     },
     "discover": {
       "enabled": true,
@@ -2468,19 +2492,20 @@
       "domain_before": 249,
       "domain_after": 48,
       "domain_dropped": 201,
-      "suffix_before": 1260,
-      "suffix_after": 1255,
+      "suffix_before": 1258,
+      "suffix_after": 1253,
       "suffix_dropped": 5
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
+        "admit": [
+          "appstore.com",
+          "cdn-apple-mapkit.com"
+        ],
         "quarantine": [
           "apple.com.mwcname.com",
-          "appstore.com",
-          "cdn-apple-mapkit.com",
           "digicert.com",
           "organicfruitapps.com",
           "vertexsmb.com"
@@ -4304,7 +4329,7 @@
         ]
       },
       "upstream_new": {
-        "new": 283,
+        "new": 287,
         "suspicious": [
           {
             "apex": "100beatscheap.com",
@@ -4431,6 +4456,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "appledns.cn",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "applewallet.com",
             "reason": "dns_dead"
           },
@@ -4452,6 +4481,10 @@
           },
           {
             "apex": "bag-glasses1.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "beatbd.com",
             "reason": "dns_dead"
           },
           {
@@ -4803,6 +4836,10 @@
             "reason": "仿冒店铺拼接"
           },
           {
+            "apex": "beatsdrdreneon.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "beatsdre4cheap.com",
             "reason": "仿冒店铺拼接"
           },
@@ -4969,6 +5006,10 @@
           {
             "apex": "casquebeatspascher2013.com",
             "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "casquedrdrebeatssfr.com",
+            "reason": "dns_dead"
           },
           {
             "apex": "casquemonsterbeatsbydre2013.com",
@@ -5441,8 +5482,8 @@
         ]
       },
       "quarantine": {
-        "kept": 18,
-        "promoted": 0,
+        "kept": 24,
+        "promoted": 2,
         "dropped": 269,
         "pending_review": 0
       },
@@ -5450,15 +5491,15 @@
         "sampled": 50,
         "impersonation_hit": [],
         "dns_dead_moved": [
-          "beatbd.com",
-          "casquedrdrebeatssfr.com",
-          "beatsdrdreneon.com",
-          "appledns.cn"
+          "coolmonster.net",
+          "hrsaz.com",
+          "beatsdredreheadphones.com",
+          "apple-mapkit.com"
         ],
         "main_upstream_hit": [
           {
-            "domain": "appleos.tv",
-            "reason": "疑似 typosquat"
+            "domain": "beatbydreheadphonesonsale.com",
+            "reason": "仿冒店铺拼接"
           }
         ]
       }
@@ -5478,7 +5519,7 @@
     "discover": {
       "enabled": true,
       "seeds": 5,
-      "raw": 530,
+      "raw": 201,
       "related_apex": 0,
       "related_cap": 500,
       "domain_suffix": 5,
@@ -5500,7 +5541,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [],
         "quarantine": [
@@ -5593,7 +5634,7 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 0,
+        "kept": 2,
         "promoted": 0,
         "dropped": 0,
         "pending_review": 0
@@ -5610,12 +5651,12 @@
     "tag": "Microsoft",
     "output": "microsoft",
     "kind": "geosite",
-    "items": 679,
+    "items": 671,
     "upstream_items": 761,
     "srs": "dist/microsoft.srs",
     "counts": {
       "domain": 16,
-      "domain_suffix": 660,
+      "domain_suffix": 652,
       "domain_keyword": 3
     },
     "discover": {
@@ -5644,14 +5685,17 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [
+          "acompli.com",
           "acompli.net",
           "assets-yammer.com",
           "azure-apim.net",
+          "azurefd.us",
           "azurerms.com",
           "cortana.ai",
+          "groupme.com",
           "lync.com",
           "microsoftusercontent.com",
           "msauthimages.net",
@@ -5663,9 +5707,7 @@
           "yammerusercontent.com"
         ],
         "quarantine": [
-          "acompli.com",
           "aicscience.com",
-          "azurefd.us",
           "bbing.com",
           "bibg.com",
           "biing.com",
@@ -5693,7 +5735,6 @@
           "evoke-windowsservices-tas.msedge",
           "explorebing.com",
           "fabric.io",
-          "groupme.com",
           "helpshift.com",
           "here.com",
           "here.net",
@@ -6751,15 +6792,24 @@
         ]
       },
       "quarantine": {
-        "kept": 15,
-        "promoted": 0,
+        "kept": 99,
+        "promoted": 2,
         "dropped": 0,
-        "pending_review": 0
+        "pending_review": 3
       },
       "rescan": {
         "sampled": 30,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "azcrmc-test.cn",
+          "msftnet.org",
+          "azchcdng.com",
+          "21vbluecloud.net",
+          "gfx.ms",
+          "bingparachute.com",
+          "microsoft.red",
+          "azurecomm.net"
+        ],
         "main_upstream_hit": [
           {
             "domain": "microsoft",
@@ -6798,96 +6848,92 @@
       "domain_before": 0,
       "domain_after": 0,
       "domain_dropped": 0,
-      "suffix_before": 25,
-      "suffix_after": 25,
+      "suffix_before": 26,
+      "suffix_after": 26,
       "suffix_dropped": 0
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
-        "quarantine": [
+        "admit": [
           "twimg.co"
         ],
+        "quarantine": [],
         "pending_review": [],
         "reject": []
       },
       "discover": {
         "admit": [],
         "quarantine": [
+          "a-best.co",
+          "7e2x.com",
+          "65e7t.co",
+          "3e1x.com",
+          "amber-dutchtreat.com",
           "91e7x.com",
           "9e6x.com",
-          "chunsungx.com",
-          "hothit.co",
-          "9e9x.com",
-          "3e1x.com",
-          "flower-cart.co",
-          "5e0x.com",
-          "cam-box.com",
-          "a-best.co",
-          "86e7x.com",
-          "lobby-x.com",
-          "6e6x.com",
-          "sqlyxx.com",
-          "join-x.com",
-          "02e51x.com",
-          "www-visit-x.com",
-          "37e90x.com",
-          "bugit.co",
-          "6e4x.com",
-          "9e1x.com",
-          "3e3x.com",
-          "6k8x.com",
-          "4e7x.com",
-          "0e1x.com",
-          "7e0x.com",
-          "business-equipment.co",
-          "shopcampsitesport.com",
-          "serbest.co",
-          "fbsight.com",
-          "flipmart.co",
-          "wisit-x.com",
-          "santaincevent.com",
-          "runnerhx.com",
-          "antiqcart.co",
-          "006e7x.com",
-          "flachsat.com",
-          "zgsxhx.com",
-          "zuffixx.com",
-          "8d9x.com",
-          "6m8x.com",
-          "tee-shirt.co",
-          "1e4x.com",
-          "6r8x.com",
           "9e8x.com",
-          "2e1x.com",
-          "visi-x.com",
-          "bdsmhit.com",
-          "testset.com",
-          "x.commerce",
-          "5e5x.com",
-          "1e1x.com",
-          "8e6x.com",
-          "5e1x.com",
-          "6e7x.com",
-          "7e2x.com",
-          "amber-dutchtreat.com",
-          "0e9x.com",
-          "9e4x.com",
+          "6e4x.com",
+          "9e9x.com",
+          "bugit.co",
+          "5e0x.com",
+          "serbest.co",
+          "cam-box.com",
+          "fbsight.com",
+          "sqlyxx.com",
+          "6k8x.com",
+          "antiqcart.co",
           "8e3x.com",
-          "65e7t.co",
+          "santaincevent.com",
+          "campsummittx.com",
+          "0e1x.com",
+          "4e7x.com",
+          "6e7x.com",
+          "lobby-x.com",
+          "37e90x.com",
+          "bdsmhit.com",
+          "2e1x.com",
+          "www-visit-x.com",
+          "visi-x.com",
+          "6r8x.com",
+          "shopcampsitesport.com",
+          "x.commerce",
+          "9e4x.com",
+          "chunsungx.com",
+          "8d9x.com",
+          "testset.com",
+          "hothit.co",
+          "02e51x.com",
+          "zgsxhx.com",
+          "join-x.com",
+          "runnerhx.com",
+          "86e7x.com",
+          "5e1x.com",
+          "8e6x.com",
+          "3e3x.com",
+          "business-equipment.co",
+          "flipmart.co",
+          "zuffixx.com",
+          "6m8x.com",
+          "flachsat.com",
+          "7e0x.com",
+          "5e5x.com",
+          "6e6x.com",
+          "9e1x.com",
+          "tee-shirt.co",
+          "0e9x.com",
+          "1e1x.com",
           "6e9x.com",
-          "campsummittx.com"
+          "flower-cart.co",
+          "1e4x.com",
+          "wisit-x.com",
+          "006e7x.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "games---x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "all-i-am-tf-weak-https---t.co",
+            "apex": "digital---x.com",
             "reason": "双连字符/IDN"
           },
           {
@@ -6895,15 +6941,19 @@
             "reason": "双连字符/IDN"
           },
           {
+            "apex": "brand-----x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
             "apex": "x-x-----------------------------------------------------------x.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "digital---x.com",
+            "apex": "games---x.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "brand-----x.com",
+            "apex": "all-i-am-tf-weak-https---t.co",
             "reason": "双连字符/IDN"
           }
         ]
@@ -6943,8 +6993,8 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 65,
-        "promoted": 0,
+        "kept": 64,
+        "promoted": 1,
         "dropped": 0,
         "pending_review": 0
       },
@@ -6960,12 +7010,12 @@
     "tag": "Binance",
     "output": "binance",
     "kind": "geosite",
-    "items": 48,
+    "items": 47,
     "upstream_items": 45,
     "srs": "dist/binance.srs",
     "counts": {
       "domain": 2,
-      "domain_suffix": 46
+      "domain_suffix": 45
     },
     "discover": {
       "enabled": true,
@@ -6992,14 +7042,15 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
-        "admit": [],
+        "admit": [
+          "binancefuture.com",
+          "bnbzh.ac"
+        ],
         "quarantine": [
           "appsflayer.com",
-          "binancefuture.com",
-          "bnappzh.co",
-          "bnbzh.ac"
+          "bnappzh.co"
         ],
         "pending_review": [],
         "reject": []
@@ -7079,7 +7130,7 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 1,
+        "kept": 2,
         "promoted": 0,
         "dropped": 0,
         "pending_review": 0
@@ -7087,7 +7138,9 @@
       "rescan": {
         "sampled": 2,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "saasexch.cc"
+        ],
         "main_upstream_hit": []
       }
     }
@@ -7096,20 +7149,20 @@
     "tag": "Bybit",
     "output": "bybit",
     "kind": "geosite",
-    "items": 18,
+    "items": 23,
     "upstream_items": 16,
     "srs": "dist/bybit.srs",
     "counts": {
       "domain": 2,
-      "domain_suffix": 16
+      "domain_suffix": 21
     },
     "discover": {
       "enabled": true,
       "seeds": 5,
-      "raw": 163,
-      "related_apex": 1,
+      "raw": 172,
+      "related_apex": 10,
       "related_cap": 500,
-      "domain_suffix": 6,
+      "domain_suffix": 15,
       "domain": 0
     },
     "dns_verify": {
@@ -7122,13 +7175,13 @@
       "domain_before": 2,
       "domain_after": 2,
       "domain_dropped": 0,
-      "suffix_before": 16,
-      "suffix_after": 16,
+      "suffix_before": 21,
+      "suffix_after": 21,
       "suffix_dropped": 0
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [],
         "quarantine": [],
@@ -7137,7 +7190,15 @@
       },
       "discover": {
         "admit": [],
-        "quarantine": [],
+        "quarantine": [
+          "bitsapis.net",
+          "bitapis.net",
+          "byapi.net",
+          "bitsapp.net",
+          "batchtradings.com",
+          "byapis.net",
+          "bbbb-bit.com"
+        ],
         "pending_review": [],
         "reject": []
       },
@@ -7171,8 +7232,8 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 5,
-        "promoted": 0,
+        "kept": 7,
+        "promoted": 5,
         "dropped": 0,
         "pending_review": 0
       },
@@ -7197,10 +7258,10 @@
     "discover": {
       "enabled": true,
       "seeds": 3,
-      "raw": 137,
-      "related_apex": 1,
+      "raw": 35,
+      "related_apex": 0,
       "related_cap": 500,
-      "domain_suffix": 4,
+      "domain_suffix": 3,
       "domain": 0
     },
     "dns_verify": {
@@ -7219,7 +7280,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [],
         "quarantine": [],
@@ -7228,9 +7289,7 @@
       },
       "discover": {
         "admit": [],
-        "quarantine": [
-          "3e8okx.com"
-        ],
+        "quarantine": [],
         "pending_review": [],
         "reject": []
       },
@@ -7304,7 +7363,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {
         "admit": [],
         "quarantine": [],
@@ -7354,12 +7413,12 @@
     "tag": "中国大陆域名",
     "output": "geolocation-cn",
     "kind": "geosite",
-    "items": 8820,
+    "items": 8819,
     "upstream_items": 9379,
     "srs": "dist/geolocation-cn.srs",
     "counts": {
-      "domain": 531,
-      "domain_suffix": 8281,
+      "domain": 529,
+      "domain_suffix": 8282,
       "domain_regex": 8
     },
     "discover": {
@@ -7376,15 +7435,15 @@
     },
     "collapse": {
       "domain_before": 606,
-      "domain_after": 531,
-      "domain_dropped": 75,
-      "suffix_before": 8732,
-      "suffix_after": 8281,
+      "domain_after": 529,
+      "domain_dropped": 77,
+      "suffix_before": 8735,
+      "suffix_after": 8284,
       "suffix_dropped": 451
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -16920,15 +16979,18 @@
         ]
       },
       "quarantine": {
-        "kept": 31,
-        "promoted": 0,
+        "kept": 24,
+        "promoted": 7,
         "dropped": 12,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "alibabadoctor.com",
+          "alibabadns.com"
+        ],
         "main_upstream_hit": []
       }
     }
@@ -16962,7 +17024,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -17025,7 +17087,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -17043,13 +17105,13 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 56,
-        "promoted": 0,
+        "kept": 0,
+        "promoted": 56,
         "dropped": 0,
         "pending_review": 0
       },
       "rescan": {
-        "sampled": 2,
+        "sampled": 0,
         "impersonation_hit": [],
         "dns_dead_moved": [],
         "main_upstream_hit": []
@@ -17088,7 +17150,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -17106,8 +17168,8 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 19,
-        "promoted": 0,
+        "kept": 0,
+        "promoted": 19,
         "dropped": 0,
         "pending_review": 0
       },
@@ -17151,7 +17213,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -17169,8 +17231,8 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 4,
-        "promoted": 0,
+        "kept": 0,
+        "promoted": 4,
         "dropped": 0,
         "pending_review": 0
       },
@@ -17214,7 +17276,7 @@
     },
     "new_suffix_from_discover": 0,
     "verification": {
-      "dry_run": true,
+      "dry_run": false,
       "supplement": {},
       "discover": {
         "admit": [],
@@ -17232,8 +17294,8 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 6,
-        "promoted": 0,
+        "kept": 0,
+        "promoted": 6,
         "dropped": 0,
         "pending_review": 0
       },
