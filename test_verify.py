@@ -132,6 +132,15 @@ with _tempfile.TemporaryDirectory() as td:
     check("promoted_apex normalizes", promoted_apex(Path(td), "x"), {"foo.com", "bar.com"})
     check("promoted_apex missing empty", promoted_apex(Path(td), "y"), set())
 
+# rescan 抽查池豁免 overlay（squarecloudservices.com 案）：人工意图不进池
+from build import rescan_pool
+_f = {"domain": {"a.com"}, "domain_suffix": {"squarecloudservices.com", "other.org"}}
+check("rescan pool excludes overlay suffix", rescan_pool(_f, set(), set(), {"squarecloudservices.com"}), ["a.com", "other.org"])
+check("rescan pool excludes overlay domain", rescan_pool({"domain": {"x.com"}, "domain_suffix": set()}, set(), set(), {"x.com"}), [])
+check("rescan pool keeps non-overlay", rescan_pool(_f, set(), set(), set()), ["a.com", "other.org", "squarecloudservices.com"])
+check("rescan pool keeps seeds/official exclusion", rescan_pool(_f, {"a.com"}, {"other.org"}, set()), ["squarecloudservices.com"])
+check("rescan pool normalizes overlay add", rescan_pool(_f, set(), set(), {"  SquareCloudServices.COM."}), ["a.com", "other.org"])
+
 print()
 if FAILURES:
     print(f"{len(FAILURES)} 失败：")

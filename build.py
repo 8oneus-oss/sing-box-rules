@@ -756,6 +756,17 @@ def verify_load(srs_path: Path, sing_box: Path, kind: str) -> None:
             raise RuntimeError(f"decompile 结果异常: {srs_path.name}")
 
 
+def rescan_pool(filtered: Dict[str, Set[str]], seed_set: Set[str], official_set: Set[str], overlay_add: Set[str]) -> List[str]:
+    """存量抽查池：排除人工/厂商意图（seeds、官方源、overlay），避免抽查删掉检查强制要求的条目。
+
+    与主上游的 report-only 不同，这里直接不抽：seeds/官方源/overlay 都是人工或厂商意图，
+    一旦被抽查判死/判仿冒就会从产物删除，进而导致 overlay_must_hit 检查失败
+    （squarecloudservices.com 案：overlay 条目连死 3 天被 rescan 删除，翻转构建 Check samples 失败）。
+    """
+    trusted = set(seed_set) | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)} | {normalize_host(x) for x in (overlay_add or set()) if normalize_host(x)}
+    return sorted(((filtered.get("domain") or set()) | (filtered.get("domain_suffix") or set())) - trusted)
+
+
 def build_one(
     entry: Dict[str, Any],
     filters: Dict[str, Any],
@@ -996,8 +1007,15 @@ def build_one(
     # 3) 叠加覆盖（人工保底，最高优先级不变）
     overlay_path = OVERLAY_DIR / f"{output}.json"
     overlay_new: Set[str] = set()
+    overlay_add: Set[str] = set()
     if overlay_path.exists():
-        overlay_new = apply_overlay(merged, load_json(overlay_path))
+        _ov = load_json(overlay_path)
+        for _kk in ("domain", "domain_suffix"):
+            for _x in ensure_list((_ov.get("add") or {}).get(_kk)):
+                _nx = normalize_host(_x)
+                if _nx:
+                    overlay_add.add(_nx)
+        overlay_new = apply_overlay(merged, _ov)
         print(f"  overlay {overlay_path.name} -> items={count_items(merged)} new={len(overlay_new)}")
     else:
         print("  overlay (none)")
@@ -1031,13 +1049,13 @@ def build_one(
         pass
 
     # 6.5) 存量抽查复验（v3.1 §5.3）：每天随机抽查 min(50, 5%) 个已发布条目
-    #      seeds / 官方源是人工/厂商意图，不在抽查池里
+    #      seeds / 官方源 / overlay 是人工/厂商意图，不在抽查池里
+    #      （overlay 若被抽查删除，overlay_must_hit 检查必失败；见 squarecloudservices.com 案）
     #      v3.1-fix: 主上游命中仿冒筛查只报告不删除（官方 0 丢失原则）
     rescan_stats: Dict[str, Any] = {"sampled": 0, "impersonation_hit": [], "dns_dead_moved": [], "main_upstream_hit": []}
     rescan_dead_out = dict(rescan_dead or {})
     if kind == "geosite" and ctx is not None:
-        trusted = set(seed_set) | {normalize_host(x) for x in (official_set or set()) if normalize_host(x)}
-        pool = sorted((filtered["domain"] | filtered["domain_suffix"]) - trusted)
+        pool = rescan_pool(filtered, seed_set, official_set, overlay_add)
         n = min(int(vcfg("rescan_daily_sample") or 50),
                 int(len(pool) * float(vcfg("rescan_daily_ratio") or 0.05)))
         if n > 0 and pool:
