@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:36:15Z",
+  "generated_at": "2026-10-27T02:22:40Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -38,17 +38,17 @@
       "kind": "geosite",
       "file": "geosite/google.srs",
       "url_path": "geosite/google.srs",
-      "items": 927,
-      "upstream_items": 1091,
+      "items": 937,
+      "upstream_items": 1094,
       "counts": {
         "domain": 19,
-        "domain_suffix": 906,
+        "domain_suffix": 916,
         "domain_regex": 2
       },
       "discover": {
         "enabled": true,
         "seeds": 7,
-        "raw": 545,
+        "raw": 515,
         "related_apex": 70,
         "related_cap": 500,
         "domain_suffix": 77,
@@ -66,20 +66,20 @@
       "kind": "geosite",
       "file": "geosite/ai.srs",
       "url_path": "geosite/ai.srs",
-      "items": 259,
-      "upstream_items": 205,
+      "items": 235,
+      "upstream_items": 208,
       "counts": {
-        "domain": 31,
-        "domain_suffix": 227,
+        "domain": 34,
+        "domain_suffix": 200,
         "domain_regex": 1
       },
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1770,
-        "related_apex": 26,
+        "raw": 1240,
+        "related_apex": 38,
         "related_cap": 500,
-        "domain_suffix": 43,
+        "domain_suffix": 55,
         "domain": 0
       },
       "dns_verify": {
@@ -94,19 +94,19 @@
       "kind": "geosite",
       "file": "geosite/meta.srs",
       "url_path": "geosite/meta.srs",
-      "items": 559,
+      "items": 557,
       "upstream_items": 555,
       "counts": {
         "domain": 1,
-        "domain_suffix": 558
+        "domain_suffix": 556
       },
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 6185,
-        "related_apex": 24,
+        "raw": 5741,
+        "related_apex": 11,
         "related_cap": 500,
-        "domain_suffix": 33,
+        "domain_suffix": 20,
         "domain": 0
       },
       "dns_verify": {
@@ -121,11 +121,11 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1297,
+      "items": 1306,
       "upstream_items": 1790,
       "counts": {
-        "domain": 48,
-        "domain_suffix": 1249
+        "domain": 58,
+        "domain_suffix": 1248
       },
       "discover": {
         "enabled": true,
@@ -157,7 +157,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 201,
+        "raw": 530,
         "related_apex": 0,
         "related_cap": 500,
         "domain_suffix": 5,
@@ -176,7 +176,7 @@
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
       "items": 671,
-      "upstream_items": 761,
+      "upstream_items": 768,
       "counts": {
         "domain": 16,
         "domain_suffix": 652,
@@ -204,10 +204,10 @@
       "kind": "geosite",
       "file": "geosite/twitter.srs",
       "url_path": "geosite/twitter.srs",
-      "items": 25,
+      "items": 48,
       "upstream_items": 24,
       "counts": {
-        "domain_suffix": 25
+        "domain_suffix": 48
       },
       "discover": {
         "enabled": true,
@@ -266,10 +266,10 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 172,
-        "related_apex": 10,
+        "raw": 163,
+        "related_apex": 1,
         "related_cap": 500,
-        "domain_suffix": 15,
+        "domain_suffix": 6,
         "domain": 0
       },
       "dns_verify": {
@@ -292,10 +292,10 @@
       "discover": {
         "enabled": true,
         "seeds": 3,
-        "raw": 35,
-        "related_apex": 0,
+        "raw": 137,
+        "related_apex": 1,
         "related_cap": 500,
-        "domain_suffix": 3,
+        "domain_suffix": 4,
         "domain": 0
       },
       "dns_verify": {
@@ -336,11 +336,11 @@
       "kind": "geosite",
       "file": "geosite/geolocation-cn.srs",
       "url_path": "geosite/geolocation-cn.srs",
-      "items": 8819,
-      "upstream_items": 9379,
+      "items": 8823,
+      "upstream_items": 9382,
       "counts": {
         "domain": 529,
-        "domain_suffix": 8282,
+        "domain_suffix": 8286,
         "domain_regex": 8
       },
       "discover": {

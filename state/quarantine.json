@@ -1,15 +1,15 @@
 {
  "version": 1,
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "entries": {
   "youtube": {},
   "google": {
    "google.ng": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -19,9 +19,9 @@
    "google.in": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -31,9 +31,9 @@
    "google.uz": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -43,9 +43,9 @@
    "google.jp": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -55,9 +55,9 @@
    "google.eus": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -67,9 +67,9 @@
    "google.ua": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -79,9 +79,9 @@
    "google.cc": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -91,9 +91,9 @@
    "google.tel": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -103,9 +103,9 @@
    "google.jobs": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -115,9 +115,9 @@
    "google.ag": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -127,9 +127,9 @@
    "google.us": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -139,9 +139,9 @@
    "google.info": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -151,9 +151,9 @@
    "google.hk": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -163,9 +163,9 @@
    "google.tk": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -175,9 +175,9 @@
    "google.ac": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -187,9 +187,9 @@
    "google.pk": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -199,9 +199,9 @@
    "google.gp": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -211,9 +211,9 @@
    "google.af": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -223,9 +223,9 @@
    "google.bzh": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -235,9 +235,9 @@
    "google.ai": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -247,9 +247,9 @@
    "google.frl": {
     "first_seen": "2026-10-21",
     "pending_review": true,
-    "consecutive_pass": 18,
+    "consecutive_pass": 19,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -259,9 +259,9 @@
    "googleplex.com": {
     "first_seen": "2026-10-24",
     "pending_review": true,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -271,9 +271,9 @@
    "googleweblight.com": {
     "first_seen": "2026-10-24",
     "pending_review": true,
-    "consecutive_pass": 8,
+    "consecutive_pass": 9,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -284,8 +284,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 3,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 4,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -293,9 +293,9 @@
    "amp.dev": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -305,9 +305,9 @@
    "capitalg.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -318,8 +318,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -327,9 +327,9 @@
    "chromeexperiments.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -340,8 +340,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -349,9 +349,9 @@
    "creativelab5.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -361,9 +361,9 @@
    "crrev.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -373,9 +373,9 @@
    "data-vocabulary.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -385,9 +385,9 @@
    "deja.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -397,9 +397,9 @@
    "digisfera.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -409,9 +409,9 @@
    "digitalattackmap.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -421,9 +421,9 @@
    "getmdl.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -433,9 +433,9 @@
    "getoutline.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -445,9 +445,9 @@
    "googlemashups.com": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -457,9 +457,9 @@
    "googlescholar.com": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -469,9 +469,9 @@
    "gv.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -481,9 +481,9 @@
    "gwtproject.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -493,9 +493,9 @@
    "neverware.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -505,9 +505,9 @@
    "plus.codes": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -517,9 +517,9 @@
    "redhotlabs.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -529,9 +529,9 @@
    "schema.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -541,9 +541,9 @@
    "shattered.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -553,9 +553,9 @@
    "teachparentstech.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -565,9 +565,9 @@
    "verily.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -577,9 +577,9 @@
    "waveprotocol.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -590,114 +590,32 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "zynamics.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "supplement",
+    "reason": "time_verify"
    }
   },
   "ai": {
-   "comicgems.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "cloudflaressl.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "zedoc.dev": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "supplifyme.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "evida.uk": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "korevio.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "joincellular.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "vervehealth.ai": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
    "groqcloud.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 4,
+    "consecutive_pass": 5,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -708,8 +626,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -717,9 +635,9 @@
    "datagrail.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 4,
+    "consecutive_pass": 5,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -729,9 +647,9 @@
    "cdn.usefathom.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -741,9 +659,9 @@
    "openai-api.arkoselabs.com": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -753,9 +671,9 @@
    "static.cloudflareinsights.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -765,9 +683,9 @@
    "auth0.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -777,9 +695,9 @@
    "challenges.cloudflare.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -789,9 +707,9 @@
    "client-api.arkoselabs.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -801,9 +719,9 @@
    "events.statsigapi.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -813,9 +731,9 @@
    "featuregates.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -825,9 +743,9 @@
    "g.ai": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -837,9 +755,9 @@
    "identrust.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -849,9 +767,9 @@
    "intercom.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -861,9 +779,9 @@
    "intercomcdn.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -873,9 +791,9 @@
    "launchdarkly.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -886,8 +804,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -895,9 +813,9 @@
    "segment.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -907,9 +825,9 @@
    "sentry.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -919,9 +837,9 @@
    "stripe.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -932,8 +850,434 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "fenixcommerce.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "readmestatus.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "stradaworld.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "ustaxcourt.gov": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "voicenext.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "hypixel.net": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "cigotracker.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "lcly.co": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "tangocard.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "ubiqsecurity.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "blackhawknetwork.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "igloustatus.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "graphite.dev": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "kaltura.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "graphite.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "korweb.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "check21.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "kcfstatus.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "yalochat.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "unixfy.net": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "ashbyhq.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "pipelinecrm.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "capital-iom.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "seesonar.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "daily.co": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "plumenet.io": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "greenlightmedical.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "7pace.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "coinmotion.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "zentail.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "ricoh.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "cloudautomator.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "webpurify.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "runscope.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "ncr.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "manuscdn.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
     "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "rescan",
     "reason": "rescan:dns_dead"
@@ -943,65 +1287,67 @@
    "facebookquotes4u.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
     "source": "supplement",
     "reason": "time_verify"
-   }
-  },
-  "apple": {
-   "premiumicloud.com": {
-    "first_seen": "2026-10-25",
+   },
+   "przestrzenfb.com": {
+    "first_seen": "2026-10-27",
     "pending_review": false,
-    "consecutive_pass": 6,
+    "consecutive_pass": 2,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
     "source": "ct",
     "reason": "time_verify"
    },
-   "com-assist.eu": {
-    "first_seen": "2026-10-25",
+   "songsne.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 2,
+    "consecutive_dead": 0,
+    "last_check": "2026-10-27",
+    "signals": [
+     "dns_ok"
+    ],
+    "source": "ct",
+    "reason": "time_verify"
+   },
+   "yudumay.com": {
+    "first_seen": "2026-10-27",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
    },
-   "vipshoes2.com": {
-    "first_seen": "2026-10-25",
+   "991e6341910fb.com": {
+    "first_seen": "2026-10-27",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "upstream",
+    "source": "ct",
     "reason": "dns_dead"
-   },
-   "beatsdrdre-solo.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
+   }
+  },
+  "apple": {
    "bag-glasses1.com": {
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 5,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 6,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1010,8 +1356,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 5,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 6,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1020,8 +1366,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 5,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 6,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1030,8 +1376,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1040,8 +1386,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1050,8 +1396,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1060,8 +1406,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1070,8 +1416,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1080,8 +1426,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1090,8 +1436,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1100,8 +1446,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1110,8 +1456,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1120,8 +1466,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1130,8 +1476,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1140,8 +1486,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1150,8 +1496,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1160,8 +1506,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1169,9 +1515,9 @@
    "digicert.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1182,8 +1528,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1191,9 +1537,9 @@
    "vertexsmb.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1204,38 +1550,58 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "hrsaz.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "beatsdredreheadphones.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "apple-mapkit.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "monsterbeatsfinland.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
     "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "appleipodsettlement.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "rescan",
     "reason": "rescan:dns_dead"
@@ -1245,9 +1611,9 @@
    "rawgit.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1258,8 +1624,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1270,8 +1636,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1280,8 +1646,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1290,8 +1656,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1300,8 +1666,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1310,8 +1676,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1320,8 +1686,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1330,8 +1696,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1340,8 +1706,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1350,8 +1716,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1360,8 +1726,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1370,8 +1736,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1380,8 +1746,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1390,8 +1756,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -1399,9 +1765,9 @@
    "aicscience.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1411,9 +1777,9 @@
    "bbing.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1423,9 +1789,9 @@
    "bibg.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1435,9 +1801,9 @@
    "biing.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1447,9 +1813,9 @@
    "binb.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1459,9 +1825,9 @@
    "binf.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1472,8 +1838,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1482,8 +1848,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1491,9 +1857,9 @@
    "binginternal.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1503,9 +1869,9 @@
    "bingit.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1516,8 +1882,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1525,9 +1891,9 @@
    "bingj.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1537,9 +1903,9 @@
    "bingpix.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1549,9 +1915,9 @@
    "bingpk.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1561,9 +1927,9 @@
    "bings.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1573,9 +1939,9 @@
    "bingtoolbar.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1585,9 +1951,9 @@
    "bingtranslator.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1597,9 +1963,9 @@
    "biying.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1609,9 +1975,9 @@
    "biying.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1621,9 +1987,9 @@
    "biying.com.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1634,8 +2000,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1644,8 +2010,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1653,9 +2019,9 @@
    "discoverbing.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1666,8 +2032,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1676,8 +2042,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1686,8 +2052,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1695,9 +2061,9 @@
    "explorebing.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1707,9 +2073,9 @@
    "fabric.io": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1719,9 +2085,9 @@
    "helpshift.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1731,9 +2097,9 @@
    "here.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1743,9 +2109,9 @@
    "here.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1755,9 +2121,9 @@
    "heremaps.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1768,8 +2134,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1777,9 +2143,9 @@
    "joinms.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1790,8 +2156,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1800,8 +2166,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1809,9 +2175,9 @@
    "live.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1821,9 +2187,9 @@
    "localytics.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1833,9 +2199,9 @@
    "mapblast.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1845,9 +2211,9 @@
    "mappoint.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1857,9 +2223,9 @@
    "mesh.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1869,9 +2235,9 @@
    "microsoft-online.cn": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1881,9 +2247,9 @@
    "microsoft-online.com.cn": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1894,8 +2260,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1904,8 +2270,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1914,8 +2280,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1923,9 +2289,9 @@
    "microsoftestore.com.hk": {
     "first_seen": "2026-10-26",
     "pending_review": true,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1936,8 +2302,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1945,9 +2311,9 @@
    "mmais.com.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -1958,8 +2324,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1968,8 +2334,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1978,8 +2344,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1988,8 +2354,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -1998,8 +2364,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2008,8 +2374,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2017,9 +2383,9 @@
    "msn.com.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2030,8 +2396,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2039,9 +2405,9 @@
    "msn.com.tw": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2051,9 +2417,9 @@
    "msnmaps.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2063,9 +2429,9 @@
    "msopentech.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2076,8 +2442,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2085,9 +2451,9 @@
    "msvevent.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2097,9 +2463,9 @@
    "msxiaobing.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2109,9 +2475,9 @@
    "msxiaoice.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2122,8 +2488,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2131,9 +2497,9 @@
    "myhomemsn.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2144,8 +2510,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2153,9 +2519,9 @@
    "officedev.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2165,9 +2531,9 @@
    "officeppe.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2178,8 +2544,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2187,9 +2553,9 @@
    "optimizely.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2200,8 +2566,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2210,8 +2576,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2220,8 +2586,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2230,8 +2596,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2240,8 +2606,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2249,9 +2615,9 @@
    "renlifang.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2261,9 +2627,9 @@
    "sclive.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2273,9 +2639,9 @@
    "skypeforbusiness.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2285,9 +2651,9 @@
    "sway-extensions.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2298,8 +2664,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2307,9 +2673,9 @@
    "uservoice.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2319,9 +2685,9 @@
    "vip5.afdorigin-prod-am02.afdogw.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2332,8 +2698,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2342,8 +2708,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2351,9 +2717,9 @@
    "winmp.cn": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2364,8 +2730,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2373,9 +2739,9 @@
    "working-bing-int.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -2386,8 +2752,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "supplement",
     "reason": "dns_dead"
@@ -2396,788 +2762,111 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "msftnet.org": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "azchcdng.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "21vbluecloud.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "gfx.ms": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "bingparachute.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "microsoft.red": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "azurecomm.net": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "masalladeloslimites.com": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
     "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "s-msedge.net": {
+    "first_seen": "2026-10-27",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "rescan",
     "reason": "rescan:dns_dead"
    }
   },
-  "twitter": {
-   "flachsat.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "8e6x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "9e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "9e8x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "lobby-x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "sqlyxx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "zgsxhx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "006e7x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "zuffixx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "flower-cart.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "65e7t.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "hothit.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "chunsungx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "join-x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "91e7x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "5e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "visi-x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "flipmart.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "business-equipment.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "fbsight.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "0e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "santaincevent.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "amber-dutchtreat.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "6m8x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "6e9x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "a-best.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "6r8x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "4e7x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "testset.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "9e6x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "6e6x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "cam-box.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "3e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "7e0x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "0e9x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "86e7x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "6k8x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "serbest.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "2e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "37e90x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "8d9x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "1e1x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "02e51x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "bdsmhit.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "7e2x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "6e4x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "bugit.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "x.commerce": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "runnerhx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "1e4x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "5e5x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "8e3x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "www-visit-x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "campsummittx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "5e0x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "antiqcart.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "shopcampsitesport.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "tee-shirt.co": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "6e7x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "9e4x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "3e3x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
-   "9e9x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "wisit-x.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 6,
-    "consecutive_dead": 0,
-    "last_check": "2026-10-26",
-    "signals": [
-     "dns_ok"
-    ],
-    "source": "ct",
-    "reason": "time_verify"
-   },
-   "twitterintegration.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   }
-  },
+  "twitter": {},
   "binance": {
-   "prebinance.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   },
    "appsflayer.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
-    "consecutive_pass": 2,
+    "consecutive_pass": 3,
     "consecutive_dead": 0,
-    "last_check": "2026-10-26",
+    "last_check": "2026-10-27",
     "signals": [
      "dns_ok"
     ],
@@ -3188,11 +2877,11 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    }
   },
   "bybit": {
@@ -3200,8 +2889,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3210,8 +2899,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3220,8 +2909,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3230,8 +2919,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3240,8 +2929,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3250,8 +2939,8 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
@@ -3260,83 +2949,22 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 2,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 3,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "ct",
     "reason": "dns_dead"
    }
   },
-  "okx": {
-   "3e8okx.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "ct",
-    "reason": "dns_dead"
-   }
-  },
+  "okx": {},
   "gateio": {},
   "geolocation-cn": {
-   "bigdatacq.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
-   "bocd.com.cn": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
-   "cqyyxc.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
-   "digitalcnzz.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
-   "ibangbank.com": {
-    "first_seen": "2026-10-25",
-    "pending_review": false,
-    "consecutive_pass": 0,
-    "consecutive_dead": 6,
-    "last_check": "2026-10-26",
-    "signals": [],
-    "source": "upstream",
-    "reason": "dns_dead"
-   },
    "sursung.com": {
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3345,8 +2973,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3355,8 +2983,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3365,8 +2993,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3375,8 +3003,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3385,8 +3013,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3395,8 +3023,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3405,8 +3033,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3415,8 +3043,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3425,8 +3053,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3435,8 +3063,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3445,8 +3073,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3455,8 +3083,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3465,8 +3093,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3475,8 +3103,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3485,8 +3113,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3495,8 +3123,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3505,8 +3133,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3515,8 +3143,8 @@
     "first_seen": "2026-10-25",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 4,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 5,
+    "last_check": "2026-10-27",
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
@@ -3525,21 +3153,21 @@
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "alibabadns.com": {
     "first_seen": "2026-10-26",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 1,
-    "last_check": "2026-10-26",
+    "consecutive_dead": 2,
+    "last_check": "2026-10-27",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    }
   },
   "geoip-cn": {},
@@ -3557,16 +3185,18 @@
    "gvt2.com": 1,
    "googletagservices.com": 1,
    "google-syndication.com": 1,
-   "unfiltered.news": 1
+   "unfiltered.news": 1,
+   "2mdn.net": 1
   },
   "ai": {
-   "comfyci.org": 1,
-   "manuscdn.com": 2
+   "comfyci.org": 1
   },
   "meta": {
    "fbf8.com": 1,
    "fbinc.com": 2,
-   "igcdn.com": 1
+   "igcdn.com": 1,
+   "flowtype.org": 1,
+   "oculuscdn.com": 1
   },
   "apple": {
    "beatsbydreoordopjes.com": 2,
@@ -3695,7 +3325,7 @@
    "beatsheadphoness.com": 1,
    "beatsbydrenls.com": 1,
    "iphone-cd.com": 1,
-   "detaliczny.com": 1,
+   "detaliczny.com": 2,
    "applewatch.wang": 1,
    "itunesiradio.com": 1,
    "headphonezip.com": 1,
@@ -3711,7 +3341,6 @@
    "apple.tw": 1,
    "researchkit.tv": 2,
    "goodsdunk.net": 2,
-   "appleipodsettlement.com": 2,
    "buyonlineheadphones.com": 2,
    "macbook.wang": 2,
    "beatsofdre-usa.com": 2,
@@ -3721,7 +3350,6 @@
    "beatsbydreheadphones-nz.com": 2,
    "szwinnertechnology.com": 2,
    "beatspillnewcolor.com": 2,
-   "monsterbeatsfinland.com": 2,
    "drdreheadphonebeats.com": 2,
    "honawalaan.com": 2,
    "monsterbeatsau.com": 2,
@@ -3735,9 +3363,9 @@
    "cheapheadphonessale.com": 2,
    "studiobeatsbydrdre.com": 1,
    "bybeatsdre.com": 1,
-   "beatspascher-fr.net": 1,
+   "beatspascher-fr.net": 2,
    "sneakerpage.net": 1,
-   "applewallet.tv": 1,
+   "applewallet.tv": 2,
    "beatsbydrehut.com": 1,
    "beatspromotions.com": 1,
    "drdremonsterdre.com": 1,
@@ -3747,12 +3375,32 @@
    "beatsmusic.com": 1,
    "newmonsterbeatsheadphones.com": 1,
    "appledns.com.cn": 1,
-   "cheapshoesvip.com": 1
+   "cheapshoesvip.com": 1,
+   "shop-headphones.net": 1,
+   "drebeatsdeutschland.net": 1,
+   "iphoneplus.wang": 1,
+   "itunbes.com": 1,
+   "monsterbeatstang.com": 1,
+   "free-aa.com": 1,
+   "soso7778.com": 1,
+   "apple.com.akadns.net": 1,
+   "monster-beats-headphones.com": 1,
+   "makeeu.com": 1,
+   "2drdrebeats.com": 1,
+   "beatsep.com": 1,
+   "apple-dns.net": 1,
+   "beatsbydresingapores.com": 1,
+   "neborder.com": 1,
+   "beatsbydre-chen.com": 1,
+   "appleone.chat": 1,
+   "thebeatsbydre.com": 1,
+   "beatsbydre-studio.com": 1,
+   "appleone.blog": 1,
+   "musickit.net": 1
   },
   "github": {},
   "microsoft": {
    "msauth.cn": 2,
-   "masalladeloslimites.com": 2,
    "nelreports.net": 2,
    "microsofteca.com": 1,
    "msauthimages.cn": 1,
@@ -3789,16 +3437,27 @@
    "microsoftmetrics.cn": 2,
    "azurefd.us": 2,
    "bluecloudprod.com": 2,
-   "s-msedge.net": 2,
    "sovcloud-usercontent.cn": 2,
    "powerapps.cn": 1,
    "s-msft.com": 1,
    "windows-int.net": 1,
-   "spo-msedge.net": 1
+   "spo-msedge.net": 1,
+   "windowscommunity.net": 1,
+   "microsoftazurestatus.cn": 1,
+   "azurehdinsight.cn": 1,
+   "msidlabpbmc.cn": 1,
+   "microsoftonline-p.net.cn": 1,
+   "microsoftready.com": 1,
+   "cegid-cloud.cn": 1,
+   "footprintdns.com": 1,
+   "microsoftonline-p-i.net.cn": 1,
+   "boswp.com": 1,
+   "azure-api.net": 1
   },
   "twitter": {
    "twitterstat.us": 2,
-   "twtrdns.net": 1
+   "twtrdns.net": 1,
+   "twitter.map.fastly.net": 1
   },
   "binance": {
    "bsappapi.cc": 1,
@@ -3876,7 +3535,27 @@
    "qishui.com.cn": 1,
    "dewuyouhui.cn": 1,
    "jiashule.com": 1,
-   "woaihuoshan.com": 1
+   "woaihuoshan.com": 1,
+   "sinajs.cn": 1,
+   "qtlcdn.net": 1,
+   "in.th": 1,
+   "cdnhwccmz121.com": 1,
+   "ctcloudzos.cn": 1,
+   "bdns-boe.net": 1,
+   "teleows.com": 1,
+   "baydn.com": 1,
+   "byte008.com": 1,
+   "att.cn": 1,
+   "tencentcloud-aiot.com": 1,
+   "china-chair.com": 1,
+   "dewuhui.cn": 1,
+   "volcanoaisearchshare.com": 1,
+   "boscam.com.cn": 1,
+   "3839pay.com": 1,
+   "tencentclb.com": 1,
+   "km9g.cn": 1,
+   "tencdns.net": 1,
+   "ctacdn.cn": 1
   },
   "geoip-cn": {},
   "us-domains": {
