@@ -25,23 +25,27 @@ def verify_hosts(
     workers: int = 32,
     timeout: float = 3.0,
 ) -> Tuple[Set[str], Set[str]]:
+    """返回 (alive, dead)。"""
+    uniq = sorted({h.strip().lower().rstrip(".") for h in hosts if h and h.strip()})
     alive: Set[str] = set()
     dead: Set[str] = set()
-
-    clean = [h.strip().lower().rstrip(".") for h in hosts if h and h.strip()]
-    if not clean:
+    if not uniq:
         return alive, dead
 
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        f2h = {ex.submit(resolves, h, timeout): h for h in clean}
-        for f in as_completed(f2h):
-            h = f2h[f]
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        futs = {pool.submit(resolves, h, timeout): h for h in uniq}
+        for fut in as_completed(futs):
+            h = futs[fut]
             try:
-                if f.result():
-                    alive.add(h)
-                else:
-                    dead.add(h)
-            except Exception:
+                ok = fut.result()
+            except Exception:  # noqa: BLE001
+                ok = False
+            if ok:
+                alive.add(h)
+            else:
                 dead.add(h)
-
     return alive, dead
+
+
+def summarize(alive: Set[str], dead: Set[str]) -> Dict[str, int]:
+    return {"checked": len(alive) + len(dead), "alive": len(alive), "dead": len(dead)}
