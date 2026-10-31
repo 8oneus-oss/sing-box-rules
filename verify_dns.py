@@ -9,18 +9,15 @@ from typing import Dict, Iterable, List, Set, Tuple
 
 
 def resolves(host: str, timeout: float = 3.0) -> bool:
+    del timeout  # getaddrinfo 超时由系统解析器控制，避免修改全局 socket 默认超时引发多线程竞态
     host = host.strip().lower().rstrip(".")
     if not host:
         return False
-    old = socket.getdefaulttimeout()
-    socket.setdefaulttimeout(timeout)
     try:
         socket.getaddrinfo(host, None)
         return True
     except (socket.gaierror, socket.timeout, OSError):
         return False
-    finally:
-        socket.setdefaulttimeout(old)
 
 
 def verify_hosts(
@@ -28,27 +25,23 @@ def verify_hosts(
     workers: int = 32,
     timeout: float = 3.0,
 ) -> Tuple[Set[str], Set[str]]:
-    """返回 (alive, dead)。"""
-    uniq = sorted({h.strip().lower().rstrip(".") for h in hosts if h and h.strip()})
     alive: Set[str] = set()
     dead: Set[str] = set()
-    if not uniq:
+
+    clean = [h.strip().lower().rstrip(".") for h in hosts if h and h.strip()]
+    if not clean:
         return alive, dead
 
-    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        futs = {pool.submit(resolves, h, timeout): h for h in uniq}
-        for fut in as_completed(futs):
-            h = futs[fut]
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        f2h = {ex.submit(resolves, h, timeout): h for h in clean}
+        for f in as_completed(f2h):
+            h = f2h[f]
             try:
-                ok = fut.result()
-            except Exception:  # noqa: BLE001
-                ok = False
-            if ok:
-                alive.add(h)
-            else:
+                if f.result():
+                    alive.add(h)
+                else:
+                    dead.add(h)
+            except Exception:
                 dead.add(h)
+
     return alive, dead
-
-
-def summarize(alive: Set[str], dead: Set[str]) -> Dict[str, int]:
-    return {"checked": len(alive) + len(dead), "alive": len(alive), "dead": len(dead)}
