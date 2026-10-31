@@ -5,6 +5,12 @@ on:
     # 每天 UTC 23:00 = 北京时间 07:00
     - cron: "0 23 * * *"
   workflow_dispatch:
+    inputs:
+      refresh:
+        description: "强制忽略 7 天缓存重新抓取 crt.sh 域名发现 (--refresh)"
+        required: false
+        default: false
+        type: boolean
   push:
     branches: [main]
     paths:
@@ -52,6 +58,14 @@ jobs:
       - name: Run unit tests (fail fast)
         run: python3 test_verify.py
 
+      - name: Restore and save discover cache
+        uses: actions/cache@v4
+        with:
+          path: cache/discover
+          key: discover-cache-v1-${{ github.run_id }}
+          restore-keys: |
+            discover-cache-v1-
+
       - name: Install sing-box
         env:
           SING_BOX_VERSION: "1.14.2"
@@ -66,7 +80,12 @@ jobs:
           ./tools/sing-box version
 
       - name: Build rulesets
-        run: python3 -u build.py --refresh
+        run: |
+          if [ "${{ inputs.refresh }}" = "true" ]; then
+            python3 -u build.py --refresh
+          else
+            python3 -u build.py
+          fi
 
       - name: Check samples (stop publishing if routing samples fail)
         run: python3 check_samples.py
