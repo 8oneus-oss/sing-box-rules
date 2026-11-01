@@ -3,12 +3,32 @@
   "rules": [
     {
       "domain_suffix": [
+        "1e1x.com",
+        "4e7x.com",
+        "5e1x.com",
+        "5e5x.com",
+        "6e4x.com",
+        "6k8x.com",
+        "7e2x.com",
+        "8d9x.com",
+        "9e6x.com",
+        "9e8x.com",
+        "9e9x.com",
         "ads-twitter.com",
+        "amber-dutchtreat.com",
+        "cam-box.com",
         "cms-twdigitalassets.com",
+        "fbsight.com",
+        "flipmart.co",
+        "hothit.co",
+        "join-x.com",
         "periscope.tv",
         "pscp.tv",
+        "serbest.co",
         "t.co",
+        "tee-shirt.co",
         "tellapart.com",
+        "testset.com",
         "tweetdeck.com",
         "twimg.co",
         "twimg.com",
@@ -27,6 +47,9 @@
         "twttr.net",
         "twvid.com",
         "vine.co",
+        "visi-x.com",
+        "wisit-x.com",
+        "www-visit-x.com",
         "x.com"
       ]
     }
