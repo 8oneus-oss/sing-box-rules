@@ -63,7 +63,7 @@ def load_seed_config(output: str) -> Optional[Dict[str, Any]]:
         return json.load(f)
 
 
-def _http_get(url: str, timeout: int = 90) -> bytes:
+def _http_get(url: str, timeout: int = 25) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": "sing-box-ruleset-discover/1.0"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         chunks: List[bytes] = []
@@ -122,7 +122,7 @@ def fetch_certspotter(seed: str, cache_dir: Path, refresh: bool = False, max_pag
     return result
 
 
-def fetch_crtsh(seed: str, cache_dir: Path, refresh: bool = False, retries: int = 3,
+def fetch_crtsh(seed: str, cache_dir: Path, refresh: bool = False, retries: int = 2,
                 ttl_days: float = DEFAULT_DISCOVER_TTL_DAYS) -> List[str]:
     """从 crt.sh 拉 %.seed 的证书名。"""
     cache_dir.mkdir(parents=True, exist_ok=True)
