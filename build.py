@@ -229,8 +229,6 @@ def update_quarantine_for_output(
         if int(rec.get("consecutive_pass", 0)) >= qdays and not dry_run:
             promoted.add(apex)
             stats["promoted"] += 1
-            continue
-        stats["kept"] += 1
         kept[apex] = rec
     return kept, promoted, stats
 
