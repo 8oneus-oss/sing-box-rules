@@ -106,13 +106,12 @@ def make_verify_ctx(entry: Dict[str, Any], official: Set[str], check_dns: bool =
 def new_quarantine_record(
     apex: str, decision: str, info: Dict[str, Any], source: str, today: str
 ) -> Dict[str, Any]:
-    dead = bool(info.get("dead"))
     return {
         "first_seen": today,
         "pending_review": decision == "pending_review",
-        "consecutive_pass": 0 if dead else 1,  # 入场时的那次验证计为第 1 次通过
-        "consecutive_dead": 1 if dead else 0,
-        "last_check": today,
+        "consecutive_pass": 0,
+        "consecutive_dead": 0,
+        "last_check": "",
         "signals": info.get("signals") or [],
         "source": source,
         "reason": info.get("reason") or "",
@@ -133,6 +132,7 @@ def merge_quarantine_record(
     return {
         **new,
         "first_seen": min(old_seen, new_seen) if old_seen and new_seen else (old_seen or new_seen),
+        "last_check": old.get("last_check") or "",
         "consecutive_pass": max(int(old.get("consecutive_pass", 0) or 0), int(new.get("consecutive_pass", 0) or 0)),
         "consecutive_dead": max(int(old.get("consecutive_dead", 0) or 0), int(new.get("consecutive_dead", 0) or 0)),
         "pending_review": bool(old.get("pending_review")) or bool(new.get("pending_review")),
@@ -213,12 +213,15 @@ def update_quarantine_for_output(
     promoted: Set[str] = set()
     stats = {"kept": 0, "promoted": 0, "dropped": dropped, "pending_review": 0}
     for apex, rec in candidates.items():
-        rec["last_check"] = today
-        if apex in alive:
-            rec["consecutive_pass"] = int(rec.get("consecutive_pass", 0)) + 1
-            rec["consecutive_dead"] = 0
-        else:
-            rec["consecutive_dead"] = int(rec.get("consecutive_dead", 0)) + 1
+        if rec.get("last_check") != today:
+            rec["last_check"] = today
+            if apex in alive:
+                rec["consecutive_pass"] = int(rec.get("consecutive_pass", 0)) + 1
+                rec["consecutive_dead"] = 0
+            else:
+                rec["consecutive_dead"] = int(rec.get("consecutive_dead", 0)) + 1
+                if int(rec.get("consecutive_pass", 0)) < qdays:
+                    rec["consecutive_pass"] = 0
         if int(rec.get("consecutive_dead", 0)) >= drop_dead:
             stats["dropped"] += 1
             continue
@@ -232,7 +235,6 @@ def update_quarantine_for_output(
         stats["kept"] += 1
         kept[apex] = rec
     return kept, promoted, stats
-
 
 def load_quarantine(timeout: int = 20) -> Dict[str, Any]:
     """读取上次发布的 state/quarantine.json。失败返回空（本轮不转正、只新增）。"""
