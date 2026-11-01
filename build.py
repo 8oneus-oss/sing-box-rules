@@ -450,6 +450,8 @@ def compute_supplements(
                 b = fetch_upstream(up["url"], up["format"], SING_BOX, CACHE_DIR)
             except Exception as exc:  # noqa: BLE001
                 print(f"  ! 上游失败，跳过: {up['url']} ({exc})")
+                if up.get("role") != "supplement":
+                    raise
                 continue
             (sb if up.get("role") == "supplement" else pb).append(b)
         prim[e["tag"]] = apply_filters(merge_buckets(pb), filters) if pb else empty_bucket()
