@@ -959,7 +959,8 @@
         "youtubemobilesupport.com",
         "yt.be",
         "ytimg.com",
-        "zukunftswerkstatt.de"
+        "zukunftswerkstatt.de",
+        "zynamics.com"
       ],
       "domain_regex": [
         "^r+[0-9]+(---|\\.)sn-(2x3|ni5|j5o)\\w{5}\\.googlevideo\\.com$",
