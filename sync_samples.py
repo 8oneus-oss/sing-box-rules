@@ -46,7 +46,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", default=str(ROOT / "dist"))
     ap.add_argument("--samples", default=str(ROOT / "samples.json"))
-    ap.add_argument("--sing-box", default="sing-box")
+    ap.add_argument("--sing-box", default=str(ROOT / "tools" / "sing-box"))
     args = ap.parse_args()
 
     dist = Path(args.dist)
