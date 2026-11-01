@@ -229,6 +229,7 @@ def update_quarantine_for_output(
         if int(rec.get("consecutive_pass", 0)) >= qdays and not dry_run:
             promoted.add(apex)
             stats["promoted"] += 1
+        stats["kept"] += 1
         kept[apex] = rec
     return kept, promoted, stats
 
@@ -241,9 +242,7 @@ def load_quarantine(timeout: int = 20) -> Dict[str, Any]:
         data = json.loads(fetch_bytes(url, timeout=timeout).decode("utf-8"))
         return data if isinstance(data, dict) else {}
     except Exception as exc:  # noqa: BLE001
-        print(f"  (无法读取上次的隔离区状态，本轮不转正只新增: {exc})")
-        return {}
-
+        raise RuntimeError(f"无法读取上次的隔离区状态，中止构建以防覆盖历史记录: {exc}") from exc
 
 def load_previous_set_entries(output: str, kind: str, timeout: int = 20) -> Set[str]:
     """读取上次发布的某集合 .json 里的域名条目（用于上游新条目 diff）。失败返回空。"""
