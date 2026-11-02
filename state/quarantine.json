@@ -1481,6 +1481,16 @@
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
+   },
+   "bdn.dev": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
    }
   },
   "ai": {
@@ -2451,6 +2461,26 @@
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
+   },
+   "manuscdn.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "metaaiusercontent.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
    }
   },
   "meta": {
@@ -2592,6 +2622,96 @@
    },
    "igsonar.com": {
     "first_seen": "2026-11-01",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "sayursayur.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "f1243.net": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "sorgu2.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "vietnamyo.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "doublers.org": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "duhocnhe.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "akuevi.net": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "skamms.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "metaaiusercontent.com": {
+    "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
     "consecutive_dead": 1,
@@ -3416,63 +3536,173 @@
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "drdrefnac.com": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "appletv4.com.cn": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "monsterbeatsmall.com": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "iphonehangzhou.com": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "audiobeatsbydre.com": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
-    "consecutive_dead": 0,
-    "last_check": "",
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
     "signals": [],
-    "source": "rescan",
-    "reason": "rescan:dns_dead"
+    "source": "upstream",
+    "reason": "dns_dead"
    },
    "vip-beats.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "imessage.tv": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "com-assist.eu": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "appleipodsettlement.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "beatbydrekopen.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "beatsbysdrbre.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "beatsdrdre-solo.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "honawalaan.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "monsterbeatsfinland.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "newestbeatsbydre.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "vipshoes2.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "drdremonsterdre.com": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
@@ -3482,7 +3712,67 @@
     "source": "rescan",
     "reason": "rescan:dns_dead"
    },
-   "imessage.tv": {
+   "beatsbydrefriday.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "applewallet.tv": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "applepaysupplies.cn": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "appleappstore.cn": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "beatsep.cn": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "icloudsetup.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
+   },
+   "shop-headphones.net": {
     "first_seen": "2026-11-02",
     "pending_review": false,
     "consecutive_pass": 0,
@@ -4971,6 +5261,36 @@
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
+   },
+   "masalladeloslimites.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "s-msedge.net": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "azure-devices.cn": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
    }
   },
   "twitter": {
@@ -5249,6 +5569,406 @@
     ],
     "source": "ct",
     "reason": "time_verify"
+   },
+   "shopcampsitesport.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "bugit.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "6r8x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "8e3x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "9e1x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "86e7x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "lobby-x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "91e7x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "bdsmhit.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "business-equipment.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "x.commerce": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "006e7x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "5e0x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "9e4x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "6e7x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "sqlyxx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "65e7t.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "antiqcart.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "8e6x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "3e3x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "02e51x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "zgsxhx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "chunsungx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "3e1x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "0e1x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "a-best.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "flower-cart.co": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "runnerhx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "6e9x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "campsummittx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "37e90x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "flachsat.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "santaincevent.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "6m8x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "1e4x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "0e9x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "7e0x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "zuffixx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "2e1x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   },
+   "6e6x.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
    }
   },
   "binance": {
@@ -5302,6 +6022,16 @@
     "last_check": "2026-11-02",
     "signals": [],
     "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "prebinance.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
     "reason": "dns_dead"
    }
   },
@@ -5367,7 +6097,18 @@
     "reason": "v3.1 切换：上次发布中的历史发现项"
    }
   },
-  "okx": {},
+  "okx": {
+   "3e8okx.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "ct",
+    "reason": "dns_dead"
+   }
+  },
   "gateio": {},
   "geolocation-cn": {
    "gaze.red": {
@@ -6115,6 +6856,66 @@
     "signals": [],
     "source": "upstream",
     "reason": "dns_dead"
+   },
+   "bigdatacq.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "bocd.com.cn": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "cqyyxc.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "digitalcnzz.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "ibangbank.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 1,
+    "last_check": "2026-11-02",
+    "signals": [],
+    "source": "upstream",
+    "reason": "dns_dead"
+   },
+   "nomuraoi-sec.com": {
+    "first_seen": "2026-11-02",
+    "pending_review": false,
+    "consecutive_pass": 0,
+    "consecutive_dead": 0,
+    "last_check": "",
+    "signals": [],
+    "source": "rescan",
+    "reason": "rescan:dns_dead"
    }
   },
   "geoip-cn": {},
@@ -7150,26 +7951,27 @@
  "rescan_dead": {
   "youtube": {
    "ggpht.com": 1,
-   "ggpht.cn": 1
+   "ggpht.cn": 2
   },
   "google": {
    "googleadsserving.cn": 1,
    "1ucrs.com": 2,
-   "bdn.dev": 2,
    "gvt2.com": 2,
    "googletagservices.com": 1,
    "google-syndication.com": 1,
-   "unfiltered.news": 1,
+   "unfiltered.news": 2,
    "2mdn.net": 1,
    "txcloud.net": 1,
    "orbitera.com": 1,
    "googleacquisitionmigration.com": 1,
    "google-access.net": 1,
-   "blogspot.vn": 1
+   "blogspot.vn": 1,
+   "googleads.com": 1
   },
   "ai": {
    "comfyci.org": 1,
-   "metaaivm.com": 1
+   "metaaivm.com": 1,
+   "host.livekit.cloud": 1
   },
   "meta": {
    "fbf8.com": 1,
@@ -7189,7 +7991,6 @@
    "iphone-vip3.com": 1,
    "hipaa6020.com": 2,
    "chihair-straightener.com": 1,
-   "appleappstore.cn": 2,
    "beatsmusic.wang": 2,
    "appleid-uk.us": 1,
    "beats-bydreuk.com": 1,
@@ -7209,7 +8010,7 @@
    "applemusic.co": 1,
    "beatspascher.net": 1,
    "i-book.com": 2,
-   "clientflow.apple.com.akadns.net": 1,
+   "clientflow.apple.com.akadns.net": 2,
    "iphonecases100.com": 1,
    "beatsbydresdanmark.net": 1,
    "drdrebeats-chen.com": 1,
@@ -7304,17 +8105,14 @@
    "cheapheadphonessale.com": 2,
    "studiobeatsbydrdre.com": 1,
    "beatspascher-fr.net": 2,
-   "applewallet.tv": 2,
    "beatsbydrehut.com": 1,
    "beatspromotions.com": 2,
-   "drdremonsterdre.com": 2,
    "monsterbeatsbydrdrecanada.com": 1,
    "beatssbyaustralia.com": 1,
    "beatsmusic.com": 1,
    "newmonsterbeatsheadphones.com": 1,
    "appledns.com.cn": 1,
    "cheapshoesvip.com": 1,
-   "shop-headphones.net": 2,
    "drebeatsdeutschland.net": 1,
    "iphoneplus.wang": 1,
    "itunbes.com": 1,
@@ -7334,7 +8132,6 @@
    "musickit.net": 1,
    "swiftui.cn": 1,
    "applewatchseries3.net": 2,
-   "applepaysupplies.cn": 2,
    "beatsbydrdrebiz.com": 2,
    "iphonecases5.com": 2,
    "appleswift.com": 1,
@@ -7349,7 +8146,7 @@
    "coreml.net": 1,
    "famosascalvas.com": 2,
    "drdrebeatsbillig.com": 2,
-   "monsterdrebeats-usa.com": 1,
+   "monsterdrebeats-usa.com": 2,
    "beatsbydredr.com": 1,
    "monsterbeatsbydre-nz.com": 2,
    "ituneas.com": 2,
@@ -7362,20 +8159,17 @@
    "ecgapp.net": 1,
    "2beatsdre.com": 2,
    "researchkit.com.cn": 2,
-   "beatsbydrefriday.com": 2,
    "appleid-applemx.com": 2,
    "shoestop2.com": 2,
-   "beatsep.cn": 2,
    "i-book.net": 2,
    "beatssbydredanmark.com": 2,
    "faceid99.net": 1,
    "launchpad.wang": 1,
-   "wholesalediscountpurses.com": 1,
+   "wholesalediscountpurses.com": 2,
    "ecgapp.com.cn": 1,
    "iphone-yh.com": 1,
    "faceid99.com": 1,
    "monsterbeatsbydrebilligde.com": 1,
-   "icloudsetup.com": 2,
    "livephotos.tv": 1,
    "beats-by-dre-australia.com": 1,
    "picknicekicks.net": 2,
@@ -7384,7 +8178,7 @@
    "appleid-iclou.com": 1,
    "mairbeats.com": 2,
    "macruby.com": 2,
-   "auricularesbeatsmarkt.com": 1,
+   "auricularesbeatsmarkt.com": 2,
    "beatsstudiohodetelefoner.com": 1,
    "monsterbeatssalg.com": 1,
    "monsterbeatsfactory.net": 1,
@@ -7445,7 +8239,7 @@
    "onlyiphone5case.com": 1,
    "iosinthecar.com": 1,
    "macruby.net": 1,
-   "monsterbeatsbydrdre-nz.com": 1,
+   "monsterbeatsbydrdre-nz.com": 2,
    "casquebeatsdocteurdre.com": 2,
    "officialdrdre.com": 1,
    "dctbeatsbydre.com": 1,
@@ -7471,12 +8265,18 @@
    "headphonesbeatsbydre.com": 1,
    "beatsbydrefr.com": 1,
    "cozydrdrebeats.com": 1,
-   "appleappstore.tv": 1,
-   "aplleipods.com": 1,
-   "applepay.hk": 1,
+   "appleappstore.tv": 2,
+   "aplleipods.com": 2,
+   "applepay.hk": 2,
    "monsterbeatsru.com": 1,
    "monsterbeatsheadphone.com": 1,
-   "topbeatsdealer.com": 1
+   "topbeatsdealer.com": 1,
+   "specialtyheadphones.com": 1,
+   "quatrowireless.com": 1,
+   "crl-lb.apple.com.akadns.net": 1,
+   "monsterbeatstudio.com": 1,
+   "monsterbeatssydneyaustralia.com": 1,
+   "headphonesbeatsaudio.com": 1
   },
   "github": {},
   "microsoft": {
@@ -7491,7 +8291,7 @@
    "trafficmanager.cn": 2,
    "microsoftazuread-sso.com": 1,
    "hotmail.co": 1,
-   "microsoftazuresponsorships.com": 1,
+   "microsoftazuresponsorships.com": 2,
    "azuredatabricks.net": 1,
    "azure-dns-2.cn": 1,
    "minecraftservices.com": 1,
@@ -7531,14 +8331,14 @@
    "msftcloudes.cn": 1,
    "azure-devices.net": 2,
    "b3itech.cn": 2,
-   "microsoft-sbs-domains.com": 1,
+   "microsoft-sbs-domains.com": 2,
    "azureedge.us": 2,
    "applicationinsights.io": 2,
    "chinacloudapp.cn": 2,
    "skypedata.akadns.net": 2,
    "office365tw.com": 1,
    "b2clogin.cn": 1,
-   "exp-tas.com": 1,
+   "exp-tas.com": 2,
    "sovcloud-static.cn": 1,
    "azureedge-test.net": 1,
    "vscode-webview.net": 1,
@@ -7561,7 +8361,6 @@
    "azchcdnj.com": 2,
    "powerautomate.cn": 1,
    "azure-test.net": 1,
-   "azure-devices.cn": 2,
    "breakdown.me": 2,
    "vfsforgit.org": 1,
    "azuresmartspaces.net": 2,
@@ -7569,17 +8368,22 @@
    "msappproxy.cn": 2,
    "azure-sphere.com": 2,
    "videobreakdown.com": 1,
-   "trafficmanager.net": 1,
+   "trafficmanager.net": 2,
    "azure-dns-1.cn": 1,
    "chinacloudapi.cn": 1,
    "chinacloud-mobile.cn": 1,
    "visualstudio-staging.com": 1,
-   "azurestaticapps.net": 1,
+   "azurestaticapps.net": 2,
    "windowsupdate.com": 1,
    "azchcdnk.com": 1,
    "o365files.cn": 1,
    "opentranslatorstothings.org": 1,
-   "powerbi.cn": 1
+   "powerbi.cn": 1,
+   "microsoftapp.net": 1,
+   "azchcdnc.com": 1,
+   "msftncsi.com": 1,
+   "xboxservices.com": 1,
+   "microsoftnewskids.com": 1
   },
   "twitter": {
    "twitterstat.us": 2,
@@ -7633,7 +8437,6 @@
    "ztfsec.com": 1,
    "yximgs.com": 1,
    "ztems.com": 1,
-   "nomuraoi-sec.com": 2,
    "canon.cn": 2,
    "ewww.com.cn": 2,
    "bdxigualive.com": 2,
@@ -7692,7 +8495,7 @@
    "newasp.net": 1,
    "cloudhuizhou.com": 1,
    "baikevod.com": 1,
-   "uggame.com": 1,
+   "uggame.com": 2,
    "aldwx.com": 1,
    "mcbaas.work": 2,
    "toutiao11.com": 1,
@@ -7763,19 +8566,19 @@
    "volcmcdnalias2.com": 1,
    "livecdnstatic.com": 1,
    "jingbantong.com": 1,
-   "ioppo.com.cn": 1,
+   "ioppo.com.cn": 2,
    "tcdnlivebak2.com": 1,
    "shgsec.com": 1,
    "nnthink.com": 1,
-   "88cdn.com": 1,
+   "88cdn.com": 2,
    "feishuhuiyi.cn": 1,
    "qihucdn.com": 1,
-   "ipw.cn": 1,
-   "71edge.com": 1,
+   "ipw.cn": 2,
+   "71edge.com": 2,
    "office365-net.cn": 1,
    "volcdns.pub": 1,
    "volcanicengine.com": 1,
-   "alibabafoundation.com": 1,
+   "alibabafoundation.com": 2,
    "mmbang.com": 1,
    "zhaokao.net": 1,
    "yto-lgs.net": 1,
@@ -7783,8 +8586,20 @@
    "volces.cn": 1,
    "hypercachenet.com": 1,
    "ctyecx.cn": 1,
-   "jdcloud-api.com": 1,
-   "bytegqpo.net": 1
+   "jdcloud-api.com": 2,
+   "bytegqpo.net": 1,
+   "grzq.com": 1,
+   "feishudoc.com": 1,
+   "volcdsalb.net": 1,
+   "kjwugx.com": 1,
+   "farfetch.net.cn": 1,
+   "volcanoarkshare.com": 1,
+   "mmbang.info": 1,
+   "searchtoutiaolive.com": 1,
+   "yto.top": 1,
+   "volcfake.com": 1,
+   "ctydoh.cn": 1,
+   "bytegoofy.com": 1
   },
   "geoip-cn": {},
   "us-domains": {
