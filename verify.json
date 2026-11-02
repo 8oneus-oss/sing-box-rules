@@ -1,7 +1,7 @@
 {
   "discover_cache_ttl_days": 7,
-  "discover_default_max_related": 500,
-  "dry_run": false,
+  "discover_default_max_related": 0,
+  "dry_run": true,
   "phish_keywords": [
     "login",
     "verify",
@@ -21,8 +21,8 @@
   "quarantine_rescan_days_dead": 3,
   "rescan_daily_ratio": 0.05,
   "rescan_daily_sample": 50,
-  "supplement_mode": "verify",
+  "supplement_mode": "allowlist",
   "typosquat_max_distance": 2,
   "upstream_check_mode": "quarantine",
-  "说明": "验证电池与隔离区配置（实现方案 v3.1 §7）。所有阈值可调，无需改代码。7 为推理初值，Phase 0 观察期已结束（2026-10-27 提前启用，沙盘 2 处阻碍已修复并重验通过），正式防护已开启。upstream_check_mode=quarantine 的实际行为：筛查命中的上游条目本轮即丢弃、不进隔离区，留存位置是当轮 build-report 的 upstream_new.suspicious 列表。"
+  "说明": "验证电池与隔离区配置。已关闭未授权自动转正，仅放行主上游、官方源、seeds 与 supplement_allow.json 白名单。"
 }
