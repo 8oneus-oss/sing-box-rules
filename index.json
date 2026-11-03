@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T03:00:19Z",
+  "generated_at": "2026-11-03T03:53:30Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -38,10 +38,10 @@
       "kind": "geosite",
       "file": "geosite/google.srs",
       "url_path": "geosite/google.srs",
-      "items": 863,
+      "items": 864,
       "upstream_items": 1094,
       "counts": {
-        "domain": 19,
+        "domain": 20,
         "domain_suffix": 842,
         "domain_regex": 2
       },
@@ -121,11 +121,11 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1230,
+      "items": 1226,
       "upstream_items": 1792,
       "counts": {
         "domain": 58,
-        "domain_suffix": 1172
+        "domain_suffix": 1168
       },
       "discover": {
         "enabled": true,
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 650,
+      "items": 647,
       "upstream_items": 770,
       "counts": {
         "domain": 16,
-        "domain_suffix": 631,
+        "domain_suffix": 628,
         "domain_keyword": 3
       },
       "discover": {
@@ -204,10 +204,10 @@
       "kind": "geosite",
       "file": "geosite/twitter.srs",
       "url_path": "geosite/twitter.srs",
-      "items": 25,
+      "items": 24,
       "upstream_items": 24,
       "counts": {
-        "domain_suffix": 25
+        "domain_suffix": 24
       },
       "discover": {
         "enabled": true,
@@ -336,11 +336,11 @@
       "kind": "geosite",
       "file": "geosite/geolocation-cn.srs",
       "url_path": "geosite/geolocation-cn.srs",
-      "items": 8794,
-      "upstream_items": 9397,
+      "items": 8800,
+      "upstream_items": 9410,
       "counts": {
         "domain": 534,
-        "domain_suffix": 8252,
+        "domain_suffix": 8258,
         "domain_regex": 8
       },
       "discover": {
@@ -361,10 +361,10 @@
       "kind": "geoip",
       "file": "geoip/cn.srs",
       "url_path": "geoip/cn.srs",
-      "items": 11179,
-      "upstream_items": 11179,
+      "items": 10837,
+      "upstream_items": 10837,
       "counts": {
-        "ip_cidr": 11179
+        "ip_cidr": 10837
       },
       "discover": {
         "enabled": false
