@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "bingsettingssearch.trafficmanager.net",
         "github-api.arkoselabs.com",
         "github-cloud.s3.amazonaws.com",
         "github-production-release-asset-2e65be.s3.amazonaws.com",
@@ -18,6 +19,8 @@
         "statics-marketingsites-eas-ms-com.akamaized.net",
         "statics-marketingsites-eus-ms-com.akamaized.net",
         "statics-marketingsites-wcus-ms-com.akamaized.net",
+        "vscode-sync-insiders.trafficmanager.net",
+        "vscode-sync.trafficmanager.net",
         "vsmarketplacebadge.apphb.com"
       ],
       "domain_suffix": [
@@ -35,9 +38,9 @@
         "ankarazirvesi2018.com",
         "api-extractor.com",
         "apihub-internal.cn",
+        "apis.live.net",
         "apisof.net",
         "appcenter.ms",
-        "applicationinsights.io",
         "applicationinsights.net",
         "appserviceenvironment.cn",
         "aria.ms",
