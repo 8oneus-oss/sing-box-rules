@@ -4,6 +4,7 @@
     {
       "domain": [
         "bingsettingssearch.trafficmanager.net",
+        "default.exp-tas.com",
         "github-api.arkoselabs.com",
         "github-cloud.s3.amazonaws.com",
         "github-production-release-asset-2e65be.s3.amazonaws.com",
@@ -644,7 +645,6 @@
         "xboxone.com",
         "xboxone.eu",
         "xboxplayanywhere.com",
-        "xboxservices.com",
         "xboxstudios.com",
         "xbx.lv",
         "yammer.com",
