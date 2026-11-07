@@ -244,12 +244,7 @@
         "sampled": 8,
         "impersonation_hit": [],
         "dns_dead_moved": [],
-        "main_upstream_hit": [
-          {
-            "domain": "youtubego.in",
-            "reason": "疑似 typosquat"
-          }
-        ]
+        "main_upstream_hit": []
       }
     }
   },
@@ -1419,9 +1414,9 @@
         ]
       },
       "quarantine": {
-        "kept": 98,
+        "kept": 97,
         "promoted": 0,
-        "dropped": 2,
+        "dropped": 1,
         "pending_review": 25
       },
       "rescan": {
@@ -1432,6 +1427,10 @@
           {
             "domain": "adgoogle.net",
             "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "youtube",
+            "reason": "格式异常"
           }
         ]
       }
@@ -1723,7 +1722,7 @@
         ]
       },
       "quarantine": {
-        "kept": 81,
+        "kept": 80,
         "promoted": 0,
         "dropped": 1,
         "pending_review": 1
@@ -1766,8 +1765,8 @@
       "domain_before": 2,
       "domain_after": 1,
       "domain_dropped": 1,
-      "suffix_before": 551,
-      "suffix_after": 547,
+      "suffix_before": 550,
+      "suffix_after": 546,
       "suffix_dropped": 4
     },
     "new_suffix_from_discover": 0,
@@ -1777,23 +1776,23 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "vietnamyo.com",
-          "wpthm.ir",
           "albayrakyangin.com",
-          "991e6341910fb.com",
-          "przestrzenfb.com",
-          "digi-worx.com",
+          "vietnamyo.com",
+          "songsne.com",
+          "yudumay.com",
+          "skamms.com",
+          "wpthm.ir",
           "f1243.net",
           "duhocnhe.com",
-          "songsne.com",
-          "cardsforu.com",
-          "skamms.com",
           "sorgu2.com",
-          "atashkarco.ir",
+          "991e6341910fb.com",
+          "przestrzenfb.com",
+          "cardsforu.com",
           "doublers.org",
-          "yudumay.com",
           "sayursayur.com",
-          "akuevi.net"
+          "digi-worx.com",
+          "akuevi.net",
+          "atashkarco.ir"
         ],
         "pending_review": [],
         "reject": [
@@ -2371,8 +2370,12 @@
         ]
       },
       "upstream_new": {
-        "new": 5,
+        "new": 6,
         "suspicious": [
+          {
+            "apex": "fbinc.com",
+            "reason": "dns_dead"
+          },
           {
             "apex": "fbsupport-covid.net",
             "reason": "dns_dead"
@@ -2396,17 +2399,15 @@
         ]
       },
       "quarantine": {
-        "kept": 23,
+        "kept": 22,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 2,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 26,
         "impersonation_hit": [],
-        "dns_dead_moved": [
-          "fbinc.com"
-        ],
+        "dns_dead_moved": [],
         "main_upstream_hit": []
       }
     }
@@ -2415,12 +2416,12 @@
     "tag": "Apple",
     "output": "apple",
     "kind": "geosite",
-    "items": 1209,
-    "upstream_items": 1792,
+    "items": 1199,
+    "upstream_items": 1793,
     "srs": "dist/apple.srs",
     "counts": {
       "domain": 58,
-      "domain_suffix": 1151
+      "domain_suffix": 1141
     },
     "discover": {
       "enabled": true,
@@ -2438,11 +2439,11 @@
       "note": "v3.1 起由验证电池替代"
     },
     "collapse": {
-      "domain_before": 251,
+      "domain_before": 252,
       "domain_after": 58,
-      "domain_dropped": 193,
-      "suffix_before": 1160,
-      "suffix_after": 1155,
+      "domain_dropped": 194,
+      "suffix_before": 1156,
+      "suffix_after": 1151,
       "suffix_dropped": 5
     },
     "new_suffix_from_discover": 0,
@@ -2453,17 +2454,17 @@
         "admit": [],
         "quarantine": [
           "sneakysasquatch.com",
-          "com-assist.eu",
-          "premiumicloud.com"
+          "premiumicloud.com",
+          "com-assist.eu"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "com----log.in",
+            "apex": "com---log.in",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "com---log.in",
+            "apex": "com----log.in",
             "reason": "双连字符/IDN"
           }
         ]
@@ -2654,6 +2655,7 @@
           "prod-support.apple-support.akadns.net",
           "publicassets.cdn-apple.com",
           "push-apple.com.akadns.net",
+          "radio.itunes.apple.com",
           "s.mzstatic.com",
           "s1.mzstatic.com",
           "s2.mzstatic.com",
@@ -4268,7 +4270,7 @@
         ]
       },
       "upstream_new": {
-        "new": 383,
+        "new": 387,
         "suspicious": [
           {
             "apex": "100beatscheap.com",
@@ -4436,6 +4438,10 @@
           },
           {
             "apex": "appleappstore.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "appleappstore.tv",
             "reason": "dns_dead"
           },
           {
@@ -5367,6 +5373,10 @@
             "reason": "仿冒店铺拼接"
           },
           {
+            "apex": "chihair-straightener.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "coolmonster.net",
             "reason": "dns_dead"
           },
@@ -5595,6 +5605,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "monsterbeatsbydre-nz.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "monsterbeatsbydre2015.com",
             "reason": "仿冒店铺拼接"
           },
@@ -5715,6 +5729,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "paulsimon-music.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "pillbeatsblackfridaysale.com",
             "reason": "仿冒店铺拼接"
           },
@@ -5805,27 +5823,45 @@
         ]
       },
       "quarantine": {
-        "kept": 102,
+        "kept": 113,
         "promoted": 0,
-        "dropped": 289,
+        "dropped": 280,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
         "dns_dead_moved": [
-          "monsterbeatsbydre-nz.com",
-          "appleappstore.tv",
-          "paulsimon-music.com",
-          "chihair-straightener.com"
+          "beatmonstersaustralia.net",
+          "thebeatsbydre.com",
+          "iphone-sh.com",
+          "beatsbydresold.com",
+          "monster-beats-by-dr-dre.com",
+          "powerbeatsbydre.com",
+          "headphonesbeatsbydre.com",
+          "beatsbydreheadphones-nz.com",
+          "applecard.tv",
+          "iutunes.com"
         ],
         "main_upstream_hit": [
           {
-            "domain": "xn--gtvz22d.wang",
+            "domain": "appletv.fr",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "applfe.com",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "xn--gtvz22d.xn--hxt814e",
             "reason": "双连字符/IDN"
           },
           {
-            "domain": "applle.com",
+            "domain": "wwapple.net",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "appleid.com",
             "reason": "疑似 typosquat"
           }
         ]
@@ -5955,7 +5991,7 @@
       "quarantine": {
         "kept": 1,
         "promoted": 0,
-        "dropped": 1,
+        "dropped": 0,
         "pending_review": 0
       },
       "rescan": {
@@ -5970,12 +6006,12 @@
     "tag": "Microsoft",
     "output": "microsoft",
     "kind": "geosite",
-    "items": 647,
+    "items": 643,
     "upstream_items": 770,
     "srs": "dist/microsoft.srs",
     "counts": {
       "domain": 20,
-      "domain_suffix": 624,
+      "domain_suffix": 620,
       "domain_keyword": 3
     },
     "discover": {
@@ -5998,8 +6034,8 @@
       "domain_before": 116,
       "domain_after": 20,
       "domain_dropped": 96,
-      "suffix_before": 754,
-      "suffix_after": 626,
+      "suffix_before": 753,
+      "suffix_after": 625,
       "suffix_dropped": 128
     },
     "new_suffix_from_discover": 0,
@@ -6936,7 +6972,7 @@
         ]
       },
       "upstream_new": {
-        "new": 52,
+        "new": 53,
         "suspicious": [
           {
             "apex": "21vbluecloud.net",
@@ -7141,20 +7177,27 @@
           {
             "apex": "windowscommunity.net",
             "reason": "dns_dead"
+          },
+          {
+            "apex": "xboxservices.com",
+            "reason": "dns_dead"
           }
         ]
       },
       "quarantine": {
-        "kept": 101,
+        "kept": 90,
         "promoted": 0,
-        "dropped": 38,
+        "dropped": 14,
         "pending_review": 3
       },
       "rescan": {
         "sampled": 28,
         "impersonation_hit": [],
         "dns_dead_moved": [
-          "xboxservices.com"
+          "appserviceenvironment.cn",
+          "azuresmartspaces.net",
+          "trafficmanager.cn",
+          "microsoftnewskids.com"
         ],
         "main_upstream_hit": []
       }
@@ -7200,78 +7243,78 @@
       "discover": {
         "admit": [],
         "quarantine": [
+          "8e3x.com",
+          "0e9x.com",
+          "8e6x.com",
+          "shopcampsitesport.com",
+          "campsummittx.com",
+          "testset.com",
+          "fbsight.com",
+          "6e4x.com",
+          "6r8x.com",
+          "86e7x.com",
+          "02e51x.com",
+          "flower-cart.co",
+          "8d9x.com",
+          "9e6x.com",
+          "91e7x.com",
+          "7e2x.com",
+          "65e7t.co",
+          "5e1x.com",
+          "visi-x.com",
+          "9e8x.com",
           "antiqcart.co",
-          "wisit-x.com",
-          "5e5x.com",
-          "0e1x.com",
+          "santaincevent.com",
+          "4e7x.com",
+          "9e9x.com",
+          "3e3x.com",
+          "6k8x.com",
+          "6e6x.com",
+          "chunsungx.com",
+          "zuffixx.com",
+          "join-x.com",
+          "business-equipment.co",
+          "amber-dutchtreat.com",
           "9e1x.com",
           "www-visit-x.com",
-          "tee-shirt.co",
-          "shopcampsitesport.com",
           "bdsmhit.com",
-          "hothit.co",
-          "6e4x.com",
-          "5e1x.com",
-          "amber-dutchtreat.com",
-          "91e7x.com",
-          "business-equipment.co",
-          "flipmart.co",
-          "9e8x.com",
-          "campsummittx.com",
-          "santaincevent.com",
-          "9e4x.com",
-          "bugit.co",
-          "serbest.co",
-          "86e7x.com",
-          "0e9x.com",
-          "1e1x.com",
+          "5e5x.com",
           "flachsat.com",
-          "cam-box.com",
-          "6r8x.com",
-          "7e2x.com",
-          "7e0x.com",
-          "6k8x.com",
-          "flower-cart.co",
-          "join-x.com",
-          "testset.com",
-          "65e7t.co",
-          "visi-x.com",
-          "6e9x.com",
-          "runnerhx.com",
-          "8e3x.com",
-          "fbsight.com",
-          "8e6x.com",
-          "37e90x.com",
+          "bugit.co",
+          "1e1x.com",
           "2e1x.com",
-          "02e51x.com",
-          "1e4x.com",
           "5e0x.com",
-          "6e7x.com",
-          "zgsxhx.com",
-          "3e1x.com",
-          "6m8x.com",
-          "4e7x.com",
-          "chunsungx.com",
-          "a-best.co",
-          "9e9x.com",
-          "8d9x.com",
-          "006e7x.com",
-          "sqlyxx.com",
-          "3e3x.com",
+          "flipmart.co",
+          "6e9x.com",
           "x.commerce",
-          "zuffixx.com",
+          "wisit-x.com",
+          "6e7x.com",
+          "7e0x.com",
+          "serbest.co",
+          "sqlyxx.com",
+          "hothit.co",
+          "zgsxhx.com",
+          "tee-shirt.co",
+          "0e1x.com",
           "lobby-x.com",
-          "9e6x.com",
-          "6e6x.com"
+          "37e90x.com",
+          "3e1x.com",
+          "9e4x.com",
+          "1e4x.com",
+          "6m8x.com",
+          "runnerhx.com",
+          "006e7x.com",
+          "a-best.co",
+          "cam-box.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "games---x.com",
+            "apex": "all-i-am-tf-weak-https---t.co",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "digital---x.com",
+            "apex": "brand-----x.com",
             "reason": "双连字符/IDN"
           },
           {
@@ -7279,15 +7322,15 @@
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "all-i-am-tf-weak-https---t.co",
-            "reason": "双连字符/IDN"
-          },
-          {
             "apex": "x-x-----------------------------------------------------------x.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "brand-----x.com",
+            "apex": "digital---x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "games---x.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -7391,11 +7434,11 @@
         "pending_review": [],
         "reject": [
           {
-            "apex": "www---binance.com",
+            "apex": "www----binance.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "www----binance.com",
+            "apex": "www---binance.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -7475,9 +7518,9 @@
         ]
       },
       "quarantine": {
-        "kept": 5,
+        "kept": 4,
         "promoted": 0,
-        "dropped": 1,
+        "dropped": 2,
         "pending_review": 0
       },
       "rescan": {
@@ -7486,7 +7529,7 @@
         "dns_dead_moved": [],
         "main_upstream_hit": [
           {
-            "domain": "binancezh.kim",
+            "domain": "binancezh.ink",
             "reason": "疑似 typosquat"
           }
         ]
@@ -7740,12 +7783,12 @@
     "tag": "中国大陆域名",
     "output": "geolocation-cn",
     "kind": "geosite",
-    "items": 8800,
-    "upstream_items": 9410,
+    "items": 8869,
+    "upstream_items": 9513,
     "srs": "dist/geolocation-cn.srs",
     "counts": {
       "domain": 534,
-      "domain_suffix": 8258,
+      "domain_suffix": 8327,
       "domain_regex": 8
     },
     "discover": {
@@ -7764,9 +7807,9 @@
       "domain_before": 607,
       "domain_after": 534,
       "domain_dropped": 73,
-      "suffix_before": 8708,
-      "suffix_after": 8258,
-      "suffix_dropped": 450
+      "suffix_before": 8786,
+      "suffix_after": 8327,
+      "suffix_dropped": 459
     },
     "new_suffix_from_discover": 0,
     "verification": {
@@ -8451,6 +8494,8 @@
           "116cd.com",
           "116cd.net",
           "119you.com",
+          "120ask.com",
+          "120askimages.com",
           "12306.cn",
           "12315.cn",
           "12321.cn",
@@ -9053,6 +9098,7 @@
           "ahwang.cn",
           "ai-guardrail.com",
           "ai-guardrail.com.cn",
+          "ai-indeed.com",
           "ai-kaleidoscope.com",
           "aicdn.com",
           "aichaoxing.com",
@@ -9193,6 +9239,7 @@
           "alizhaopin.com",
           "allawnfs.com",
           "allawno.com",
+          "allawnofs.com",
           "allawntech.com",
           "allday.work",
           "allflow.cn",
@@ -9516,6 +9563,7 @@
           "baihe.com",
           "baijiayun.com",
           "baike.com",
+          "baikemy.com",
           "baikevod.com",
           "baimiao.tech",
           "baimiaoapp.com",
@@ -9533,6 +9581,7 @@
           "bambulab.cn",
           "bamenzhushou.com",
           "bandao.cn",
+          "bangcle.com",
           "bangongziyuan.com",
           "bank-of-china.com",
           "bankcomm.cn",
@@ -9550,10 +9599,12 @@
           "baoxianshichang.com",
           "baozou.com",
           "baozoumanhua.com",
+          "base.api.my7v.com",
           "baseopendev.com",
           "batchat.com",
           "battlecare.net",
           "baydn.com",
+          "bayescom.com",
           "bazai.com",
           "bbbcdns.com",
           "bbdc.cn",
@@ -9777,6 +9828,7 @@
           "bocservices.com.cn",
           "boe.com",
           "boe.com.cn",
+          "bohe.cn",
           "bohejiasuqi.com",
           "bojianger.com",
           "bokecc.com",
@@ -9793,6 +9845,7 @@
           "bosera.com",
           "bosszhipin.com",
           "bouffalolab.com",
+          "bowangcaijing.cn",
           "bowenkj.com",
           "boxdouyin.com",
           "boyuemobile.com",
@@ -9807,6 +9860,8 @@
           "bsb.com.cn",
           "bsbsb.top",
           "bsclink.cn",
+          "bse.cn",
+          "bseinfo.net",
           "bsurl.cc",
           "bsurl.cn",
           "btghotels.com",
@@ -10035,6 +10090,7 @@
           "ccs.umeng.com",
           "ccspeed.cn",
           "cctalk.com",
+          "cctime.com",
           "cctv.cn",
           "cctv.com",
           "cctv4g.com",
@@ -10278,6 +10334,7 @@
           "chengjiaxiangqin.cn",
           "chengquan.cn",
           "chenshipin.com",
+          "chery.cn",
           "chesicc.cn",
           "chesicc.com",
           "chesicc.com.cn",
@@ -10303,6 +10360,7 @@
           "chinabyte.com",
           "chinacache.com",
           "chinacache.net",
+          "chinacdc.cn",
           "chinachugui.com",
           "chinaclear.cn",
           "chinacloud-mobile.cn",
@@ -10318,6 +10376,7 @@
           "chinafix.com",
           "chinafph.com",
           "chinahr.com",
+          "chinahtz.com",
           "chinakaoyan.com",
           "chinalawedu.com",
           "chinalions.com",
@@ -10373,6 +10432,7 @@
           "chnfund.com",
           "chnppmuseum.com",
           "chntel.com",
+          "choiceform.com",
           "chongbuluo.com",
           "chongdiantou.com",
           "chouti.com",
@@ -10590,6 +10650,7 @@
           "cnbksy.com",
           "cnblogs.com",
           "cnblogs.vip",
+          "cnca.cn",
           "cncn.com",
           "cncnimg.cn",
           "cncqcloud.com",
@@ -10597,9 +10658,11 @@
           "cnepub.com",
           "cnfol.com",
           "cnfolimg.com",
+          "cnfood.cn",
           "cnhbstock.com",
           "cnht.com.cn",
           "cnhubei.com",
+          "cnindex.com.cn",
           "cninfo.com.cn",
           "cnitblog.com",
           "cnki.com.cn",
@@ -10612,6 +10675,7 @@
           "cnms.net.cn",
           "cnmstl.net",
           "cnpc.com.cn",
+          "cnpharm.com",
           "cnppa.org",
           "cnpsec.com",
           "cnr.cn",
@@ -10670,6 +10734,7 @@
           "cooldock.com",
           "coolsite.vip",
           "coros.com",
+          "countsheep.cn",
           "cowcs.com",
           "cowlevel.net",
           "cowtransfer.com",
@@ -10697,6 +10762,7 @@
           "cpro.baidu.com",
           "cpro.baidustatic.com",
           "cps.360buy.com",
+          "cpta.com.cn",
           "cptu.cn",
           "cptu.org.cn",
           "cpu.baidu.com",
@@ -10721,6 +10787,7 @@
           "crashlytics.163.com",
           "cravatar.cn",
           "cravatar.com",
+          "crecg.com",
           "crggcn.com",
           "cri.cn",
           "crscm.com",
@@ -10740,6 +10807,7 @@
           "csg.cn",
           "csgo.com.cn",
           "csgo.wmsj.cn",
+          "csindex.com.cn",
           "csjplatform.com",
           "csmjzs.com",
           "cspro.org",
@@ -10906,6 +10974,13 @@
           "dbankedge.net",
           "dbbuilding.fun",
           "dbfund.com.cn",
+          "dbw.cn",
+          "dc-conf-o.api.leiniao.com",
+          "dc-conf-t.api.leiniao.com",
+          "dc-o.api.leiniao.com",
+          "dc-t.api.leiniao.com",
+          "dc-uo.api.leiniao.com",
+          "dc-ut.api.leiniao.com",
           "dc.letv.com",
           "dcarapi.com",
           "dcarimg.com",
@@ -11030,12 +11105,14 @@
           "dingtalkcloud.com",
           "dingxiang-inc.com",
           "dingxinwen.cn",
+          "dinpay.com",
           "diopic.net",
           "discuz.net",
           "discuz.org",
           "dishu3.com",
           "ditu.live.com",
           "divoiotcloud.com",
+          "diyifanwen.com",
           "diyiyou.com",
           "diyring.cc",
           "dj99.com",
@@ -11426,6 +11503,7 @@
           "faasapp.cn",
           "faasdev.cn",
           "faceid.com",
+          "faceplusplus.com.cn",
           "faceshift.cn",
           "faceu.com",
           "faceu.mobi",
@@ -11460,6 +11538,7 @@
           "favonis.cloud",
           "favonis.com",
           "favonis.space",
+          "faw.cn",
           "faxingbao.com",
           "fbank.com",
           "fbstatic.cn",
@@ -11736,6 +11815,7 @@
           "ganjistatic1.com",
           "gaode.com",
           "gaodun.com",
+          "gaodunwangxiao.com",
           "gaojidata.com",
           "gaojiua.com",
           "gaokao.cn",
@@ -11768,6 +11848,7 @@
           "gei6.com",
           "geilicdn.com",
           "gelaiyun.net",
+          "gelonghui.com",
           "geoip.cn",
           "geossl.cn",
           "gepush.com",
@@ -12064,7 +12145,10 @@
           "hdyxgame.com",
           "healthjd.com",
           "heavenlywind.cc",
+          "hebnews.cn",
+          "hebrb.cn",
           "hecdn.net",
+          "heepay.com",
           "hefei.cc",
           "heimadata.com",
           "heisha.net",
@@ -12159,6 +12243,7 @@
           "hn-cbec.com",
           "hnacargo.com",
           "hnair.com",
+          "hnapay.com",
           "hnbntv.com",
           "hnchasing.com",
           "hndt.com",
@@ -12325,6 +12410,7 @@
           "hunaniptv.com",
           "hunantoday.cn",
           "hunantv.com",
+          "hunliji.com",
           "hunyuan.tencent.com",
           "huochepiao.com",
           "huocheso.com",
@@ -12441,6 +12527,7 @@
           "icbcstandardresources.com",
           "icbcstandardsecurities.com",
           "iccvlog.com",
+          "iceo.com.cn",
           "ichangtou.com",
           "iciba.com",
           "icloud-apple.cn",
@@ -12649,6 +12736,7 @@
           "isd.com",
           "isdspeed.qq.com",
           "isealsuite.com",
+          "ishansong.com",
           "ishijue.com",
           "ishumei.com",
           "ishuqi.com",
@@ -12680,6 +12768,7 @@
           "itunesapple.cn",
           "itunesradio.cn",
           "itunesradio.com.cn",
+          "iuoooo.com",
           "iuynfg.com",
           "ivolces-test.com",
           "ivolces.cn",
@@ -12708,6 +12797,7 @@
           "ja.gamersky.com",
           "ja1.gamersky.com",
           "ja2.gamersky.com",
+          "jac.com.cn",
           "jamcz.com",
           "jandan.net",
           "japps.cn",
@@ -12747,6 +12837,7 @@
           "jcloudvideo.com",
           "jcloudvideo.net",
           "jclps.com",
+          "jcrb.com",
           "jd-app.com",
           "jd-ex.cn",
           "jd-ex.com",
@@ -12814,6 +12905,7 @@
           "jduoduo.com",
           "jdwl.com",
           "jdx.com",
+          "jdzj.com",
           "jet-ego.com",
           "jet-logistics.com",
           "jetbrains.com.cn",
@@ -12827,16 +12919,19 @@
           "jhwan.com.cn",
           "jhzq.com.cn",
           "jia.com",
+          "jiakaobaodian.com",
           "jiameng.com",
           "jianbihua.com",
           "jiangningwater.com",
           "jianguoyun.com",
+          "jianke.com",
           "jianshu.com",
           "jianshu.io",
           "jianshuapi.com",
           "jianying.com",
           "jianyuweb.com",
           "jianzhi8.com",
+          "jianzhimao.com",
           "jiaodong.net",
           "jiaoyimao.cn",
           "jiaoyimao.com",
@@ -13051,6 +13146,7 @@
           "kaipuyun.net",
           "kaixin001.com",
           "kajicam.com",
+          "kakamobi.com",
           "kakaxing.com",
           "kameng98.com",
           "kanbox.com",
@@ -13543,6 +13639,7 @@
           "lunwengo.net",
           "luogu.com.cn",
           "luojilab.com",
+          "luyong.com",
           "luyouqi.com",
           "lvcampaign.com",
           "lvfapiao.com",
@@ -13571,12 +13668,16 @@
           "lydass.net",
           "lyihub.com",
           "lync.cn",
+          "lynkco-test.com",
+          "lynkco.com",
+          "lynkco.com.cn",
           "lz310.com",
           "lzpipi.com",
           "m-adash.m.taobao.com",
           "m-now.cn",
           "m.aty.sohu.com",
           "m1.run",
+          "m12333.cn",
           "m1905.cn",
           "m1905.com",
           "m6.run",
@@ -13594,6 +13695,7 @@
           "mahjongcup.cn",
           "mahjongcup.com",
           "mahjongcup.net",
+          "maiche.com",
           "mail4399.com",
           "maimai.cn",
           "maimemo.com",
@@ -13647,6 +13749,7 @@
           "mbalib.com",
           "mbdlog.iqiyi.com",
           "mblyun.com",
+          "mc-cdn.cn",
           "mcadn.cn",
           "mcbaas.work",
           "mcbang.com",
@@ -13658,6 +13761,7 @@
           "mcdonalds.com.cn",
           "mchost.guru",
           "mcmod.cn",
+          "mcndata.cn",
           "mcprev.cn",
           "mcpworld.com",
           "mcs.snssdk.com",
@@ -13679,6 +13783,7 @@
           "medlive.cn",
           "meegobeta.com",
           "megawords.cc",
+          "megvii.com",
           "mei.com",
           "meican.com",
           "meicanstatic.com",
@@ -13925,6 +14030,8 @@
           "mting.info",
           "mtrace.qq.com",
           "mtyun.com",
+          "mucang.cn",
+          "mugeda.com",
           "muji.com.cn",
           "mukewang.com",
           "multilingual-volc.com",
@@ -14060,6 +14167,7 @@
           "newniu.com",
           "news.cn",
           "news.yxrb.net",
+          "newscdn.cn",
           "newsimg.cn",
           "newssc.org",
           "newstjk.com",
@@ -14119,6 +14227,7 @@
           "nn.com",
           "nnbooster.com",
           "nnthink.com",
+          "nocode.com",
           "noi.cn",
           "noknok.cn",
           "nomuraoi-sec.com",
@@ -14333,6 +14442,7 @@
           "pchpic.net",
           "pconline.com.cn",
           "pcpop.com",
+          "pcsoft.com.cn",
           "pcwatch.com",
           "pddcdn.com",
           "pddim.com",
@@ -14365,6 +14475,7 @@
           "phfund.com.cn",
           "philanthropy.xin",
           "phira.cn",
+          "phirda.com",
           "phoenixcenter.cn",
           "phoenixmiles.cn",
           "phoenixmiles.com",
@@ -14464,6 +14575,7 @@
           "prostores.cn",
           "prostores.com.cn",
           "proximabeta.com",
+          "przwt.com",
           "psbc.com",
           "pstatp.com",
           "puata.info",
@@ -14628,6 +14740,8 @@
           "qmai.com",
           "qmimg.cn",
           "qmniu.com",
+          "qms-report-o.api.leiniao.com",
+          "qms-report-t.api.leiniao.com",
           "qnap.com.cn",
           "qnsdk.com",
           "qnssl.com",
@@ -14714,6 +14828,7 @@
           "rdfybk.com",
           "rdnsdb.com",
           "reactorms.com.cn",
+          "readhub.cn",
           "readnovel.com",
           "realcybertron.com",
           "realme.com",
@@ -14845,6 +14960,7 @@
           "scm121.com",
           "scol.com.cn",
           "scoregg.com",
+          "scpublic.cn",
           "scratch5.com",
           "scsentry.cn",
           "scsjb.cn",
@@ -14887,10 +15003,17 @@
           "seniverse.com",
           "senlinjimore.com",
           "senmuse.com",
+          "senseaudio.cn",
+          "senseavatar.com",
+          "sensecore.cn",
+          "sensefoundry.cn",
+          "sensenova.cn",
+          "sensetime.com",
           "sensorsdata.cn",
           "sentry.d.mi.com",
           "sentry.d.xiaomi.net",
           "sentry.music.163.com",
+          "seres.cn",
           "serverlesscloud.cn",
           "servicewechat.com",
           "sf-airlines.com",
@@ -14939,6 +15062,7 @@
           "shelter-china.com",
           "shelterdome.net",
           "shengdaosoft.com",
+          "shengpay.com",
           "shengqugames.com",
           "shengwang.cn",
           "shengyi.ai",
@@ -14999,11 +15123,13 @@
           "shuqireader.com",
           "shuqistat.com",
           "shutcm.com",
+          "shuwen.com",
           "shuxinyc.com",
           "shuyifuwu.com.cn",
           "shyhhema.com",
           "shyxhy.com",
           "shzq.com",
+          "si12333.cn",
           "sichuanair.com",
           "sifou.com",
           "simei8.com",
@@ -15156,6 +15282,7 @@
           "ssajax.cn",
           "sse.com.cn",
           "sseinfo.com",
+          "ssetech.com.cn",
           "ssimg.cn",
           "ssjlicai.com",
           "sslawy.com",
@@ -15272,6 +15399,7 @@
           "sznews.com",
           "szpgm.com",
           "szse.cn",
+          "szsi.cn",
           "szu.app",
           "szu.moe",
           "szzfgjj.com",
@@ -15548,6 +15676,7 @@
           "ti.com.cn",
           "tiancity.com",
           "tiancitycdn.com",
+          "tianditao.com",
           "tiangong.cn",
           "tianhw.top",
           "tianjimedia.com",
@@ -15571,6 +15700,7 @@
           "tidb.net",
           "tidbcloud.com",
           "tidenews.com.cn",
+          "tidesight.com",
           "tieba.baidu.com",
           "tieba.com",
           "tiebaimg.com",
@@ -15708,6 +15838,7 @@
           "trae.com.cn",
           "trae.guru",
           "trafficmanager.cn",
+          "traveldaily.cn",
           "travelsky.com.cn",
           "travelskymobile.cn",
           "tripcdn.cn",
@@ -15742,6 +15873,8 @@
           "tuchong.com",
           "tudou.com",
           "tuer123.com",
+          "tuhu.cn",
+          "tuhu.org",
           "tuicool.com",
           "tuiwen.net",
           "tujia.com",
@@ -15900,6 +16033,7 @@
           "upe.net",
           "upfos.cn",
           "upfos.com",
+          "upsort.com",
           "upyun.com",
           "uranus.sogou.com",
           "url.cn",
@@ -16491,6 +16625,7 @@
           "xiaohe.cn",
           "xiaoheihe.cn",
           "xiaohongshu.com",
+          "xiaohuanxiong.com",
           "xiaojukeji.com",
           "xiaoka.tv",
           "xiaokaxiu.com",
@@ -16560,6 +16695,8 @@
           "xinhuanet.com",
           "xinhuashudian.com",
           "xinhuaxmt.com",
+          "xinhuazhiyun.com",
+          "xinli001.com",
           "xinlingshou.cn",
           "xinlingshou.com",
           "xinlishumeng.com",
@@ -16778,6 +16915,8 @@
           "yocajr.com",
           "yokaverse.com",
           "yoma.cn",
+          "yonyou.com",
+          "yonyoucloud.com",
           "yooc.me",
           "yoojia.com",
           "yostar.cn",
@@ -16820,6 +16959,7 @@
           "yqb.com",
           "yrz.name",
           "ys7.com",
+          "ysepay.com",
           "ysjf.com",
           "yslyhr.com",
           "yst.com.cn",
@@ -16882,6 +17022,7 @@
           "yundalog.com",
           "yundaltl.com",
           "yundasys.com",
+          "yundouxueyuan.com",
           "yundun.com",
           "yundzh.com",
           "yunfancdn.com",
@@ -16923,7 +17064,9 @@
           "yximgs.com",
           "yxwsgame.com",
           "yy.com",
+          "yybip.com",
           "yyds.co",
+          "yyeshop.cn",
           "yyshub.top",
           "yysls.cn",
           "yystatic.com",
@@ -17018,12 +17161,14 @@
           "zhibo8.cc",
           "zhibo8.com",
           "zhichanli.com",
+          "zhichi.com",
           "zhidemai.com",
           "zhiding.cn",
           "zhiding.com.cn",
           "zhidx.com",
           "zhiexa.com",
           "zhifang.com",
+          "zhiguf.com",
           "zhihang100.com",
           "zhihu-web-analytics.zhihu.com",
           "zhihu.com",
@@ -17167,6 +17312,7 @@
           "zuoyebang.com",
           "zvip.cn",
           "zway.top",
+          "zww.com.cn",
           "zx.com",
           "zxhgroup.com",
           "zxsales.cn",
@@ -17188,7 +17334,7 @@
         ]
       },
       "upstream_new": {
-        "new": 91,
+        "new": 185,
         "suspicious": [
           {
             "apex": ".alibaba",
@@ -17279,11 +17425,19 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "allawnofs.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "azchcdnj.com",
             "reason": "dns_dead"
           },
           {
             "apex": "azchcdnl.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "baikemy.com",
             "reason": "dns_dead"
           },
           {
@@ -17304,6 +17458,14 @@
           },
           {
             "apex": "bocd.com.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "bse.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "bseinfo.net",
             "reason": "dns_dead"
           },
           {
@@ -17331,7 +17493,23 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "chinahtz.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "chinanews.com.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "cnca.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "cnindex.com.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "cnpharm.com",
             "reason": "dns_dead"
           },
           {
@@ -17343,7 +17521,19 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "cpta.com.cn",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "cqyyxc.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "csindex.com.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "dbw.cn",
             "reason": "dns_dead"
           },
           {
@@ -17367,11 +17557,31 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "faw.cn",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "feishumeetings.com",
             "reason": "dns_dead"
           },
           {
+            "apex": "gaodunwangxiao.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "gsjtyiptv.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "hebnews.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "hebrb.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "hnapay.com",
             "reason": "dns_dead"
           },
           {
@@ -17391,7 +17601,15 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "iuoooo.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "jcloudec.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "jcrb.com",
             "reason": "dns_dead"
           },
           {
@@ -17407,6 +17625,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "kakamobi.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "ku6cdn.com",
             "reason": "dns_dead"
           },
@@ -17416,6 +17638,14 @@
           },
           {
             "apex": "lufaxcdn.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "lynkco-test.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "mc-cdn.cn",
             "reason": "dns_dead"
           },
           {
@@ -17447,6 +17677,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "newscdn.cn",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "nomuraoi-sec.com",
             "reason": "dns_dead"
           },
@@ -17471,7 +17705,15 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "ssetech.com.cn",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "sursung.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "szsi.cn",
             "reason": "dns_dead"
           },
           {
@@ -17480,6 +17722,10 @@
           },
           {
             "apex": "tdnsv10.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "tuhu.org",
             "reason": "dns_dead"
           },
           {
@@ -17523,10 +17769,6 @@
             "reason": "dns_dead"
           },
           {
-            "apex": "weicaifu.com",
-            "reason": "dns_dead"
-          },
-          {
             "apex": "writingo-editor.com",
             "reason": "dns_dead"
           },
@@ -17536,6 +17778,10 @@
           },
           {
             "apex": "yoma.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "yybip.com",
             "reason": "dns_dead"
           },
           {
@@ -17553,9 +17799,9 @@
         ]
       },
       "quarantine": {
-        "kept": 85,
+        "kept": 87,
         "promoted": 0,
-        "dropped": 13,
+        "dropped": 36,
         "pending_review": 0
       },
       "rescan": {
