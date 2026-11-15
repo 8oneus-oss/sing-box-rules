@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T02:57:40Z",
+  "generated_at": "2026-11-15T02:36:02Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -38,11 +38,11 @@
       "kind": "geosite",
       "file": "geosite/google.srs",
       "url_path": "geosite/google.srs",
-      "items": 863,
+      "items": 862,
       "upstream_items": 1094,
       "counts": {
         "domain": 20,
-        "domain_suffix": 841,
+        "domain_suffix": 840,
         "domain_regex": 2
       },
       "discover": {
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1899,
-        "related_apex": 1,
+        "raw": 1951,
+        "related_apex": 36,
         "related_cap": 500,
-        "domain_suffix": 18,
+        "domain_suffix": 53,
         "domain": 0
       },
       "dns_verify": {
@@ -121,11 +121,11 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1170,
+      "items": 1166,
       "upstream_items": 1793,
       "counts": {
         "domain": 57,
-        "domain_suffix": 1113
+        "domain_suffix": 1109
       },
       "discover": {
         "enabled": true,
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 629,
+      "items": 626,
       "upstream_items": 771,
       "counts": {
         "domain": 20,
-        "domain_suffix": 606,
+        "domain_suffix": 603,
         "domain_keyword": 3
       },
       "discover": {
@@ -239,10 +239,10 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 950,
-        "related_apex": 3,
+        "raw": 952,
+        "related_apex": 9,
         "related_cap": 500,
-        "domain_suffix": 8,
+        "domain_suffix": 14,
         "domain": 0
       },
       "dns_verify": {
@@ -318,10 +318,10 @@
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 39,
-        "related_apex": 0,
+        "raw": 30,
+        "related_apex": 3,
         "related_cap": 500,
-        "domain_suffix": 4,
+        "domain_suffix": 7,
         "domain": 0
       },
       "dns_verify": {
