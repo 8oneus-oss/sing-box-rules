@@ -1427,9 +1427,9 @@
         ]
       },
       "quarantine": {
-        "kept": 99,
+        "kept": 98,
         "promoted": 0,
-        "dropped": 1,
+        "dropped": 2,
         "pending_review": 25
       },
       "rescan": {
@@ -1438,24 +1438,12 @@
         "dns_dead_moved": [],
         "main_upstream_hit": [
           {
-            "domain": "google",
+            "domain": "nexus",
             "reason": "格式异常"
           },
           {
-            "domain": "xn--flw351e.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "domain": "gooogle.com",
+            "domain": "gogle.com",
             "reason": "疑似 typosquat"
-          },
-          {
-            "domain": "guge",
-            "reason": "格式异常"
-          },
-          {
-            "domain": "android",
-            "reason": "格式异常"
           }
         ]
       }
@@ -1735,7 +1723,7 @@
         ]
       },
       "upstream_new": {
-        "new": 5,
+        "new": 4,
         "suspicious": [
           {
             "apex": "anthropic.team",
@@ -1756,9 +1744,9 @@
         ]
       },
       "quarantine": {
-        "kept": 83,
+        "kept": 84,
         "promoted": 0,
-        "dropped": 1,
+        "dropped": 0,
         "pending_review": 1
       },
       "rescan": {
@@ -1810,32 +1798,32 @@
       "discover": {
         "admit": [],
         "quarantine": [
+          "wpthm.ir",
+          "vietnamyo.com",
+          "duhocnhe.com",
+          "digi-worx.com",
+          "albayrakyangin.com",
+          "akuevi.net",
+          "991e6341910fb.com",
+          "atashkarco.ir",
+          "f1243.net",
+          "przestrzenfb.com",
+          "sorgu2.com",
+          "doublers.org",
+          "yudumay.com",
           "songsne.com",
           "skamms.com",
-          "vietnamyo.com",
-          "sorgu2.com",
-          "991e6341910fb.com",
-          "digi-worx.com",
-          "yudumay.com",
-          "duhocnhe.com",
-          "doublers.org",
-          "f1243.net",
-          "wpthm.ir",
           "sayursayur.com",
-          "albayrakyangin.com",
-          "cardsforu.com",
-          "przestrzenfb.com",
-          "atashkarco.ir",
-          "akuevi.net"
+          "cardsforu.com"
         ],
         "pending_review": [],
         "reject": [
           {
-            "apex": "com----m.com",
+            "apex": "hkg---whatsapp.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "hkg---whatsapp.com",
+            "apex": "com----m.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -2441,9 +2429,9 @@
         ]
       },
       "quarantine": {
-        "kept": 24,
+        "kept": 25,
         "promoted": 0,
-        "dropped": 2,
+        "dropped": 1,
         "pending_review": 0
       },
       "rescan": {
@@ -2458,12 +2446,12 @@
     "tag": "Apple",
     "output": "apple",
     "kind": "geosite",
-    "items": 1144,
+    "items": 1132,
     "upstream_items": 1797,
     "srs": "dist/apple.srs",
     "counts": {
-      "domain": 57,
-      "domain_suffix": 1087
+      "domain": 56,
+      "domain_suffix": 1076
     },
     "discover": {
       "enabled": true,
@@ -2484,8 +2472,8 @@
       "domain_before": 254,
       "domain_after": 57,
       "domain_dropped": 197,
-      "suffix_before": 1101,
-      "suffix_after": 1095,
+      "suffix_before": 1093,
+      "suffix_after": 1087,
       "suffix_dropped": 6
     },
     "new_suffix_from_discover": 0,
@@ -2495,9 +2483,9 @@
       "discover": {
         "admit": [],
         "quarantine": [
+          "sneakysasquatch.com",
           "com-assist.eu",
-          "premiumicloud.com",
-          "sneakysasquatch.com"
+          "premiumicloud.com"
         ],
         "pending_review": [],
         "reject": [
@@ -4316,7 +4304,7 @@
         ]
       },
       "upstream_new": {
-        "new": 444,
+        "new": 452,
         "suspicious": [
           {
             "apex": "100beatscheap.com",
@@ -4423,6 +4411,10 @@
             "reason": "仿冒店铺拼接"
           },
           {
+            "apex": "2beatsdre.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "2buybeatsbydre.com",
             "reason": "仿冒店铺拼接"
           },
@@ -4519,6 +4511,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "appleid-uk.us",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "appleipodsettlement.com",
             "reason": "dns_dead"
           },
@@ -4528,6 +4524,10 @@
           },
           {
             "apex": "applepaysupplies.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "appletips.net",
             "reason": "dns_dead"
           },
           {
@@ -4789,6 +4789,10 @@
           {
             "apex": "beatsbydrecheaponlinesales.com",
             "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "beatsbydrecolors.com",
+            "reason": "dns_dead"
           },
           {
             "apex": "beatsbydrecybermondaydeals2013.com",
@@ -5687,6 +5691,10 @@
             "reason": "仿冒店铺拼接"
           },
           {
+            "apex": "free-aa.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "getdrebeatssale.com",
             "reason": "仿冒店铺拼接"
           },
@@ -5885,6 +5893,14 @@
           {
             "apex": "monsterbeatsoutlet.us",
             "reason": "仿冒店铺拼接"
+          },
+          {
+            "apex": "monsterbeatspascher.net",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "monsterbeatsru.com",
+            "reason": "dns_dead"
           },
           {
             "apex": "monsterbeatssales.com",
@@ -6093,31 +6109,59 @@
           {
             "apex": "vipshoes2.com",
             "reason": "dns_dead"
+          },
+          {
+            "apex": "wwwlapple.com",
+            "reason": "dns_dead"
           }
         ]
       },
       "quarantine": {
-        "kept": 143,
+        "kept": 178,
         "promoted": 0,
-        "dropped": 307,
+        "dropped": 280,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
         "dns_dead_moved": [
-          "2beatsdre.com",
-          "monsterbeatspascher.net",
-          "free-aa.com",
-          "appleid-uk.us",
-          "wwwlapple.com",
-          "monsterbeatsru.com",
-          "appletips.net",
-          "beatsbydrecolors.com"
+          "researchkit.cn",
+          "beats1.cn",
+          "ioffergift.com",
+          "beatsbydrenorge1.net",
+          "cozydrdrebeats.com",
+          "macbook.wang",
+          "casquebeatsdocteurdre.com",
+          "apple-dns.cn",
+          "itunesiradio.com",
+          "gspe19-cn.ls-apple.com.akadns.net",
+          "vipheadphones.com",
+          "bandgirlz.com"
         ],
         "main_upstream_hit": [
           {
-            "domain": "applezh.com",
+            "domain": "applle.com",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "apyle.com",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "beatbydre2013.com",
+            "reason": "仿冒店铺拼接"
+          },
+          {
+            "domain": "xn--hxtr4rozx.xn--czr694b",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "domain": "xn--fiqs8sxootzz.cn",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "domain": "a0pple.net",
             "reason": "疑似 typosquat"
           }
         ]
@@ -6263,12 +6307,12 @@
     "tag": "Microsoft",
     "output": "microsoft",
     "kind": "geosite",
-    "items": 618,
+    "items": 616,
     "upstream_items": 774,
     "srs": "dist/microsoft.srs",
     "counts": {
       "domain": 22,
-      "domain_suffix": 593,
+      "domain_suffix": 591,
       "domain_keyword": 3
     },
     "discover": {
@@ -6291,8 +6335,8 @@
       "domain_before": 120,
       "domain_after": 22,
       "domain_dropped": 98,
-      "suffix_before": 725,
-      "suffix_after": 598,
+      "suffix_before": 721,
+      "suffix_after": 594,
       "suffix_dropped": 127
     },
     "new_suffix_from_discover": 0,
@@ -7233,7 +7277,7 @@
         ]
       },
       "upstream_new": {
-        "new": 81,
+        "new": 85,
         "suspicious": [
           {
             "apex": "21vbc.com",
@@ -7352,6 +7396,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "azurefd.us",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "azuresmartspaces.net",
             "reason": "dns_dead"
           },
@@ -7400,11 +7448,19 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "livingyourambition.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "management-azure-devices.cn",
             "reason": "dns_dead"
           },
           {
             "apex": "masalladeloslimites.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "mcchcdn.com",
             "reason": "dns_dead"
           },
           {
@@ -7449,6 +7505,10 @@
           },
           {
             "apex": "microsoftonline-p-i.net.cn",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "microsoftonline-p.cn",
             "reason": "dns_dead"
           },
           {
@@ -7558,21 +7618,32 @@
         ]
       },
       "quarantine": {
-        "kept": 112,
+        "kept": 129,
         "promoted": 0,
-        "dropped": 20,
+        "dropped": 7,
         "pending_review": 3
       },
       "rescan": {
-        "sampled": 27,
+        "sampled": 26,
         "impersonation_hit": [],
         "dns_dead_moved": [
-          "mcchcdn.com",
-          "azurefd.us",
-          "livingyourambition.com",
-          "microsoftonline-p.cn"
+          "azure-dns-1.cn",
+          "microsoftonline-i.cn"
         ],
-        "main_upstream_hit": []
+        "main_upstream_hit": [
+          {
+            "domain": "microsoft",
+            "reason": "格式异常"
+          },
+          {
+            "domain": "mymicrosoft.com",
+            "reason": "疑似 typosquat"
+          },
+          {
+            "domain": "bing",
+            "reason": "格式异常"
+          }
+        ]
       }
     }
   },
@@ -7616,82 +7687,78 @@
       "discover": {
         "admit": [],
         "quarantine": [
-          "chunsungx.com",
-          "6e6x.com",
-          "6k8x.com",
-          "9e9x.com",
-          "runnerhx.com",
-          "x.commerce",
-          "flower-cart.co",
-          "bdsmhit.com",
-          "9e6x.com",
-          "7e2x.com",
-          "flachsat.com",
-          "testset.com",
-          "0e1x.com",
-          "visi-x.com",
-          "wisit-x.com",
-          "antiqcart.co",
-          "6e4x.com",
-          "3e1x.com",
-          "9e8x.com",
+          "zgsxhx.com",
+          "www-visit-x.com",
           "1e4x.com",
-          "bugit.co",
-          "8e3x.com",
-          "fbsight.com",
-          "zuffixx.com",
+          "7e2x.com",
+          "hothit.co",
+          "a-best.co",
+          "9e9x.com",
+          "9e1x.com",
+          "amber-dutchtreat.com",
+          "8d9x.com",
+          "9e6x.com",
+          "campsummittx.com",
+          "5e0x.com",
+          "testset.com",
+          "x.commerce",
+          "bdsmhit.com",
           "8e6x.com",
-          "86e7x.com",
-          "91e7x.com",
+          "join-x.com",
+          "6e7x.com",
+          "cam-box.com",
+          "zuffixx.com",
+          "006e7x.com",
+          "6e6x.com",
+          "fbsight.com",
+          "65e7t.co",
+          "6k8x.com",
+          "9e8x.com",
+          "1e1x.com",
           "37e90x.com",
-          "lobby-x.com",
+          "3e1x.com",
           "0e9x.com",
           "4e7x.com",
-          "9e1x.com",
-          "flipmart.co",
-          "5e1x.com",
-          "65e7t.co",
-          "6m8x.com",
-          "2e1x.com",
-          "sqlyxx.com",
-          "serbest.co",
-          "hothit.co",
-          "6e9x.com",
-          "7e0x.com",
-          "9e4x.com",
-          "join-x.com",
-          "santaincevent.com",
-          "1e1x.com",
-          "www-visit-x.com",
-          "zgsxhx.com",
-          "3e3x.com",
-          "5e0x.com",
-          "a-best.co",
-          "5e5x.com",
-          "6e7x.com",
-          "campsummittx.com",
-          "amber-dutchtreat.com",
           "shopcampsitesport.com",
-          "02e51x.com",
-          "6r8x.com",
-          "business-equipment.co",
-          "8d9x.com",
-          "006e7x.com",
+          "wisit-x.com",
+          "antiqcart.co",
+          "6m8x.com",
+          "91e7x.com",
+          "lobby-x.com",
+          "2e1x.com",
           "tee-shirt.co",
-          "cam-box.com"
+          "flipmart.co",
+          "santaincevent.com",
+          "6r8x.com",
+          "3e3x.com",
+          "serbest.co",
+          "business-equipment.co",
+          "5e5x.com",
+          "0e1x.com",
+          "flachsat.com",
+          "9e4x.com",
+          "6e4x.com",
+          "7e0x.com",
+          "8e3x.com",
+          "sqlyxx.com",
+          "visi-x.com",
+          "86e7x.com",
+          "chunsungx.com",
+          "5e1x.com",
+          "6e9x.com",
+          "runnerhx.com",
+          "flower-cart.co",
+          "bugit.co",
+          "02e51x.com"
         ],
         "pending_review": [],
         "reject": [
           {
+            "apex": "x-x-----------------------------------------------------------x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
             "apex": "digital---x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "games---x.com",
-            "reason": "双连字符/IDN"
-          },
-          {
-            "apex": "brand-----x.com",
             "reason": "双连字符/IDN"
           },
           {
@@ -7699,11 +7766,15 @@
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "http---twitter.com",
+            "apex": "brand-----x.com",
             "reason": "双连字符/IDN"
           },
           {
-            "apex": "x-x-----------------------------------------------------------x.com",
+            "apex": "games---x.com",
+            "reason": "双连字符/IDN"
+          },
+          {
+            "apex": "http---twitter.com",
             "reason": "双连字符/IDN"
           }
         ]
@@ -7902,7 +7973,7 @@
         "dns_dead_moved": [],
         "main_upstream_hit": [
           {
-            "domain": "binancezh.biz",
+            "domain": "binancezh.cc",
             "reason": "疑似 typosquat"
           }
         ]
@@ -8156,12 +8227,12 @@
     "tag": "中国大陆域名",
     "output": "geolocation-cn",
     "kind": "geosite",
-    "items": 8879,
-    "upstream_items": 9535,
+    "items": 8888,
+    "upstream_items": 9549,
     "srs": "dist/geolocation-cn.srs",
     "counts": {
-      "domain": 538,
-      "domain_suffix": 8333,
+      "domain": 537,
+      "domain_suffix": 8343,
       "domain_regex": 8
     },
     "discover": {
@@ -8178,10 +8249,10 @@
     },
     "collapse": {
       "domain_before": 611,
-      "domain_after": 538,
-      "domain_dropped": 73,
-      "suffix_before": 8796,
-      "suffix_after": 8333,
+      "domain_after": 537,
+      "domain_dropped": 74,
+      "suffix_before": 8807,
+      "suffix_after": 8344,
       "suffix_dropped": 463
     },
     "new_suffix_from_discover": 0,
@@ -8957,6 +9028,8 @@
           "1ting.com",
           "1tyy.cn",
           "1xhh.cn",
+          "1y.com",
+          "1ycdn.com",
           "1zhe.com",
           "20130123.com",
           "21cn.com",
@@ -9187,6 +9260,7 @@
           "58pic.com",
           "58uxd.com",
           "58v5.cn",
+          "58wos.com.cn",
           "58xinghuo.cn",
           "58xinghuo.com",
           "58xueche.com",
@@ -9523,6 +9597,7 @@
           "aiyunxiao.com",
           "aizgtc.com",
           "aizhan.com",
+          "ajkimg.com",
           "ajzq.com",
           "aka815.net",
           "aki-game.com",
@@ -9949,6 +10024,9 @@
           "baikevod.com",
           "baimiao.tech",
           "baimiaoapp.com",
+          "baishan.com",
+          "baishancdnx.cn",
+          "baishancloud.com",
           "baishinetwork.com",
           "baitiao.com",
           "baixing.com",
@@ -13846,6 +13924,7 @@
           "leelen.com",
           "leetcode-cn.com",
           "leetcode.cn",
+          "lefile.cn",
           "legendofzelda.cn",
           "legendofzelda.com.cn",
           "lehuipay.com",
@@ -13869,6 +13948,8 @@
           "lenovocust.cn",
           "lenovoeservice.com",
           "lenovofile.com",
+          "lenovofoundation.cn",
+          "lenovofuturecenter.com",
           "lenovogame.com",
           "lenovoimage.cn",
           "lenovoimage.com",
@@ -15139,6 +15220,7 @@
           "qpb.sohu.com",
           "qpb1.sohu.com",
           "qpic.cn",
+          "qpmcn.com",
           "qq.cn.com",
           "qq.com",
           "qq.com.cn",
@@ -16239,6 +16321,7 @@
           "tripcdn.com",
           "tritoninfo.net",
           "trjcn.com",
+          "trpcdn.com",
           "trpcdn.net",
           "trunktech.com",
           "trust-provider.cn",
@@ -17544,6 +17627,8 @@
           "zhanzhang.net",
           "zhaodanji.com",
           "zhaokao.net",
+          "zhaoliangji.com",
+          "zhaoliangjipc.com",
           "zhaomi.cn",
           "zhaomishijie.com",
           "zhaopin.cn",
@@ -17729,7 +17814,7 @@
         ]
       },
       "upstream_new": {
-        "new": 124,
+        "new": 138,
         "suspicious": [
           {
             "apex": ".alibaba",
@@ -17785,6 +17870,10 @@
           },
           {
             "apex": "4399youxi.com",
+            "reason": "dns_dead"
+          },
+          {
+            "apex": "58wos.com.cn",
             "reason": "dns_dead"
           },
           {
@@ -18048,6 +18137,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "lenovofuturecenter.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "linkheer.com",
             "reason": "dns_dead"
           },
@@ -18148,6 +18241,10 @@
             "reason": "dns_dead"
           },
           {
+            "apex": "trpcdn.com",
+            "reason": "dns_dead"
+          },
+          {
             "apex": "tuhu.org",
             "reason": "dns_dead"
           },
@@ -18226,15 +18323,17 @@
         ]
       },
       "quarantine": {
-        "kept": 85,
+        "kept": 124,
         "promoted": 0,
-        "dropped": 48,
+        "dropped": 12,
         "pending_review": 0
       },
       "rescan": {
         "sampled": 50,
         "impersonation_hit": [],
-        "dns_dead_moved": [],
+        "dns_dead_moved": [
+          "lenovoprinter.com"
+        ],
         "main_upstream_hit": []
       }
     }
@@ -18243,11 +18342,11 @@
     "tag": "中国大陆IP",
     "output": "geoip-cn",
     "kind": "geoip",
-    "items": 10791,
-    "upstream_items": 10791,
+    "items": 10823,
+    "upstream_items": 10823,
     "srs": "dist/geoip-cn.srs",
     "counts": {
-      "ip_cidr": 10791
+      "ip_cidr": 10823
     },
     "discover": {
       "enabled": false
@@ -18349,9 +18448,9 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 56,
+        "kept": 49,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 7,
         "pending_review": 0
       },
       "rescan": {
@@ -18475,9 +18574,9 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 4,
+        "kept": 2,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 2,
         "pending_review": 0
       },
       "rescan": {
@@ -18538,9 +18637,9 @@
         "suspicious": []
       },
       "quarantine": {
-        "kept": 6,
+        "kept": 3,
         "promoted": 0,
-        "dropped": 0,
+        "dropped": 3,
         "pending_review": 0
       },
       "rescan": {
