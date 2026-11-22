@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T03:48:37Z",
+  "generated_at": "2026-11-22T03:01:33Z",
   "layout": {
     "geosite": "geosite/<name>.srs",
     "geoip": "geoip/<name>.srs"
@@ -48,10 +48,10 @@
       "discover": {
         "enabled": true,
         "seeds": 7,
-        "raw": 545,
-        "related_apex": 70,
+        "raw": 698,
+        "related_apex": 85,
         "related_cap": 500,
-        "domain_suffix": 77,
+        "domain_suffix": 92,
         "domain": 0
       },
       "dns_verify": {
@@ -76,10 +76,10 @@
       "discover": {
         "enabled": true,
         "seeds": 17,
-        "raw": 1900,
-        "related_apex": 1,
+        "raw": 1714,
+        "related_apex": 3,
         "related_cap": 500,
-        "domain_suffix": 18,
+        "domain_suffix": 20,
         "domain": 0
       },
       "dns_verify": {
@@ -94,16 +94,16 @@
       "kind": "geosite",
       "file": "geosite/meta.srs",
       "url_path": "geosite/meta.srs",
-      "items": 543,
+      "items": 542,
       "upstream_items": 556,
       "counts": {
         "domain": 1,
-        "domain_suffix": 542
+        "domain_suffix": 541
       },
       "discover": {
         "enabled": true,
         "seeds": 9,
-        "raw": 6240,
+        "raw": 2964,
         "related_apex": 24,
         "related_cap": 500,
         "domain_suffix": 33,
@@ -121,11 +121,11 @@
       "kind": "geosite",
       "file": "geosite/apple.srs",
       "url_path": "geosite/apple.srs",
-      "items": 1119,
+      "items": 1112,
       "upstream_items": 1797,
       "counts": {
         "domain": 55,
-        "domain_suffix": 1064
+        "domain_suffix": 1057
       },
       "discover": {
         "enabled": true,
@@ -175,11 +175,11 @@
       "kind": "geosite",
       "file": "geosite/microsoft.srs",
       "url_path": "geosite/microsoft.srs",
-      "items": 614,
+      "items": 611,
       "upstream_items": 774,
       "counts": {
         "domain": 22,
-        "domain_suffix": 589,
+        "domain_suffix": 586,
         "domain_keyword": 3
       },
       "discover": {
@@ -204,15 +204,15 @@
       "kind": "geosite",
       "file": "geosite/twitter.srs",
       "url_path": "geosite/twitter.srs",
-      "items": 24,
+      "items": 23,
       "upstream_items": 24,
       "counts": {
-        "domain_suffix": 24
+        "domain_suffix": 23
       },
       "discover": {
         "enabled": true,
         "seeds": 4,
-        "raw": 1591,
+        "raw": 1590,
         "related_apex": 70,
         "related_cap": 500,
         "domain_suffix": 74,
@@ -239,7 +239,7 @@
       "discover": {
         "enabled": true,
         "seeds": 5,
-        "raw": 950,
+        "raw": 948,
         "related_apex": 3,
         "related_cap": 500,
         "domain_suffix": 8,
