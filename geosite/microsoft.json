@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "aurora-customization-usw2.lithium.com",
         "bingsettingssearch.trafficmanager.net",
         "ctldl.windowsupdate.com",
         "default.exp-tas.com",
@@ -388,13 +389,11 @@
         "morphcharts.com",
         "mpnevolution.com",
         "ms365surfaceoffer.com",
-        "msads.net",
         "msappproxy.cn",
         "msauth.net",
         "msauthimages.cn",
         "msauthimages.net",
         "mschallenge2018.com",
-        "mschcdn.com",
         "msdn.com",
         "msecnd.net",
         "msedge.net",
